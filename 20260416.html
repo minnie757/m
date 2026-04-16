@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月16日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; font-family: 'Noto Serif SC', serif; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #BCFF2F; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+  .banner-thread { font-size: 12px; color: #ccc; line-height: 1.6; padding: 2px 0; }
+  .banner-thread-num { color: #BCFF2F; font-weight: 700; margin-right: 5px; }
+  .tag-time { font-size: 10px; color: #555; font-weight: 400; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .neutral { color: #FFD600; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 16 · 星期四</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月15日 20:00 — 4月16日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">CNBC</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">PANews</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-thread"><span class="banner-thread-num">①</span>地缘风险边际消散，宏观解压窗口打开</div>
+  <div class="banner-thread"><span class="banner-thread-num">②</span>机构资本多维度加速入场，供需结构持续优化</div>
+  <div class="banner-thread"><span class="banner-thread-num">③</span>BTC局部顶部信号集聚，多空分歧进入关键区间</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">~$74,300</div>
+      <div class="market-change down">24h -2.1%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">~$2,330</div>
+      <div class="market-change up">7d +4.0%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">23</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$91.08</div>
+      <div class="market-change down">停火预期↓</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,807</div>
+      <div class="market-change up">避险需求↑</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,661</div>
+      <div class="market-change up">+0.8%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-15 21:30</span></div>
+    <div class="news-title">特朗普：伊朗战争"非常接近结束"·停火约4月22日到期·巴基斯坦将主持新一轮直接谈判</div>
+    <div class="news-desc">特朗普4月15日接受Fox Business采访时称"我认为这场战争非常接近结束，我们在军事上完全击败了他们"，并透露美伊直接谈判将在巴基斯坦重启，可能两天内举行。白宫官员表示达成协议的前景"良好"，但未正式同意延长停火。核心分歧仍在：美国要求伊朗作出不寻求核武器的明确承诺，伊朗拒绝。停火协议约于4月22日到期，外交窗口高度紧张。BTC和美股盘后对消息反应偏正面，油价持续承压。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">全球事件 · 地缘</span>
+      <span class="news-tag">伊朗 · 停火谈判</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/04/15/iran-war-trump-peace-deal-us-talks-stock-market-oil-prices-.html" target="_blank">CNBC（Trump Fox访谈）</a> · <a href="https://www.washingtontimes.com/news/2026/apr/15/white-house-says-prospects-deal-iran-good-trump-not-extended/" target="_blank">Washington Times</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-15 22:00</span></div>
+    <div class="news-title">CFTC正式调查Trump Truth Social发帖前15分钟$5.8亿石油期货可疑交易·疑涉内幕交易</div>
+    <div class="news-desc">彭博报道，美国CFTC已正式启动调查：涉案交易于3月22日Trump Truth Social帖子（内容为暂停打击伊朗能源设施）发出前约15分钟集中爆仓，规模约$5.8亿，交易量为同时段日均的9倍，精准押注油价下跌和股市上涨。参议员Warren及众议员Torres联名要求SEC和CFTC获取包括受益所有权在内的完整交易记录，并公开调查进展。4月7日停火前也发现类似异常油价交易（跌幅约15%）。诺贝尔经济学奖得主克鲁格曼称此为"叛国行为"。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">全球监管 · 政治</span>
+      <span class="news-tag">CFTC · 内幕交易</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.bloomberg.com/news/articles/2026-04-15/us-probes-suspicious-oil-trades-made-before-trump-iran-pivots" target="_blank">Bloomberg（CFTC调查）</a> · <a href="https://www.cbsnews.com/news/insider-trading-oil-futures-trump-iran-post/" target="_blank">CBS News</a></div>
+  </div>
+</div>
+
+<!-- Section 2: 传统金融 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-15 21:00</span></div>
+    <div class="news-title">eToro以$7000万收购自托管钱包Zengo·200万+用户·MPC无助记词·扩展DeFi和代币化资产</div>
+    <div class="news-desc">eToro宣布以约$7000万（主要为现金）收购以色列钱包公司Zengo，以扩展自托管能力。Zengo成立于2018年，采用多方计算（MPC）技术替代传统助记词，支持代币兑换、质押和法币入金，拥有200万+用户。CEO Yoni Assia表示此举旨在吸引原生加密用户，并向代币化资产、预测市场、永续合约和收益产品扩张。Zengo钱包将与eToro监管业务隔离运营，用户直接与第三方协议交互。此前eToro已完成上市（ETOR）。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">传统金融 · 并购</span>
+      <span class="news-tag">自托管 · MPC钱包</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/04/15/etoro-to-acquire-crypto-wallet-zengo-in-usd70-million-deal" target="_blank">CoinDesk（eToro收购Zengo）</a> · <a href="https://www.bloomberg.com/news/articles/2026-04-15/etoro-etor-to-acquire-crypto-wallet-startup-zengo-in-70-million-deal" target="_blank">Bloomberg</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-15 20:30</span></div>
+    <div class="news-title">Strategy STRC优先股ATM 48小时内买入29,914 BTC（约$27亿）·总持仓逼近81万枚·连续10日在面值以上交易</div>
+    <div class="news-desc">Strategy通过STRC可变利率永续优先股ATM机制，在4月14-15日48小时内买入约29,914枚BTC（约$27亿），4月14日单日STRC成交量约$15.7亿，100%在$100面值以上成交。该机制已连续10天以高于面值的价格运营，买入节奏明显加速。截至4月12日，Strategy共持有780,897枚BTC（成本约$590亿），此次买入后总持仓预计约810,000枚，占比特币总流通量约4.1%。资本市场对机构持续承接效应解读偏多。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">传统金融 · 机构</span>
+      <span class="news-tag">Strategy · BTC积累</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.kucoin.com/news/flash/strategy-s-strc-atm-mechanism-buys-29-914-btc-in-48-hours" target="_blank">KuCoin（STRC 29,914 BTC）</a> · <a href="https://www.cryptotimes.io/2026/04/14/fact-check-strategys-record-1-1b-strc-volume-signals-secret-bitcoin-buy/" target="_blank">CryptoTimes</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-15 22:03</span></div>
+    <div class="news-title">美国大型银行Q1股票回购$330亿创历史新高·JPMorgan/高盛/摩根领衔·实际回购超预期30-50%</div>
+    <div class="news-desc">美国最大银行Q1 2026合计投入创纪录的$330亿用于股票回购，大幅超出市场预期。其中JPMorgan Chase、Goldman Sachs、Citigroup完成各自历史最大规模回购，Bank of America和Morgan Stanley也创下近年新高。分析师指出实际回购规模比预测高出30%-50%。驱动因素为银行盈利能力提升及特朗普政府推进的史上最大规模金融去监管，银行将更多资本从缓冲储备转向股东回报和贷款。</div>
+    <div class="news-tags">
+      <span class="news-tag">季级影响</span>
+      <span class="news-tag">传统金融 · 银行</span>
+      <span class="news-tag">回购 · 流动性</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476900" target="_blank">Odaily（04-15 22:03）</a></div>
+  </div>
+</div>
+
+<!-- Section 3: 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-16 01:07</span></div>
+    <div class="news-title">WLFI代币解锁提案遭孙宇晨炮轰："世界暴政"·"赤裸侵犯财产权"·WLFI回应："法庭见"</div>
+    <div class="news-desc">特朗普家族旗下World Liberty Financial（WLFI）发布早期投资者代币解锁提案（2年锁定+2年线性解锁），遭孙宇晨强烈反对并在X发文称"这是'世界暴政'，不是'世界自由金融'"，指控WLFI提案存在五大问题：反对即受罚、选择性冻结投票权、权力集中于匿名人、投票者被迫实名而掌权者匿名、赤裸侵犯数十亿美元财产权。他呼吁所有持有人公开表态反对，并保留法律救济权。WLFI官方账号回应称："我们有合同、有证据、有真相，法庭见。"</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">全球监管 · 治理</span>
+      <span class="news-tag">WLFI · 孙宇晨 · 特朗普</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476949" target="_blank">Odaily（04-16 01:07）</a> · <a href="https://cointelegraph-cn.com/news/justin-sun-wlfi-platform-lawsuit" target="_blank">Cointelegraph中文</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-15 21:30</span></div>
+    <div class="news-title">Cantor Fitzgerald向Tether主导Fellowship PAC捐赠$1000万·押注加密友好国会候选人</div>
+    <div class="news-desc">Cantor Fitzgerald（由前商务部长Lutnick之子运营）向由Tether高管主导的Fellowship超级PAC捐赠$1000万，另有加密银行Anchorage Digital捐赠$100万。Fellowship PAC已将$300万广告预算投向Tether美国CEO Bo Hines的关联公司Nxum Group，并出资支持多名国会候选人（含$85万支持肯塔基州参议员竞选）。这是加密行业政治献金继2024年大选后的新一轮扩张，直接强化立法游说能力。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">全球监管 · 政治</span>
+      <span class="news-tag">Cantor · Tether · PAC</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.bloomberg.com/news/articles/2026-04-15/cantor-fitzgerald-gives-10-million-to-tether-led-crypto-pac" target="_blank">Bloomberg（Cantor PAC捐款）</a> · <a href="https://www.theblock.co/post/397655/former-lutnick-run-cantor-fitzgerald-donates-10-million-to-crypto-pac-led-by-tether-exec" target="_blank">The Block</a></div>
+  </div>
+</div>
+
+<!-- Section 4: 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-16 08:56</span></div>
+    <div class="news-title">Hyperliquid平台最大多军头：120,000 ETH + 1,500 BTC两月多头全部止盈，累计获利$6847万</div>
+    <div class="news-desc">链上分析师余烬追踪：Hyperliquid平台最大多军头于2-3月在四个地址分批开多，累计建仓120,000 ETH（入场$2,000-2,150）和1,500 BTC（入场$68,420），总仓位规模约$3.98亿。近期随市场反弹将全部仓位分批止盈：ETH出场约$2,390，BTC出场约$74,700，累计实现利润约$6847万。此次满仓清盘信号意味着一方主力资金已完成本轮反弹的获利了结，叠加CryptoQuant卖压增强预警，短期BTC面临顶部风险。</div>
+    <div class="news-tags">
+      <span class="news-tag">天至周级影响</span>
+      <span class="news-tag">链上事件 · 巨鲸</span>
+      <span class="news-tag">Hyperliquid · 止盈</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2258922" target="_blank">链捕手（余烬分析 · 04-16 08:56）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-16 09:15</span></div>
+    <div class="news-title">Tom Lee巴黎区块链周：加密"迷你寒冬"或已结束·ETH目标$60,000·AI+代币化推动下一轮主升</div>
+    <div class="news-desc">Fundstrat创始人Tom Lee在巴黎区块链周发表主旨演讲，称由于美伊战争导致的股市底部已现，ETH将从"大幅整合"中走出，目标价$60,000-62,000。他认为此轮是"特定加密因素驱动的迷你寒冬"而非更广泛的宏观衰退。实现路径依赖：ETH/BTC比率恢复至约0.25，以及稳定币总供应量接近$2万亿（当前约$2300亿）。他还将AI代理和代币化视为以太坊下一轮增长的核心驱动。注：Lee此前曾预测2月迷你寒冬可能在4月结束。</div>
+    <div class="news-tags">
+      <span class="news-tag">月至季级影响</span>
+      <span class="news-tag">行业趋势 · 观点</span>
+      <span class="news-tag">Tom Lee · ETH预测</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.tradingview.com/news/cointelegraph:a398ff252094b:0-tom-lee-says-mini-crypto-winter-is-over-sees-ether-above-60k/" target="_blank">CoinTelegraph via TradingView（Tom Lee巴黎发言）</a></div>
+  </div>
+</div>
+
+<!-- Section 6: 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-16 08:42</span></div>
+    <div class="news-title">CryptoQuant：BTC大额交易占比升至40%+·日均兑现利润$5亿·关键阻力$76,800·卖压正在增强</div>
+    <div class="news-desc">CryptoQuant研究主管Julio Moreno警告，BTC近期反弹面临"逐渐上升的获利了结风险"，多项链上指标显示卖压增强：大额交易占比从不足10%升至40%以上，为典型短期卖压信号；日均已实现利润约$5亿，尚低于$10亿历史预警线，但一旦BTC持稳$76,000以上，该指标可能加速突破$10亿。关键阻力位$76,800为交易者链上"已实现价格"，曾于2026年1月熊市反弹时精准压制价格。主要支撑约$67,600。</div>
+    <div class="news-tags">
+      <span class="news-tag">天至周级影响</span>
+      <span class="news-tag">加密数据 · 链上</span>
+      <span class="news-tag">CryptoQuant · 卖压</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2258926" target="_blank">链捕手（CryptoQuant分析 · 04-16 08:42）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-15 21:15</span></div>
+    <div class="news-title">BTC日内维持$74,000-74,300区间·ETH约$2,330·ETH/BTC比率从2026年低点反弹·小市值币种落后</div>
+    <div class="news-desc">截至4月15日9:15 ET，BTC报$74,286.71（24h -0.03%，较2月$60,000低点+24%）；ETH报$2,332.52，7日涨幅+4%，略优于BTC的7日+3.9%。CoinDesk数据显示ETH/BTC比率正从2026年低点反弹，被视为更广泛的山寨币复苏前兆信号。同期BTC永续资金费率已连续46天为负，空头仓位历史性聚集，技术面上此类极端空头集中往往先于急涨行情出现。小市值币种整体跑输BTC和ETH，市场风险偏好集中于大盘。</div>
+    <div class="news-tags">
+      <span class="news-tag">天级影响</span>
+      <span class="news-tag">加密数据 · 市场</span>
+      <span class="news-tag">BTC · ETH · 资金费率</span>
+    </div>
+    <div class="news-source">来源：<a href="https://fortune.com/article/price-of-bitcoin-04-15-2026/" target="_blank">Fortune（04-15价格）</a> · <a href="https://www.coindesk.com/markets/2026/04/15/ether-bitcoin-ratio-bounces-from-2026-lows-in-signs-of-broader-crypto-recovery" target="_blank">CoinDesk（ETH/BTC比率）</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">Trump：战争接近结束</span>
+    <span class="keyword">停火约4月22日到期</span>
+    <span class="keyword">巴基斯坦斡旋谈判</span>
+    <span class="keyword">CFTC调查$5.8亿石油期货</span>
+    <span class="keyword">eToro收购Zengo$7000万</span>
+    <span class="keyword">Strategy两日扫货$27亿</span>
+    <span class="keyword">Strategy持仓~810,000 BTC</span>
+    <span class="keyword">银行Q1回购$330亿</span>
+    <span class="keyword">WLFI"世界暴政"</span>
+    <span class="keyword">孙宇晨炮轰WLFI</span>
+    <span class="keyword">Cantor PAC $1000万</span>
+    <span class="keyword">Hyperliquid巨鲸止盈$6847万</span>
+    <span class="keyword">Tom Lee ETH目标$60,000</span>
+    <span class="keyword">CryptoQuant卖压增强</span>
+    <span class="keyword">BTC关键阻力$76,800</span>
+    <span class="keyword">ETH/BTC比率反弹</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密早报 · 2026.04.16<br>
+  数据来源：Odaily · ChainCatcher · Bloomberg · CNBC · CoinDesk · PANews<br>
+  本报告仅供信息参考，不构成任何投资建议。
+</div>
+
+</body>
+</html>
