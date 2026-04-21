@@ -1,483 +1,435 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>加密行业热点早报 2026年4月21日</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #000000; color: #fff; font-family: 'Noto Sans SC', sans-serif; font-size: 14px; line-height: 1.6; }
-
-    /* ===== STICKY HEADER ===== */
-    .header { position: sticky; top: 0; z-index: 100; background: #000000; border-bottom: 1px solid #1e1e1e; padding: 14px 20px 12px; text-align: center; }
-    .header-badge { display: inline-block; background: #191919; color: #888; font-size: 11px; letter-spacing: 2px; padding: 3px 10px; border-radius: 3px; margin-bottom: 6px; }
-    .header-title { font-family: 'Noto Serif SC', serif; font-size: 26px; font-weight: 700; color: #fff; letter-spacing: 2px; }
-    .header-title .green { color: #BCFF2F; }
-
-    /* ===== MARKET GRID (outside sticky header) ===== */
-    .market-wrap { background: #0a0a0a; border-bottom: 1px solid #1a1a1a; padding: 10px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; }
-    .market-item { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 0 4px; }
-    .market-label { color: #555; }
-    .market-value { color: #e0e0e0; font-weight: 500; }
-    .up { color: #BCFF2F; }
-    .down { color: #FF3B3B; }
-    .neutral { color: #888; }
-    .market-sep { color: #2a2a2a; font-size: 14px; padding: 0 2px; }
-
-    /* ===== SOURCE PILLS ===== */
-    .source-pills { background: #000; padding: 8px 20px; display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #111; }
-    .source-pill { background: #191919; color: #777; font-size: 11px; padding: 3px 10px; border-radius: 20px; border: 1px solid #2a2a2a; }
-
-    /* ===== CONTAINER ===== */
-    .container { max-width: 900px; margin: 0 auto; padding: 20px 20px 40px; }
-
-    /* ===== CORE BANNER ===== */
-    .core-banner { background: #111; border-left: 3px solid #BCFF2F; padding: 14px 16px; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
-    .core-banner-title { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
-    .core-line { font-size: 13px; color: #ccc; padding: 5px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
-    .core-line .num { color: #BCFF2F; font-weight: 700; min-width: 18px; flex-shrink: 0; margin-top: 1px; }
-
-    /* ===== SECTION ===== */
-    .section { margin-bottom: 30px; }
-    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #1a1a1a; }
-    .section-icon { font-size: 17px; }
-    .section-title { font-size: 15px; font-weight: 700; color: #fff; flex: 1; }
-    .section-count { background: #BCFF2F; color: #000; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 10px; min-width: 22px; text-align: center; }
-
-    /* ===== NEWS ITEM ===== */
-    .news-item { background: #191919; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; border: 1px solid #222; }
-    .news-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .tag-priority { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.8px; }
-    .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
-    .tag-priority.mid { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.3); }
-    .tag-priority.low { background: rgba(102,102,102,0.08); color: #666; border: 1px solid rgba(102,102,102,0.25); }
-    .tag-time { font-size: 11px; color: #555; }
-    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 7px; line-height: 1.55; }
-    .news-desc { font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 10px; }
-    .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
-    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #282828; padding: 2px 8px; border-radius: 3px; }
-    .news-source { font-size: 11px; color: #555; }
-    .news-source a { color: #BCFF2F; text-decoration: none; }
-    .news-source a:hover { text-decoration: underline; }
-
-    /* ===== KEYWORDS ===== */
-    .keywords-section { margin-top: 36px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
-    .keywords-title { font-size: 11px; color: #555; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
-    .keywords-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
-    .keyword { background: #111; border: 1px solid #2a2a2a; color: #BCFF2F; font-size: 11px; padding: 3px 10px; border-radius: 3px; }
-
-    /* ===== FOOTER ===== */
-    .footer { margin-top: 28px; padding: 18px 0 0; border-top: 1px solid #111; font-size: 11px; color: #3a3a3a; line-height: 1.9; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月21日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; font-family: 'Noto Serif SC', serif; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #BCFF2F; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+  .banner-thread { font-size: 12px; color: #ccc; line-height: 1.6; padding: 2px 0; }
+  .banner-thread-num { color: #BCFF2F; font-weight: 700; margin-right: 5px; }
+  .tag-time { font-size: 10px; color: #555; font-weight: 400; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; } .neutral { color: #FFD600; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
 </head>
 <body>
 
-<!-- ===== STICKY HEADER ===== -->
+<!-- ── Sticky Header ── -->
 <div class="header">
-  <div class="header-badge">2026 · APR 21 · 星期二</div>
+  <div class="header-date">2026 · APR 21 · 星期二</div>
   <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月20日 20:00 — 4月21日 09:30</div>
 </div>
 
-<!-- ===== MARKET GRID ===== -->
-<div class="market-wrap">
-  <div class="market-item">
-    <span class="market-label">BTC</span>
-    <span class="market-value">$76,175</span>
-    <span class="up">↑2.07%</span>
-  </div>
-  <span class="market-sep">|</span>
-  <div class="market-item">
-    <span class="market-label">ETH</span>
-    <span class="market-value">$2,324</span>
-    <span class="up">↑1.62%</span>
-  </div>
-  <span class="market-sep">|</span>
-  <div class="market-item">
-    <span class="market-label">恐惧贪婪</span>
-    <span class="market-value">27</span>
-    <span class="down">极度恐惧</span>
-  </div>
-  <span class="market-sep">/</span>
-  <div class="market-item">
-    <span class="market-label">WTI原油</span>
-    <span class="market-value">$89.61</span>
-    <span class="up">↑</span>
-  </div>
-  <span class="market-sep">|</span>
-  <div class="market-item">
-    <span class="market-label">黄金</span>
-    <span class="market-value">$4,845</span>
-    <span class="up">↑0.35%</span>
-  </div>
-  <span class="market-sep">|</span>
-  <div class="market-item">
-    <span class="market-label">纳斯达克</span>
-    <span class="market-value">24,404</span>
-    <span class="down">↓0.26%</span>
-  </div>
-</div>
-
-<!-- ===== SOURCE PILLS ===== -->
+<!-- 信息源 -->
 <div class="source-pills">
-  <span class="source-pill">Odaily 星球日报</span>
-  <span class="source-pill">BlockBeats</span>
-  <span class="source-pill">星球早讯</span>
-  <span class="source-pill">吴说区块链</span>
-  <span class="source-pill">Foresight News</span>
-  <span class="source-pill">彭博 ETF</span>
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">星球早讯</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">彭博ETF</div>
 </div>
 
-<!-- ===== MAIN CONTENT ===== -->
-<div class="container">
-
-  <!-- 核心主线 BANNER -->
-  <div class="core-banner">
-    <div class="core-banner-title">◈ 今日核心主线</div>
-    <div class="core-line">
-      <span class="num">①</span>
-      <span>美伊第二轮伊斯兰堡谈判启动，停火协议周三到期，伊朗强硬表态被巴方分析为"争取最大筹码的策略性姿态"，结果未定</span>
-    </div>
-    <div class="core-line">
-      <span class="num">②</span>
-      <span>Aave公开Kelp坏账敞口$1.24亿～$2.30亿；根因揭秘：LayerZero RPC节点遭攻陷 + 47%跨链应用仍采用最低1-of-1安全配置</span>
-    </div>
-    <div class="core-line">
-      <span class="num">③</span>
-      <span>机构持续囤BTC：Strategy STRC本周筹资可购8000枚，CEO称年内购量为全美BTC ETF合计的10倍；摩根士丹利再买215枚</span>
-    </div>
-  </div>
-
-  <!-- ===== SECTION 1: 全球事件 ===== -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🌐</span>
-      <span class="section-title">全球事件</span>
-      <span class="section-count">2</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority high">HIGH</span>
-        <span class="tag-time">04-21 01:03 · 01:25</span>
-      </div>
-      <div class="news-title">万斯率队抵达伊斯兰堡开启美伊第二轮谈判，伊朗"拒绝谈判"被巴方定性为策略性姿态</div>
-      <div class="news-desc">美国副总统万斯携特别特使维特科夫及总统顾问库什纳飞赴巴基斯坦，启动第二轮美伊谈判。伊朗当日声称"暂无与美方谈判计划"，但巴基斯坦外交消息人士向媒体透露，此表态实为"争取最大谈判筹码的策略性立场"，实质性接触仍在推进。现行两周停火协议将于4月22日（周三）到期，谈判走向直接影响霍尔木兹海峡能源通道及全球风险资产情绪，WTI原油维持约$89.61高位。</div>
-      <div class="news-tags">
-        <span class="news-tag">月级</span>
-        <span class="news-tag">地缘政治</span>
-        <span class="news-tag">能源价格</span>
-        <span class="news-tag">宏观情绪</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477628" target="_blank">Odaily（万斯动向）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477635" target="_blank">Odaily（伊朗立场）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:30</span>
-      </div>
-      <div class="news-title">特朗普：新协议将超越伊核协议范围，但停火续期"可能性极低"</div>
-      <div class="news-desc">美国总统特朗普表示，若谈判达成协议，其约束范围将超越2015年《联合全面行动计划》（JCPOA）；同时将停火延续的可能性定性为"极低"。这一表态维持油价高位，市场对中东冲突重燃的对冲需求持续上升，黄金连续创历史新高约$4,845。</div>
-      <div class="news-tags">
-        <span class="news-tag">周级</span>
-        <span class="news-tag">宏观情绪</span>
-        <span class="news-tag">能源</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯）</a></div>
-    </div>
-  </div>
-
-  <!-- ===== SECTION 2: 链上事件 ===== -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">⛓️</span>
-      <span class="section-title">链上事件</span>
-      <span class="section-count">5</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority high">HIGH</span>
-        <span class="tag-time">04-21 00:58</span>
-      </div>
-      <div class="news-title">Aave正式披露Kelp坏账规模：两种情景下损失$1.24亿至$2.30亿</div>
-      <div class="news-desc">Aave官方发布风险评估：①若rsETH价值归零，坏账约$123.7M；②若计入rsETH二级市场溢价折算，潜在敞口可达$230.1M。团队已冻结V3/V4 rsETH市场，并提出以安全模块（Safety Module）回购$AAVE来弥补损失，相关链上治理提案预计本周内提交。与此同时，有大型鲸鱼从币安提取18,300 ETH，其中12,000枚用于偿还Aave借贷仓位，反映DeFi用户的主动去杠杆行为。</div>
-      <div class="news-tags">
-        <span class="news-tag">月级</span>
-        <span class="news-tag">协议风险</span>
-        <span class="news-tag">DeFi</span>
-        <span class="news-tag">坏账</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477625" target="_blank">Odaily（Aave披露）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority high">HIGH</span>
-        <span class="tag-time">04-21 00:53 · 01:33</span>
-      </div>
-      <div class="news-title">Kelp事件根因揭秘：LayerZero官方RPC节点遭攻陷，1-of-1 DVN默认配置致单点失败被完全利用</div>
-      <div class="news-desc">安全研究员还原完整攻击路径：黑客通过攻陷LayerZero官方RPC基础设施，向rsETH跨链桥注入恶意消息；Kelp采用的"1 of 1"DVN配置（最低安全级别，无任何备份验证节点）导致单点失败被完全利用，价值$292M的rsETH被盗。Dune Analytics数据同步披露：过去90天内，约47%（近半数）的LayerZero OApp仍在使用此最低安全配置，整个跨链生态的系统性风险远未消除，需高度警惕。</div>
-      <div class="news-tags">
-        <span class="news-tag">月级</span>
-        <span class="news-tag">安全漏洞</span>
-        <span class="news-tag">跨链</span>
-        <span class="news-tag">基础设施</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477622" target="_blank">Odaily（根因分析）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477636" target="_blank">Odaily（Dune数据）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:30</span>
-      </div>
-      <div class="news-title">大额鲸鱼从币安提取18,300 ETH，其中12,000枚用于偿还Aave借贷</div>
-      <div class="news-desc">链上数据显示，某大额持仓者从币安提取约18,300枚ETH（约$4,254万），随即将其中12,000枚ETH（约$2,789万）用于偿还在Aave上的借贷仓位。此行为反映Kelp/Aave事件后DeFi用户的主动去杠杆与风险出清趋势。</div>
-      <div class="news-tags">
-        <span class="news-tag">周级</span>
-        <span class="news-tag">鲸鱼动向</span>
-        <span class="news-tag">DeFi去杠杆</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:30</span>
-      </div>
-      <div class="news-title">趋势研究关联地址转移541万枚UNI与22.8万枚COMP至新钱包</div>
-      <div class="news-desc">链上分析发现，与国内机构"趋势研究"（易理华相关）关联的地址将约541万枚UNI（约$1,189万）及22.8万枚COMP代币转至新地址，转移发生于4月20日深夜。市场关注其后续动向——是否为预备出售或机构资金战略性重新部署。历史上，该机构的大额链上转账后常伴随二级市场潜在抛压。</div>
-      <div class="news-tags">
-        <span class="news-tag">周级</span>
-        <span class="news-tag">鲸鱼动向</span>
-        <span class="news-tag">潜在抛压</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority low">LOW</span>
-        <span class="tag-time">04-21 01:21</span>
-      </div>
-      <div class="news-title">鲸鱼从交易所提取19.9万枚HYPE后卖出，套现$815万USDC</div>
-      <div class="news-desc">某新建钱包从中心化交易所提取199,999枚HYPE后随即全部出售，套现约$815万USDC。HYPE近期在Grayscale、Bitwise、VanEck多家机构推进ETF申报的背景下持续受关注，此次大额出货或对短期价格形成边际抛压。</div>
-      <div class="news-tags">
-        <span class="news-tag">日级</span>
-        <span class="news-tag">链上动向</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477634" target="_blank">Odaily（鲸鱼动向）</a></div>
-    </div>
-  </div>
-
-  <!-- ===== SECTION 3: 全球监管 ===== -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">⚖️</span>
-      <span class="section-title">全球监管</span>
-      <span class="section-count">1</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:13</span>
-      </div>
-      <div class="news-title">Grayscale修订HYPE ETF申报：Anchorage Digital取代Coinbase出任托管方，拟纳斯达克上市</div>
-      <div class="news-desc">Grayscale向美国SEC提交更新版S-1文件，将Hyperliquid (HYPE) ETF（拟代码：GHYP）的托管机构从Coinbase Custody更换为Anchorage Digital Bank。Anchorage凭借OCC联邦银行牌照在机构托管领域持续扩大市场份额。目前Bitwise、21Shares、VanEck均已提交HYPE ETF文件，HYPE ETF赛道竞争格局加速明朗，有望成为继BTC、ETH之后下一个获批的主流加密ETF。</div>
-      <div class="news-tags">
-        <span class="news-tag">月级</span>
-        <span class="news-tag">ETF申请</span>
-        <span class="news-tag">HYPE</span>
-        <span class="news-tag">监管合规</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477631" target="_blank">Odaily（Grayscale修订）</a></div>
-    </div>
-  </div>
-
-  <!-- ===== SECTION 4: 传统金融 ===== -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🏦</span>
-      <span class="section-title">传统金融</span>
-      <span class="section-count">2</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority high">HIGH</span>
-        <span class="tag-time">04-21 01:15</span>
-      </div>
-      <div class="news-title">Strategy STRC本周筹资可购8000枚BTC，CEO：年内购量为全美ETF合计10倍</div>
-      <div class="news-desc">Strategy CEO Phong Le披露，公司优先股STRC本周已完成新一轮融资，所筹资金可用于购入约8,000枚BTC（约$6.1亿）。他同时表示，Strategy 2026年初至今的BTC购入量，相当于同期美国所有比特币现货ETF净买入量的10倍，绝对主导机构增持节奏。彭博ETF分析师同日数据印证，年初至今BTC ETF年化净流入已突破$10亿，机构需求对BTC价格下方形成有力支撑。</div>
-      <div class="news-tags">
-        <span class="news-tag">季级</span>
-        <span class="news-tag">机构囤币</span>
-        <span class="news-tag">BTC</span>
-        <span class="news-tag">资金流向</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477632" target="_blank">Odaily（Strategy CEO）</a> · <a href="https://www.theblockbeats.info/flash/340578" target="_blank">BlockBeats（STRC融资）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 00:56</span>
-      </div>
-      <div class="news-title">摩根士丹利买入215枚BTC（约$1,643万），持续加码机构BTC头寸</div>
-      <div class="news-desc">链上及市场数据显示，摩根士丹利在约4小时前完成215枚BTC买入，价值约$1,643万，为其近期持续增持行动的组成部分。在Strategy、贝莱德主导BTC增持的背景下，摩根士丹利的定期配置进一步印证华尔街传统金融机构对BTC战略配置的持续加码趋势。</div>
-      <div class="news-tags">
-        <span class="news-tag">周级</span>
-        <span class="news-tag">机构买入</span>
-        <span class="news-tag">BTC</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477623" target="_blank">Odaily（摩根士丹利）</a></div>
-    </div>
-  </div>
-
-  <!-- ===== SECTION 5: 行业趋势 ===== -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">📈</span>
-      <span class="section-title">行业趋势</span>
-      <span class="section-count">3</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:17</span>
-      </div>
-      <div class="news-title">Curve创始人批DeFi频现安全单点故障，呼吁建立跨链通信统一安全底线标准</div>
-      <div class="news-desc">Curve Finance创始人Michael Egorov在Kelp/LayerZero事件后发文，批评DeFi生态在跨链通信层存在普遍性"单点失败"架构缺陷，呼吁行业共同制定"统一安全底线框架"，将最低验证节点数量、异常消息延迟机制等纳入基础规范。Curve自身曾于2023年遭受Vyper编译器漏洞重创，其创始人在当前背景下发声具有重要风向标意义。</div>
-      <div class="news-tags">
-        <span class="news-tag">月级</span>
-        <span class="news-tag">DeFi安全</span>
-        <span class="news-tag">行业规范</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477633" target="_blank">Odaily（Curve创始人）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:30</span>
-      </div>
-      <div class="news-title">新加坡OCBC银行计划在以太坊与Solana上发行实物黄金基金代币</div>
-      <div class="news-desc">新加坡华侨银行（OCBC）计划将旗下实物黄金基金代币化，部署于以太坊与Solana两条公链。这是继富兰克林邓普顿、贝莱德之后又一传统金融机构入局RWA（现实资产上链）赛道的重要案例。金价持续创历史新高（当前约$4,845），为黄金代币化提供强力需求催化，RWA赛道叙事持续升温。</div>
-      <div class="news-tags">
-        <span class="news-tag">月级</span>
-        <span class="news-tag">RWA</span>
-        <span class="news-tag">代币化</span>
-        <span class="news-tag">TradFi</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority low">LOW</span>
-        <span class="tag-time">04-20 23:47</span>
-      </div>
-      <div class="news-title">OpenAI发生大规模服务中断，ChatGPT及API全线受影响</div>
-      <div class="news-desc">OpenAI官方确认发生重大服务中断，ChatGPT、Sora、API及开发者工具暂时不可用，影响覆盖全球用户。中断发生于UTC时间4月20日下午，OpenAI工程团队已启动紧急响应程序。此次事件对链上AI代理（AI Agent）相关代币情绪产生短暂负面影响。</div>
-      <div class="news-tags">
-        <span class="news-tag">日级</span>
-        <span class="news-tag">AI行业</span>
-        <span class="news-tag">情绪影响</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477585" target="_blank">Odaily（OpenAI宕机）</a></div>
-    </div>
-  </div>
-
-  <!-- ===== SECTION 6: 加密数据 ===== -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">📊</span>
-      <span class="section-title">加密数据</span>
-      <span class="section-count">3</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority mid">MID</span>
-        <span class="tag-time">04-21 01:30</span>
-      </div>
-      <div class="news-title">彭博ETF分析师：2026年初至今BTC现货ETF年化净流入已突破$10亿</div>
-      <div class="news-desc">彭博ETF分析师James Seyffart数据显示，2026年初至今，美国比特币现货ETF（以贝莱德IBIT为首）累计净流入已达年化$10亿以上，机构需求对BTC价格下方形成有力支撑。这与Strategy CEO所称"ETF年内买入量仅为Strategy的1/10"形成相互印证，机构BTC需求已进入高度分化的竞争格局。</div>
-      <div class="news-tags">
-        <span class="news-tag">季级</span>
-        <span class="news-tag">ETF数据</span>
-        <span class="news-tag">机构需求</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority low">LOW</span>
-        <span class="tag-time">04-21 00:59</span>
-      </div>
-      <div class="news-title">美国SOL现货ETF单日净流入$328万</div>
-      <div class="news-desc">美国SOL现货ETF昨日录得约$328万净流入，资金面维持小幅正向，延续上市以来的温和积累趋势。</div>
-      <div class="news-tags">
-        <span class="news-tag">日级</span>
-        <span class="news-tag">ETF资金流</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477626" target="_blank">Odaily（SOL ETF）</a></div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-meta">
-        <span class="tag-priority low">LOW</span>
-        <span class="tag-time">04-21 00:57</span>
-      </div>
-      <div class="news-title">美国XRP现货ETF单日净流入$299万</div>
-      <div class="news-desc">美国XRP现货ETF昨日录得约$299万净流入，资金面延续温和正向态势，与SOL ETF并列成为本日表现稳健的山寨ETF品种。</div>
-      <div class="news-tags">
-        <span class="news-tag">日级</span>
-        <span class="news-tag">ETF资金流</span>
-      </div>
-      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477624" target="_blank">Odaily（XRP ETF）</a></div>
-    </div>
-  </div>
-
-  <!-- ===== KEYWORDS ===== -->
-  <div class="keywords-section">
-    <div class="keywords-title">🔖 今日关键词</div>
-    <div class="keywords-wrap">
-      <span class="keyword">美伊谈判</span>
-      <span class="keyword">霍尔木兹</span>
-      <span class="keyword">伊斯兰堡</span>
-      <span class="keyword">Aave坏账</span>
-      <span class="keyword">Kelp漏洞</span>
-      <span class="keyword">LayerZero</span>
-      <span class="keyword">DVN配置</span>
-      <span class="keyword">跨链安全</span>
-      <span class="keyword">Strategy</span>
-      <span class="keyword">STRC</span>
-      <span class="keyword">机构囤BTC</span>
-      <span class="keyword">Grayscale</span>
-      <span class="keyword">HYPE ETF</span>
-      <span class="keyword">Anchorage</span>
-      <span class="keyword">摩根士丹利</span>
-      <span class="keyword">BTC ETF流入</span>
-      <span class="keyword">Curve安全</span>
-      <span class="keyword">OCBC</span>
-      <span class="keyword">RWA黄金代币</span>
-      <span class="keyword">OpenAI宕机</span>
-    </div>
-  </div>
-
-  <!-- ===== FOOTER ===== -->
-  <div class="footer">
-    本早报由 AI 辅助采集整理，仅供参考，不构成任何投资建议。加密货币市场波动较大，请注意风险，理性投资。<br>
-    数据时间窗口：2026年4月20日 20:00 — 2026年4月21日 09:30（北京时间）
-  </div>
-
+<!-- ── 今日核心主线 Banner ── -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-thread"><span class="banner-thread-num">①</span>美伊第二轮伊斯兰堡谈判启动，停火协议周三到期，伊朗强硬表态被巴方分析为"争取最大筹码的策略性姿态"</div>
+  <div class="banner-thread"><span class="banner-thread-num">②</span>Aave公开Kelp坏账敞口$1.24亿～$2.30亿；根因揭秘：LayerZero RPC节点遭攻陷 + 47%跨链应用仍采用最低1-of-1安全配置</div>
+  <div class="banner-thread"><span class="banner-thread-num">③</span>机构持续囤BTC：Strategy STRC本周筹资可购8000枚，CEO称年内购量为全美BTC ETF合计的10倍；摩根士丹利再买215枚</div>
 </div>
+
+<!-- ── 市场行情 ── -->
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$76,175</div>
+      <div class="market-change up">↑2.07%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,324</div>
+      <div class="market-change up">↑1.62%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">27</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$89.61</div>
+      <div class="market-change up">谈判悬而未决↑</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,845</div>
+      <div class="market-change up">避险需求↑</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">24,404</div>
+      <div class="market-change down">↓0.26%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 全球事件 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-21 01:03 · 01:25</span></div>
+    <div class="news-title">万斯率队抵达伊斯兰堡开启美伊第二轮谈判，伊朗"拒绝谈判"被巴方定性为策略性姿态</div>
+    <div class="news-desc">美国副总统万斯携特别特使维特科夫及总统顾问库什纳飞赴巴基斯坦，启动第二轮美伊谈判。伊朗当日声称"暂无与美方谈判计划"，但巴基斯坦外交消息人士向媒体透露，此表态实为"争取最大谈判筹码的策略性立场"，实质性接触仍在推进。现行两周停火协议将于4月22日（周三）到期，谈判走向直接影响霍尔木兹海峡能源通道及全球风险资产情绪，WTI原油维持约$89.61高位。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">全球事件 · 地缘</span>
+      <span class="news-tag">美伊谈判 · 霍尔木兹 · 停火续期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477628" target="_blank">Odaily（万斯动向 04-21 01:03）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477635" target="_blank">Odaily（伊朗立场 04-21 01:25）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:30</span></div>
+    <div class="news-title">特朗普：新协议将超越伊核协议范围，但停火续期"可能性极低"</div>
+    <div class="news-desc">美国总统特朗普表示，若谈判达成协议，其约束范围将超越2015年《联合全面行动计划》（JCPOA）；同时将停火延续的可能性定性为"极低"。这一表态维持油价高位，市场对中东冲突重燃的对冲需求持续上升，黄金连续创历史新高约$4,845。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">全球事件 · 宏观情绪</span>
+      <span class="news-tag">特朗普 · 伊核 · 能源</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯 04-21 01:30）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 链上事件 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">5</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-21 00:58</span></div>
+    <div class="news-title">Aave正式披露Kelp坏账规模：两种情景下损失$1.24亿至$2.30亿</div>
+    <div class="news-desc">Aave官方发布风险评估：①若rsETH价值归零，坏账约$123.7M；②若计入rsETH二级市场溢价折算，潜在敞口可达$230.1M。团队已冻结V3/V4 rsETH市场，提出以安全模块（Safety Module）回购$AAVE弥补损失，相关链上治理提案预计本周内提交。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">链上事件 · DeFi</span>
+      <span class="news-tag">Aave · rsETH · 坏账披露</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477625" target="_blank">Odaily（Aave披露 04-21 00:58）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-21 00:53 · 01:33</span></div>
+    <div class="news-title">Kelp事件根因揭秘：LayerZero官方RPC节点遭攻陷，1-of-1 DVN默认配置致单点失败被完全利用</div>
+    <div class="news-desc">安全研究员还原完整攻击路径：黑客通过攻陷LayerZero官方RPC基础设施，向rsETH跨链桥注入恶意消息；Kelp采用的"1 of 1"DVN配置（最低安全级别，无备份验证节点）导致单点失败被完全利用，$292M资产被盗。Dune Analytics数据同步披露：过去90天内约47%的LayerZero OApp仍采用此最低配置，跨链生态系统性风险远未消除。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">链上安全 · 跨链</span>
+      <span class="news-tag">LayerZero · DVN · 基础设施攻击</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477622" target="_blank">Odaily（根因分析 04-21 00:53）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477636" target="_blank">Odaily（Dune数据 04-21 01:33）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:30</span></div>
+    <div class="news-title">大额鲸鱼从币安提取18,300 ETH，其中12,000枚用于偿还Aave借贷</div>
+    <div class="news-desc">链上数据显示，某大额持仓者从币安提取约18,300枚ETH（约$4,254万），随即将其中12,000枚ETH（约$2,789万）用于偿还在Aave上的借贷仓位。此行为反映Kelp/Aave事件后DeFi用户的主动去杠杆与风险出清趋势。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">链上动态 · 鲸鱼</span>
+      <span class="news-tag">ETH · Aave去杠杆</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯 04-21 01:30）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:30</span></div>
+    <div class="news-title">趋势研究关联地址转移541万枚UNI与22.8万枚COMP至新钱包</div>
+    <div class="news-desc">链上分析发现，与"趋势研究"（易理华相关机构）关联的地址将约541万枚UNI（约$1,189万）及22.8万枚COMP转至新地址，转移发生于4月20日深夜。市场关注其后续动向，历史上该机构大额转账后常伴随二级市场潜在抛压。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">链上动态 · 鲸鱼</span>
+      <span class="news-tag">UNI · COMP · 潜在抛压</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯 04-21 01:30）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority low">LOW</span> <span class="tag-time">04-21 01:21</span></div>
+    <div class="news-title">鲸鱼从交易所提取19.9万枚HYPE后卖出，套现$815万USDC</div>
+    <div class="news-desc">某新建钱包从中心化交易所提取199,999枚HYPE后随即全部卖出，套现约$815万USDC。在Grayscale、Bitwise、VanEck多家机构推进HYPE ETF申报的背景下，此次大额出货或对短期价格形成边际抛压。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上动态</span>
+      <span class="news-tag">HYPE · 鲸鱼套现</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477634" target="_blank">Odaily（鲸鱼动向 04-21 01:21）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 全球监管 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:13</span></div>
+    <div class="news-title">Grayscale修订HYPE ETF申报：Anchorage Digital取代Coinbase出任托管方，拟纳斯达克上市</div>
+    <div class="news-desc">Grayscale向SEC提交更新版S-1文件，将Hyperliquid (HYPE) ETF（拟代码：GHYP）的托管机构从Coinbase Custody更换为Anchorage Digital Bank。Anchorage凭借OCC联邦银行牌照持续扩大机构托管市场份额。目前Bitwise、21Shares、VanEck均已提交HYPE ETF文件，赛道竞争格局加速明朗。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">全球监管 · ETF</span>
+      <span class="news-tag">Grayscale · HYPE · Anchorage</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477631" target="_blank">Odaily（Grayscale修订 04-21 01:13）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 传统金融 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-21 01:15</span></div>
+    <div class="news-title">Strategy STRC本周筹资可购8000枚BTC，CEO：年内购量为全美ETF合计10倍</div>
+    <div class="news-desc">Strategy CEO Phong Le披露，公司优先股STRC本周已完成新一轮融资，所筹资金可用于购入约8,000枚BTC（约$6.1亿）。他同时表示，Strategy 2026年初至今的BTC购入量相当于同期美国所有比特币现货ETF净买入量的10倍，绝对主导机构增持节奏。彭博ETF分析师同日数据印证，年初至今BTC ETF年化净流入已突破$10亿。</div>
+    <div class="news-tags">
+      <span class="news-tag">季级影响</span>
+      <span class="news-tag">传统金融 · 机构</span>
+      <span class="news-tag">Strategy · STRC · 机构囤BTC</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477632" target="_blank">Odaily（Strategy CEO 04-21 01:15）</a> · <a href="https://www.theblockbeats.info/flash/340578" target="_blank">BlockBeats（STRC融资）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 00:56</span></div>
+    <div class="news-title">摩根士丹利买入215枚BTC（约$1,643万），持续加码机构BTC头寸</div>
+    <div class="news-desc">链上及市场数据显示，摩根士丹利在约4小时前完成215枚BTC买入，价值约$1,643万，为其近期持续增持行动的组成部分。与Strategy、贝莱德主导BTC增持的趋势一致，华尔街传统金融机构对BTC战略配置持续加码。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">传统金融 · 机构</span>
+      <span class="news-tag">摩根士丹利 · BTC买入</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477623" target="_blank">Odaily（摩根士丹利 04-21 00:56）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 行业趋势 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:17</span></div>
+    <div class="news-title">Curve创始人批DeFi频现安全单点故障，呼吁建立跨链通信统一安全底线标准</div>
+    <div class="news-desc">Curve Finance创始人Michael Egorov在Kelp/LayerZero事件后发文，批评DeFi生态在跨链通信层存在普遍性"单点失败"架构缺陷，呼吁行业共同制定"统一安全底线框架"，将最低验证节点数量、异常消息延迟机制等纳入基础规范。Curve自身曾于2023年遭受Vyper编译器漏洞重创，其创始人发声具有重要风向标意义。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">行业趋势 · DeFi安全</span>
+      <span class="news-tag">Curve · 跨链规范 · 安全标准</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477633" target="_blank">Odaily（Curve创始人 04-21 01:17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:30</span></div>
+    <div class="news-title">新加坡OCBC银行计划在以太坊与Solana上发行实物黄金基金代币</div>
+    <div class="news-desc">新加坡华侨银行（OCBC）计划将旗下实物黄金基金代币化，部署于以太坊与Solana两条公链。这是继富兰克林邓普顿、贝莱德之后又一传统金融机构入局RWA（现实资产上链）赛道的重要案例。金价持续创历史新高（当前约$4,845），为黄金代币化提供强力需求催化。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">行业趋势 · RWA</span>
+      <span class="news-tag">OCBC · 黄金代币化 · TradFi</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯 04-21 01:30）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority low">LOW</span> <span class="tag-time">04-20 23:47</span></div>
+    <div class="news-title">OpenAI发生大规模服务中断，ChatGPT及API全线受影响</div>
+    <div class="news-desc">OpenAI官方确认发生重大服务中断，ChatGPT、Sora、API及开发者工具暂时不可用，影响覆盖全球用户。OpenAI工程团队已启动紧急响应程序。此次事件对链上AI代理（AI Agent）相关代币情绪产生短暂负面影响。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">行业趋势 · AI</span>
+      <span class="news-tag">OpenAI · 宕机 · AI Agent情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477585" target="_blank">Odaily（OpenAI宕机 04-20 23:47）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 加密数据 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 01:30</span></div>
+    <div class="news-title">彭博ETF分析师：2026年初至今BTC现货ETF年化净流入已突破$10亿</div>
+    <div class="news-desc">彭博ETF分析师James Seyffart数据显示，2026年初至今，美国比特币现货ETF（以贝莱德IBIT为首）累计净流入已达年化$10亿以上，机构需求对BTC价格下方形成有力支撑。这与Strategy CEO所称"ETF年内买入量仅为Strategy的1/10"形成相互印证。</div>
+    <div class="news-tags">
+      <span class="news-tag">季级影响</span>
+      <span class="news-tag">加密数据 · ETF</span>
+      <span class="news-tag">BTC ETF流入 · 机构需求</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477617" target="_blank">Odaily（星球早讯 04-21 01:30）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority low">LOW</span> <span class="tag-time">04-21 00:59</span></div>
+    <div class="news-title">美国SOL现货ETF单日净流入$328万</div>
+    <div class="news-desc">美国SOL现货ETF昨日录得约$328万净流入，资金面维持小幅正向，延续上市以来的温和积累趋势。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">加密数据 · ETF资金流</span>
+      <span class="news-tag">SOL ETF</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477626" target="_blank">Odaily（SOL ETF 04-21 00:59）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority low">LOW</span> <span class="tag-time">04-21 00:57</span></div>
+    <div class="news-title">美国XRP现货ETF单日净流入$299万</div>
+    <div class="news-desc">美国XRP现货ETF昨日录得约$299万净流入，资金面延续温和正向态势，与SOL ETF并列成为本日表现稳健的山寨ETF品种。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">加密数据 · ETF资金流</span>
+      <span class="news-tag">XRP ETF</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477624" target="_blank">Odaily（XRP ETF 04-21 00:57）</a></div>
+  </div>
+</div>
+
+<!-- ── 今日关键词 ── -->
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">美伊谈判</span>
+    <span class="keyword">霍尔木兹</span>
+    <span class="keyword">伊斯兰堡</span>
+    <span class="keyword">Aave坏账$1.24-2.30亿</span>
+    <span class="keyword">Kelp根因揭秘</span>
+    <span class="keyword">LayerZero RPC被攻陷</span>
+    <span class="keyword">1-of-1 DVN风险</span>
+    <span class="keyword">Strategy STRC囤8000BTC</span>
+    <span class="keyword">年购量为ETF的10倍</span>
+    <span class="keyword">摩根士丹利买215BTC</span>
+    <span class="keyword">Grayscale HYPE ETF</span>
+    <span class="keyword">Anchorage托管</span>
+    <span class="keyword">OCBC黄金代币RWA</span>
+    <span class="keyword">Curve安全标准呼吁</span>
+    <span class="keyword">OpenAI宕机</span>
+    <span class="keyword">BTC ETF突破$10亿</span>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<div class="footer">
+  OKX Research · 加密早报 · 2026.04.21<br>
+  数据来源：Odaily · BlockBeats · 星球早讯 · 吴说区块链 · 彭博ETF<br>
+  本报告仅供信息参考，不构成任何投资建议。数据时间窗口：4月20日 20:00 — 4月21日 09:30（北京时间）
+</div>
+
 </body>
 </html>
