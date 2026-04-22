@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月22日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; font-family: 'Noto Serif SC', serif; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #BCFF2F; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+  .banner-thread { font-size: 12px; color: #ccc; line-height: 1.6; padding: 2px 0; }
+  .banner-thread-num { color: #BCFF2F; font-weight: 700; margin-right: 5px; }
+  .tag-time { font-size: 10px; color: #555; font-weight: 400; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; } .neutral { color: #FFD600; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- ── Sticky Header ── -->
+<div class="header">
+  <div class="header-date">2026 · APR 22 · 星期三</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月21日 20:00 — 4月22日 09:30</div>
+</div>
+
+<!-- 信息源 -->
+<div class="source-pills">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">PANews</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">链捕手</div>
+</div>
+
+<!-- ── 今日核心主线 Banner ── -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-thread"><span class="banner-thread-num">①</span>特朗普宣布无限期延长美伊停火——海上封锁维持，伊朗武装称"随时准备开火"，第二轮谈判破裂，中东高度不确定期持续；WTI油价 $92 高位震荡</div>
+  <div class="banner-thread"><span class="banner-thread-num">②</span>监管双重信号日：SEC主席Atkins发布"A-C-T"三轨战略重塑数字资产分类；纽约AG同日起诉Coinbase/Gemini预测市场"非法赌博"，索赔合计逾 $34 亿</div>
+  <div class="banner-thread"><span class="banner-thread-num">③</span>美联储提名人沃什听证：明确降息倾向、支持加密纳入金融体系——货币政策拐点信号与加密合规开放并行落地</div>
+</div>
+
+<!-- ── 市场行情 ── -->
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$76,340</div>
+      <div class="market-change up">停火消息↑ +1.2%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,314</div>
+      <div class="market-change up">温和反弹 +0.8%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">33</div>
+      <div class="market-change down">恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$92.13</div>
+      <div class="market-change up">封锁持续↑ +3.2%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,721</div>
+      <div class="market-change down">回落 -0.8%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">23,740</div>
+      <div class="market-change down">4/21收盘 -0.59%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 宏观与地缘 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">宏观与地缘</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-21 22:04</span></div>
+    <div class="news-title">特朗普宣布无限期延长美伊停火：应巴基斯坦请求暂缓军事打击，维持海上封锁等待伊朗提交统一方案</div>
+    <div class="news-desc">特朗普在 Truth Social 发文称，应巴基斯坦军政领导人请求暂缓对伊朗军事打击，延长停火期限。美军将继续实施海上封锁并保持战备状态，停火将持续至伊朗完成谈判为止"无论结果如何"。与此同时，伊朗武装部队哈塔姆·安比亚司令部声称"随时准备开火"，伊朗议会议长顾问称停火延长"毫无意义"。消息人士确认伊朗已正式拒绝出席4月22日巴基斯坦谈判，美国代表团威特科夫与库什纳亦未动身前往。</div>
+    <div class="news-tags">
+      <span class="news-tag">周至月级影响</span>
+      <span class="news-tag">宏观 · 地缘</span>
+      <span class="news-tag">美伊停火 · 霍尔木兹封锁 · 谈判破裂</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477809" target="_blank">Odaily（特朗普发文 04-21 22:04）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477807" target="_blank">Odaily（伊朗武装 04-21 22:02）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477808" target="_blank">Odaily（伊朗议会 04-21 22:03）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-22 00:19</span></div>
+    <div class="news-title">美联储主席提名人凯文·沃什参院听证：降息倾向明确，支持加密纳入金融体系，披露逾1亿美元资产含加密持仓</div>
+    <div class="news-desc">沃什在参议院银行委员会听证中展现"缩表与降息"双线政策主张，明确反对量化宽松常态化，但在利率立场上已显降息倾向。他同时表态数字资产"已成为美国金融体系的一部分"，承诺若获批将就职前剥离相关持仓。中金研报认为，这意味着单纯依赖流动性驱动的资产将面临压力，而加密监管开放信号被市场视为结构性利好。参议员 Elizabeth Warren 质疑其与特朗普家族加密公司存在潜在利益冲突。预测市场显示提名在6月前获批概率 78%。</div>
+    <div class="news-tags">
+      <span class="news-tag">月至季级影响</span>
+      <span class="news-tag">宏观 · 货币政策</span>
+      <span class="news-tag">美联储 · 沃什 · 降息预期 · 加密监管</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477805" target="_blank">Odaily（沃什加密立场 04-21 22:00）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/477825" target="_blank">Odaily（中金研报 04-22 00:19）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 01:02</span></div>
+    <div class="news-title">美股4月21日收盘：加密板块全线下挫，Circle -7.92%，Coinbase -7.41%，MSTR -9.72%，TRON -10.82%</div>
+    <div class="news-desc">地缘政治不确定性叠加监管诉讼压力，美股4月21日收盘加密相关股票全线重挫。Circle 跌 7.92%，Coinbase 跌 7.41%（同日遭纽约AG起诉），MSTR 跌 9.72%，TRON 跌 10.82%。纳斯达克综合指数小幅收跌 0.59%，整体市场情绪仍偏保守。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">市场 · 加密股</span>
+      <span class="news-tag">Circle · Coinbase · MSTR · TRON</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477841" target="_blank">Odaily（美股收盘 04-22 01:02）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 监管与政策 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <span class="section-title">监管与政策</span>
+    <span class="section-count">6</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-22 01:03</span></div>
+    <div class="news-title">SEC主席Atkins发布数字资产"A-C-T"监管战略框架：以资产分类替代案例式执法，重构行业合规路径</div>
+    <div class="news-desc">SEC 主席 Paul Atkins 在 SEC 首次数字资产峰会上发布"A-C-T"三轨战略：A（Asset Classification）— 明确数字资产证券属性边界；C（Clarity）— 为未注册数字证券建立豁免通道；T（Trading）— 开放合规交易基础设施注册路径。这是 Gensler 时代案例式执法体系后首次提出系统性分类监管，被业界视为加密友好监管风向标的正式落地。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 政策</span>
+      <span class="news-tag">SEC · Atkins · 数字资产分类 · 合规</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477842" target="_blank">Odaily（Atkins A-C-T发布 04-22 01:03）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-21 21:52</span></div>
+    <div class="news-title">纽约总检察长起诉Coinbase与Gemini：预测市场属"非法赌博"，分别索赔 $22 亿和 $12 亿</div>
+    <div class="news-desc">纽约总检察长 Letitia James 对 Coinbase 与 Gemini 提起诉讼，指控两家公司通过预测市场平台提供变相赌博服务，违反纽约州法律。监管重点在于：基于事件结果（体育、选举）的交易属博彩性质，且平台允许18至21岁用户参与，违反纽约州博彩年龄下限21岁的规定。检方向 Coinbase 索赔至少 22 亿美元，向 Gemini 索赔至少 12 亿美元。两家公司均暗示预测市场受 CFTC 联邦管辖，属合法范畴。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 诉讼</span>
+      <span class="news-tag">纽约AG · Coinbase · Gemini · 预测市场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477803" target="_blank">Odaily（NY AG起诉 04-21 21:52）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 01:33</span></div>
+    <div class="news-title">新加坡MAS咨询：公链原生资产或不再归入高风险类别，有望获得 Group 1 监管处理</div>
+    <div class="news-desc">新加坡金融管理局（MAS）发布咨询文件，拟将符合条件的公链原生加密资产（如比特币）从现行高风险类别中移出，允许其按 Group 1 处理——这意味着此类资产将适用与传统金融资产更接近的资本要求。此举若落地，将大幅降低受新加坡监管机构约束的银行和金融机构持有加密资产的合规成本，被视为亚太区监管开放的重要信号。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 政策</span>
+      <span class="news-tag">MAS · 新加坡 · 公链资产 · Group 1</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477852" target="_blank">Odaily（MAS咨询 04-22 01:33）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 21:50</span></div>
+    <div class="news-title">PACE法案：两党推进向非银行开放美联储支付网络，稳定币发行商可直接接入 Fedwire/FedNow</div>
+    <div class="news-desc">美国两党议员提出 PACE（Payment Automation and Clearing Enhancement）法案，允许符合条件的非银行支付机构直接接入美联储支付体系（Fedwire、FedNow、FedACH），由 OCC 统一监管。该法案要求机构维持 1:1 储备，将"打破传统银行对底层支付基础设施的垄断"，为稳定币发行商、加密支付公司开放关键通道。业界视其为《稳定币法案》的基础设施配套立法。</div>
+    <div class="news-tags">
+      <span class="news-tag">月至季级影响</span>
+      <span class="news-tag">监管 · 立法</span>
+      <span class="news-tag">PACE法案 · 稳定币 · 美联储支付</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477802" target="_blank">Odaily（PACE法案 04-21 21:50）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 01:16</span></div>
+    <div class="news-title">经济日报：坚决遏制加密"场外交易"等违法活动，强调依法打击虚拟货币相关金融违规</div>
+    <div class="news-desc">《经济日报》发表评论文章，明确表态坚决遏制以加密货币为媒介的场外交易、洗钱等违法活动，并呼吁监管部门依法强化对虚拟货币相关非法金融活动的打击力度。文章发出时间节点敏感，市场解读为内地监管高压态势持续强化的舆论信号。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 合规</span>
+      <span class="news-tag">经济日报 · 场外交易 · 中国监管</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477847" target="_blank">Odaily（经济日报 04-22 01:16）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 01:15</span></div>
+    <div class="news-title">俄罗斯杜马一读通过数字货币法案：央行掌控市场准入，个人持仓限额设定，明确纳入反洗钱框架</div>
+    <div class="news-desc">俄罗斯国家杜马一读通过数字货币监管法案，核心条款包括：俄央行拥有对所有数字货币交易所及托管机构的市场准入审批权；个人持仓设定上限；数字货币交易纳入统一反洗钱/反恐怖融资框架。法案尚需二读、三读及联邦委员会批准。分析认为，俄罗斯正在将加密市场纳入国家金融监控体系，未来跨境加密交易管控将趋严。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 立法</span>
+      <span class="news-tag">俄罗斯 · 数字货币法 · 央行监管</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477846" target="_blank">Odaily（俄杜马法案 04-22 01:15）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 机构与资金 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">机构与资金</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span> <span class="tag-time">04-22 01:22</span></div>
+    <div class="news-title">Michael Saylor：Strategy 4月前三周实现 BTC Yield 6.2%，累计获益 47,079 枚比特币</div>
+    <div class="news-desc">Strategy 联合创始人 Michael Saylor 披露，4月1日至4月21日，Strategy 实现 BTC Yield（每股持仓折算收益率）6.2%，期间累计净获益 47,079 枚 BTC。按当前市价约合 35.9 亿美元。目前 Strategy 总持仓达 815,061 枚 BTC，平均持仓成本约 75,527 美元/枚，总市值约 622 亿美元。单月 BTC Yield 6.2% 属今年月度最高记录之一，强化了机构持续加仓的叙事。</div>
+    <div class="news-tags">
+      <span class="news-tag">日至周级影响</span>
+      <span class="news-tag">机构 · 资金</span>
+      <span class="news-tag">Strategy · Michael Saylor · BTC Yield · 机构持仓</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477848" target="_blank">Odaily（Saylor披露 04-22 01:22）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-21 22:01</span></div>
+    <div class="news-title">Etherealize上调ETH长期目标价至 $250,000：以太坊有望在31万亿价值储藏市场中获取"货币溢价"</div>
+    <div class="news-desc">以太坊研究机构 Etherealize 发布报告，将 ETH 长期目标价从此前预估大幅上调至 25 万美元。核心逻辑：假设以太坊在以黄金（$21T）+比特币（$10T）为锚的 $31 万亿价值储藏市场中取得相当份额，ETH 因兼具"价值储藏"与"收益生息"双重属性，理论上能获取其他竞争资产无法实现的"货币溢价"叠加。报告为长期框架，非短期价格预测。</div>
+    <div class="news-tags">
+      <span class="news-tag">长期影响</span>
+      <span class="news-tag">研究 · 资金</span>
+      <span class="news-tag">ETH · $250K目标价 · 货币溢价 · Etherealize</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477806" target="_blank">Odaily（Etherealize报告 04-21 22:01）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 项目与安全 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🔐</span>
+    <span class="section-title">项目与安全</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 00:58</span></div>
+    <div class="news-title">Volo Protocol 遭攻击损失 $350 万：闪电贷套利漏洞，协议宣布自行承担全部用户损失</div>
+    <div class="news-desc">DeFi 借贷协议 Volo Protocol 遭闪电贷攻击，损失约 350 万美元。攻击者利用价格预言机操纵漏洞，通过多步闪电贷套利完成获利后撤出。Volo 团队宣布将自行承担全部用户损失，并已暂停相关合约功能，漏洞修复后将重新开放。事件发生于 KelpDAO 大规模攻击后48小时内，再度引发市场对 DeFi 借贷协议安全标准的关注。</div>
+    <div class="news-tags">
+      <span class="news-tag">日至周级影响</span>
+      <span class="news-tag">安全 · DeFi</span>
+      <span class="news-tag">Volo Protocol · 闪电贷 · $350万</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477840" target="_blank">Odaily（Volo攻击 04-22 00:58）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 01:09</span></div>
+    <div class="news-title">Jefferies研报：KelpDAO安全事件或显著拖慢华尔街机构采用区块链的步伐</div>
+    <div class="news-desc">投行 Jefferies 发布研报指出，KelpDAO rsETH 桥事件（$2.92亿被盗）将对华尔街金融机构的区块链采用进程产生显著负面影响。报告认为，该事件暴露了跨链桥基础设施的系统性风险，而此类风险对于需要满足合规合规标准的传统金融机构而言"几乎不可接受"。Jefferies 预计短期内机构级 DeFi 布局节奏将放缓。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">研究 · 机构</span>
+      <span class="news-tag">Jefferies · KelpDAO · 华尔街 · 机构布局</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477844" target="_blank">Odaily（Jefferies研报 04-22 01:09）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 00:54</span></div>
+    <div class="news-title">Blockchain.com 推出永续合约交易，底层撮合由 Hyperliquid 提供支持</div>
+    <div class="news-desc">Blockchain.com 宣布上线永续合约交易产品，底层撮合引擎由 Hyperliquid 提供。此举标志着中心化交易所与去中心化链上撮合基础设施之间的合作模式进一步成熟，也是 Hyperliquid 作为"衍生品基础设施层"持续向外扩张的又一案例。Blockchain.com 的零售用户群将由此获得链上流动性深度的访问路径。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">产品 · 衍生品</span>
+      <span class="news-tag">Blockchain.com · 永续合约 · Hyperliquid</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477837" target="_blank">Odaily（Blockchain.com永续 04-22 00:54）</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ 行业动态 ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🔄</span>
+    <span class="section-title">行业动态</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span> <span class="tag-time">04-22 01:07</span></div>
+    <div class="news-title">彭博：李林将旗下20人核心交易团队迁移至港股上市公司 Bitfire，战略重心转向香港合规市场</div>
+    <div class="news-desc">彭博援引知情人士称，加密行业知名交易员李林已将其旗下约20人的核心量化交易团队整体迁移至港股上市公司 Bitfire，后者正推进成为香港持牌交易所的申请进程。此举被解读为李林押注香港合规化市场窗口，借助上市公司框架绕过内地加密监管限制，加速在港扩张。</div>
+    <div class="news-tags">
+      <span class="news-tag">日至周级影响</span>
+      <span class="news-tag">行业 · 人事</span>
+      <span class="news-tag">李林 · Bitfire · 香港 · 合规市场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/477843" target="_blank">Odaily（彭博报道 04-22 01:07）</a></div>
+  </div>
+</div>
+
+<!-- ── 今日关键词 ── -->
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">美伊停火延长</span>
+    <span class="keyword">A-C-T战略</span>
+    <span class="keyword">沃什降息预期</span>
+    <span class="keyword">预测市场诉讼</span>
+    <span class="keyword">Strategy BTC Yield</span>
+    <span class="keyword">PACE法案</span>
+    <span class="keyword">新加坡MAS Group 1</span>
+    <span class="keyword">俄罗斯数字货币法</span>
+    <span class="keyword">Volo攻击</span>
+    <span class="keyword">Hyperliquid永续</span>
+    <span class="keyword">Bitfire香港</span>
+    <span class="keyword">ETH $250K目标</span>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<div class="footer">
+  本早报由 AI 辅助生成，信息来源经人工审核<br>
+  仅供参考，不构成投资建议 · 数据基准时间 04-22 09:30 BJ
+</div>
+
+</body>
+</html>
