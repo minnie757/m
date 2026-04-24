@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 4月24日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.2px;
+    }
+    .source-pills {
+      display: flex;
+      gap: 6px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #0a0a0a;
+      scrollbar-width: none;
+    }
+    .source-pills::-webkit-scrollbar { display: none; }
+    .pill {
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #aaa;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .core-banner {
+      margin: 12px 16px;
+      padding: 12px 14px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 4px 4px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.7;
+    }
+    .banner-text strong { color: #fff; }
+    .market-section { padding: 12px 16px 8px; }
+    .market-label {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+    .market-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .market-change { font-size: 12px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .section-container { padding: 0 16px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 8px 0;
+      border-top: 1px solid #111;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+      letter-spacing: 0.3px;
+    }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #111; color: #555; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 5px;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #111;
+      color: #555;
+      border: 1px solid #1a1a1a;
+    }
+    .tag.kw {
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border-color: #1a2a0a;
+    }
+    .news-source {
+      font-size: 11px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section {
+      padding: 12px 16px;
+      border-top: 1px solid #0a0a0a;
+      margin-top: 4px;
+    }
+    .keywords-title {
+      font-size: 10px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 11px;
+      color: #333;
+      border-top: 1px solid #0a0a0a;
+      line-height: 1.8;
+    }
+    .footer-brand { font-weight: 600; color: #555; margin-bottom: 6px; }
+    .footer-sources { margin-bottom: 6px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-date">2026年4月24日 · 星期五</div>
+  <div class="header-title">加密行业<span class="green">热点</span>早报</div>
+  <div class="header-sub">时间窗口：4月23日 20:00 — 4月24日 09:30（北京时间）</div>
+</div>
+
+<!-- SOURCE PILLS -->
+<div class="source-pills">
+  <span class="pill">Odaily星球日报</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">SoSoValue</span>
+  <span class="pill">Lookonchain</span>
+  <span class="pill">Yahoo Finance</span>
+</div>
+
+<!-- CORE BANNER -->
+<div class="core-banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① DeFi United协同救援rsETH缺口：</strong>Lido（2,500 stETH）、Aave创始人Stani（个人5,000 ETH）、Mantle（30,000 ETH）三方已公开承诺，合力填补约43,500 ETH缺口，DeFi生态互救模式首次大规模实测。<br>
+    <strong>② BlackRock IBIT持仓创历史纪录：</strong>持仓突破806,700 BTC（价值$637亿），占BTC总供应量3.84%，BTC现货ETF七连正流入，单日净流入$335.82M。
+  </div>
+</div>
+
+<!-- MARKET SECTION -->
+<div class="market-section">
+  <div class="market-label">市场行情 · 4月24日 09:30 北京时间</div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$78,421</div>
+      <div class="market-change up">+0.06%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,333</div>
+      <div class="market-change up">+1.48%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">46</div>
+      <div class="market-change neutral">恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$96.61</div>
+      <div class="market-change up">+3.9%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,738</div>
+      <div class="market-change down">-0.02%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">24,438</div>
+      <div class="market-change down">-0.89%</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: 宏观与地缘 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">宏观与地缘</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-24 01:00</span>
+    </div>
+    <div class="news-title">美股4月23日收盘全线收跌，Nasdaq -0.89%，加密板块遭集体抛售</div>
+    <div class="news-desc">纳斯达克综合指数收于24,438.50，下跌0.89%；标普500下跌0.41%至7,108.40；道琼斯下跌0.36%。加密板块跌幅更深：ALTS -7.61%，ABTC -5.97%，HOOD -5.53%，COIN -4.03%，CRCL -4.17%。油价攀升及伊朗地缘风险令市场情绪转谨慎，此前两日创出ATH的牛势动能有所减弱。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">传统金融·美股</span>
+      <span class="tag kw">COIN</span>
+      <span class="tag kw">加密板块</span>
+      <span class="tag kw">Nasdaq</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478159" target="_blank">Odaily（美股4月23日收盘 01:00）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-23 持续</span>
+    </div>
+    <div class="news-title">WTI原油升至$96.61，霍尔木兹地缘溢价持续发酵，能源股独涨</div>
+    <div class="news-desc">WTI原油期货涨至$96.61，布伦特原油逼近$100关口。特朗普此前宣称已对霍尔木兹海峡实施"完全封锁"，伊朗收取首笔海峡通行费，局势拉锯持续推高能源价格。黄金小幅回落至$4,738，市场对通胀预期重新定价，高油价令纳斯达克科技股承压。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球事件·地缘政治</span>
+      <span class="tag kw">霍尔木兹</span>
+      <span class="tag kw">WTI原油</span>
+      <span class="tag kw">伊朗</span>
+    </div>
+    <div class="news-source">来源：<a href="https://tradingeconomics.com/commodity/crude-oil" target="_blank">TradingEconomics（WTI实时）</a> · <a href="https://fortune.com/article/price-of-bitcoin-04-23-2026/" target="_blank">Fortune（4月23日行情）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 机构与资金 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">机构与资金</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-23 美市</span>
+    </div>
+    <div class="news-title">BlackRock IBIT持仓突破806,700 BTC（$637亿），创全球ETF历史最高单一资产持仓纪录</div>
+    <div class="news-desc">BlackRock旗下iShares Bitcoin Trust（IBIT）最新持仓达806,700 BTC，占BTC 21M总供应量3.84%，价值约637亿美元，成为全球持有单一资产规模最大的现货ETF。本轮持续增仓于9个连续交易日新增约21,500 BTC。值得注意的是，MicroStrategy/Strategy持仓以815,061 BTC仍居机构首位。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">机构资金·ETF持仓</span>
+      <span class="tag kw">BlackRock IBIT</span>
+      <span class="tag kw">806,700 BTC</span>
+      <span class="tag kw">机构持仓</span>
+    </div>
+    <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/crypto/articles/blackrock-bitcoin-etf-holdings-hit-203000203.html" target="_blank">Yahoo Finance（BlackRock IBIT纪录）</a> · <a href="https://bingx.com/en/flash-news/post/blackrock-s-ibit-reaches-record-btc-holdings-valued-at-billion" target="_blank">BingX（持仓详情）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-23 美市</span>
+    </div>
+    <div class="news-title">美国BTC现货ETF七连正流入，4月23日单日净流入$335.82M</div>
+    <div class="news-desc">据SoSoValue数据，美国比特币现货ETF在4月23日（美东时间）录得单日净流入$335.82M，实现连续7个交易日净流入。BTC ETF市场需求持续扩张，机构端增仓意愿稳定。同日XRP现货ETF单日净流入亦达$388.57万，Franklin XRP ETF（XRPZ）累计历史净流入已达$3.49亿。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">机构资金·ETF流量</span>
+      <span class="tag kw">BTC ETF</span>
+      <span class="tag kw">$335.82M</span>
+      <span class="tag kw">XRP ETF</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478155" target="_blank">Odaily（XRP ETF流入 00:39）</a> · SoSoValue数据</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-24 01:18</span>
+    </div>
+    <div class="news-title">Bitmine再质押98,352枚ETH，总质押规模达358.78万枚（约$83.5亿）</div>
+    <div class="news-desc">据Lookonchain监测，Tom Lee支持的Bitmine约4小时前新增质押98,352 ETH（约$2.29亿），累计质押总量升至3,587,821 ETH，当前价值约$83.5亿，占其总持仓的72.1%。Bitmine持续扩大以太坊验证节点参与规模，成为头部机构ETH质押者之一。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">机构资金·ETH质押</span>
+      <span class="tag kw">Bitmine</span>
+      <span class="tag kw">ETH质押</span>
+      <span class="tag kw">Tom Lee</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478165" target="_blank">Odaily（Bitmine质押 01:18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-23 12:14</span>
+    </div>
+    <div class="news-title">Tether配合美国政府冻结Tron链两枚钱包，涉及$3.44亿USDT</div>
+    <div class="news-desc">Tether宣布冻结Tron链上两枚钱包内共计$344M USDT，此次冻结系配合美国政府执法行动。Tether强调将持续与各国执法机构合作，以防范稳定币被用于非法用途。该事件凸显稳定币发行方在监管合规压力下的主动配合态势，但部分用户对中心化审查权力表示关注。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">全球监管·稳定币</span>
+      <span class="tag kw">Tether</span>
+      <span class="tag kw">$344M USDT</span>
+      <span class="tag kw">Tron</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478080" target="_blank">Odaily（Tether冻结 12:14）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 链上事件 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-23 22:07 / 04-24 00:21</span>
+    </div>
+    <div class="news-title">DeFi United多方协同救援rsETH缺口：Lido、Stani、Mantle合计承诺约43,500 ETH</div>
+    <div class="news-desc">4月18日Kelp DAO桥接合约遭LayerZero DVN漏洞攻击，攻击者铸造约116,500枚无抵押rsETH存入Aave套借~$1.9亿资产，造成Aave总坏账估计在$1.23亿-$2.3亿之间，TVL单日蒸发$66亿。为填补rsETH缺口，"DeFi United"生态救援框架已获三方公开承诺：Lido DAO提议最多2,500 stETH（约$580万）；Aave创始人Stani宣布个人捐出5,000 ETH；Mantle生态提议借出30,000 ETH。Aave已暂停多链rsETH操作控制风险敞口。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">链上事件·协议安全·DeFi</span>
+      <span class="tag kw">rsETH</span>
+      <span class="tag kw">DeFi United</span>
+      <span class="tag kw">Aave</span>
+      <span class="tag kw">Lido</span>
+      <span class="tag kw">KelpDAO</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478140" target="_blank">Odaily（Lido提议 22:07）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478148" target="_blank">Odaily（Stani捐款 00:21）</a> · <a href="https://www.coindesk.com/tech/2026/04/20/aave-could-face-up-to-usd230-million-in-losses-after-kelp-dao-bridge-exploit-triggers-defi-chaos" target="_blank">CoinDesk（背景分析）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 监管与政策 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">监管与政策</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-24 00:27</span>
+    </div>
+    <div class="news-title">共和党高层致信卢特尼克：要求立即叫停加密货币PAC在德克萨斯州的竞选投入</div>
+    <div class="news-desc">美国共和党多位高层议员联名向商务部长卢特尼克（Howard Lutnick）发函，要求其叫停与加密货币行业PAC（政治行动委员会）在德克萨斯州国会选举中的资金投入。此举显示党内对加密行业影响选举政治的不满情绪升温，或将引发加密政治献金透明度及合规边界的新一轮审查。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">全球监管·政治</span>
+      <span class="tag kw">共和党</span>
+      <span class="tag kw">加密PAC</span>
+      <span class="tag kw">卢特尼克</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478150" target="_blank">Odaily（PAC叫停 00:27）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-23 10:31</span>
+    </div>
+    <div class="news-title">100+加密货币公司联名致信美国参议院，敦促加速推进CLARITY Act立法</div>
+    <div class="news-desc">超过100家加密货币机构联合签署公开信发送至美国参议院，要求尽快推进《CLARITY Act》（数字资产市场结构明晰法案）立法进程。该法案旨在厘清SEC与CFTC在加密资产监管上的权限边界。行业集体呼声加码，被视为对SEC主席Atkins发布"A-C-T"监管框架后的积极跟进，产业界正推动国会将监管框架落地为具体立法。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球监管·立法</span>
+      <span class="tag kw">CLARITY Act</span>
+      <span class="tag kw">SEC·CFTC</span>
+      <span class="tag kw">加密监管立法</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478060" target="_blank">Odaily（CLARITY Act联署 10:31）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 行业动态 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业动态</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-24 01:30</span>
+    </div>
+    <div class="news-title">MegaETH TGE定于4月30日，Sooth Labs完成5,000万美元融资</div>
+    <div class="news-desc">据星球早讯，MegaETH代币生成事件（TGE）正式确认将于4月30日举行，引发市场对其流动性及生态激励的广泛关注。同日，AI+预测市场基础设施项目Sooth Labs宣布完成5,000万美元融资。3F Protocol（RWA赛道）完成400万美元种子轮。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">行业趋势·TGE·融资</span>
+      <span class="tag kw">MegaETH</span>
+      <span class="tag kw">TGE</span>
+      <span class="tag kw">Sooth Labs</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478162" target="_blank">Odaily 星球早讯（01:30）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-23 21:36</span>
+    </div>
+    <div class="news-title">BTC跌破77,000后反弹回78,000区域，加密市场恐惧情绪延续（F&amp;G 46）</div>
+    <div class="news-desc">BTC一度跌破77,000 USDT（24H跌幅-2.4%），随后反弹至78,000 USDT区域（24H跌幅收窄至-0.84%），截至09:30报$78,421，24H变动接近持平（+0.06%）。以太坊小幅回升至$2,333（+1.48%）。恐惧贪婪指数报46（恐惧区间），较此前50+水平有所回落，市场观望情绪较浓。本日$8.6亿BTC/ETH期权到期，需关注大规模行权对现货价格的短期扰动。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">加密数据·市场情绪</span>
+      <span class="tag kw">BTC 78,000</span>
+      <span class="tag kw">期权到期</span>
+      <span class="tag kw">恐惧贪婪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478136" target="_blank">Odaily（BTC反弹 21:36）</a> · <a href="https://www.coindesk.com/price/bitcoin" target="_blank">CoinDesk实时行情</a></div>
+  </div>
+</div>
+
+<!-- KEYWORDS -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-list">
+    <span class="keyword">DeFi United</span>
+    <span class="keyword">rsETH缺口</span>
+    <span class="keyword">BlackRock IBIT</span>
+    <span class="keyword">806,700 BTC</span>
+    <span class="keyword">BTC ETF 7连正</span>
+    <span class="keyword">Bitmine质押</span>
+    <span class="keyword">WTI $96</span>
+    <span class="keyword">霍尔木兹</span>
+    <span class="keyword">CLARITY Act</span>
+    <span class="keyword">Tether冻结</span>
+    <span class="keyword">MegaETH TGE</span>
+    <span class="keyword">加密PAC</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密行业热点早报 · 2026年4月24日</div>
+  <div class="footer-sources">数据来源：Odaily星球日报 · CoinDesk · SoSoValue · Lookonchain · Yahoo Finance · TradingEconomics</div>
+  <div class="footer-sources">时间窗口：2026年4月23日 20:00 — 4月24日 09:30（北京时间）</div>
+  <div class="footer-disclaimer">本报告仅供信息参考，不构成任何投资建议。加密市场存在高度风险，请独立判断。</div>
+</div>
+
+</body>
+</html>
