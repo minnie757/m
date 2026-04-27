@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 4月27日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.2px;
+    }
+    .source-pills {
+      display: flex;
+      gap: 6px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #0a0a0a;
+      scrollbar-width: none;
+    }
+    .source-pills::-webkit-scrollbar { display: none; }
+    .pill {
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #aaa;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .core-banner {
+      margin: 12px 16px;
+      padding: 12px 14px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 4px 4px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.7;
+    }
+    .banner-text strong { color: #fff; }
+    .market-section { padding: 12px 16px 8px; }
+    .market-label {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+    .market-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .market-change { font-size: 12px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .section-container { padding: 0 16px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 8px 0;
+      border-top: 1px solid #111;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+      letter-spacing: 0.3px;
+    }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #111; color: #555; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 5px;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #111;
+      color: #555;
+      border: 1px solid #1a1a1a;
+    }
+    .tag.kw {
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border-color: #1a2a0a;
+    }
+    .news-source {
+      font-size: 11px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section {
+      padding: 12px 16px;
+      border-top: 1px solid #0a0a0a;
+      margin-top: 4px;
+    }
+    .keywords-title {
+      font-size: 10px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 11px;
+      color: #333;
+      border-top: 1px solid #0a0a0a;
+      line-height: 1.8;
+    }
+    .footer-brand { font-weight: 600; color: #555; margin-bottom: 6px; }
+    .footer-sources { margin-bottom: 6px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-date">2026年4月27日 · 星期一</div>
+  <div class="header-title">加密行业<span class="green">热点</span>早报</div>
+  <div class="header-sub">时间窗口：4月26日 20:00 — 4月27日 09:30（北京时间）</div>
+</div>
+
+<!-- SOURCE PILLS -->
+<div class="source-pills">
+  <span class="pill">Odaily星球日报</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">AXIOS</span>
+  <span class="pill">CNBC</span>
+  <span class="pill">EmberCN</span>
+</div>
+
+<!-- CORE BANNER -->
+<div class="core-banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① 伊朗启动三阶段谈判路线图：</strong>向美提议优先以协议形式解决霍尔木兹海峡开放问题，核谈判推后，绕开内部分歧。特朗普周一将召开情况室会议讨论伊朗战略，地缘局势出现实质性缓和信号，WTI仍升至$99区间。<br>
+    <strong>② 沃什美联储主席提名正式清障：</strong>参议员蒂利斯撤回阻挠，沃什任命程序最后障碍解除，降息预期重燃，全球股市联动走高——纳斯达克+标普500双创ATH，亚洲日韩股市跟进。
+  </div>
+</div>
+
+<!-- MARKET SECTION -->
+<div class="market-section">
+  <div class="market-label">市场行情 · 4月27日 09:30 北京时间</div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$78,890</div>
+      <div class="market-change up">+1.82%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,382</div>
+      <div class="market-change up">+2.91%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">35</div>
+      <div class="market-change neutral">恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$99.08</div>
+      <div class="market-change up">+1.10%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,678</div>
+      <div class="market-change down">-0.69%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克（周五收）</div>
+      <div class="market-price">24,837</div>
+      <div class="market-change up">+1.60% ATH</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: 宏观与地缘 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">宏观与地缘</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-27 00:06 / 01:06</span>
+    </div>
+    <div class="news-title">伊朗提三阶段谈判路线图并向美提议优先以协议解决霍尔木兹，核谈判推至第三阶段</div>
+    <div class="news-desc">据AXIOS援引美方官员消息，伊朗已向美国传递新提案：优先就重开霍尔木兹海峡及解除海上封锁达成协议，核谈判置于第三阶段，以绕开伊朗领导层内部分歧。此前伊朗已通过中间渠道提出三阶段框架：第一阶段全面停火并获得美方不再发动军事行动的保证；第二阶段处理海峡管理；第三阶段才涉及核问题。特朗普将于周一召开情况室会议，讨论伊朗战略及潜在军事行动备选方案。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">全球事件·地缘政治</span>
+      <span class="tag kw">伊朗谈判</span>
+      <span class="tag kw">霍尔木兹</span>
+      <span class="tag kw">三阶段方案</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478418" target="_blank">Odaily（伊朗三阶段方案 00:06）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478428" target="_blank">Odaily（伊朗提议海峡协议 01:06）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-27 00:11</span>
+    </div>
+    <div class="news-title">美国中央司令部已指示38艘船只掉头或驶回伊朗港口</div>
+    <div class="news-desc">据报道，美国中央司令部（CENTCOM）已对38艘船只下达指令，要求其掉头或返回伊朗港口。此举与伊朗谈判进展并行，显示美方在外交窗口期内仍维持强势军事管控姿态，霍尔木兹海峡实质封锁效果持续，能源价格受供给端压力支撑。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">全球事件·军事·海运</span>
+      <span class="tag kw">CENTCOM</span>
+      <span class="tag kw">38艘船只</span>
+      <span class="tag kw">霍尔木兹封锁</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478420" target="_blank">Odaily（CENTCOM指令 00:11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-25 / 04-27</span>
+    </div>
+    <div class="news-title">纳斯达克+标普500双创历史新高，日韩股市跟进，全球风险情绪回暖</div>
+    <div class="news-desc">美股4月25日（周五）收盘：纳斯达克涨1.60%至24,837（ATH）；标普500涨0.8%至7,165.8（ATH）。英特尔Q1业绩超预期（+23%）叠加伊朗谈判乐观预期，推动风险资产全线拉升。亚洲方面，日本与韩国股市亦双双创出新高。BTC本周累计涨幅已达约+13.7%，为近五年最强四月表现。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">传统金融·美股·亚股</span>
+      <span class="tag kw">纳斯达克 ATH</span>
+      <span class="tag kw">标普500 ATH</span>
+      <span class="tag kw">日韩股市</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.newstribune.com/news/2026/apr/25/sp-500-nasdaq-close-at-record-highs-aided-by-iran/" target="_blank">Jefferson City News-Tribune（美股ATH）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478419" target="_blank">Odaily（日韩新高 00:10）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 货币政策 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <span class="section-title">货币政策</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-27 00:42</span>
+    </div>
+    <div class="news-title">参议员蒂利斯撤回阻挠，沃什美联储主席提名正式扫清最后障碍</div>
+    <div class="news-desc">北卡罗莱纳州共和党参议员汤姆·蒂利斯宣布撤回对凯文·沃什（Kevin Warsh）美联储主席提名的阻挠，此前他以"司法部对鲍威尔的刑事调查尚在进行"为由拒绝推进任何美联储提名。该调查已于上周五结束，蒂利斯随即解除阻挠。沃什此前在国会听证中显现鸽派倾向（降息预期），其提名推进被市场视为重要货币政策信号，或为年内宽松打开窗口。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">货币政策·美联储人事</span>
+      <span class="tag kw">沃什</span>
+      <span class="tag kw">美联储主席</span>
+      <span class="tag kw">降息预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478423" target="_blank">Odaily（蒂利斯撤阻挠 00:42）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 监管与政策 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">监管与政策</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-27 00:15</span>
+    </div>
+    <div class="news-title">加密市场结构法案推进受阻，5月25日纪念日或成立法关键窗口</div>
+    <div class="news-desc">美国《加密市场结构法案》（CLARITY Act）推进遭遇阻力，有关稳定币收益及DeFi销售行为的分歧尚存。据业内人士分析，5月25日（阵亡将士纪念日）前是国会推进立法的最后窗口，此后夏季竞选周期将令进展更难。上周已有超过100家机构联署，敦促参议院银行委员会启动审议程序。若该窗口期失效，监管不确定性将延续至年底。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球监管·立法进程</span>
+      <span class="tag kw">CLARITY Act</span>
+      <span class="tag kw">5月25日节点</span>
+      <span class="tag kw">市场结构法案</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478421" target="_blank">Odaily（法案节点 00:15）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 链上事件 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-27 00:52</span>
+    </div>
+    <div class="news-title">巨鲸pension-usdt.eth持3倍做空$1.1亿BTC/ETH，当前浮亏$1525万</div>
+    <div class="news-desc">据EmberCN监测，地址pension-usdt.eth建立3倍杠杆空仓：空BTC 1,000枚（入场价$67,992，清算价$99,394，当前浮亏约$1057万）；空ETH 20,000枚（入场价$2,132，清算价$3,400，当前浮亏约$468万）。总名义价值约$1.1亿，总浮亏约$1,525万。该仓位建立于4月初，反映部分大户延续看跌观点，但随着价格反弹承压加剧。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">链上事件·杠杆做空</span>
+      <span class="tag kw">做空巨鲸</span>
+      <span class="tag kw">BTC清算$99,394</span>
+      <span class="tag kw">ETH清算$3,400</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478424" target="_blank">Odaily（EmberCN监测 00:52）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-27 01:02</span>
+    </div>
+    <div class="news-title">巨鲸赎回30万枚SOL（价值$2607万）并于30分钟内全部转入币安</div>
+    <div class="news-desc">据EmberCN监测，一大型SOL质押巨鲸赎回30万枚SOL（当时价值约$2,607万），并在约30分钟内将全部代币转入币安交易所。大额解质押后集中入场交易所，市场普遍解读为减仓或获利了结信号，需关注对SOL现货短期供给压力的影响。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">链上事件·SOL解质押</span>
+      <span class="tag kw">SOL巨鲸</span>
+      <span class="tag kw">30万枚SOL</span>
+      <span class="tag kw">币安入场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478427" target="_blank">Odaily（SOL巨鲸 01:02）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-27 01:30</span>
+    </div>
+    <div class="news-title">沉寂2年巨鲸向币安存入300枚BTC，当前浮盈约$1760万</div>
+    <div class="news-desc">据星球早讯，一沉寂逾2年的BTC巨鲸地址向币安存入300枚BTC，若在现价附近出售，浮盈约$1,760万。时隔2年的长期持有者选择在BTC反弹至78,000+附近开始移动筹码，被部分分析人士视为老鲸鱼逢高减仓的早期信号。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">链上事件·老鲸减仓</span>
+      <span class="tag kw">沉睡鲸鱼</span>
+      <span class="tag kw">300 BTC</span>
+      <span class="tag kw">币安入账</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478429" target="_blank">Odaily 星球早讯（01:30）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 行情动态 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">行情动态</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-27 00:55 / 01:01</span>
+    </div>
+    <div class="news-title">BTC突破79,000 USDT（+1.94%），ETH突破2,400 USDT（+3.68%），BTC/ETH波动率指数双双走高</div>
+    <div class="news-desc">BTC于北京时间00:55突破79,000 USDT关口，24H涨幅达1.94%；ETH于01:01突破2,400 USDT，24H涨幅达3.68%，涨幅跑赢BTC。截至09:30，BTC报$78,890（+1.82%），ETH报$2,382（+2.91%）。Gate数据显示BTC波动率指数（BVIX）41.80（+0.31%），ETH波动率指数（EVIX）62.19（+0.55%），市场流动性波动性同步上升。恐惧贪婪指数当前约35（恐惧区间），市场情绪仍偏保守。</div>
+    <div class="news-tags">
+      <span class="tag">日级</span>
+      <span class="tag">加密数据·价格突破·波动率</span>
+      <span class="tag kw">BTC 79,000</span>
+      <span class="tag kw">ETH 2,400</span>
+      <span class="tag kw">BVIX·EVIX</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478425" target="_blank">Odaily（BTC 79K 00:55）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478426" target="_blank">Odaily（ETH 2400 01:01）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478422" target="_blank">Odaily（波动率指数 01:00）</a></div>
+  </div>
+</div>
+
+<!-- KEYWORDS -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-list">
+    <span class="keyword">伊朗三阶段方案</span>
+    <span class="keyword">霍尔木兹谈判</span>
+    <span class="keyword">沃什美联储</span>
+    <span class="keyword">降息预期</span>
+    <span class="keyword">CLARITY Act</span>
+    <span class="keyword">5月25日节点</span>
+    <span class="keyword">纳斯达克 ATH</span>
+    <span class="keyword">BTC 79,000</span>
+    <span class="keyword">ETH 2,400</span>
+    <span class="keyword">做空巨鲸</span>
+    <span class="keyword">SOL解质押</span>
+    <span class="keyword">WTI $99</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密行业热点早报 · 2026年4月27日</div>
+  <div class="footer-sources">数据来源：Odaily星球日报 · CoinDesk · AXIOS · CNBC · EmberCN · Gate · OilPrice.com</div>
+  <div class="footer-sources">时间窗口：2026年4月26日 20:00 — 4月27日 09:30（北京时间）</div>
+  <div class="footer-disclaimer">本报告仅供信息参考，不构成任何投资建议。加密市场存在高度风险，请独立判断。</div>
+</div>
+
+</body>
+</html>
