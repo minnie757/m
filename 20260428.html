@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 4月28日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.2px;
+    }
+    .source-pills {
+      display: flex;
+      gap: 6px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #0a0a0a;
+      scrollbar-width: none;
+    }
+    .source-pills::-webkit-scrollbar { display: none; }
+    .pill {
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #aaa;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .core-banner {
+      margin: 12px 16px;
+      padding: 12px 14px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 4px 4px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.7;
+    }
+    .banner-text strong { color: #fff; }
+    .market-section { padding: 12px 16px 8px; }
+    .market-label {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+    .market-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .market-change { font-size: 12px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .section-container { padding: 0 16px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 8px 0;
+      border-top: 1px solid #111;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+      letter-spacing: 0.3px;
+    }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #111; color: #555; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 5px;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #111;
+      color: #555;
+      border: 1px solid #1a1a1a;
+    }
+    .tag.kw {
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border-color: #1a2a0a;
+    }
+    .news-source {
+      font-size: 11px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section {
+      padding: 12px 16px;
+      border-top: 1px solid #0a0a0a;
+      margin-top: 4px;
+    }
+    .keywords-title {
+      font-size: 10px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 11px;
+      color: #333;
+      border-top: 1px solid #0a0a0a;
+      line-height: 1.8;
+    }
+    .footer-brand { font-weight: 600; color: #555; margin-bottom: 6px; }
+    .footer-sources { margin-bottom: 6px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-date">2026年4月28日 · 星期二</div>
+  <div class="header-title">加密行业<span class="green">热点</span>早报</div>
+  <div class="header-sub">时间窗口：4月27日 20:00 — 4月28日 09:30（北京时间）</div>
+</div>
+
+<!-- SOURCE PILLS -->
+<div class="source-pills">
+  <span class="pill">Odaily星球日报</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">Bitcoin Magazine</span>
+  <span class="pill">Onchain Lens</span>
+</div>
+
+<!-- CORE BANNER -->
+<div class="core-banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① SEC+CFTC联合宣布加密监管新纪元：</strong>Bitcoin 2026大会上，两大监管机构联合发布代币五类分类框架，BTC/ETH/SOL/XRP等15+资产被明确列为"数字商品"，"监管执法时代"宣告结束，数周内将推出链上测试"创新豁免"。<br>
+    <strong>② 机构增持：</strong>Strategy 4月内第四次购入3,273 BTC（$2.55亿），持仓升至818,334 BTC（$619亿），超越BlackRock IBIT成全球最大机构持有方；Bitmine再质押113,808 ETH，总质押达381.5万枚（占ETH供应量4.21%）。<br>
+    <strong>③ DeFi United筹款突破$3亿：</strong>Consensys联创Joseph Lubin承诺30,000 ETH为最新重磅贡献，Compound提案最高加入3,000 ETH；rsETH恢复路线图及治理补偿框架预计本周公布。
+  </div>
+</div>
+
+<!-- MARKET SECTION -->
+<div class="market-section">
+  <div class="market-label">市场行情 · 4月28日 09:30 北京时间</div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$77,699</div>
+      <div class="market-change down">-1.51%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,315</div>
+      <div class="market-change down">-2.82%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">33</div>
+      <div class="market-change neutral">恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$99.65</div>
+      <div class="market-change up">+0.20%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,693</div>
+      <div class="market-change up">+0.24%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克（周一收）</div>
+      <div class="market-price">24,887</div>
+      <div class="market-change up">+0.20%</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: 监管与政策 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">监管与政策</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-28 08:36</span>
+    </div>
+    <div class="news-title">SEC+CFTC联合宣布进入数字资产监管"新纪元"，发布代币五类分类框架，BTC/ETH/SOL/XRP等明确列为数字商品</div>
+    <div class="news-desc">SEC主席Paul Atkins与CFTC主席Mike Selig在Bitcoin 2026大会联合宣布，美国数字资产监管正式进入"新阶段"。两机构发布联合代币分类框架，将加密资产分为五类：数字商品（Digital Commodity）、数字收藏品、数字工具、稳定币、数字证券。BTC、ETH、SOL、XRP、ADA、LINK、DOGE等15+主流资产被明确认定为"数字商品"。Atkins称"SEC的监管执法时代宣告结束"，并预告将在数周内推出"创新豁免"（Innovation Exemption），允许企业在受监管环境下测试链上代币化和证券工具。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">全球监管·SEC·CFTC</span>
+      <span class="tag kw">数字商品认定</span>
+      <span class="tag kw">代币分类框架</span>
+      <span class="tag kw">创新豁免</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478571" target="_blank">Odaily（Bitcoin 2026大会 08:36）</a> · <a href="https://bitcoinmagazine.com/news/sec-cftc-chiefs-signal-new-day-for-crypto" target="_blank">Bitcoin Magazine（SEC/CFTC联合声明）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 08:07</span>
+    </div>
+    <div class="news-title">美众议员Begich在Bitcoin 2026大会宣布更名重启比特币战略储备法案，5年内购买100万BTC</div>
+    <div class="news-desc">美众议员Nick Begich在Bitcoin 2026大会宣布计划重新提交比特币战略储备立法，将法案更名为《美国储备现代化法案》（American Reserve Modernization Act），以取代原《BITCOIN Act》。新法案拟将特朗普行政命令立法化，要求建立"永久性"比特币储备，通过"预算中性策略"在5年内购入100万枚BTC，并规定持有期限。Begich强调，须在本届国会任期内锁定成果，以防下届政府改变立场。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球监管·立法·战略储备</span>
+      <span class="tag kw">美国储备现代化法案</span>
+      <span class="tag kw">100万BTC</span>
+      <span class="tag kw">Begich</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478562" target="_blank">Odaily（储备法案更名 08:07）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 00:17</span>
+    </div>
+    <div class="news-title">CLARITY Act立法倒计时：参议院实际仅剩9-10个工作周，稳定币收益条款仍是主要障碍</div>
+    <div class="news-desc">加密创新委员会CEO Ji Kim指出，扣除休会期及其他立法议程后，本届参议院实际可用于推进《CLARITY Act》（加密市场结构法案）的时间仅约9-10个工作周。法案须先通过参议院银行委员会，而稳定币收益及奖励相关条款仍存在明显分歧。业界目标是在8月国会夏季休会前将法案送至总统台签署。若本窗口期失效，立法推进将大概率延至明年。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球监管·立法进程</span>
+      <span class="tag kw">CLARITY Act</span>
+      <span class="tag kw">9-10工作周</span>
+      <span class="tag kw">稳定币收益</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478567" target="_blank">Odaily（CLARITY Act倒计时 00:17）</a> · <a href="https://www.cryptoinamerica.com/p/clarity-act-faces-10-week-runway" target="_blank">CryptoInAmerica</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 08:05</span>
+    </div>
+    <div class="news-title">加拿大Bill C-25通过二读：拟禁止政党及候选人接受加密货币政治捐款</div>
+    <div class="news-desc">加拿大众议院已通过法案Bill C-25二读，该法案拟禁止政党和候选人接受加密货币形式的政治捐款，属选举法改革的一部分，目的在于提升透明度、加强执法并降低外国干预风险。法案于3月26日提出，目前进入委员会审议阶段，仍可能修改，暂无固定审议日期。加拿大同期正推进稳定币监管框架及加密投资基金相关规则。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球监管·政治捐款</span>
+      <span class="tag kw">加拿大 Bill C-25</span>
+      <span class="tag kw">加密政治捐款</span>
+      <span class="tag kw">选举法改革</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478561" target="_blank">Odaily（加拿大Bill C-25 08:05）</a> · Cointelegraph</div>
+  </div>
+</div>
+
+<!-- SECTION: 机构与资金 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">机构与资金</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-27 美市</span>
+    </div>
+    <div class="news-title">Strategy 4月内第四次增持：购入3,273 BTC（$2.55亿），累计持仓升至818,334 BTC（$619亿）</div>
+    <div class="news-desc">Strategy（前MicroStrategy）披露，在4月20日至26日期间以均价$77,906购入3,273枚BTC，耗资约$2.55亿，通过AT-the-Market发行MSTR股票融资。截至4月26日，公司累计持有818,334 BTC，账面价值约$619亿，平均持仓成本约$75,537。这是Saylor 4月内的第四次增持，2026年迄今BTC收益率（BTC Yield）达9.6%。Strategy持仓规模已超越BlackRock IBIT的806,700 BTC，保持全球最大机构BTC持有者地位。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">机构资金·Strategy·BTC增持</span>
+      <span class="tag kw">Strategy</span>
+      <span class="tag kw">818,334 BTC</span>
+      <span class="tag kw">Saylor</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/04/27/michael-saylor-s-strategy-buys-3-273-bitcoin-as-it-inches-closer-to-its-1-million-target" target="_blank">CoinDesk（Strategy增持）</a> · <a href="https://finance.yahoo.com/markets/crypto/articles/strategy-sells-255-million-mstr-153815007.html" target="_blank">Yahoo Finance</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 00:11</span>
+    </div>
+    <div class="news-title">Bitmine再质押113,808 ETH（$2.59亿），总质押规模达381.5万枚（$87.6亿），占ETH总供应量4.21%</div>
+    <div class="news-desc">据Onchain Lens监测，Bitmine于过去6小时内再次质押113,808 ETH（约$2.59亿），累计质押总量升至3,815,397 ETH（约$87.6亿），占以太坊总供应量4.21%，据星球早讯，Bitmine总资产规模已达133亿美元。Bitmine持续大规模质押ETH，强化其以太坊验证者网络的主导地位。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">机构资金·ETH质押</span>
+      <span class="tag kw">Bitmine</span>
+      <span class="tag kw">381.5万 ETH</span>
+      <span class="tag kw">4.21%供应量</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478565" target="_blank">Odaily（Bitmine质押 00:11）</a> · Onchain Lens</div>
+  </div>
+</div>
+
+<!-- SECTION: 链上事件 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-28 00:08 / 04-27 美市</span>
+    </div>
+    <div class="news-title">DeFi United筹款突破$3亿：Consensys+Joseph Lubin承诺30,000 ETH，Compound提案加入最高3,000 ETH</div>
+    <div class="news-desc">DeFi United协同救援行动持续扩大。最新进展：Consensys联合创始人Joseph Lubin承诺30,000 ETH（约$6,900万）加入填补rsETH缺口的行动，推动总筹款额突破$3亿（132,000+ ETH）。同时，Compound提出新提案拟加入DeFi United，最高贡献3,000 ETH，尽管其自身直接风险敞口有限，旨在维护DeFi生态整体稳定性。此前已承诺方：Aave创始人Stani 5,000 ETH、Lido 2,500 stETH、Mantle 30,000 ETH。rsETH官方恢复路线图及治理补偿框架预计本周内公布。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">链上事件·DeFi·协议救援</span>
+      <span class="tag kw">DeFi United $3亿</span>
+      <span class="tag kw">Consensys 30,000 ETH</span>
+      <span class="tag kw">Compound提案</span>
+      <span class="tag kw">rsETH</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478563" target="_blank">Odaily（Compound提案 00:08）</a> · <a href="https://www.theblock.co/post/399010/defi-united-push-hits-300m-as-consensys-and-joseph-lubin-contribute-30000-eth" target="_blank">The Block（筹款$3亿）</a> · <a href="https://www.coindesk.com/tech/2026/04/27/industry-leaders-are-pouring-hundreds-of-millions-into-a-rescue-plan-for-aave-users-after-massive-crypto-hack" target="_blank">CoinDesk</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 宏观与地缘 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">宏观与地缘</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 09:00</span>
+    </div>
+    <div class="news-title">美股4月27日收盘：纳指+0.20%，加密板块延续下跌，CRCL -4.22%，MARA -3.95%，COIN -1.55%</div>
+    <div class="news-desc">美股4月27日（周一）收盘：道指跌0.13%，纳斯达克涨0.20%，标普500涨0.12%，整体表现平淡。加密相关股票跑输大盘：CRCL（Circle）跌4.22%、MARA（Marathon Digital）跌3.95%、ABTC跌2.42%、COIN（Coinbase）跌1.55%。BTC盘中跌至$77,699，ETH回落至$2,315，恐惧贪婪指数维持33（恐惧区间）。WTI原油涨至$99.65，黄金小幅回升至$4,693。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">传统金融·美股·加密板块</span>
+      <span class="tag kw">CRCL</span>
+      <span class="tag kw">MARA</span>
+      <span class="tag kw">COIN</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478575" target="_blank">Odaily（美股4月27日收盘 09:00）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 00:23</span>
+    </div>
+    <div class="news-title">特朗普对伊朗最新提案"不满意"，霍尔木兹海峡谈判仍陷僵局，WTI持稳$99区间</div>
+    <div class="news-desc">据《纽约时报》援引知情人士消息，特朗普已告知顾问，对伊朗就重开霍尔木兹海峡及结束战争提出的最新提案"不满意"。尽管伊朗已提出三阶段路线图，但谈判仍处于实质性僵局。WTI原油维持$99.65（+0.20%），布伦特原油$108.50，地缘风险溢价短期不会消退，高油价对加密及科技股的流动性持续形成压力。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">全球事件·地缘政治·伊朗</span>
+      <span class="tag kw">特朗普不满意</span>
+      <span class="tag kw">霍尔木兹僵局</span>
+      <span class="tag kw">WTI $99</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478569" target="_blank">Odaily（特朗普伊朗 00:23）</a> · 纽约时报</div>
+  </div>
+</div>
+
+<!-- KEYWORDS -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-list">
+    <span class="keyword">SEC+CFTC新纪元</span>
+    <span class="keyword">数字商品认定</span>
+    <span class="keyword">创新豁免</span>
+    <span class="keyword">Strategy 818,334 BTC</span>
+    <span class="keyword">DeFi United $3亿</span>
+    <span class="keyword">Consensys 30,000 ETH</span>
+    <span class="keyword">储备现代化法案</span>
+    <span class="keyword">CLARITY Act倒计时</span>
+    <span class="keyword">Bitmine 381.5万ETH</span>
+    <span class="keyword">加拿大禁加密捐款</span>
+    <span class="keyword">霍尔木兹僵局</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密行业热点早报 · 2026年4月28日</div>
+  <div class="footer-sources">数据来源：Odaily星球日报 · CoinDesk · The Block · Bitcoin Magazine · Onchain Lens · Fortune</div>
+  <div class="footer-sources">时间窗口：2026年4月27日 20:00 — 4月28日 09:30（北京时间）</div>
+  <div class="footer-disclaimer">本报告仅供信息参考，不构成任何投资建议。加密市场存在高度风险，请独立判断。</div>
+</div>
+
+</body>
+</html>
