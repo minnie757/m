@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 4月29日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.2px;
+    }
+    .source-pills {
+      display: flex;
+      gap: 6px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #0a0a0a;
+      scrollbar-width: none;
+    }
+    .source-pills::-webkit-scrollbar { display: none; }
+    .pill {
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #aaa;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .core-banner {
+      margin: 12px 16px;
+      padding: 12px 14px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 4px 4px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.7;
+    }
+    .banner-text strong { color: #fff; }
+    .market-section { padding: 12px 16px 8px; }
+    .market-label {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+    .market-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .market-change { font-size: 12px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .section-container { padding: 0 16px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 8px 0;
+      border-top: 1px solid #111;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+      letter-spacing: 0.3px;
+    }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 5px;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #111;
+      color: #555;
+      border: 1px solid #1a1a1a;
+    }
+    .tag.kw {
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border-color: #1a2a0a;
+    }
+    .news-source {
+      font-size: 11px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section {
+      padding: 12px 16px;
+      border-top: 1px solid #0a0a0a;
+      margin-top: 4px;
+    }
+    .keywords-title {
+      font-size: 10px;
+      color: #444;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 11px;
+      color: #333;
+      border-top: 1px solid #0a0a0a;
+      line-height: 1.8;
+    }
+    .footer-brand { font-weight: 600; color: #555; margin-bottom: 6px; }
+    .footer-sources { margin-bottom: 6px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-date">2026年4月29日 · 星期三</div>
+  <div class="header-title">加密行业<span class="green">热点</span>早报</div>
+  <div class="header-sub">时间窗口：4月28日 20:00 — 4月29日 09:30（北京时间）</div>
+</div>
+
+<!-- SOURCE PILLS -->
+<div class="source-pills">
+  <span class="pill">Odaily星球日报</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">华尔街日报</span>
+  <span class="pill">Lookonchain</span>
+  <span class="pill">Yahoo Finance</span>
+</div>
+
+<!-- CORE BANNER -->
+<div class="core-banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① 特朗普升级伊朗经济战：</strong>《华尔街日报》披露特朗普已指示助手准备对伊朗实施"长期封锁"，财政部同步打击伊朗加密货币渠道，WTI原油突破$102，能源溢价持续压制加密市场情绪。<br>
+    <strong>② LayerZero主动认错承担责任：</strong>正是其桥接漏洞引发Kelp rsETH危机，LayerZero向DeFi United捐赠5,000 ETH，另向Aave市场注入5,000 ETH以增强流动性，合计超1万ETH。<br>
+    <strong>③ Polymarket申请CFTC批准重开美国主要交易所：</strong>Q1访问量1.22亿次成加密应用第一，预测市场美国化进程加速，昨日已完成CLOBv2升级。
+  </div>
+</div>
+
+<!-- MARKET SECTION -->
+<div class="market-section">
+  <div class="market-label">市场行情 · 4月29日 09:30 北京时间</div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$76,335</div>
+      <div class="market-change down">-1.76%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,301</div>
+      <div class="market-change down">-0.61%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">31</div>
+      <div class="market-change neutral">恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$102.65</div>
+      <div class="market-change up">+0.37%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,583</div>
+      <div class="market-change down">-0.31%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克（周二收）</div>
+      <div class="market-price">24,664</div>
+      <div class="market-change down">-0.90%</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: 宏观与地缘 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">宏观与地缘</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-29 09:06 / 08:43</span>
+    </div>
+    <div class="news-title">特朗普指示助手为对伊朗"长期封锁"做准备，财政部同步打击伊朗加密货币渠道，每日额外损失$1.7亿</div>
+    <div class="news-desc">《华尔街日报》披露，特朗普已权衡三种选项（恢复轰炸、持续封锁、撤出）后，选定"长期经济封锁"路线，认为其风险低于军事升级。策略聚焦于封锁伊朗港口进出货物、限制石油出口。与此同时，财政部长Scott Bessent宣布已制裁伊朗的"国际影子银行基础设施、加密货币访问渠道、影子船队、武器采购网络"，现有措施已扰乱数百亿美元伊朗收入。伊朗石油出口终端哈尔格岛接近储油上限，被迫削减产量，造成每日约$1.7亿的额外收入损失。WTI原油升至$102.65（+0.37%）。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">全球事件·地缘·制裁</span>
+      <span class="tag kw">伊朗长期封锁</span>
+      <span class="tag kw">加密渠道制裁</span>
+      <span class="tag kw">WTI $102</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478713" target="_blank">Odaily（特朗普长期封锁 09:06）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478708" target="_blank">Odaily（财政部加密制裁 08:43）</a> · 华尔街日报</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-29 09:30</span>
+    </div>
+    <div class="news-title">美股4月28日收盘：纳指跌0.90%，加密板块多数下跌，MSTR -2.06%，COIN -1.31%</div>
+    <div class="news-desc">美股4月28日（周二）收盘：道指跌0.05%，标普500跌0.49%，纳斯达克跌0.90%，前一日已连续两日走弱。加密相关股全线下行：MSTR（Strategy）跌2.06%、Solana跌1.89%、COIN跌1.31%、CRCL跌1.14%，仅SharpLink逆势涨1.81%。Robinhood Q1财报疲软叠加联储会议前不确定性，令市场风险偏好降温。BTC连续跌至$76,000区域，ETH跌破$2,300，恐惧贪婪指数维持31（恐惧）。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">传统金融·美股·加密板块</span>
+      <span class="tag kw">MSTR</span>
+      <span class="tag kw">COIN</span>
+      <span class="tag kw">纳指 -0.90%</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478715" target="_blank">Odaily（美股4月28日收盘 09:30）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 监管与政策 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">监管与政策</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-28 美市</span>
+    </div>
+    <div class="news-title">Polymarket向CFTC申请重开美国主要交易所，Q1访问量1.22亿次登顶加密应用，昨日完成CLOBv2升级</div>
+    <div class="news-desc">据CoinDesk援引彭博消息，Polymarket已与CFTC官员接触，寻求解除2022年和解协议中对美国用户的封锁，允许其直接访问主要链上预测市场。Polymarket已以$1.12亿收购CFTC持牌交易所QCEX，具备加速审批的监管基础设施。CFTC目前仅主席一人在位（其余四席空缺），批准程序或相对简化。与此同时，Polymarket昨日完成CLOBv2升级并分发$100万流动性奖励，Q1访问量达1.22亿次，稳居加密应用网站第一位。若获批，将是美国预测市场监管的重要转折点。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">全球监管·预测市场·CFTC</span>
+      <span class="tag kw">Polymarket</span>
+      <span class="tag kw">CFTC审批</span>
+      <span class="tag kw">美国市场重开</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/04/28/polymarket-seeks-cftc-approval-to-reopen-main-exchange-to-u-s-traders" target="_blank">CoinDesk（Polymarket CFTC申请）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/478580" target="_blank">Odaily（Polymarket访问量）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-29 08:32</span>
+    </div>
+    <div class="news-title">加拿大计划全面禁止加密货币ATM以打击诈骗，人均拥有量全球最高，已有英澳纽三国先行</div>
+    <div class="news-desc">加拿大联邦政府在本周春季经济更新报告中宣布，计划禁止全部加密货币ATM（Crypto ATM）。加拿大目前运营近4,000台此类设备，人均拥有量居全球首位。据FINTRAC研究，加密ATM已成国内诈骗案的首要资金渠道，因其无需银行账户、缺乏人工审核且资金流动难以追踪。英国、新西兰和澳大利亚已先后对此类设备实施限制或禁止。此次禁令叠加上周通过二读的Bill C-25（禁止加密政治捐款），显示加拿大正加速收紧加密监管。</div>
+    <div class="news-tags">
+      <span class="tag">月级影响</span>
+      <span class="tag">全球监管·加拿大·ATM</span>
+      <span class="tag kw">加拿大加密ATM禁令</span>
+      <span class="tag kw">FINTRAC</span>
+      <span class="tag kw">反诈骗</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478707" target="_blank">Odaily（加拿大ATM禁令 08:32）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 链上事件 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">04-29 08:17</span>
+    </div>
+    <div class="news-title">LayerZero认错主动担责：向DeFi United捐赠5,000 ETH，另向Aave市场注入5,000 ETH，合计超1万ETH</div>
+    <div class="news-desc">LayerZero Labs正式宣布加入DeFi United生态救援行动，并承认其桥接DVN（去中心化验证节点）漏洞是此次rsETH危机的直接根源。LayerZero的贡献分两部分：向DeFi United基金直接捐赠5,000 ETH；另向Aave市场存入5,000 ETH以增强流动性并深化GHO流动性，合计超1万ETH（约$2,300万）。至此，DeFi United总筹款额已超过$3亿（包括Consensys+Lubin 30,000 ETH、Mantle 30,000 ETH、Stani 5,000 ETH、Lido 2,500 stETH、Compound最高3,000 ETH等），rsETH恢复框架持续推进。</div>
+    <div class="news-tags">
+      <span class="tag">月级以上</span>
+      <span class="tag">链上事件·DeFi·rsETH恢复</span>
+      <span class="tag kw">LayerZero认错</span>
+      <span class="tag kw">DeFi United</span>
+      <span class="tag kw">1万ETH</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478704" target="_blank">Odaily（LayerZero承诺 08:17）</a> · <a href="https://x.com/LayerZero_Core/status/2049198660068802867" target="_blank">LayerZero官方X</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-29 08:16</span>
+    </div>
+    <div class="news-title">以太坊ICO参与地址沉寂10年首次转出1万枚ETH，原始价值$3,110，现值约$2,288万</div>
+    <div class="news-desc">据链上分析师于金监测，一个参与2015年以太坊ICO的地址（0xCD59...a336）在持有10年后首次发出转账，将1万枚ETH移至新地址，时值约$2,288万。该地址以ICO价格约$0.311/枚买入，10年期间ETH涨幅约7,330倍。老ICO参与者在ETH价格仍处$2,300附近时选择移仓，被分析人士视为潜在减仓预警信号。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">链上事件·ICO鲸鱼·移仓</span>
+      <span class="tag kw">ETH ICO 2015</span>
+      <span class="tag kw">1万ETH移仓</span>
+      <span class="tag kw">$2,288万</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478703" target="_blank">Odaily（ICO参与者移仓 08:16）</a> · 于金链上监测</div>
+  </div>
+</div>
+
+<!-- SECTION: 机构与资金 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">机构与资金</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-28 美市</span>
+    </div>
+    <div class="news-title">富达向Coinbase转入19,934枚ETH（$4,529万），机构大额调仓引市场关注</div>
+    <div class="news-desc">据Lookonchain监测，富达（Fidelity）关联钱包地址向Coinbase转入19,934枚ETH，价值约$4,529万。大额ETH转入交易所通常被解读为潜在出售或ETF赎回操作信号，恰值ETH价格连续两日走低之际。此次转账发生于美股盘后时段，具体用途尚不明确，但规模可观，需关注后续ETH现货是否承压。</div>
+    <div class="news-tags">
+      <span class="tag">日-周级</span>
+      <span class="tag">机构资金·富达·ETH</span>
+      <span class="tag kw">富达</span>
+      <span class="tag kw">19,934 ETH</span>
+      <span class="tag kw">$4,529万</span>
+    </div>
+    <div class="news-source">来源：Odaily 星球早讯（01:31）· <a href="https://www.mexc.com/news/1060133" target="_blank">MEXC News（富达ETH转账）</a> · Lookonchain</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-29 08:44</span>
+    </div>
+    <div class="news-title">Robinhood Q1加密交易收入跌47%至$1.34亿，整体营收$10.7亿略超预期</div>
+    <div class="news-desc">Robinhood发布2026年Q1财报：总营收$10.7亿，略超市场预期，但加密交易相关收入同比下跌47%至$1.34亿，反映加密市场整体活跃度相比2025年Q1（牛市高峰期）显著降温。期权交易收入同期亦下滑。财报侧面印证了当前加密市场散户参与热情的降低。美股盘后HOOD下跌约2%。</div>
+    <div class="news-tags">
+      <span class="tag">周级影响</span>
+      <span class="tag">行业趋势·散户数据·Robinhood</span>
+      <span class="tag kw">Robinhood Q1</span>
+      <span class="tag kw">加密收入 -47%</span>
+      <span class="tag kw">散户情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478706" target="_blank">Odaily（Robinhood Q1 08:32）</a> · <a href="https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-tuesday-april-28-2026-values-falling-ahead-of-fed-meeting-114535390.html" target="_blank">Yahoo Finance</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 行业动态 -->
+<div class="section-container">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业动态</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">04-29 08:20</span>
+    </div>
+    <div class="news-title">pumpfun宣布已销毁$3.7亿PUMP（占流通量36%），承诺未来一年50%收入持续回购销毁</div>
+    <div class="news-desc">pumpfun创始人alon宣布，过去9个月该协议将100%收入用于PUMP代币回购，已累计销毁约$3.7亿PUMP，占总流通量的36%。未来一年将调整为50%收入用于程序化回购销毁，另50%用于业务扩张、产品研发和生态再投资。强调此举旨在增强社区信心与长期持续增长。pumpfun作为Solana链上最大的Meme发行平台，此次正式公开其代币销毁数据与长期回购承诺，为平台代币经济学建立更清晰预期。</div>
+    <div class="news-tags">
+      <span class="tag">周-月级</span>
+      <span class="tag">行业趋势·Meme平台·代币销毁</span>
+      <span class="tag kw">pumpfun</span>
+      <span class="tag kw">$3.7亿PUMP销毁</span>
+      <span class="tag kw">50%收入回购</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/478705" target="_blank">Odaily（pumpfun销毁 08:20）</a> · <a href="https://x.com/a1lon9/status/2049233387328565548" target="_blank">alon官方X</a></div>
+  </div>
+</div>
+
+<!-- KEYWORDS -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-list">
+    <span class="keyword">伊朗长期封锁</span>
+    <span class="keyword">加密渠道制裁</span>
+    <span class="keyword">WTI $102</span>
+    <span class="keyword">LayerZero认错</span>
+    <span class="keyword">DeFi United</span>
+    <span class="keyword">Polymarket CFTC</span>
+    <span class="keyword">加拿大ATM禁令</span>
+    <span class="keyword">ICO鲸鱼移仓</span>
+    <span class="keyword">富达ETH转账</span>
+    <span class="keyword">Robinhood加密 -47%</span>
+    <span class="keyword">pumpfun回购</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密行业热点早报 · 2026年4月29日</div>
+  <div class="footer-sources">数据来源：Odaily星球日报 · CoinDesk · 华尔街日报 · Lookonchain · Yahoo Finance · Fortune</div>
+  <div class="footer-sources">时间窗口：2026年4月28日 20:00 — 4月29日 09:30（北京时间）</div>
+  <div class="footer-disclaimer">本报告仅供信息参考，不构成任何投资建议。加密市场存在高度风险，请独立判断。</div>
+</div>
+
+</body>
+</html>
