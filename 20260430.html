@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 4月30日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .header-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+    .pill {
+      font-size: 10px;
+      color: #888;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2px 9px;
+    }
+
+    /* Core Banner */
+    .core-banner {
+      margin: 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 6px 6px 0;
+    }
+    .core-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #BCFF2F;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .core-item {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .core-item:last-child { margin-bottom: 0; }
+
+    /* Section */
+    .section {
+      margin: 0 16px;
+      padding: 16px 0 4px;
+      border-top: 1px solid #111;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* Market Grid */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-label {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .market-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .market-change {
+      font-size: 11px;
+    }
+
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* News Items */
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high {
+      background: #FF3B3B;
+      color: #fff;
+    }
+    .tag-priority.mid {
+      background: #1a1a1a;
+      color: #FFD600;
+      border: 1px solid #333;
+    }
+    .tag-date {
+      font-size: 10px;
+      color: #444;
+    }
+    .tag-source {
+      font-size: 10px;
+      color: #444;
+    }
+    .news-title {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #e8e8e8;
+      line-height: 1.5;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    a.news-title:hover { color: #BCFF2F; }
+    .news-summary {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .keyword {
+      font-size: 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 2px 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 16px 10px;
+      font-size: 11px;
+      color: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="header-date">2026 · 04 · 30</div>
+    <div class="header-title">加密行业热点<span class="green">早报</span></div>
+    <div class="header-sub">4月29日 20:00 — 4月30日 09:30 · 北京时间</div>
+    <div class="header-pills">
+      <span class="pill">Odaily</span>
+      <span class="pill">PANews</span>
+      <span class="pill">吴说区块链</span>
+    </div>
+  </header>
+
+  <!-- Core Banner -->
+  <div class="core-banner">
+    <div class="core-title">🟢 今日核心主线</div>
+    <div class="core-item">① 美联储5月鹰派信号：维持利率不变+1992年来最多反对票+加息预期升至11%，鲍威尔宣布卸任后留任理事引发独立性之争</div>
+    <div class="core-item">② 中东危机全面升级：特朗普宣示核协议达成前永不解除封锁，伊朗发出"前所未有军事行动"警告，WTI日内暴涨8.48%触$110</div>
+    <div class="core-item">③ Clarity稳定币法案进入条款审议，稳定币收益条款走向成美国加密立法关键节点</div>
+  </div>
+
+  <!-- Market Section -->
+  <section class="section">
+    <div class="section-title">市场行情</div>
+    <div class="market-grid">
+      <div class="market-cell">
+        <div class="market-label">BTC</div>
+        <div class="market-value">$76,004</div>
+        <div class="market-change down">-0.41%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">ETH</div>
+        <div class="market-value">$2,256</div>
+        <div class="market-change down">-2.0%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">恐惧贪婪</div>
+        <div class="market-value">29</div>
+        <div class="market-change down">恐惧</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">WTI原油</div>
+        <div class="market-value">$109.39</div>
+        <div class="market-change neutral">日内高点$110 +8.48%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">黄金</div>
+        <div class="market-value">$4,565</div>
+        <div class="market-change up">+0.47%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">纳斯达克</div>
+        <div class="market-value">前日收盘</div>
+        <div class="market-change up">+0.04%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宏观与地缘 -->
+  <section class="section">
+    <div class="section-title">宏观与地缘</div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-date">04-29 20:29</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478810">特朗普宣示核协议前绝不解除伊朗封锁，伊朗警告"前所未有军事行动"</a>
+      <div class="news-summary">特朗普接受以色列媒体采访称"封锁比轰炸更有效"，伊朗油储将因封锁耗尽，在达成核协议前绝不松动；伊朗高级安全官员同步警告，若美国继续扣押伊朗关联船只将采取"前所未有的军事行动"。双方强硬表态使冲突升级风险明显提升，加密市场避险情绪升温。</div>
+      <div class="news-tags">
+        <span class="keyword">伊朗永久封锁</span>
+        <span class="keyword">军事威胁</span>
+        <span class="keyword">地缘升级</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-date">04-30 03:35</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478900">WTI日内暴涨8.48%触$110，EIA原油库存大降623万桶远超预期</a>
+      <div class="news-summary">中东局势持续升级驱动油价急涨，Gate数据显示WTI日内高点触$110/桶（+8.48%）、布伦特触$111（+6.82%），后盘回落至$109附近；同日EIA数据显示至4月24日当周美国原油库存骤降623万桶，大幅超出预期减少23万桶，供应端收紧信号与地缘风险形成共振，创近年单日最大涨幅之一。</div>
+      <div class="news-tags">
+        <span class="keyword">WTI $110</span>
+        <span class="keyword">EIA库存 -623万桶</span>
+        <span class="keyword">油价暴涨</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-date">04-30 08:06</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478910">美国拟组建"海洋自由"联盟，协调盟友保障霍尔木兹通行</a>
+      <div class="news-summary">据华尔街日报，美国正号召盟友组建"海洋自由构建"（Freedom of the Seas Initiative）联盟，由国务院与中央司令部主导，向商业船只提供态势感知及信息共享，协助通过霍尔木兹海峡。这是美国在军事封锁之外引入多边框架的首次尝试，或重塑中东航运格局。</div>
+      <div class="news-tags">
+        <span class="keyword">霍尔木兹联盟</span>
+        <span class="keyword">美国多边框架</span>
+        <span class="keyword">航运安全</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 货币政策 -->
+  <section class="section">
+    <div class="section-title">货币政策</div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-date">04-30 02:00</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478926">美联储5月会议维持利率不变，政策声明获1992年来最多反对票</a>
+      <div class="news-summary">美联储5月FOMC会议决定维持联邦基金利率不变；政策声明遭遇3票反对（米兰主张降息25bp，哈马克、卡什卡利、洛根支持按兵不动），为1992年以来反对票最多的一次，反映联储内部分歧加剧。CME期货数据同步显示市场对2026年加息概率从5%升至11%，降息预期受压。</div>
+      <div class="news-tags">
+        <span class="keyword">美联储维持利率</span>
+        <span class="keyword">3票反对</span>
+        <span class="keyword">1992年以来最多</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-date">04-30 02:36</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478890">鲍威尔宣布卸任后将以理事身份留任，贝森特批评"与传统背道而驰"</a>
+      <div class="news-summary">鲍威尔在最后一次新闻发布会上表示，司法部调查结束前不离职，5月15日主席职位交接后将以理事身份继续留任美联储，强调"绝不充当影子主席"；财长贝森特公开批评此举"非同寻常，与历史传统背道而驰"；Polymarket"5月30日前卸任理事"概率随即跌至9%，美联储独立性与政治干预矛盾激化。</div>
+      <div class="news-tags">
+        <span class="keyword">鲍威尔留任</span>
+        <span class="keyword">美联储独立性</span>
+        <span class="keyword">贝森特批评</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 监管与政策 -->
+  <section class="section">
+    <div class="section-title">监管与政策</div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-date">04-29 23:14</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478855">美参议员Tillis推动Clarity稳定币法案进入条款审议，立法节奏加速</a>
+      <div class="news-summary">参议员Tillis宣布将推动《Clarity for Payment Stablecoins Act》进入银行委员会正式条款审议，国会休会结束后安排审议会议，立法文本预计提前4-5天公布；稳定币收益允许与否是核心分歧点，此节点标志着美国加密立法从"讨论阶段"进入"立法推进阶段"。</div>
+      <div class="news-tags">
+        <span class="keyword">Clarity法案</span>
+        <span class="keyword">稳定币收益</span>
+        <span class="keyword">参议院审议</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-date">04-29 13:47</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478750">韩国国税厅启动虚拟资产征税筹备，拟2027年1月实施22%所得税</a>
+      <div class="news-summary">韩国国税厅正式启动虚拟资产所得税征收框架筹备，年度收益超250万韩元部分将征收22%税率，约1,326万人受影响；计划采集Upbit、Bithumb等本土交易所交易数据作为纳税依据，2027年1月起实施，韩国成为亚洲主要经济体中加密征税立法最为明确的国家之一。</div>
+      <div class="news-tags">
+        <span class="keyword">韩国虚拟资产税</span>
+        <span class="keyword">22%所得税</span>
+        <span class="keyword">2027年落地</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 机构与资金 -->
+  <section class="section">
+    <div class="section-title">机构与资金</div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-date">04-30 08:48</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478920">BitMine新增质押11.15万枚ETH，累计质押规模达403万枚（约$90.9亿）</a>
+      <div class="news-summary">Onchain Lens数据显示，BitMine过去5小时新增质押111,496枚ETH（约$2.53亿），累计质押量升至403万枚ETH（约$90.9亿），持续扩大其ETH质押财库规模；贝莱德同期已选定Galaxy Digital作为其质押ETH ETF的链上验证者。</div>
+      <div class="news-tags">
+        <span class="keyword">BitMine</span>
+        <span class="keyword">403万枚ETH质押</span>
+        <span class="keyword">BlackRock质押ETF</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-date">04-30 08:18</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478912">XRP现货ETF单日净流入$359万，历史累计净流入近$13亿</a>
+      <div class="news-summary">SoSoValue数据显示，XRP现货ETF单日净流入359.14万美元，总资产净值10.36亿美元，历史累计净流入达12.96亿美元；在BTC、ETH ETF之外，机构对XRP的持续流入反映了市场对非主流资产ETF的渐进接受。</div>
+      <div class="news-tags">
+        <span class="keyword">XRP ETF</span>
+        <span class="keyword">净流入$359万</span>
+        <span class="keyword">机构需求</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-date">04-29 19:58</span>
+        <span class="tag-source">Odaily</span>
+      </div>
+      <a class="news-title" href="https://www.odaily.news/zh-CN/newsflash/478800">Galaxy Digital Q1净亏损2.16亿美元，Meta拟借Stripe推出USDC创作者分成</a>
+      <div class="news-summary">Galaxy Digital公布Q1财报：净亏损2.16亿美元，调整后EBITDA亏损1.88亿美元，加密机构在波动市场中承压；另据报道，Meta计划与Stripe合作在哥伦比亚和菲律宾试点USDC创作者收益分成，基于Solana和Polygon结算，为大厂稳定币支付落地的首个具体案例。</div>
+      <div class="news-tags">
+        <span class="keyword">Galaxy Digital</span>
+        <span class="keyword">Q1亏损$2.16亿</span>
+        <span class="keyword">Meta USDC</span>
+        <span class="keyword">Solana/Polygon</span>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    数据来源：Odaily 星球日报 · OKX · Gate · alternative.me<br>
+    4月29日 20:00 — 4月30日 09:30 · 北京时间
+  </div>
+
+</body>
+</html>
