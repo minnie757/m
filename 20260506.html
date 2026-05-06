@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 5月6日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .header-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      font-size: 10px;
+      color: #888;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2px 9px;
+    }
+    .core-banner {
+      margin: 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 6px 6px 0;
+    }
+    .core-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #BCFF2F;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .core-item {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.75;
+      margin-bottom: 7px;
+    }
+    .core-item:last-child { margin-bottom: 0; }
+    .section {
+      margin: 0 16px;
+      padding: 16px 0 4px;
+      border-top: 1px solid #111;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .section-count {
+      font-size: 10px;
+      font-weight: 700;
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-label { font-size: 10px; color: #555; margin-bottom: 4px; }
+    .market-value { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #1a1a1a; color: #555; border: 1px solid #222; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    a.news-title:hover { color: #BCFF2F; }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+    .keyword {
+      font-size: 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 2px 8px;
+    }
+    .news-source {
+      font-size: 10px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      padding: 24px 16px 10px;
+      font-size: 11px;
+      color: #2a2a2a;
+      border-top: 1px solid #0d0d0d;
+      margin: 20px 16px 0;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-date">2026 · 05 · 06 · 早报</div>
+    <div class="header-title">加密行业热点<span class="green">早报</span></div>
+    <div class="header-sub">5月5日 20:00 — 5月6日 09:30 · 北京时间</div>
+    <div class="header-pills">
+      <span class="pill">Odaily</span>
+      <span class="pill">PANews</span>
+      <span class="pill">CoinDesk</span>
+      <span class="pill">The Block</span>
+    </div>
+  </header>
+
+  <!-- 核心主线 -->
+  <div class="core-banner">
+    <div class="core-title">🟢 今日核心主线</div>
+    <div class="core-item">① Coinbase宣布裁员14%（约660人），CEO Armstrong将其归因于AI驱动运营转型，推行"player-coach"去管理层模式，加密行业AI重塑进入实质阶段</div>
+    <div class="core-item">② Drift Protocol公布$2.95亿DPRK黑客赔付方案，初始恢复池$380万+Tether最高$1.275亿兜底，约130,259枚ETH仍可追踪；同期Ekubo EVM链swap路由再遭攻击</div>
+    <div class="core-item">③ Solana双重技术突破：Alpenglow升级最早Q2上线（确认时间12.8秒→100ms）；联手Google Cloud推出AI代理稳定币支付基础设施Pay.sh</div>
+  </div>
+
+  <!-- 市场行情 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">📊 市场行情</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-cell">
+        <div class="market-label">BTC</div>
+        <div class="market-value">$81,200</div>
+        <div class="market-change up">+2.9% 24h</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">ETH</div>
+        <div class="market-value">$2,378</div>
+        <div class="market-change up">+0.8% 24h</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">恐惧贪婪</div>
+        <div class="market-value">49</div>
+        <div class="market-change neutral">中性偏恐惧</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">WTI 原油</div>
+        <div class="market-value">$105.60</div>
+        <div class="market-change down">-0.4%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">黄金</div>
+        <div class="market-value">$4,572</div>
+        <div class="market-change up">+0.3%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">纳斯达克 5/5</div>
+        <div class="market-value">25,312</div>
+        <div class="market-change up">+0.97%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宏观与传统金融 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🌍 宏观与传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 00:23</span>
+      </div>
+      <span class="news-title">现货黄金突破 $4,600 关口，日内涨幅 0.93%</span>
+      <div class="news-desc">现货黄金涨至 $4,600.09/盎司，日内涨幅 0.93%，延续中东地缘溢价和美元避险逻辑；WTI 原油维持 $105 区间，霍尔木兹海峡紧张局势暂未扩大。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">传统金融·贵金属</span>
+        <span class="keyword">黄金 / 地缘避险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfaaa-a33e-7792-8f47-1d4ea44b6d8c" target="_blank">PANews（05-06 00:23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 前后</span>
+      </div>
+      <span class="news-title">CLARITY Act 参议院银行委员会定于 5月11日当周 markup 审议</span>
+      <div class="news-desc">参议院银行委员会计划于5月11日当周对《数字资产市场清晰法案》进行条款审议（markup），这是该法案在参议院层面首次正式推进，5月21日国会阵亡将士纪念日休会前为立法关键窗口。</div>
+      <div class="news-tags">
+        <span class="keyword">周级影响</span>
+        <span class="keyword">全球监管·法案</span>
+        <span class="keyword">CLARITY Act / 稳定币立法</span>
+      </div>
+      <div class="news-source">来源：<a href="https://bitcoinethereumnews.com/bitcoin/bitcoin-and-xrp-price-outlook-ahead-of-may-2026-clarity-act-roundtable/" target="_blank">Bitcoin Ethereum News（5月前后）</a></div>
+    </div>
+  </section>
+
+  <!-- 全球监管 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏛️ 全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 01:08</span>
+      </div>
+      <span class="news-title">XRP 现货 ETF 单日净流入 $1,128 万，累计突破 $13 亿</span>
+      <div class="news-desc">据 SoSoValue，XRP 现货 ETF 单日净流入 $1,128万，其中 Canary XRP ETF 贡献 $750万居首；历史累计净流入达 $13.06亿，总资产管理规模突破 $10亿大关。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">全球监管·ETF</span>
+        <span class="keyword">XRP ETF / Canary</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfad4-7dc9-73eb-b84f-e7fab51ca423" target="_blank">PANews（05-06 01:08）</a> · <a href="https://www.odaily.news/newsflash/479510" target="_blank">Odaily</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 01:32</span>
+      </div>
+      <span class="news-title">美国 SOL 现货 ETF 单日净流入 $174.25 万，总规模 $8.87 亿</span>
+      <div class="news-desc">据 SoSoValue，SOL 现货 ETF（5月5日美东时间计）单日净流入 $174.25万，Bitwise Solana Staking ETF（BSOL）贡献全部流入；历史累计净流入 $10.23亿，总资产管理规模 $8.87亿。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">全球监管·ETF</span>
+        <span class="keyword">SOL ETF / Bitwise BSOL</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfaea-316f-74c0-98d4-1e352211362f" target="_blank">PANews（05-06 01:32）</a></div>
+    </div>
+  </section>
+
+  <!-- 安全事件 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🔒 安全事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-06 00:31</span>
+      </div>
+      <span class="news-title">Drift Protocol 公布 $2.95 亿 DPRK 黑客用户赔付方案，Tether 承诺最高 $1.275 亿兜底</span>
+      <div class="news-desc">Drift 宣布分阶段恢复方案：向受损用户发放等值"赔付代币"（1代币=$1损失），初始恢复池约 $380万，通过交易所收入逐季扩充；Tether 提供最高 $1.275亿战略支持，伙伴方额外 $2,000万。黑客被确认为朝鲜 DPRK 组织，约 130,259 枚 ETH（约$3,100万）仍可追踪。Q2在安全加固后重启交易所。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">链上事件·被盗赔付</span>
+        <span class="keyword">Drift Protocol / DPRK / Tether</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfab1-fae4-72dc-84e2-0c99f4cb5a18" target="_blank">PANews（05-06 00:31）</a> · <a href="https://www.coindesk.com/business/2026/05/05/drift-outlines-a-recovery-plan-for-users-after-usd295-million-dprk-linked-exploit" target="_blank">CoinDesk（05-05）</a> · <a href="https://decrypt.co/366897/how-solana-exchange-drift-repay-users-295-million-crypto-hack" target="_blank">Decrypt</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-06 01:23</span>
+      </div>
+      <span class="news-title">Ekubo Protocol EVM 链 swap 路由合约遭安全攻击，建议立即撤销授权</span>
+      <div class="news-desc">Ekubo Protocol 官方确认，其 EVM 链上的 swap 路由合约出现安全事件；流动性提供者资金及 Starknet 主网不受影响。官方建议用户立即撤销所有对该路由合约的未完成授权，事件仍在调查中。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">链上事件·合约漏洞</span>
+        <span class="keyword">Ekubo / EVM / Starknet</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfae2-2bf2-72ed-94a7-b3e35ddf72a4" target="_blank">PANews（05-06 01:23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 01:15</span>
+      </div>
+      <span class="news-title">巨鲸起诉 Coinbase：拒绝归还 2024 年钓鱼攻击损失的 $5,500 万 DAI</span>
+      <div class="news-desc">一名于 2024 年遭钓鱼攻击损失 $5,500万 DAI 的用户将 Coinbase 告上法庭，指控其虽于 2024年12月确认资金位置，却以"需要法院命令"为由拒绝协助解冻归还，认为交易所有能力行动而未行动。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">链上事件·法律追索</span>
+        <span class="keyword">Coinbase / DAI / 钓鱼攻击</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfada-bca0-723a-af7e-12bb5471c423" target="_blank">PANews（05-06 01:15）</a></div>
+    </div>
+  </section>
+
+  <!-- 机构与资金 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏢 机构与资金</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-06 01:28</span>
+      </div>
+      <span class="news-title">Coinbase 宣布裁员 14%（约 660 人），AI 重塑运营架构，取消纯管理层岗位</span>
+      <div class="news-desc">Coinbase CEO Brian Armstrong 宣布裁减约 14% 员工（约660人），归因于 AI 驱动的运营转型。同步推行组织架构变革：取消纯管理岗，推行"player-coach"模式（每位管理者直接负责≥15人），强调每名员工均需承担直接业务贡献。Coinbase 股价盘后上涨。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">行业趋势·AI重塑</span>
+        <span class="keyword">Coinbase / 裁员 / AI转型</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfae6-8156-74ad-ab99-dc0b1e9b12a8" target="_blank">PANews（05-06 01:28）</a> · <a href="https://www.coindesk.com/business/2026/05/05/coinbase-cuts-14-of-staff-as-ai-reshapes-how-crypto-companies-operate" target="_blank">CoinDesk（05-05）</a> · <a href="https://www.cnbc.com/2026/05/05/coinbase-cuts-headcount-by-14percent-citing-ai-acceleration-the-shares-are-gaining.html" target="_blank">CNBC（05-05）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 00:23</span>
+      </div>
+      <span class="news-title">State Street 高管：链上安全频发攻击，机构要求解决后才会上链万亿 RWA</span>
+      <div class="news-desc">State Street 高管在 Consensus Miami 2026 指出，4月链上攻击频发（Drift $2.95亿等），机构投资者明确要求区块链安全改进到位后才会将万亿美元规模的现实资产（RWA）迁移上链。"年轻的加密行业需要现在就找到解决方案。"</div>
+      <div class="news-tags">
+        <span class="keyword">季度影响</span>
+        <span class="keyword">机构·RWA门槛</span>
+        <span class="keyword">State Street / RWA / 链上安全</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfaab-51cc-754c-b43b-2372cbbc9a17" target="_blank">PANews（05-06 00:23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 00:36</span>
+      </div>
+      <span class="news-title">法国芯片商 Sequans Q1 减持逾半比特币，账面亏损 $2,930 万</span>
+      <div class="news-desc">Sequans Communications 一季度出售 1,025 枚 BTC（持仓从 2,139 枚降至 1,114 枚），账面未实现亏损 $2,930万，已实现亏损 $1,170万。继 MicroStrategy 路线后的非原生企业 BTC 储备策略开始出现分化。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">机构·企业储备分化</span>
+        <span class="keyword">Sequans / BTC减持 / 企业储备</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfab7-2398-7058-aa65-3cdfbf8f268e" target="_blank">PANews（05-06 00:36）</a></div>
+    </div>
+  </section>
+
+  <!-- 项目与行业 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🚀 项目与行业</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 00:46</span>
+      </div>
+      <span class="news-title">Solana 联合创始人：Alpenglow 共识升级最早 Q2 上线，确认时间将从 12.8 秒压缩至 100ms</span>
+      <div class="news-desc">Anatoly Yakovenko 在 Consensus Miami 2026 宣布，Alpenglow 最早可于 Q2 上线，目标将交易最终确认时间从 12.8 秒压缩至 100–150 毫秒（约快100倍）。新组件：Votor（轻量投票聚合）+ Rotor（基于权益权重的区块传播路径优化）。</div>
+      <div class="news-tags">
+        <span class="keyword">季度影响</span>
+        <span class="keyword">行业趋势·L1升级</span>
+        <span class="keyword">Solana / Alpenglow / 确认速度</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfabf-b772-747f-ad50-f3f44f6cb088" target="_blank">PANews（05-06 00:46）</a> · <a href="https://www.coindesk.com/tech/2026/05/05/solana-s-alpenglow-upgrade-could-arrive-next-quarter-co-founder-yakovenko-says" target="_blank">CoinDesk（05-05）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 00:41</span>
+      </div>
+      <span class="news-title">Solana 基金会联手 Google Cloud 推出 Pay.sh，AI 代理可用稳定币按需支付 API</span>
+      <div class="news-desc">AI 代理可通过 Pay.sh 使用 Solana 链上稳定币按需支付 Google Cloud API 及50余家社区 API，无需注册账户；支持 x402/MPP 支付协议，为 AI 自主经济活动提供链上支付基础设施。</div>
+      <div class="news-tags">
+        <span class="keyword">季度影响</span>
+        <span class="keyword">行业趋势·AI代理</span>
+        <span class="keyword">Solana / Google Cloud / AI支付</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfabb-90d0-7327-a7f9-50fdfc42ddb1" target="_blank">PANews（05-06 00:41）</a> · <a href="https://decrypt.co/366876/solana-google-cloud-launch-stablecoin-payments-service-for-ai-agents" target="_blank">Decrypt</a> · <a href="https://www.theblock.co/post/400059/google-cloud-solana-foundation-ai-payments" target="_blank">The Block</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 01:30</span>
+      </div>
+      <span class="news-title">Jito 计划 7 月推出消费端交易应用 JTX，支持现货、永续与预测市场</span>
+      <div class="news-desc">Solana 基础设施公司 Jito 宣布将于7月推出面向消费者的交易应用 JTX，初期支持现货交易，后续集成永续合约与预测市场，承接其 MEV/质押服务的消费端延伸布局。</div>
+      <div class="news-tags">
+        <span class="keyword">季度影响</span>
+        <span class="keyword">行业趋势·产品扩张</span>
+        <span class="keyword">Jito / JTX / Solana生态</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfae8-3ba7-721d-be42-53385a9ca72a" target="_blank">PANews（05-06 01:30）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 01:10</span>
+      </div>
+      <span class="news-title">Iggy Azalea 遭集体诉讼：MOTHER 代币跌幅 99%，承诺生态整合未兑现</span>
+      <div class="news-desc">投资者对说唱歌手 Iggy Azalea 提起集体诉讼，指控其 MOTHER 代币承诺的生态整合（赌场、移动服务、市场等）均未落地，代币已从 $0.23 峰值下跌超 99%，涉嫌误导性宣传与欺诈。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">链上事件·Meme代币</span>
+        <span class="keyword">Iggy Azalea / MOTHER / Meme代币诉讼</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/zh/articles/019dfad5-cadc-777e-845d-61576d2969ca" target="_blank">PANews（05-06 01:10）</a></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    加密行业热点早报 · 5月6日<br>
+    数据来源：Odaily · PANews · CoinDesk · The Block · Decrypt · SoSoValue<br>
+    时间窗口：2026年5月5日 20:00 — 5月6日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成投资建议
+  </footer>
+
+</body>
+</html>
