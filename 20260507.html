@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 5月7日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .header-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      font-size: 10px;
+      color: #888;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2px 9px;
+    }
+    .core-banner {
+      margin: 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 6px 6px 0;
+    }
+    .core-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #BCFF2F;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .core-item {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.75;
+      margin-bottom: 7px;
+    }
+    .core-item:last-child { margin-bottom: 0; }
+    .section {
+      margin: 0 16px;
+      padding: 16px 0 4px;
+      border-top: 1px solid #111;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .section-count {
+      font-size: 10px;
+      font-weight: 700;
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-label { font-size: 10px; color: #555; margin-bottom: 4px; }
+    .market-value { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #1a1a1a; color: #555; border: 1px solid #222; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    a.news-title:hover { color: #BCFF2F; }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+    .keyword {
+      font-size: 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 2px 8px;
+    }
+    .news-source {
+      font-size: 10px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      padding: 24px 16px 10px;
+      font-size: 11px;
+      color: #2a2a2a;
+      border-top: 1px solid #0d0d0d;
+      margin: 20px 16px 0;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-date">2026 · 05 · 07 · 早报</div>
+    <div class="header-title">加密行业热点<span class="green">早报</span></div>
+    <div class="header-sub">5月6日 20:00 — 5月7日 09:30 · 北京时间</div>
+    <div class="header-pills">
+      <span class="pill">Odaily</span>
+      <span class="pill">PANews</span>
+      <span class="pill">CoinDesk</span>
+      <span class="pill">The Block</span>
+    </div>
+  </header>
+
+  <!-- 核心主线 -->
+  <div class="core-banner">
+    <div class="core-title">🟢 今日核心主线</div>
+    <div class="core-item">① 美伊和谈突破性进展：双方进入14条款「一页纸」MOU草案谈判，WTI原油暴跌逾8%至$94区间，纳斯达克+2.02%创历史新高25,839点，风险资产全面反弹</div>
+    <div class="core-item">② GraniteShares 8只3×杠杆加密ETF今日（5月7日）登陆纳斯达克，覆盖BTC/ETH/SOL/XRP做多做空两方向，经历五次延期后正式落地</div>
+    <div class="core-item">③ Arbitrum DAO以压倒性支持通过解冻$7,100万ETH（DeFi United）；但美联邦法院4月30日限制令仍构成法律障碍，Aave同步完成KelpDAO攻击者剩余rsETH清算</div>
+  </div>
+
+  <!-- 市场行情 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">📊 市场行情</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-cell">
+        <div class="market-label">BTC</div>
+        <div class="market-value">$82,200</div>
+        <div class="market-change up">+1.2% 24h</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">ETH</div>
+        <div class="market-value">$2,396</div>
+        <div class="market-change up">+0.7% 24h</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">恐惧贪婪</div>
+        <div class="market-value">50</div>
+        <div class="market-change neutral">中性</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">WTI 原油</div>
+        <div class="market-value">$94.50</div>
+        <div class="market-change down">-7.9%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">黄金</div>
+        <div class="market-value">$4,698</div>
+        <div class="market-change up">+3.1%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">纳斯达克 5/6</div>
+        <div class="market-value">25,839</div>
+        <div class="market-change up">+2.02% 历史新高</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宏观与地缘 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🌍 宏观与地缘</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-06 深夜</span>
+      </div>
+      <span class="news-title">美伊进入14条款「一页纸」MOU草案谈判，WTI暴跌逾8%，伊方预计周四提交答复</span>
+      <div class="news-desc">美方特使 Witkoff 与 Kushner 主导起草14条款停战谅解备忘录（MOU），内容涵盖：宣布战争结束、开启30天详细协议窗口、霍尔木兹海峡重新开放、核计划限制及制裁解除。铀浓缩年限仍在博弈：伊方提议5年、美方要求20年，当前讨论区间约12—15年。伊朗国防部要求美国须与以色列划清界限为谈判前提。WTI原油应声暴跌逾8%，创月内最大单日跌幅。</div>
+      <div class="news-tags">
+        <span class="keyword">周级影响</span>
+        <span class="keyword">全球事件·地缘谈判</span>
+        <span class="keyword">美伊MOU / 霍尔木兹 / WTI暴跌</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo" target="_blank">Axios（05-06）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/479673" target="_blank">Odaily（05-07 00:07）</a> · <a href="https://www.cnn.com/2026/05/06/world/live-news/iran-war-trump-strait-of-hormuz" target="_blank">CNN（05-06）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 01:07</span>
+      </div>
+      <span class="news-title">美股收盘：纳斯达克+2.02%创历史新高 25,839，标普500+1.46%同创历史新高</span>
+      <div class="news-desc">美股5月6日全面上涨，纳斯达克综合指数收涨2.02%至25,839.94点，创历史收盘新高；标普500涨1.46%至7,365.12点，同创新高。加密概念股普涨：Hut 8暴涨35.31%，Riot Platforms涨16.46%，Coinbase股价盘后上涨（裁员后市场解读正面）。AI科技财报强劲叠加美伊和谈预期共同推动。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">传统金融·美股</span>
+        <span class="keyword">纳斯达克历史新高 / Hut 8 / 矿企AI转型</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/479672" target="_blank">Odaily（05-07 01:07）</a></div>
+    </div>
+  </section>
+
+  <!-- 全球监管 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏛️ 全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-07 上市</span>
+      </div>
+      <span class="news-title">GraniteShares 8只3×杠杆加密ETF今日登陆纳斯达克，覆盖BTC/ETH/SOL/XRP做多做空</span>
+      <div class="news-desc">经历五次延期后，GraniteShares旗下8只3倍杠杆加密ETF于5月7日正式在纳斯达克交易：包含BTC、ETH、SOL、XRP各自的3×做多与3×做空版本，均使用衍生品（互换/期货/期权）实现每日杠杆收益。这是美国市场首批面向散户的多资产3倍杠杆加密ETF产品，标志加密衍生品基础设施进一步完善。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">全球监管·杠杆ETF</span>
+        <span class="keyword">GraniteShares / 3×ETF / 纳斯达克上市</span>
+      </div>
+      <div class="news-source">来源：<a href="https://ethnews.com/graniteshares-targets-may-7-for-3x-xrp-etf-launch-after-five-delays/" target="_blank">ETHNews（05-07）</a> · <a href="https://247wallst.com/investing/2026/04/23/xrp-news-graniteshares-just-delayed-its-3x-xrp-etfs-to-may-7/" target="_blank">24/7 Wall St.</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 00:25</span>
+      </div>
+      <span class="news-title">美国XRP现货ETF单日净流入$1,302万，Bitwise XRP ETF领跑</span>
+      <div class="news-desc">据SoSoValue，美国XRP现货ETF 5月6日（美东时间）单日总净流入$1,302.87万，Bitwise XRP ETF贡献主要份额；连续两日录得正流入，累计规模持续扩大。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">全球监管·ETF资金流向</span>
+        <span class="keyword">XRP ETF / Bitwise / SoSoValue</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/479678" target="_blank">Odaily（05-07 00:25）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 01:24</span>
+      </div>
+      <span class="news-title">美国SOL现货ETF单日净流入$2,130万，Bitwise BSOL单日贡献$2,077万</span>
+      <div class="news-desc">据SoSoValue，SOL现货ETF 5月6日单日总净流入$2,130.14万，Bitwise Solana Staking ETF（BSOL）以$2,077万居首，全线录得正流入；历史累计净流入持续扩大，总AUM $8.87亿。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">全球监管·ETF资金流向</span>
+        <span class="keyword">SOL ETF / Bitwise BSOL / SoSoValue</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/479683" target="_blank">Odaily（05-07 01:24）</a></div>
+    </div>
+  </section>
+
+  <!-- 链上事件 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🔒 链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-07 前后</span>
+      </div>
+      <span class="news-title">Arbitrum DAO压倒性通过解冻$7,100万ETH（DeFi United）；美联邦法院限制令仍阻碍转移</span>
+      <div class="news-desc">Arbitrum DAO Snapshot 投票（5月7日截止）以1690万+ ARB赞成、零反对通过解冻30,766枚ETH（约$7,100万）划拨至DeFi United恢复基金，用于补偿KelpDAO黑客受害者。然而，美国联邦法院4月30日已发出资产扣押限制令（据悉为朝鲜Lazarus Group受害方申请），实际资金转移仍受法律阻碍，链上治理与链下司法形成交锋。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">链上事件·DAO治理</span>
+        <span class="keyword">Arbitrum / DeFi United / Lazarus / 联邦限制令</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cryptotimes.io/2026/05/04/aave-files-motion-to-unfreeze-71m-eth-tied-to-kelpdao-exploit/" target="_blank">CryptoTimes（05-04）</a> · <a href="https://www.theblock.co/post/400315/aave-liquidates-kelp-dao-attackers-remaining-rseth-positions" target="_blank">The Block</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 00:17</span>
+      </div>
+      <span class="news-title">Aave完成清算KelpDAO攻击者剩余rsETH仓位，资产转入DeFi United恢复金库</span>
+      <div class="news-desc">Aave协议完成对KelpDAO攻击者最后一批rsETH质押仓位的强制清算，相关资产已转入DeFi United Recovery Guardian（恢复金库），标志着Aave侧的技术层面收尾工作完成；后续追偿仍依赖Arbitrum DAO解冻投票及法律程序推进。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">链上事件·DeFi清算</span>
+        <span class="keyword">Aave / KelpDAO / rsETH / 恢复金库</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/479676" target="_blank">Odaily（05-07 00:17）</a> · <a href="https://www.theblock.co/post/400315/aave-liquidates-kelp-dao-attackers-remaining-rseth-positions" target="_blank">The Block</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 前后</span>
+      </div>
+      <span class="news-title">WLFI代币解锁投票以99.9%支持率通过，622亿枚WLFI待释放，代币跌近20%</span>
+      <div class="news-desc">特朗普系DeFi项目WorldLibertyFi（WLFI）的代币解锁提案（始于4月29日投票）以99.9%赞成率通过，约622亿枚WLFI将经历2年锁定+5年线性释放，内部人须销毁10%持仓。消息公布后WLFI代币单日下跌近20%，市场对大规模稀释担忧升温。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">链上事件·代币解锁</span>
+        <span class="keyword">WLFI / WorldLibertyFi / 特朗普系DeFi</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/04/30/wlfi-races-toward-62-billion-token-unlock-with-near-unanimous-vote" target="_blank">CoinDesk（04-30）</a> · <a href="https://www.cryptotimes.io/2026/04/30/world-liberty-fis-wlfi-token-plunges-20-after-controversial-unlock-vote/" target="_blank">CryptoTimes</a></div>
+    </div>
+  </section>
+
+  <!-- 机构与资金 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏢 机构与资金</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 00:47</span>
+      </div>
+      <span class="news-title">疑似Paradigm相关地址3小时内向FalconX转入11,615枚ETH（约$2,729万）</span>
+      <div class="news-desc">链上数据显示，4个疑似与Paradigm Capital关联的钱包在3小时内陆续向FalconX OTC平台转入共计11,615枚ETH，当时价值约$2,729万。FalconX为机构级OTC服务商，此类转账通常预示大宗场外出售意向，引发市场关注。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">机构·鲸鱼动向</span>
+        <span class="keyword">Paradigm / FalconX / ETH大额转移</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/479682" target="_blank">Odaily（05-07 01:30 星球早讯）</a> · <a href="https://x.com/lookonchain/status/2052187098267214043" target="_blank">Lookonchain（05-07 00:47）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 01:15</span>
+      </div>
+      <span class="news-title">Eric Trump：摩根大通已允许客户以BTC持仓作为住房贷款抵押，TradFi重新审视比特币</span>
+      <div class="news-desc">特朗普次子 Eric Trump 在 Consensus Miami 2026 指出，摩根大通已推出允许客户以比特币持仓作为住房贷款抵押的服务，并称"TradFi正在快速重新评估BTC"。摩根大通此前以其CEO Jamie Dimon 强烈反对加密资产立场著称，此举被解读为传统金融机构立场的标志性转变。</div>
+      <div class="news-tags">
+        <span class="keyword">季度影响</span>
+        <span class="keyword">机构·TradFi接纳</span>
+        <span class="keyword">摩根大通 / BTC抵押 / 传统金融转变</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/06/eric-trump-takes-shot-at-jpmorgan-rethinking-bitcoin-after-crapping-on-asset" target="_blank">CoinDesk（05-06）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-06 链上</span>
+      </div>
+      <span class="news-title">ETH鲸鱼5月初以来累计净买入约23万枚ETH，与散户分发方向相反</span>
+      <div class="news-desc">链上数据显示，大型持仓地址（鲸鱼）自5月初至5月6日累计净买入约23万枚ETH，而散户地址呈现持续分发趋势。当前约30%的ETH流通供应处于质押状态（约$1,180亿），压制卖方流动性；ETH价格维持$2,300–$2,400区间横盘。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">加密数据·链上持仓</span>
+        <span class="keyword">ETH鲸鱼 / 质押率30% / 散户分发</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thecoinrepublic.com/2026/05/06/ethereum-price-prediction-whales-buy-230k-eth-as-price-holds-2-3k/" target="_blank">The Coin Republic（05-06）</a></div>
+    </div>
+  </section>
+
+  <!-- 今日关键词 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏷️ 今日关键词</span>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; padding-bottom:12px;">
+      <span class="keyword">美伊MOU草案</span>
+      <span class="keyword">WTI暴跌8%</span>
+      <span class="keyword">GraniteShares 3×ETF</span>
+      <span class="keyword">纳斯达克历史新高</span>
+      <span class="keyword">Arbitrum DAO</span>
+      <span class="keyword">DeFi United解冻</span>
+      <span class="keyword">联邦法院限制令</span>
+      <span class="keyword">Aave清算收尾</span>
+      <span class="keyword">WLFI解锁</span>
+      <span class="keyword">Paradigm ETH转移</span>
+      <span class="keyword">摩根大通BTC抵押</span>
+      <span class="keyword">ETH鲸鱼23万</span>
+      <span class="keyword">XRP ETF $1302万</span>
+      <span class="keyword">SOL ETF $2130万</span>
+      <span class="keyword">黄金 $4,698</span>
+      <span class="keyword">Hut 8 +35%</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    加密行业热点早报 · 5月7日<br>
+    数据来源：Odaily · PANews · CoinDesk · The Block · Axios · ETHNews · SoSoValue<br>
+    时间窗口：2026年5月6日 20:00 — 5月7日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成投资建议
+  </footer>
+
+</body>
+</html>
