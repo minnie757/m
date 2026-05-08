@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 5月8日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .header-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      font-size: 10px;
+      color: #888;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2px 9px;
+    }
+    .core-banner {
+      margin: 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 6px 6px 0;
+    }
+    .core-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #BCFF2F;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .core-item {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.75;
+      margin-bottom: 7px;
+    }
+    .core-item:last-child { margin-bottom: 0; }
+    .section {
+      margin: 0 16px;
+      padding: 16px 0 4px;
+      border-top: 1px solid #111;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .section-count {
+      font-size: 10px;
+      font-weight: 700;
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-label { font-size: 10px; color: #555; margin-bottom: 4px; }
+    .market-value { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #1a1a1a; color: #555; border: 1px solid #222; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    a.news-title:hover { color: #BCFF2F; }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+    .keyword {
+      font-size: 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 2px 8px;
+    }
+    .news-source {
+      font-size: 10px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      padding: 24px 16px 10px;
+      font-size: 11px;
+      color: #2a2a2a;
+      border-top: 1px solid #0d0d0d;
+      margin: 20px 16px 0;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-date">2026 · 05 · 08 · 早报</div>
+    <div class="header-title">加密行业热点<span class="green">早报</span></div>
+    <div class="header-sub">5月7日 20:00 — 5月8日 09:30 · 北京时间</div>
+    <div class="header-pills">
+      <span class="pill">Odaily</span>
+      <span class="pill">PANews</span>
+      <span class="pill">CoinDesk</span>
+      <span class="pill">CNBC</span>
+    </div>
+  </header>
+
+  <!-- 核心主线 -->
+  <div class="core-banner">
+    <div class="core-title">🟢 今日核心主线</div>
+    <div class="core-item">① 美军在霍尔木兹海峡反击伊朗导弹/无人机攻击，特朗普确认「停火协议仍然有效」，双轨并存（军事冲突 + MOU谈判）致WTI剧烈震荡，黄金升至$4,739</div>
+    <div class="core-item">② CLARITY法案参议院银行委员会5月8日启动markup审议，白宫设定7月4日通过目标；同期Kevin Warsh全院确认投票最早5月11日，美联储权力交接进入倒计时</div>
+    <div class="core-item">③ Coinbase Q1财报低预期（营收$14.1亿、净亏$3.94亿），但全球现货市占率8.6%创历史新高；美国BTC现货ETF当周净流入突破$10亿，为2026年1月来最强</div>
+  </div>
+
+  <!-- 市场行情 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">📊 市场行情</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-cell">
+        <div class="market-label">BTC</div>
+        <div class="market-value">$81,020</div>
+        <div class="market-change down">-1.6% 24h</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">ETH</div>
+        <div class="market-value">$2,338</div>
+        <div class="market-change down">-1.2% 24h</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">恐惧贪婪</div>
+        <div class="market-value">47</div>
+        <div class="market-change down">恐惧</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">WTI 原油</div>
+        <div class="market-value">$93.50</div>
+        <div class="market-change neutral">剧烈震荡</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">黄金</div>
+        <div class="market-value">$4,739</div>
+        <div class="market-change up">+1.2%</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">纳斯达克 5/7</div>
+        <div class="market-value">25,806</div>
+        <div class="market-change down">-0.13%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宏观与地缘 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🌍 宏观与地缘</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-08 08:03</span>
+      </div>
+      <span class="news-title">美军在霍尔木兹海峡反击伊朗攻击，特朗普：「停火协议仍然有效，谈判继续」</span>
+      <div class="news-desc">美国中央司令部：5月7日，三艘美驱逐舰（Truxtun、Rafael Peralta、Mason）在霍尔木兹海峡过境时遭伊朗导弹、无人机及快艇攻击，美军全数拦截后精确打击伊朗导弹/无人机发射阵地、指控中心及情报节点，无美国资产受损，声明强调"无意升级"。特朗普称此为"love tap"，同日确认14条款MOU草案谈判继续推进，协议可"随时达成"。双轨并存格局推动黄金走高、WTI剧烈震荡。</div>
+      <div class="news-tags">
+        <span class="keyword">周级影响</span>
+        <span class="keyword">全球事件·军事冲突</span>
+        <span class="keyword">霍尔木兹 / 美伊军事 / MOU谈判并存</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479884" target="_blank">Odaily（05-08 08:03）</a> · <a href="https://www.odaily.news/newsflash/479885" target="_blank">Odaily（05-08 08:07）</a> · <a href="https://www.npr.org/2026/05/07/g-s1-120978/u-s-military-intercepted-iran-attacks-navy-ships-hormuz" target="_blank">NPR（05-07）</a> · <a href="https://thehill.com/policy/defense/5868807-us-forces-strike-iranian-targets-ceasefire/" target="_blank">The Hill</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-07 收盘</span>
+      </div>
+      <span class="news-title">纳斯达克5/7收盘-0.13%至25,806，黄金升至$4,739创周内新高</span>
+      <div class="news-desc">受伊朗停火谈判反复（军事交火消息）影响，能源板块(-1.95%)和工业板块(-1.66%)领跌，纳斯达克收跌0.13%至25,806.20；标普500收7,337.11。黄金连续三日上涨，报$4,739/盎司（+1.2%），受地缘不确定性叠加通胀担忧支撑。WTI全天剧烈震荡，盘中因和谈消息跌至$88区间后因军事新闻反弹，尾盘收$94.81/桶。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">传统金融·美股·贵金属</span>
+        <span class="keyword">黄金 $4,739 / WTI震荡 / 纳指小跌</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/05/07/oil-prices-today-trump-iran-strait-of-hormuz-us-crude-brent-.html" target="_blank">CNBC（05-07）</a></div>
+    </div>
+  </section>
+
+  <!-- 全球监管 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏛️ 全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-08 08:12</span>
+      </div>
+      <span class="news-title">CLARITY法案参议院银行委员会5月8日启动markup，Coinbase高管：需60票，白宫目标7月4日通过</span>
+      <div class="news-desc">参议院银行委员会最快5月8日（周四）启动《数字资产市场清晰法案》markup审议，议员Tillis与Alsobrooks已就稳定币收益问题达成妥协；Coinbase高管表示法案须至少获60票参议员支持方可通过，正积极争取两党认可。白宫立法时间表：参议院委员会5月完成→全体6月投票→众议院7月4日前通过。参议员Gillibrand表示需更强反洗钱和消费者保护条款。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">全球监管·加密立法</span>
+        <span class="keyword">CLARITY Act / 参议院markup / 7月4日目标</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479889" target="_blank">Odaily（05-08 08:12）</a> · <a href="https://www.cryptotimes.io/2026/05/08/senate-reportedly-moves-clarity-act-toward-key-crypto-vote/" target="_blank">CryptoTimes（05-08）</a> · <a href="https://www.coindesk.com/policy/2026/05/02/crypto-industry-backs-clarity-act-yield-compromise-pushes-senate-banking-for-markup" target="_blank">CoinDesk</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-08 前后</span>
+      </div>
+      <span class="news-title">Kevin Warsh全院确认投票最早5月11日，鲍威尔5月15日届满，美联储权力交接进入倒计时</span>
+      <div class="news-desc">参议院银行委员会4月29日以13:11党派对立票通过Warsh提名，发送参议院全体投票，最早5月11日进行；鲍威尔Fed主席任期5月15日届满，凯文·沃什正式接班进入倒计时。沃什此前表示当通胀预期脱锚时"需要更强有力的应对措施"，市场关注其上任后的货币政策取向。</div>
+      <div class="news-tags">
+        <span class="keyword">季度影响</span>
+        <span class="keyword">货币政策·美联储换届</span>
+        <span class="keyword">Kevin Warsh / 鲍威尔届满 / 5月15日</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/04/29/trump-fed-nominee-kevin-warsh-senate-approval.html" target="_blank">CNBC（04-29）</a> · <a href="https://www.aljazeera.com/economy/2026/4/29/senate-panel-advances-kevin-warshs-nomination-for-us-fed-chair" target="_blank">Al Jazeera（04-29）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-08 08:57</span>
+      </div>
+      <span class="news-title">美国SOL现货ETF单日净流入$667万，Bitwise BSOL贡献$536万</span>
+      <div class="news-desc">据SoSoValue，SOL现货ETF 5月7日（美东时间）单日净流入$667.49万，Bitwise Solana Staking ETF（BSOL）以$536万居首；连续多日录得正流入，总AUM持续扩大。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">全球监管·ETF资金流向</span>
+        <span class="keyword">SOL ETF / Bitwise BSOL / SoSoValue</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479897" target="_blank">Odaily（05-08 08:57）</a></div>
+    </div>
+  </section>
+
+  <!-- 机构与资金 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏢 机构与资金</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-07 当周</span>
+      </div>
+      <span class="news-title">美国BTC现货ETF当周净流入突破$10亿，为2026年1月来最强，IBIT三日贡献$7.215亿</span>
+      <div class="news-desc">美国比特币现货ETF当周总净流入突破$10亿，为2026年1月以来首次；BlackRock IBIT三日合计净流入约$7.215亿，占周内流入逾70%；4月全月净流入$24.4亿，IBIT独占$17.1亿（70%）。流入加速与BTC价格维持$80,000—$82,500区间高位相互印证，机构长线买盘持续。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">机构·ETF资金流入</span>
+        <span class="keyword">BTC ETF / IBIT / 10亿周流入</span>
+      </div>
+      <div class="news-source">来源：<a href="https://phemex.com/blogs/bitcoin-etfs-nine-days-inflows-2-7-billion" target="_blank">Phemex（05-07）</a> · <a href="https://stocktwits.com/news-articles/markets/cryptocurrency/ibit-drives-bitcoin-etf-inflows-past-1-billion-for-first-time-since-january/cZXbf0bRefy" target="_blank">Stocktwits</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-08 08:08</span>
+      </div>
+      <span class="news-title">Coinbase Q1财报：营收$14.1亿低预期、净亏$3.94亿，但现货全球市占率8.6%创历史新高</span>
+      <div class="news-desc">Coinbase Q1 2026财报（盘后发布）：总营收$14.1亿（同比-31%，低于预期$14.8亿）；GAAP净亏损$3.94亿（每股-$1.49）；非GAAP调整后EBITDA $3.03亿，连续第13季度为正。亮点：全球现货加密交易市占率升至8.6%历史新高；衍生品交易量同比增169%至$42亿；CFO确认USDC分发合约与Circle每三年自动续约且不可单方面终止。财报后盘后股价承压。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">机构·交易所财报</span>
+        <span class="keyword">Coinbase Q1 / 市占率8.6% / USDC合约</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479886" target="_blank">Odaily（05-08 08:08）</a> · <a href="https://www.cnbc.com/2026/05/07/coinbase-coin-earnings-q1-2026.html" target="_blank">CNBC（05-07）</a> · <a href="https://finance.yahoo.com/markets/crypto/articles/coinbase-q1-2026-revenue-falls-210348048.html" target="_blank">Yahoo Finance</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-04 前后</span>
+      </div>
+      <span class="news-title">Strategy暂停例行BTC买入，持仓818,334枚BTC（总成本$618亿，均价$75,537）</span>
+      <div class="news-desc">Strategy（前MicroStrategy）于Q1财报发布前（5月4日前后）暂停每周例行比特币购买，当前持有818,334 BTC（总成本约$618亿，均价约$75,537/枚）。暂停期间未披露明确重启时间，市场关注其持续增持策略是否进入调整期。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">机构·企业BTC储备</span>
+        <span class="keyword">Strategy / 818,334 BTC / 暂停买入</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/crypto/articles/microstrategy-pauses-bitcoin-buys-ahead-180837543.html" target="_blank">Yahoo Finance（05-07）</a></div>
+    </div>
+  </section>
+
+  <!-- 项目与行业 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🚀 项目与行业</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-08 09:24</span>
+      </div>
+      <span class="news-title">Jito Labs 正式推出 JTX 自托管交易平台，JTO 代币 24 小时暴涨逾 45%</span>
+      <div class="news-desc">Jito Labs 在迈阿密 Solana Accelerate 大会正式发布 JTX 自托管交易平台，提供止损单、TradingView 图表等专业工具，用户全程保持自我托管；协议收入80%将回流至 JTO 持有者。消息推动 JTO 代币24小时内暴涨逾45%，成为本周 Solana 生态最强表现标的。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">行业趋势·DEX产品</span>
+        <span class="keyword">Jito / JTX / JTO +45% / Solana生态</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479894" target="_blank">Odaily（05-08 09:24）</a> · <a href="https://www.coindesk.com/tech/2026/05/05/jito-labs-launches-jtx-as-self-custody-trading-heats-up-on-solana" target="_blank">CoinDesk（05-05）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-08 09:07</span>
+      </div>
+      <span class="news-title">ENS 团队时间锁钱包转出 146 万枚 ENS（约 $932 万），市场关注大额出货压力</span>
+      <div class="news-desc">链上数据显示，ENS 协议团队的时间锁钱包向交易所转入约 146 万枚 ENS 代币，当时价值约 $932 万，引发市场对潜在抛压的关注。时间锁钱包出金通常与团队历史薪酬或协议金库运营有关，暂未获团队官方说明。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">链上事件·大额转移</span>
+        <span class="keyword">ENS / 时间锁钱包 / 团队出金</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479893" target="_blank">Odaily（05-08 09:23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-08 09:22</span>
+      </div>
+      <span class="news-title">加密媒体 DL News 宣布 5 月底关闭，归因 AI 冲击流量分发与搜索渠道崩溃</span>
+      <div class="news-desc">DefiLlama 旗下加密媒体 DL News（2022年创立）宣布将于5月底关闭，声明称："AI加速了搜索分发的崩溃，催生无数寄生聚合器，未能实现商业规模化"；2025年营收同比增270%仍不可持续。DL News 是近期加密原生媒体中首个公开以"AI搜索冲击"为关闭理由的案例，引发行业对媒体商业模式的广泛讨论。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">行业趋势·媒体生态</span>
+        <span class="keyword">DL News / AI冲击媒体 / DefiLlama</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/479891" target="_blank">Odaily（05-08 09:22）</a> · <a href="https://www.dlnews.com/articles/people-culture/dl-news-is-closing/" target="_blank">DL News官方（05-07）</a> · <a href="https://www.panewslab.com/en/articles/019e04ed-b4c0-70ec-8709-97a55581136f" target="_blank">PANews</a></div>
+    </div>
+  </section>
+
+  <!-- 今日关键词 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏷️ 今日关键词</span>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; padding-bottom:12px;">
+      <span class="keyword">美军反击伊朗</span>
+      <span class="keyword">霍尔木兹停火并存</span>
+      <span class="keyword">MOU谈判</span>
+      <span class="keyword">CLARITY Act markup</span>
+      <span class="keyword">7月4日立法目标</span>
+      <span class="keyword">Kevin Warsh</span>
+      <span class="keyword">鲍威尔5月15日届满</span>
+      <span class="keyword">BTC ETF $10亿流入</span>
+      <span class="keyword">IBIT三日$7.2亿</span>
+      <span class="keyword">Coinbase Q1财报</span>
+      <span class="keyword">市占率8.6%新高</span>
+      <span class="keyword">Strategy暂停买入</span>
+      <span class="keyword">JTO +45%</span>
+      <span class="keyword">Jito JTX</span>
+      <span class="keyword">ENS大额转出</span>
+      <span class="keyword">DL News关闭</span>
+      <span class="keyword">黄金 $4,739</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    加密行业热点早报 · 5月8日<br>
+    数据来源：Odaily · PANews · CoinDesk · CNBC · Axios · NPR · SoSoValue<br>
+    时间窗口：2026年5月7日 20:00 — 5月8日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成投资建议
+  </footer>
+
+</body>
+</html>
