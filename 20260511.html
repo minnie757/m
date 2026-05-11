@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密行业热点早报 · 5月11日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      max-width: 780px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 7px;
+      letter-spacing: 0.3px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .header-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      font-size: 10px;
+      color: #888;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2px 9px;
+    }
+    .core-banner {
+      margin: 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #0d0d0d;
+      border-top: 1px solid #1a2a0a;
+      border-right: 1px solid #1a2a0a;
+      border-bottom: 1px solid #1a2a0a;
+      border-radius: 0 6px 6px 0;
+    }
+    .core-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #BCFF2F;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .core-item {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.75;
+      margin-bottom: 7px;
+    }
+    .core-item:last-child { margin-bottom: 0; }
+    .section {
+      margin: 0 16px;
+      padding: 16px 0 4px;
+      border-top: 1px solid #111;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .section-count {
+      font-size: 10px;
+      font-weight: 700;
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .market-cell {
+      padding: 10px 12px;
+      background: #0c0c0c;
+    }
+    .market-label { font-size: 10px; color: #555; margin-bottom: 4px; }
+    .market-value { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B; color: #fff; }
+    .tag-priority.mid { background: #1a1a1a; color: #FFD600; border: 1px solid #333; }
+    .tag-priority.low { background: #1a1a1a; color: #555; border: 1px solid #222; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      line-height: 1.55;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    a.news-title:hover { color: #BCFF2F; }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+    .keyword {
+      font-size: 10px;
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 2px 8px;
+    }
+    .news-source {
+      font-size: 10px;
+      color: #444;
+    }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+    .footer {
+      text-align: center;
+      padding: 24px 16px 10px;
+      font-size: 11px;
+      color: #2a2a2a;
+      border-top: 1px solid #0d0d0d;
+      margin: 20px 16px 0;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-date">2026 · 05 · 11 · 早报</div>
+    <div class="header-title">加密行业热点<span class="green">早报</span></div>
+    <div class="header-sub">5月10日 20:00 — 5月11日 09:30 · 北京时间</div>
+    <div class="header-pills">
+      <span class="pill">PANews</span>
+      <span class="pill">CoinDesk</span>
+      <span class="pill">The Block</span>
+      <span class="pill">CNBC</span>
+      <span class="pill">247WallSt</span>
+    </div>
+  </header>
+
+  <!-- 核心主线 -->
+  <div class="core-banner">
+    <div class="core-title">🟢 今日核心主线</div>
+    <div class="core-item">① Warsh全院确认投票本周锁定——参议院程序终辩投票于5月11日提出，全院确认预计5月12-13日，鲍威尔5月15日届满前美联储主席权力交接进入72小时倒计时</div>
+    <div class="core-item">② 美中日内瓦贸易磋商升温·市场预期90天关税停战——BTC周末升至$81,700，纳指五月已涨4.5%创六连周，黄金$4,720；市场前瞻博弈140%→30%关税降幅预案</div>
+    <div class="core-item">③ Consensus Miami收官——PayPal VP+Google Cloud确认AI代理商务将全面跑在加密支付轨道；CME宣布6月1日上市比特币波动率期货(BVI)，首批允许机构独立对冲BTC波动风险</div>
+  </div>
+
+  <!-- 市场行情 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">📊 市场行情</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-cell">
+        <div class="market-label">BTC（周末）</div>
+        <div class="market-value">$81,700</div>
+        <div class="market-change up">+1.9% 周末</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">ETH（周末）</div>
+        <div class="market-value">$2,330</div>
+        <div class="market-change up">+2.2% 周末</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">恐惧贪婪</div>
+        <div class="market-value">50</div>
+        <div class="market-change neutral">中性</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">WTI 原油</div>
+        <div class="market-value">$95.50</div>
+        <div class="market-change down">-1.8% 5/9收盘</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">黄金</div>
+        <div class="market-value">$4,720</div>
+        <div class="market-change neutral">-1.0% 5/9收盘</div>
+      </div>
+      <div class="market-cell">
+        <div class="market-label">纳斯达克 5/9</div>
+        <div class="market-value">26,247</div>
+        <div class="market-change up">+4.5% 周涨</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 货币政策 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏛️ 货币政策</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-11 本周</span>
+      </div>
+      <span class="news-title">参议院5月11日启动Warsh提名程序投票·全院确认最快5月12-13日·鲍威尔5月15日届满前权力交接进入倒计时</span>
+      <div class="news-desc">美国参议院多数党领袖Thune已提交Warsh提名程序终辩动议（Cloture），参议院5月11日开始相关程序投票，全院正式确认投票预计5月12-13日（参院共和党53席，确认无悬念）。一旦确认，Warsh将于5月15日鲍威尔届满前宣誓就任美联储第17任主席，成为特朗普任内首位联储主席。此次参院银行委员会4月29日13-11党线投票是美国历史上首次完全党派分裂的联储主席委员会表决。鲍威尔宣布届满后留任联储理事至2028年，特朗普将由此掌控七席联储理事会中四席。</div>
+      <div class="news-tags">
+        <span class="keyword">周级影响</span>
+        <span class="keyword">货币政策·美联储权力交接</span>
+        <span class="keyword">Warsh确认 / 鲍威尔届满 / 美联储独立性</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/en/articles/019dd15e-5f5c-7632-8347-2864bee044ba" target="_blank">PANews（05-11 Warsh程序投票）</a> · <a href="https://www.cnbc.com/2026/04/29/trump-fed-nominee-kevin-warsh-senate-approval.html" target="_blank">CNBC（04-29 委员会通过）</a> · <a href="https://www.aljazeera.com/economy/2026/4/29/senate-panel-advances-kevin-warshs-nomination-for-us-fed-chair" target="_blank">Al Jazeera</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-10 本周</span>
+      </div>
+      <span class="news-title">鲍威尔将以联储理事身份留任至2028年·表示从未被特朗普要求承诺降息·Warsh独立性态度引发经济学界担忧</span>
+      <div class="news-desc">鲍威尔确认将在5月15日卸任联储主席后继续以理事身份在任至2028年，以维护机构延续性。Warsh在确认听证会（4月21日）上表示"总统从未要求我承诺降息"，但其对联储运营独立性的表述引发前联储经济学家Claudia Sahm等人强烈质疑，称此次确认"打破先例"。Warsh被普遍预期将在6月16-17日首次主持FOMC会议时面临降息压力，市场定价6月降息25bp概率约60%。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">货币政策·联储独立性</span>
+        <span class="keyword">鲍威尔留任理事 / Warsh听证 / 6月FOMC降息预期</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/05/04/fed-kevin-warsh-interest-rates.html" target="_blank">CNBC（05-04 Warsh独立性）</a> · <a href="https://www.npr.org/2026/04/29/nx-s1-5802911/federal-reserve-meeting-jerome-powell-kevin-warsh" target="_blank">NPR（04-29 鲍威尔留任）</a></div>
+    </div>
+
+  </section>
+
+  <!-- 宏观与传统金融 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🌍 宏观与传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-10 持续</span>
+      </div>
+      <span class="news-title">美中日内瓦贸易磋商升温·市场预期90天关税停战·BTC周末升至$81,700·纳指五月已涨4.5%六连周</span>
+      <div class="news-desc">美国财政部长Bessent与USTR Greer5月10日继续在日内瓦与中方磋商，市场对90天关税停战（美方额外关税由145%降至30%、中方由125%降至10%）的预期正在快速升温，推动BTC在无美股交易的周末涨至$81,700，而黄金小幅回落至$4,720（风险偏好改善）。纳斯达克综合指数5月以来已涨4.5%至26,247，维持自3月底以来六连周涨势，创近15年以来最长周度连涨纪录，标普500同期涨逾6%。美元指数持续走弱为风险资产提供顺风。</div>
+      <div class="news-tags">
+        <span class="keyword">周级影响</span>
+        <span class="keyword">宏观数据·全球事件·传统金融</span>
+        <span class="keyword">美中关税停战 / 日内瓦磋商 / 纳指六连周 / BTC周末上涨</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.crestwoodadvisors.com/may-2026-economic-and-market-update/" target="_blank">Crestwood Advisors（05-11 市场周报）</a> · <a href="https://www.coindesk.com/policy/2026/05/10/policy-at-consensus-miami-state-of-crypto" target="_blank">CoinDesk（05-10 Consensus宏观面板）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-10 21:30</span>
+      </div>
+      <span class="news-title">白宫顾问Patrick Witt：美国战略比特币储备审计已完成·官方更新声明「数周内」发布</span>
+      <div class="news-desc">白宫加密顾问Patrick Witt在Consensus Miami（5月6日）披露，美国战略比特币储备的跨机构审计工作已完成，发现大量比特币以"散落于各机构桌子抽屉中"的方式存储，拒绝透露当前联邦BTC总持仓量。Witt确认"数周内"将发布正式更新报告，内容包括审计结果、统一托管方案进展以及下一步规划。他还引用了一起涉及美国执法没收BTC被盗的案例，以说明集中托管的必要性。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">全球监管·战略储备</span>
+        <span class="keyword">战略比特币储备 / 审计完成 / 联邦BTC持仓 / Patrick Witt</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/06/u-s-bitcoin-reserve-update-coming-in-next-few-weeks-white-house-s-adviser-says" target="_blank">CoinDesk（05-06 白宫储备更新）</a></div>
+    </div>
+
+  </section>
+
+  <!-- 全球监管 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">📋 全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-10 21:30</span>
+      </div>
+      <span class="news-title">银行业三大协会集体反对CLARITY Act稳定币收益妥协方案·5月14日markup前压力骤增</span>
+      <div class="news-desc">美国银行家协会（ABA）等三大银行业团体正式宣布反对Tillis-Alsobrooks稳定币收益妥协方案（允许活动奖励、禁止银行同等存款利息），称"需要更多工作"，距5月14日参议院银行委员会markup仅剩数日。与此同时，Consensus Miami上白宫顾问Witt确认7月4日通过"有可能"，而民主党参议员Gillibrand坚持须纳入禁止高级官员持有加密资产的伦理条款。银行业的集体反弹使markup通过面临不确定性，若谈判破裂将推迟至少数周。</div>
+      <div class="news-tags">
+        <span class="keyword">周级影响</span>
+        <span class="keyword">全球监管·加密立法</span>
+        <span class="keyword">CLARITY Act / 银行业反对 / 稳定币收益 / 5月14日markup</span>
+      </div>
+      <div class="news-source">来源：<a href="https://phemex.com/blogs/banks-reject-clarity-stablecoin-compromise" target="_blank">Phemex（银行业反对CLARITY）</a> · <a href="https://www.coindesk.com/policy/2026/05/09/crypto-industry-cheers-senate-clarity-act-markup-date-as-market-structure-push-resumes" target="_blank">CoinDesk（05-09 markup日期确认）</a> · <a href="https://www.coindesk.com/policy/2026/05/10/policy-at-consensus-miami-state-of-crypto" target="_blank">CoinDesk（05-10 Consensus政策面）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-11 早间</span>
+      </div>
+      <span class="news-title">Roundhill递交全球首只预测市场ETF申请·覆盖2026国会选举+2028总统大选·SEC暂缓审核</span>
+      <div class="news-desc">资产管理公司Roundhill向SEC递交6只预测市场ETF申请（代码：BLUP/REDP/BLUS/REDS/BLUH/REDH），分别对应2026年参众两院选举及2028年总统大选结果，合计总规模预计逾10亿美元。SEC已暂缓本次及GraniteShares、Bitwise同类申请的审核，暂停时间定义为"临时性"。此前Coinbase预测市场2026年Q1年化收入已超$1亿，合规化路径受到监管层高度关注。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">全球监管·预测市场</span>
+        <span class="keyword">Roundhill预测市场ETF / 2026大选 / SEC暂缓</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.panewslab.com/en/articles/019df57c-27ca-7187-8965-7c8d70856045" target="_blank">PANews（05-11 Roundhill申请）</a></div>
+    </div>
+
+  </section>
+
+  <!-- 机构与资金 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏦 机构与资金</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-09 报道</span>
+      </div>
+      <span class="news-title">CME宣布6月1日推出比特币波动率期货(BVI)·首次允许机构在受监管市场独立对冲BTC价格波动风险</span>
+      <div class="news-desc">芝商所（CME Group）宣布将于6月1日（待CFTC审批完成）推出比特币波动率指数期货，合约代码BVI，结算至CME CF比特币30日隐含波动率指数（BVX）。每张合约价值$500，允许机构投资者首次在受监管衍生品市场单独押注BTC价格波动幅度，而无需对冲方向性风险。这是继比特币现货ETF、CME期货后，BTC衍生品市场的又一里程碑式产品，有望吸引结构性产品和做市商增量资本。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">机构与资金·衍生品</span>
+        <span class="keyword">CME比特币波动率期货 / BVI / BVX / 隐含波动率</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/09/you-ll-soon-be-able-to-bet-on-bitcoin-volatility-not-just-price-on-cme" target="_blank">CoinDesk（05-09 CME波动率期货）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-10 报道</span>
+      </div>
+      <span class="news-title">BTC ETF 5/8单日净流出$1.456亿·九连涨后首度反转；5/10 $12.9亿USDT集中撤离以太坊链中心化交易所</span>
+      <div class="news-desc">5月8日，美国现货比特币ETF录得$1.456亿单日净流出，Fidelity FBTC -$9,760万领跌，BlackRock IBIT -$2,722万，Ark ARKB -$2,656万，反转此前九连涨（累计$27亿）势头。同日仅摩根士丹利MSBT +$574万录得净流入，市场归因于伊朗打击事件后的获利了结与宏观观望情绪。另据MEXC数据，5月10日（周日）约$12.9亿USDT从以太坊链中心化交易所集中撤出，为今年2月以来最大单日机构级稳定币再配置信号，指向大规模资金向OTC/DeFi/自托管迁移。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">机构与资金·ETF·链上事件</span>
+        <span class="keyword">BTC ETF流出 / Fidelity FBTC / USDT撤离 / 机构再配置</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptorank.io/news/feed/2ce14-us-spot-bitcoin-etfs-outflows-may-8" target="_blank">CryptoRank（05-08 ETF流出）</a> · <a href="https://www.mexc.com/news/1080908" target="_blank">MEXC（05-10 市场数据）</a></div>
+    </div>
+
+  </section>
+
+  <!-- 项目与生态 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🚀 项目与生态</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05-10 22:30</span>
+      </div>
+      <span class="news-title">Consensus Miami收官：PayPal VP+Google Cloud确认AI代理商务将全面跑在加密支付轨道·开放协议+多方托管是关键基础设施</span>
+      <div class="news-desc">在Consensus Miami 2026闭幕日（5月10日），PayPal副总裁与Google Cloud代表在主题演讲中联合确认：AI代理驱动的商务场景（Agentic Commerce）将依赖加密轨道运行——核心原因是传统支付系统无法满足"机器对机器、无人工介入"的实时结算需求。他们指出三大关键基础设施：①开放支付协议、②机器可读的商户目录、③多方密钥托管（防止单点故障）。会议同期，Robinhood披露2026年Q1新增用户中50%是首次投资者，BlackRock被称为"比特币公司"，20,000+人次出席创历届最高。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">行业趋势·AI代理·加密支付</span>
+        <span class="keyword">PayPal AI代理 / Google Cloud / Agentic Commerce / Consensus Miami</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/05/10/agentic-commerce-will-run-on-crypto-rails-paypal-and-google-reps-tell-consensus-miami" target="_blank">CoinDesk（05-10 PayPal+Google）</a> · <a href="https://www.ccn.com/news/crypto/consensus-2026-miami-us-crypto-adoption-cli-ranking-2/" target="_blank">CCN（Consensus Miami总结）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-10 21:00</span>
+      </div>
+      <span class="news-title">BAYC地板价月内翻倍·加密交易者重拾风险偏好·NFT板块止跌全面回暖</span>
+      <div class="news-desc">无聊猿游艇俱乐部（BAYC）地板价在一个月内翻倍，标志着以太坊蓝筹NFT市场触底反弹。CoinDesk分析指出，这一轮回升与更广泛的加密市场情绪改善同步，投资者在BTC守住$80K支撑后，风险偏好资金开始向高贝塔叙事（NFT、山寨币）轮动。继ZEC、NEAR、ICP等山寨前期涨幅后，NFT板块成为新一轮风险偏好的风向标，BAYC地板价翻倍是加密市场"从避险回到贪婪"的阶段性信号。</div>
+      <div class="news-tags">
+        <span class="keyword">短期影响</span>
+        <span class="keyword">行业趋势·NFT·风险偏好</span>
+        <span class="keyword">BAYC地板翻倍 / NFT回暖 / 风险偏好轮动 / 蓝筹NFT</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/05/10/bored-ape-nfts-are-finally-making-a-comeback-as-crypto-traders-rediscover-their-appetite-for-risk" target="_blank">CoinDesk（05-10 BAYC回暖）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05-10 报道</span>
+      </div>
+      <span class="news-title">Ripple 2026年已完成十项重大机构合作（含摩根大通·Mastercard·德意志银行）·CLARITY markup或成XRP实用价值催化剂</span>
+      <div class="news-desc">247WallSt统计，Ripple在2026年已签署并落地十项重大机构合作，包括德意志银行（$1.6万亿AUM）、摩根大通（Kinexys平台）、Mastercard（MTN网络）、Western Union等。然而XRP代币自今年1月高点$2.42已下跌逾40%——核心原因在于大多数机构结算使用RLUSD稳定币，XRP仅用于支付网络Gas费，限制了代币需求。分析师指出，5月14日CLARITY Act markup若顺利推进，可能将XRP定义为合法结算资产而非证券，成为下一个价值催化剂。</div>
+      <div class="news-tags">
+        <span class="keyword">月级影响</span>
+        <span class="keyword">项目与生态·RWA·XRP</span>
+        <span class="keyword">Ripple十大合作 / RLUSD / XRP -40% / CLARITY催化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://247wallst.com/investing/2026/05/10/ripple-xrp-has-closed-10-major-deals-this-year-heres-the-scoreboard-for-each-partnership/" target="_blank">247WallSt（05-10 Ripple合作盘点）</a></div>
+    </div>
+
+  </section>
+
+  <!-- 今日关键词 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">🏷️ 今日关键词</span>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; padding-bottom:12px;">
+      <span class="keyword">Warsh全院确认</span>
+      <span class="keyword">鲍威尔5月15日届满</span>
+      <span class="keyword">联储权力交接倒计时</span>
+      <span class="keyword">6月FOMC降息预期</span>
+      <span class="keyword">美中日内瓦磋商</span>
+      <span class="keyword">90天关税停战预期</span>
+      <span class="keyword">BTC周末$81700</span>
+      <span class="keyword">纳指六连周</span>
+      <span class="keyword">战略比特币储备审计</span>
+      <span class="keyword">CLARITY Act银行业反对</span>
+      <span class="keyword">5月14日markup</span>
+      <span class="keyword">Roundhill预测市场ETF</span>
+      <span class="keyword">CME波动率期货BVI</span>
+      <span class="keyword">BTC ETF流出九连涨反转</span>
+      <span class="keyword">$12.9亿USDT撤离</span>
+      <span class="keyword">PayPal AI代理支付</span>
+      <span class="keyword">Google Cloud加密轨道</span>
+      <span class="keyword">Consensus Miami收官</span>
+      <span class="keyword">BAYC地板翻倍</span>
+      <span class="keyword">Ripple十大机构合作</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    加密行业热点早报 · 2026年5月11日<br>
+    数据来源：PANews · CoinDesk · CNBC · 247WallSt · The Block · CryptoRank · MEXC · Phemex<br>
+    覆盖时段：2026年5月10日 20:00 — 5月11日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成投资建议
+  </footer>
+
+</body>
+</html>
