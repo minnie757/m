@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月12日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #111;
+      text-align: center;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      color: #555;
+      font-size: 11px;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub {
+      color: #555;
+      font-size: 11px;
+    }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+
+    /* Core Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 6px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .banner-item {
+      font-size: 12px;
+      color: #ccc;
+      line-height: 1.8;
+      padding-left: 14px;
+      position: relative;
+    }
+    .banner-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background: #BCFF2F;
+      border-radius: 50%;
+    }
+
+    /* Section Header */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 10px;
+      border-top: 1px solid #111;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      flex: 1;
+    }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+    }
+
+    /* Market Grid */
+    .market-section { margin: 0 20px 16px; }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell {
+      background: #0c0c0c;
+      padding: 12px;
+    }
+    .market-name {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .market-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* News */
+    .news-section { margin: 0 20px; }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.15);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.3);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.12);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.25);
+    }
+    .tag-priority.low {
+      background: rgba(100,100,100,0.15);
+      color: #666;
+      border: 1px solid rgba(100,100,100,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f0f0;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .news-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+    }
+    .news-tag {
+      font-size: 10px;
+      color: #555;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a {
+      color: #BCFF2F;
+      text-decoration: none;
+    }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 6px;
+    }
+    .keywords-title {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .keywords-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      font-size: 11px;
+      padding: 3px 10px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand {
+      color: #BCFF2F;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026年5月12日 星期二</div>
+  <div class="header-title"><span class="green">加密</span>热点早报</div>
+  <div class="header-sub">时间窗口：05月11日 20:00 — 05月12日 09:30（北京时间）</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球</div>
+  <div class="pill">PANews</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">The Block</div>
+  <div class="pill">CoinShares</div>
+</div>
+
+<!-- Core Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-item">Warsh 49-44 cloture通过·联储主席确认进入全院投票最终程序·鲍威尔5月15日前交棒倒计时</div>
+  <div class="banner-item">加密基金单周流入$8.579亿创年内第三高·CLARITY markup 5月14日催化·Bit Digital +19% / Circle +16%暴涨</div>
+  <div class="banner-item">Circle推Arc区块链（$30亿估值）+ AI Agent Stack·Solana Alpenglow测试网上线·Ripple Prime融资$2亿</div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="section-header">
+    <div class="section-title">📊 市场行情</div>
+  </div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$81,000</div>
+      <div class="market-change down">▼ -0.9%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,345</div>
+      <div class="market-change up">▲ +0.6%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">52</div>
+      <div class="market-change neutral">■ 中性</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$97.50</div>
+      <div class="market-change up">▲ +2.1%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,680</div>
+      <div class="market-change down">▼ -0.8%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,247</div>
+      <div class="market-change neutral">5/11收盘</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 货币政策 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏦 货币政策</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 08:00 BJ</span>
+    </div>
+    <div class="news-title">Warsh cloture 49-44通过，联储主席确认进入全院最终投票阶段</div>
+    <div class="news-desc">美国参议院以49:44投票通过对Kevin Warsh的cloture（辩论截止）动议，联储主席确认程序正式进入全院投票阶段。参议院多数党领袖已排期全院确认投票，预计5月14-15日完成，鲍威尔任期届满前完成交棒基本锁定。Warsh以债券市场老将身份著称，市场普遍关注其就任后是否将调整现行宽松预期。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">货币政策·制度变迁</span>
+      <span class="news-tag">Kevin Warsh · 美联储 · 鲍威尔 · 利率路径</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.bloomberg.com/news/articles/2026-05-11/senate-advances-warsh-fed-chair-nomination-cloture-vote" target="_blank">Bloomberg（cloture动议通过 05/11）</a> · <a href="https://rollcall.com/2026/05/11/senate-advances-warsh-federal-reserve-chair-nomination/" target="_blank">Roll Call（49-44票数详情 05/11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 20:00 BJ</span>
+    </div>
+    <div class="news-title">鲍威尔时代进入倒计时：Warsh货币哲学差异引发市场预期重定价</div>
+    <div class="news-desc">随着Warsh确认程序加速，市场开始定价"鲍威尔后时代"政策风格转变。Warsh历史上主张更强货币纪律，其就任后2026年降息路径是否维持预期成为焦点。美元指数DXY对cloture消息反应相对温和，10年期美债收益率小幅上行，加密市场对潜在鹰派转变保持观望。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：季度级</span>
+      <span class="news-tag">货币政策·预期管理</span>
+      <span class="news-tag">DXY · 降息预期 · 美债收益率 · 鹰鸽预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://thehill.com/policy/finance/2026/05/11/warsh-federal-reserve-chair-confirmation-policy-outlook/" target="_blank">The Hill（Warsh政策影响分析 05/11）</a></div>
+  </div>
+</div>
+
+<!-- Section 2: 宏观与传统金融 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🌐 宏观与传统金融</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 05:00 BJ</span>
+    </div>
+    <div class="news-title">美中日内瓦磋商释出"实质性进展"信号，加密股收盘前提前拉升</div>
+    <div class="news-desc">美中双方代表在日内瓦举行高级别贸易磋商，双方均表示取得实质性进展，正式结果公告预计当日稍晚发布。消息先于公告在市场流传，加密相关股票在美股收盘前已提前反应：Bit Digital收涨+19.44%、Circle+15.91%，反映市场押注贸易缓和将刺激全球风险资产。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">宏观·贸易·风险偏好</span>
+      <span class="news-tag">美中贸易 · 日内瓦 · 关税 · Bit Digital · Circle</span>
+    </div>
+    <div class="news-source">来源：<a href="https://abcnews.go.com/Business/wireStory/us-china-trade-talks-geneva-make-substantial-progress-122095833" target="_blank">ABC News（日内瓦磋商实质进展 05/11）</a> · <a href="https://www.pbs.org/newshour/economy/u-s-and-china-reach-a-deal-to-pause-most-tariffs-for-90-days-in-a-surprise-trade-war-reprieve" target="_blank">PBS NewsHour（磋商结果 05/11-12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 22:00 BJ</span>
+    </div>
+    <div class="news-title">特朗普拒绝伊朗最新谈判提案，WTI守$97维持地缘溢价</div>
+    <div class="news-desc">特朗普拒绝伊朗最新核谈判方案，坚持要求伊方放弃全部浓缩铀能力；伊朗武装部队称局势仍处于高戒备。WTI原油因中东不确定性溢价维持在$97-$100区间，持续对通胀预期形成压力，黄金小幅走弱至$4,680，反映部分避险资金向风险资产流入。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">全球事件·能源·地缘</span>
+      <span class="news-tag">伊朗 · 核谈判 · WTI原油 · 通胀压力</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.reuters.com/world/middle-east/trump-rejects-iran-nuclear-deal-proposal-2026-05-11/" target="_blank">Reuters（特朗普拒绝伊朗提案 05/11）</a></div>
+  </div>
+</div>
+
+<!-- Section 3: 全球监管 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">⚖️ 全球监管</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/11 21:00 BJ</span>
+    </div>
+    <div class="news-title">加密基金单周净流入$8.579亿，年内第三高，CLARITY markup催化明显</div>
+    <div class="news-desc">CoinShares最新周报（截至5月8日当周）显示，加密投资产品净流入$8.579亿，为年内第三高单周数据；其中比特币产品流入$7.86亿占主导，以太坊产品流入$4700万，多空产品流入$3100万。机构分析师将本轮流入与CLARITY Act 5月14日committee markup排期直接挂钩，合规确定性预期驱动资金入场。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">全球监管·机构资金·ETF</span>
+      <span class="news-tag">CoinShares · 加密基金 · CLARITY Act · 机构流入</span>
+    </div>
+    <div class="news-source">来源：<a href="https://news.bitcoin.com/crypto-investment-products-saw-857-9-million-in-weekly-inflows-coinshares-report/" target="_blank">Bitcoin.com News（CoinShares周报详情 05/11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 23:00 BJ</span>
+    </div>
+    <div class="news-title">美国银行业团体升级反对CLARITY Act，呼吁国会在5月14日markup前叫停</div>
+    <div class="news-desc">美国银行家协会（ABA）联合多家传统金融机构致信众议院金融服务委员会，要求推迟或叫停5月14日的CLARITY Act markup进程。反对意见集中于：去中心化判定标准模糊、银行监管套利空间过大、稳定币条款与现行银行法冲突。法案支持者回应称反对系既得利益保护，markup预计按原计划推进。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">全球监管·立法·银行业</span>
+      <span class="news-tag">CLARITY Act · ABA · 银行游说 · 众议院金融委</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblock.co/post/2026/05/11/banking-groups-oppose-clarity-act-markup" target="_blank">The Block（银行业反对信件 05/11）</a></div>
+  </div>
+</div>
+
+<!-- Section 4: 机构与资金 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏢 机构与资金</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 23:00 BJ</span>
+    </div>
+    <div class="news-title">Strategy再购535枚BTC（约$4300万），出售信号后数日完成再平衡入场</div>
+    <div class="news-desc">Strategy（前MicroStrategy）宣布于5月11日以约$4,300万美元购入535枚比特币，均价约$80,374/枚。本次购买发生在此前公司发出潜在出售信号数日之后，市场解读为战略性再平衡而非撤退。公司累计持仓维持企业BTC持有人榜首地位，BTC Yield指标延续稳步扩张节奏。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">机构资金·企业财库</span>
+      <span class="news-tag">Strategy · Michael Saylor · 企业BTC储备 · BTC Yield</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/11/strategy-buys-535-bitcoin-for-usd43-million-days-after-signaling-potential-btc-sales" target="_blank">CoinDesk（Strategy购买详情 05/11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/11 22:30 BJ</span>
+    </div>
+    <div class="news-title">Ripple完成$2亿融资，Neuberger Berman领投Ripple Prime机构级托管平台</div>
+    <div class="news-desc">Ripple宣布完成2亿美元新一轮融资，由Neuberger Berman领投，资金将用于扩展Ripple Prime机构托管、清算与流动性服务平台。此轮融资标志传统资管巨头向加密原生基础设施直接投资，是继贝莱德BUIDL之后规模最大的机构进入信号之一，XRP跨境支付网络商业化进程加速。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">机构资金·融资·托管</span>
+      <span class="news-tag">Ripple · XRP · Neuberger Berman · 机构托管 · Ripple Prime</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/05/11/ripple-raises-usd200-million-from-neuberger-berman-to-expand-its-ripple-prime-platform" target="_blank">CoinDesk（Ripple融资详情 05/11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 21:00 BJ</span>
+    </div>
+    <div class="news-title">Bitmine放缓ETH购入节奏，机构模仿Strategy策略现分化迹象</div>
+    <div class="news-desc">加密上市公司Bitmine近期公告显示以太坊购买节奏明显放缓，与其早期积极模仿Strategy企业储备策略形成对比。ETH相对BTC的价格弱势、以及"企业储备资产"逻辑能否适用于非比特币资产的可持续性正受质疑，机构模仿策略出现首次明显分化信号。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">机构资金·企业财库</span>
+      <span class="news-tag">Bitmine · ETH · 企业储备策略 · 策略分化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/05/11/bitmine-slows-ethereum-purchases-as-corporate-treasury-strategy-diverges" target="_blank">CoinDesk（Bitmine ETH策略 05/11）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 项目与生态 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔧 项目与生态</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/11 22:00 BJ</span>
+    </div>
+    <div class="news-title">Circle推出Arc区块链（估值$30亿）及AI Agent Stack，开发者平台战略全面升级</div>
+    <div class="news-desc">Circle在Consensus 2026上发布Arc区块链（当前估值$30亿）及配套AI Agent Stack，为AI智能体支付与跨链结算提供原生基础设施。Arc基于USDC发行逻辑重新设计结算层，Circle将其定位为"互联网支付原生公链"，与Solana、Base等现有USDC主流链形成生态竞争，同时开放AI代理钱包与自动支付接口。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">行业趋势·AI·稳定币·基础设施</span>
+      <span class="news-tag">Circle · Arc · USDC · AI Agent · 支付公链</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/05/11/i-don-t-think-that-s-crazy-here-is-why-circle-is-betting-on-new-usd3-billion-blockchain" target="_blank">CoinDesk（Circle Arc深度解析 05/11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 21:30 BJ</span>
+    </div>
+    <div class="news-title">Solana Alpenglow测试网正式启动，史上最大共识机制升级进入验证阶段</div>
+    <div class="news-desc">Solana基金会宣布Alpenglow测试网正式上线，该升级将取代现行Tower BFT共识协议，引入Votor（投票优化）和Rotor（区块传播）双机制，目标将终局确认时间从~500ms压缩至100ms以内。这是Solana自主网上线以来规模最大的协议层变更，测试网数据将直接决定主网部署时间表，Helius等生态开发者已开始兼容性适配。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">链上事件·协议升级</span>
+      <span class="news-tag">Solana · Alpenglow · 共识机制 · TPS · 终局确认</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/tech/2026/05/11/the-biggest-consensus-overhaul-in-solana-history-is-officially-live-for-testing" target="_blank">CoinDesk（Alpenglow测试网详情 05/11）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/11 20:30 BJ</span>
+    </div>
+    <div class="news-title">Ronin宣布迁移至以太坊L2，独立侧链时代正式落幕</div>
+    <div class="news-desc">Axie Infinity开发商Sky Mavis宣布Ronin网络将从独立侧链迁移至以太坊L2架构，借助以太坊安全性与Rollup可组合性。迁移完成后Ronin将接入ETH L2生态互操作性，现有RON代币经济学与验证者结构调整方案待披露，用户资产兼容性与迁移时间表为市场关注焦点。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">链上事件·L2迁移·游戏链</span>
+      <span class="news-tag">Ronin · RON · 以太坊L2 · Sky Mavis · Axie Infinity</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/tech/2026/05/11/ronin-set-to-transition-to-ethereum-layer-2-from-independent-sidechain" target="_blank">CoinDesk（Ronin迁移公告 05/11）</a></div>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="keywords-section">
+  <div class="keywords-title">🏷️ 今日关键词</div>
+  <div class="keywords-wrap">
+    <span class="keyword">Warsh cloture</span>
+    <span class="keyword">49-44</span>
+    <span class="keyword">联储主席确认</span>
+    <span class="keyword">鲍威尔交棒</span>
+    <span class="keyword">鹰鸽预期</span>
+    <span class="keyword">降息路径</span>
+    <span class="keyword">美中日内瓦</span>
+    <span class="keyword">贸易磋商</span>
+    <span class="keyword">实质性进展</span>
+    <span class="keyword">伊朗谈判破裂</span>
+    <span class="keyword">WTI $97</span>
+    <span class="keyword">地缘溢价</span>
+    <span class="keyword">加密基金$8.579亿</span>
+    <span class="keyword">CoinShares周报</span>
+    <span class="keyword">年内第三高</span>
+    <span class="keyword">CLARITY markup 5/14</span>
+    <span class="keyword">ABA反对</span>
+    <span class="keyword">银行游说</span>
+    <span class="keyword">Strategy 535 BTC</span>
+    <span class="keyword">BTC均价$80,374</span>
+    <span class="keyword">Ripple Prime $2亿</span>
+    <span class="keyword">Neuberger Berman</span>
+    <span class="keyword">机构托管</span>
+    <span class="keyword">Bitmine ETH减速</span>
+    <span class="keyword">策略分化</span>
+    <span class="keyword">Circle Arc</span>
+    <span class="keyword">AI Agent Stack</span>
+    <span class="keyword">$30亿估值</span>
+    <span class="keyword">USDC支付公链</span>
+    <span class="keyword">Solana Alpenglow</span>
+    <span class="keyword">共识机制升级</span>
+    <span class="keyword">100ms终局确认</span>
+    <span class="keyword">Ronin L2迁移</span>
+    <span class="keyword">Sky Mavis</span>
+    <span class="keyword">Bit Digital +19%</span>
+    <span class="keyword">Circle +16%</span>
+    <span class="keyword">风险偏好回升</span>
+    <span class="keyword">恐惧贪婪52</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月12日 星期二</div>
+  <div>数据来源：CoinDesk · Odaily星球 · CoinShares · Bloomberg · Roll Call · ABC News · Reuters</div>
+  <div>时间窗口：2026年05月11日 20:00 — 05月12日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供信息参考，不构成任何投资建议。市场有风险，投资需谨慎。</div>
+</div>
+
+</body>
+</html>
