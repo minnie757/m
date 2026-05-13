@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月13日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #111;
+      text-align: center;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      color: #555;
+      font-size: 11px;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { color: #555; font-size: 11px; }
+
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 6px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .banner-item {
+      font-size: 12px;
+      color: #ccc;
+      line-height: 1.8;
+      padding-left: 14px;
+      position: relative;
+    }
+    .banner-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background: #BCFF2F;
+      border-radius: 50%;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 10px;
+      border-top: 1px solid #111;
+    }
+    .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+    }
+
+    .market-section { margin: 0 20px 16px; }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell { background: #0c0c0c; padding: 12px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    .news-section { margin: 0 20px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority { font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.15);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.3);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.12);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
+    .news-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 5px; }
+    .news-tag {
+      font-size: 10px;
+      color: #555;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    .keywords-section {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 6px;
+    }
+    .keywords-title { font-size: 12px; color: #555; margin-bottom: 10px; }
+    .keywords-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      font-size: 11px;
+      padding: 3px 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #BCFF2F; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026年5月13日 星期三</div>
+  <div class="header-title"><span class="green">加密</span>热点早报</div>
+  <div class="header-sub">时间窗口：05月12日 20:00 — 05月13日 09:30（北京时间）</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球</div>
+  <div class="pill">PANews</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">CryptoTimes</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">CNBC</div>
+  <div class="pill">Fortune</div>
+</div>
+
+<!-- Core Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-item">美国4月CPI +3.8%超预期·能源分项+17.9% YoY·降息预期大幅后退·加密股全线跳水·MARA/Riot双双跌逾10%</div>
+  <div class="banner-item">Warsh 51-45确认联储理事（14年任期）·主席确认票待5月13日·CLARITY Act 309页全文公开·5月14日markup倒计时</div>
+  <div class="banner-item">伊朗停火"勉强维持"·特朗普拒绝14点提案·WTI升破$101·XRP ETF单日流入$25.8M创今年最大</div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="section-header">
+    <div class="section-title">📊 市场行情</div>
+  </div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$80,860</div>
+      <div class="market-change down">▼ -1.1%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,265</div>
+      <div class="market-change down">▼ -2.1%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">49</div>
+      <div class="market-change neutral">■ 中性</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$101.35</div>
+      <div class="market-change up">▲ +3.3%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,706</div>
+      <div class="market-change down">▼ -0.2%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,274</div>
+      <div class="market-change up">▲ +0.1%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 货币政策 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏦 货币政策</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 23:27 BJ（11:27 ET）</span>
+    </div>
+    <div class="news-title">参议院51-45确认Warsh为联储理事（14年任期）；主席确认票待定5月13日，鲍威尔最后24小时</div>
+    <div class="news-desc">美国参议院以51对45投票确认Kevin Warsh出任联储理事会理事（14年任期），点名投票于11:24-12:27 ET完成；宾州民主党参议员Fetterman跨党支持是关键票。参议院多数党领袖确认主席确认投票5月13日举行，鲍威尔任期5月15日届满，权力交接进入最终程序。财务披露显示Warsh本人持有区块链相关基金头寸，承诺就任主席后将依法处置。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">货币政策·制度交接</span>
+      <span class="news-tag">Warsh · 联储理事 · Fetterman · 鲍威尔 · 主席确认</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/05/12/senate-confirms-kevin-warsh-as-fed-governor-clears-way-for-chair-vote.html" target="_blank">CNBC（主席投票排期 05/12）</a> · <a href="https://www.aljazeera.com/economy/2026/5/12/kevin-warsh-confirmed-to-us-federal-reserve-board-in-close-senate-vote" target="_blank">Al Jazeera（51-45投票详情 05/12）</a> · <a href="https://www.coindesk.com/policy/2026/05/12/senate-confirms-kevin-warsh-to-fed-board-ahead-of-expected-chair-vote" target="_blank">CoinDesk（加密政策影响 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/12 背景</span>
+    </div>
+    <div class="news-title">上届FOMC历史性8-4分歧表决·Warsh就任后6月FOMC将是关键政策风格首秀</div>
+    <div class="news-desc">4月29日FOMC会议以8对4投票维持利率3.5%-3.75%不变，四票反对为1992年以来最多。声明将通胀描述升级为"elevated"（此前为"somewhat elevated"），归因于伊朗战争相关能源成本。若Warsh作为主席主持6月16-17日FOMC，市场将重点解读其对通胀容忍度与政策独立性的态度；今日CPI +3.8%强化了不降息预期。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：季度级</span>
+      <span class="news-tag">货币政策·预期管理</span>
+      <span class="news-tag">FOMC · 8-4分歧 · 通胀elevated · 6月FOMC · 政策独立性</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve（4月FOMC声明 04/29）</a> · <a href="https://www.usnews.com/news/politics/articles/2026-05-12/senate-confirms-warsh-to-fed-board-with-fed-chair-vote-likely-wednesday" target="_blank">US News（主席投票时间线 05/12）</a></div>
+  </div>
+</div>
+
+<!-- Section 2: 宏观数据 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">📉 宏观数据</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 20:30 BJ（08:30 ET）</span>
+    </div>
+    <div class="news-title">美国4月CPI +3.8% YoY超预期——2023年5月以来最高；能源分项+17.9%，降息预期急速后退</div>
+    <div class="news-desc">美国劳工统计局（BLS）8:30 AM ET公布4月CPI：整体同比+3.8%（高于市场预期+3.5%），月环比+0.6%；核心CPI（剔除食品能源）同比+2.8%，月环比+0.4%。能源分项当月跳涨+3.8%、同比高达+17.9%，伊朗战争相关原油价格溢价是主因。联邦基金期货显示今年降息概率大幅下调，BTC即时回落约$400，加密矿业股盘前快速跳水。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">宏观数据·通胀</span>
+      <span class="news-tag">CPI +3.8% · 能源 +17.9% · BLS · 降息预期 · 加密承压</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank">BLS（CPI官方发布 05/12）</a> · <a href="https://www.cnbc.com/2026/05/12/cpi-inflation-april-2026-.html" target="_blank">CNBC（CPI市场反应 05/12）</a> · <a href="https://www.bloomberg.com/news/live-blog/2026-05-12/us-cpi-report-for-april" target="_blank">Bloomberg（CPI实时解读 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/13 04:00 BJ（5/12 16:00 ET 收盘）</span>
+    </div>
+    <div class="news-title">纳指+0.1%至26,274·S&P +0.2%至7,412·股市逆CPI微涨：AI与能源板块对冲拖累</div>
+    <div class="news-desc">尽管CPI超预期引发利率担忧，美股在AI题材支撑下实现微幅收涨：纳斯达克综指+0.1%至26,274，S&P 500+0.2%至7,412，道指+0.2%至约49,760。能源板块随WTI走强领涨，AI/半导体股（英伟达等）提供部分支撑；加密相关股票则明显承压，形成鲜明内部分化。成交量偏低，市场等待5月14日CLARITY markup更明确信号。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：日级</span>
+      <span class="news-tag">传统金融·股市</span>
+      <span class="news-tag">纳斯达克 · S&P500 · 能源板块 · AI支撑 · 内部分化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-news-may-12-132000108.html" target="_blank">Yahoo Finance（美股收盘数据 05/12）</a> · <a href="https://www.thestreet.com/latest-news/stock-market-today-may-12-2026-updates" target="_blank">TheStreet（盘中实时 05/12）</a></div>
+  </div>
+</div>
+
+<!-- Section 3: 全球监管 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">⚖️ 全球监管</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 20:00 BJ（08:00 ET）</span>
+    </div>
+    <div class="news-title">CLARITY Act 309页全文公开；5月14日10:30 markup确认；稳定币yield与伦理条款成两大核心争议</div>
+    <div class="news-desc">参议院银行委员会（Scott/Lummis/Tillis）在窗口开启时公布CLARITY Act 309页正式草案：SEC负责初始数字资产证券发行（60天认证通道），CFTC监管现货数字商品交易；稳定币规定1:1高质量流动性资产储备，禁止被动收益但允许活动性奖励；破产程序中数字资产视为客户财产。两大障碍：①民主党（Schiff等）要求加入限制总统家族加密业务伦理条款；②ABA等银行团体要求严格封堵稳定币yield通道。修正案申请截止5月13日下班。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">全球监管·立法</span>
+      <span class="news-tag">CLARITY Act · Tim Scott · Lummis · 稳定币yield · 伦理条款</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cryptotimes.io/2026/05/12/breaking-down-the-309-page-clarity-act-ethics-yield-and-the-may-14-markup/" target="_blank">CryptoTimes（309页条款深度拆解 05/12）</a> · <a href="https://www.coindesk.com/policy/2026/05/11/clarity-act-in-the-flesh-unveiled-by-u-s-senate-banking-committee-before-hearing" target="_blank">CoinDesk（CLARITY草案详情 05/11-12）</a> · <a href="https://www.banklesstimes.com/articles/2026/05/12/us-senate-banking-committee-releases-crypto-clarity-act-draft/" target="_blank">BanklessTimes（草案发布 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/12 21:00 BJ（09:00 ET）</span>
+    </div>
+    <div class="news-title">ABA升级封堵稳定币yield行动：警告GENIUS Act禁令不可在CLARITY中开后门</div>
+    <div class="news-desc">美国银行家协会（ABA）主席Rob Nichols在CLARITY Act全文公布后立即向参议员发函，警告yield-bearing稳定币可能导致市场规模从当前$3000亿扩张至$2万亿，形成大规模无保险存款替代品。ABA主张GENIUS Act已确立的被动yield禁令应原样延伸至CLARITY Act；加密支持参议员Moreno称"银行业利益集团在做最后挣扎"。分析师认为双方争议或推动markup产生修正案，而非导致进程停滞。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">全球监管·立法博弈</span>
+      <span class="news-tag">ABA · 稳定币yield · GENIUS Act · 银行游说 · Moreno</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/11/banking-groups-escalate-fight-over-stablecoin-yield-ahead-of-senate-vote" target="_blank">CoinDesk（ABA escalation 05/11-12）</a></div>
+  </div>
+</div>
+
+<!-- Section 4: 全球事件 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🌍 全球事件</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/12 21:00 BJ（09:00 ET）</span>
+    </div>
+    <div class="news-title">特朗普称伊朗停火在"勉强维持"边缘：拒绝14点提案，无人机袭击事件再燃升级风险，WTI $101.35</div>
+    <div class="news-desc">特朗普拒绝伊朗提出的14点和谈方案，称停火协议处于"massive life support"（生死边缘），伊朗首席谈判代表Ghalibaf随即发出最后期限警告。区域无人机袭击事件被援引为升级风险，高盛同日发布炼油产品库存枯竭警告。WTI全日区间$98.02-$102.22，日内参考价$101.35，同比涨幅约+3.3%；霍尔木兹海峡封锁预期持续支撑能源溢价，对通胀的二次压力令市场对Fed降息持更审慎态度。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">全球事件·地缘·能源</span>
+      <span class="news-tag">伊朗 · WTI $101 · 霍尔木兹 · 无人机 · 通胀二次压力</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.fxleaders.com/news/2026/05/12/wti-crude-oil-analysis-101-holds-as-drone-attacks-and-life-support-ceasefire-revive-escalation-risk/" target="_blank">FX Leaders（WTI $101分析 05/12）</a> · <a href="https://www.rigzone.com/news/trump_says_usairan_ceasefire_is_on_massive_life_support-12-may-2026-183665-article/" target="_blank">Rigzone（特朗普原话 05/12）</a> · <a href="https://www.cnbc.com/2026/05/12/oil-prices-today-brent-wti-trump-iran-war-hormuz.html" target="_blank">CNBC（油价实时 05/12）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 机构与资金 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏢 机构与资金</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 20:30 BJ（盘前）</span>
+    </div>
+    <div class="news-title">CleanSpark Q2亏损$378M股价跌-9%；MARA/Riot双双跌逾-10%：热CPI触发加密矿业股溃败</div>
+    <div class="news-desc">CleanSpark（CLSK）盘前公布Q2财报：净亏损$378.3M（vs. 去年同期$138.8M），每股亏损-$1.52（远超分析师预期-$0.41），营收同比下滑25%至$1.364亿；主要驱动为$224.1M比特币公允价值非现金损失，矿业单位成本约$88,000/BTC vs. 当前市价约$80,860，形成倒挂。消息叠加CPI冲击，股价跳水超9%；Marathon Digital（MARA）-10%+，Riot Platforms-6%，矿业股成当日最弱板块。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">机构资金·矿业·加密股</span>
+      <span class="news-tag">CleanSpark · MARA · Riot · 矿业成本倒挂 · CPI冲击</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/05/12/cleanspark-s-stocks-slides-9-as-firm-reports-usd378-3-million-quarterly-loss" target="_blank">CoinDesk（CleanSpark Q2财报 05/12）</a> · <a href="https://www.cryptotimes.io/2026/05/12/crypto-market-today-btc-holds-80k-as-eth-miners-slide-on-hot-cpi-shock/" target="_blank">CryptoTimes（加密矿业股行情 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 21:00 BJ（09:00 ET）</span>
+    </div>
+    <div class="news-title">XRP ETF单日净流入$25.8M创今年最大；Ripple $2亿融资+JPMorgan跨境结算试点同步落地</div>
+    <div class="news-desc">美国五只现货XRP ETF 5月12日合计净流入$25.8M，为1月以来单日最大，Franklin Templeton XRPZ领跑（+$13.6M），累计XRP ETF总流入达$13.5亿。流入催化剂：①Ripple Prime完成$2亿债务融资（Neuberger Berman Specialty Finance）扩张券商业务；②JPMorgan、Mastercard、Ondo Finance联合完成XRP Ledger上代币化美债跨境结算试点（约5秒完成）；③Ripple发布2028量子抗性路线图四阶段规划。XRP日间波幅$1.4483-$1.4877。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">机构资金·ETF·融资</span>
+      <span class="news-tag">XRP ETF · $25.8M · Ripple Prime · JPMorgan · 跨境结算 · Neuberger Berman</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/12/spot-xrp-etfs-attract-biggest-inflows-since-january" target="_blank">CoinDesk（XRP ETF流入今年最大 05/12）</a> · <a href="https://www.coindesk.com/markets/2026/05/12/ripple-linked-xrp-holds-near-usd1-46-as-breakout-attempt-fades-despite-usd200-million-raise" target="_blank">CoinDesk（Ripple $2亿融资 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/12 20:00 BJ（覆盖日）</span>
+    </div>
+    <div class="news-title">SharpLink Q1营收$12.1M（同比+1,531%）·持仓873K ETH（约$20亿）：ETH财库策略首季财报</div>
+    <div class="news-desc">SharpLink Gaming（SBET）Q1 2026报告营收$12.1M（vs. 去年同期$742K，+1,531% YoY），主要来自ETH Staking收入；净亏损$685.6M几乎全为非现金：$506.7M ETH未实现公允价值损失+$191.7M LsETH减值。公司当前持有872,984枚ETH（约$19.7亿），是全球最大上市公司ETH持有方之一。同时宣布与Galaxy Digital合作成立$1.25亿"SharpLink Onchain Yield Fund"，探索ETH链上收益。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">机构资金·ETH财库·企业财报</span>
+      <span class="news-tag">SharpLink · SBET · 873K ETH · Galaxy Digital · ETH Staking</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.globenewswire.com/news-release/2026/05/11/3291851/0/en/sharplink-reports-first-quarter-2026-financial-and-operating-results-now-holds-872-984-eth-in-treasury.html" target="_blank">GlobeNewswire（SharpLink Q1财报 05/11）</a> · <a href="https://www.theblock.co/post/400752/sharplink-q1-revenue-12-million-expands-eth-productivity-staking" target="_blank">The Block（ETH财库策略 05/12）</a></div>
+  </div>
+</div>
+
+<!-- Section 6: 项目与生态 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔧 项目与生态</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/12 全日</span>
+    </div>
+    <div class="news-title">BTC守$80K核心支撑·ETH ETF $17M净赎回·加密市场CPI压力测试通过但情绪回落至中性</div>
+    <div class="news-desc">热CPI叠加联储主席换届不确定性，BTC全日在$80,000附近维持支撑（区间$80,389-$80,861），日跌约$363（-1.1%），$80K心理关口被视为本轮重要均衡点。ETH开盘$2,339快速跌穿$2,300，最低见$2,259，收在$2,265（-2.1%），明显弱于BTC。ETH现货ETF录得$17M净赎回，连续出现疲软；过去24小时总清算量$411.2M，104,951名交易者被强制平仓。F&G维持49（中性），市场静待5月14日CLARITY markup结果。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：日级</span>
+      <span class="news-tag">加密数据·市场情绪</span>
+      <span class="news-tag">BTC $80K支撑 · ETH $2,265 · ETF赎回$17M · 清算$411M · 恐惧贪婪49</span>
+    </div>
+    <div class="news-source">来源：<a href="https://fortune.com/article/price-of-bitcoin-05-12-2026/" target="_blank">Fortune（BTC日价 05/12）</a> · <a href="https://www.thecoinrepublic.com/2026/05/12/bitcoin-price-holds-80k-as-us-cpi-inflation-hits-3-8/" target="_blank">CoinRepublic（BTC $80K支撑 05/12）</a> · <a href="https://beincrypto.com/bitcoin-us-april-cpi-inflation/" target="_blank">BeInCrypto（CPI加密反应 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/12 08:00 BJ（5/11 20:00 ET）</span>
+    </div>
+    <div class="news-title">Solana Alpenglow共识测试网正式上线：目标150ms终局确认，Q3主网部署或可期</div>
+    <div class="news-desc">Solana开发商Anza在社区测试集群上激活Alpenglow共识升级，允许验证者正式测试从PoH+TowerBFT向全新架构迁移。Alpenglow引入两个核心组件：Votor（轻量投票，1-2轮即可终局）和Rotor（优化区块传播）。目标终局确认时间150ms（vs. 当前~13秒，提升约99%）。联合创始人Yakovenko表示主网部署可能在Q3 2026到来；Helius等生态开发者已开始兼容性适配。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">链上事件·协议升级</span>
+      <span class="news-tag">Solana · Alpenglow · 150ms · Votor · Rotor · Q3主网</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/tech/2026/05/11/the-biggest-consensus-overhaul-in-solana-history-is-officially-live-for-testing" target="_blank">CoinDesk（Alpenglow测试网激活 05/11）</a> · <a href="https://99bitcoins.com/news/altcoins/solana-alpenglow-upgrade-validator-testing-sol/" target="_blank">99Bitcoins（Alpenglow升级解析 05/12）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/12 20:00 BJ（覆盖日）</span>
+    </div>
+    <div class="news-title">SharpLink持仓ETH "纸面亏损"$686M引发ETH财库策略可持续性讨论；Strategy模式复制风险再受审视</div>
+    <div class="news-desc">SharpLink Q1财报中$685.6M净亏损（主要为非现金ETH公允价值损失）引发分析师对ETH企业财库策略可复制性的广泛讨论：与BTC不同，ETH价格波动率更高且机构认知度相对较低，"以ETH作为企业主要资产"的Strategy模式复制难度更大。Bitmine此前放缓ETH购入节奏已是早期信号，SharpLink财报数据为这一担忧提供了具体佐证。市场静待ETH能否在CLARITY立法支持下重建更明确的机构叙事。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">行业趋势·ETH财库</span>
+      <span class="news-tag">SharpLink · ETH财库 · 策略可持续性 · Bitmine · Strategy复制</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.benzinga.com/crypto/cryptocurrency/26/05/52495191/sharplink-lost-686-million-in-q1-but-sbet-could-still-double-thanks-to-favorable-setup/" target="_blank">Benzinga（SharpLink亏损深度 05/12）</a> · <a href="https://coingape.com/ethereum-treasury-firm-sharplink-releases-q1-earnings-holds-over-2b-in-eth/" target="_blank">CoinGape（ETH财库策略评估 05/12）</a></div>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="keywords-section">
+  <div class="keywords-title">🏷️ 今日关键词</div>
+  <div class="keywords-wrap">
+    <span class="keyword">CPI +3.8%</span>
+    <span class="keyword">超预期</span>
+    <span class="keyword">能源+17.9%</span>
+    <span class="keyword">BLS</span>
+    <span class="keyword">降息预期后退</span>
+    <span class="keyword">Warsh 51-45</span>
+    <span class="keyword">联储理事14年</span>
+    <span class="keyword">Fetterman跨党</span>
+    <span class="keyword">主席确认票5/13</span>
+    <span class="keyword">鲍威尔最后24小时</span>
+    <span class="keyword">8-4历史分歧</span>
+    <span class="keyword">6月FOMC</span>
+    <span class="keyword">CLARITY Act 309页</span>
+    <span class="keyword">markup 5/14</span>
+    <span class="keyword">稳定币yield</span>
+    <span class="keyword">伦理条款缺失</span>
+    <span class="keyword">Tim Scott</span>
+    <span class="keyword">Schiff反对</span>
+    <span class="keyword">ABA封堵</span>
+    <span class="keyword">GENIUS Act禁令</span>
+    <span class="keyword">伊朗停火</span>
+    <span class="keyword">勉强维持</span>
+    <span class="keyword">WTI $101.35</span>
+    <span class="keyword">霍尔木兹升级风险</span>
+    <span class="keyword">CleanSpark -9%</span>
+    <span class="keyword">$378M亏损</span>
+    <span class="keyword">矿业成本倒挂$88K</span>
+    <span class="keyword">MARA -10%</span>
+    <span class="keyword">Riot -6%</span>
+    <span class="keyword">XRP ETF $25.8M</span>
+    <span class="keyword">今年最大单日流入</span>
+    <span class="keyword">Ripple Prime $2亿</span>
+    <span class="keyword">Neuberger Berman</span>
+    <span class="keyword">JPMorgan XRP结算</span>
+    <span class="keyword">SharpLink 873K ETH</span>
+    <span class="keyword">ETH财库策略</span>
+    <span class="keyword">Galaxy Digital</span>
+    <span class="keyword">BTC $80K支撑</span>
+    <span class="keyword">ETH ETF赎回$17M</span>
+    <span class="keyword">清算$411M</span>
+    <span class="keyword">恐惧贪婪49</span>
+    <span class="keyword">Solana Alpenglow</span>
+    <span class="keyword">150ms终局确认</span>
+    <span class="keyword">Votor Rotor</span>
+    <span class="keyword">Q3主网预期</span>
+    <span class="keyword">ETH $2,265</span>
+    <span class="keyword">ETH/BTC弱势</span>
+    <span class="keyword">CLARITY催化等待</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月13日 星期三</div>
+  <div>数据来源：BLS · Fortune · CNBC · Bloomberg · CoinDesk · CryptoTimes · Al Jazeera · GlobeNewswire · FX Leaders</div>
+  <div>时间窗口：2026年05月12日 20:00 — 05月13日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供信息参考，不构成任何投资建议。市场有风险，投资需谨慎。</div>
+</div>
+
+</body>
+</html>
