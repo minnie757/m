@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>加密早报 · 2026年5月14日</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #e8e8e8;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* ── HEADER ── */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1a1a1a;
+      text-align: center;
+      padding: 16px 20px 12px;
+    }
+    .header-brand {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #555;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .header-date {
+      display: inline-block;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #ccc;
+      margin-bottom: 6px;
+    }
+    .header-sub {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .pills-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    /* ── CORE BANNER ── */
+    .core-banner {
+      margin: 20px 20px 0;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #060606;
+    }
+    .core-banner-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #BCFF2F;
+      margin-bottom: 8px;
+    }
+    .core-banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.7;
+    }
+    .core-banner-text strong {
+      color: #e8e8e8;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin: 24px 20px 0;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #161616;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #555;
+      text-transform: uppercase;
+    }
+
+    /* ── MARKET GRID ── */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      margin-top: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell {
+      background: #070707;
+      padding: 12px 14px;
+    }
+    .market-label {
+      font-size: 10px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .market-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #e8e8e8;
+      line-height: 1.2;
+    }
+    .market-change {
+      font-size: 11px;
+      margin-top: 2px;
+    }
+    .up   { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* ── NEWS ITEMS ── */
+    .news-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #0f0f0f;
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    .news-time {
+      font-size: 10px;
+      color: #3a3a3a;
+    }
+    .badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+    .badge-high    { background: #2a0000; color: #FF3B3B; border: 1px solid #3d0000; }
+    .badge-mid     { background: #1a1400; color: #FFD600; border: 1px solid #2a2000; }
+    .badge-low     { background: #0d0d0d; color: #444;    border: 1px solid #1e1e1e; }
+
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e0e0e0;
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 7px;
+    }
+    .tag {
+      background: #0d1a00;
+      border: 1px solid #1a2e00;
+      border-radius: 12px;
+      padding: 1px 8px;
+      font-size: 10px;
+      color: #BCFF2F;
+    }
+    .news-source {
+      margin-top: 5px;
+      font-size: 10px;
+      color: #2e2e2e;
+    }
+    .news-source a {
+      color: #2e2e2e;
+      text-decoration: none;
+    }
+    .news-source a:hover { color: #555; }
+
+    /* ── KEYWORDS ── */
+    .keywords-section {
+      margin: 28px 20px 0;
+      padding: 14px 16px;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      background: #050505;
+    }
+    .keywords-label {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+    }
+    .keywords-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .kw {
+      background: #0d1a00;
+      border: 1px solid #1a2e00;
+      border-radius: 12px;
+      padding: 3px 12px;
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin: 32px 20px 0;
+      padding-top: 16px;
+      border-top: 1px solid #111;
+      font-size: 10px;
+      color: #2a2a2a;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="sticky-header">
+  <div class="header-brand">OKX Research · 加密早报</div>
+  <div class="header-date">2026年5月14日 星期四</div>
+  <div class="header-sub">时间窗口：5月13日 20:00 — 5月14日 09:30（北京时间）</div>
+  <div class="pills-row">
+    <span class="pill">CNBC</span>
+    <span class="pill">CoinDesk</span>
+    <span class="pill">Fortune</span>
+    <span class="pill">Bloomberg</span>
+  </div>
+</header>
+
+<!-- ═══ CORE BANNER ═══ -->
+<div class="core-banner">
+  <div class="core-banner-label">🟢 今日核心主线</div>
+  <div class="core-banner-text">
+    <strong>Warsh 54-45确认美联储主席</strong>，现代美联储史上最接近的确认票数，6月加息概率升至39%，BTC惯性跌至$79K后回稳。<br>
+    <strong>PPI +1.4% MoM</strong>，创2022年3月以来最大单月涨幅，CPI+PPI双击通胀预警，降息时间表再度延后。<br>
+    <strong>特朗普率Jensen Huang、Musk、Fink飞赴北京</strong>会见习近平，纳指+1.20%创历史新高，BTC却独立于股市下行。
+  </div>
+</div>
+
+<!-- ═══ 市场行情 ═══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">📊 市场行情</span>
+    <span class="news-time">截至 5月14日 09:30 BJ</span>
+  </div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-label">BTC</div>
+      <div class="market-value">$80,304</div>
+      <div class="market-change down">-0.68% · 日内低$79,000</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">ETH</div>
+      <div class="market-value">$2,287</div>
+      <div class="market-change down">-0.2% · 周跌幅-3%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">恐惧贪婪</div>
+      <div class="market-value up">66</div>
+      <div class="market-change up">贪婪（前日 49）</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">WTI 原油</div>
+      <div class="market-value">$102.25</div>
+      <div class="market-change up">+0.07%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">黄金</div>
+      <div class="market-value">$4,696</div>
+      <div class="market-change down">-0.2% · 通胀压制</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">纳斯达克</div>
+      <div class="market-value up">26,402</div>
+      <div class="market-change up">+1.20% · 历史新高</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 货币政策 ═══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">🏛️ 货币政策</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-13 美东</span>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+    <div class="news-title">Senate 54-45 确认 Kevin Warsh 接任美联储主席</div>
+    <div class="news-desc">
+      参议院以54-45票确认 Kevin Warsh 为下任美联储主席，接替 Jerome Powell，为现代美联储史上最接近的确认票数，几乎沿党派线投票，仅宾州民主党参议员 John Fetterman 一票越党支持。Warsh 首次主持 FOMC 会议定于6月16-17日。其个人加密持仓已在申报文件中披露。市场即时反应：CME FedWatch 将6月不降息概率定于约70%，Polymarket 6月降息概率跌至3%，12月加息概率升至约39%。BTC 在确认消息落地后惯性下探至$79,000以下。
+    </div>
+    <div class="news-tags">
+      <span class="tag">Warsh确认</span>
+      <span class="tag">美联储主席</span>
+      <span class="tag">货币政策转向</span>
+      <span class="tag">降息延后</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://www.cnbc.com/2026/05/13/kevin-warsh-wins-senate-confirmation-as-the-next-federal-reserve-chair.html" target="_blank">CNBC</a>
+      ·
+      <a href="https://www.bloomberg.com/news/articles/2026-05-13/senate-confirms-warsh-to-lead-fed-as-trump-tests-its-autonomy" target="_blank">Bloomberg</a>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-13 08:30 ET</span>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+    <div class="news-title">4月PPI +1.4% MoM 创2022年3月来最大单月涨幅，年率+6.0%</div>
+    <div class="news-desc">
+      美国劳工统计局公布4月生产者价格指数（PPI）：环比+1.4%（预期+0.5%），年率+6.0%；核心PPI剔除食品能源后环比+1.0%（预期+0.4%）；汽油分项环比+15.6%（伊朗战事驱动油价）；服务业+1.2% MoM 创2022年3月以来最大涨幅。结合前日CPI年率+3.8%，形成"CPI+PPI通胀双击"预警。股市以科技+AI乐观情绪对冲，纳指反而创历史新高；但BTC和黄金均受压，12月加息概率从此前约20%跳升至39%。
+    </div>
+    <div class="news-tags">
+      <span class="tag">PPI+1.4%</span>
+      <span class="tag">通胀双击</span>
+      <span class="tag">加息预期</span>
+      <span class="tag">黄金承压</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://www.cnbc.com/2026/05/13/ppi-inflation-report-april-2026-.html" target="_blank">CNBC</a>
+      ·
+      <a href="https://www.advisorperspectives.com/dshort/updates/2026/05/13/ppi-producer-price-index-wholesale-inflation-april-2026" target="_blank">Advisor Perspectives</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 宏观与外交 ═══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">🌐 宏观与外交</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-13 晚</span>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+    <div class="news-title">特朗普携 Jensen Huang、Musk、Larry Fink 飞赴北京会见习近平</div>
+    <div class="news-desc">
+      特朗普总统率团抵京，随行包括英伟达 CEO Jensen Huang、Elon Musk、贝莱德 CEO Larry Fink。峰会核心议题：半导体+电子产品关税豁免（当前对华商品最高关税60%）、稀土和关键矿产供应准入、能源贸易及伊朗战事影响。加密货币不在正式议程内，但 Bitwise 分析师称"关税风险缓和可解锁逾1万亿美元潜在资金回流风险资产"。峰会乐观情绪推动纳指创历史新高；但 BTC 未随股指突破，继续困于$81K阻力下方。
+    </div>
+    <div class="news-tags">
+      <span class="tag">特朗普-习近平峰会</span>
+      <span class="tag">半导体关税</span>
+      <span class="tag">Jensen Huang</span>
+      <span class="tag">纳指新高</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://www.cnn.com/2026/05/13/politics/live-news/trump-china-visit-arrival-ceremony-hnk" target="_blank">CNN</a>
+      ·
+      <a href="https://www.aljazeera.com/economy/2026/5/13/trump-and-xi-to-meet-in-beijing-the-key-issues-shaping-the-china-summit" target="_blank">Al Jazeera</a>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-13 收盘</span>
+      <span class="badge badge-mid">MID</span>
+    </div>
+    <div class="news-title">美股科技驱动双创历史新高：纳指+1.20% 至26,402，标普+0.58% 至7,444</div>
+    <div class="news-desc">
+      纳斯达克综指收26,402.34（+1.20%），标普500收7,444.25（+0.58%），双双创历史新高。主要驱动力：英伟达及AI供应链随 Jensen Huang 出访北京而暴拉，科技板块全面拉升。加密概念股则普遍承压：BTC 收于$80K以下，与股指"脱钩"现象引发市场关注——通胀预期制约了BTC-股市联动。
+    </div>
+    <div class="news-tags">
+      <span class="tag">纳指历史新高</span>
+      <span class="tag">标普新高</span>
+      <span class="tag">BTC脱钩股市</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://finance.yahoo.com/news/live/stock-market-today-sp-500-nasdaq-hit-record-highs-as-tech-rallies-despite-strong-inflation-data-223045021.html" target="_blank">Yahoo Finance</a>
+      ·
+      <a href="https://www.thestreet.com/latest-news/stock-market-today-may-13-2026-updates" target="_blank">TheStreet</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 监管与立法 ═══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">⚖️ 监管与立法</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-14 10:30 ET（窗口后）</span>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+    <div class="news-title">CLARITY Act 参议院银行委员会审议定于今日10:30 ET，100余项修正案待表决</div>
+    <div class="news-desc">
+      《数字资产市场结构法案》（CLARITY Act，309页）参议院银行委员会 markup 定于5月14日10:30 ET，窗口截止时尚无投票结果。法案核心内容：SEC/CFTC管辖分权、稳定币收益权限制、NFT安全港、DeFi条款。共和党5月12日公布最终文本，民主党提出逾百项修正案，焦点在于是否加入禁止现任高级官员从数字资产中牟利的道德条款（反Trump个人代币 $TRUMP 叙事）。白宫目标7月4日签署。结果将于今日出炉，高度关注。
+    </div>
+    <div class="news-tags">
+      <span class="tag">CLARITY Act</span>
+      <span class="tag">加密立法</span>
+      <span class="tag">SEC/CFTC分权</span>
+      <span class="tag">道德条款</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://www.coindesk.com/policy/2026/05/09/crypto-industry-cheers-senate-clarity-act-markup-date-as-market-structure-push-resumes/" target="_blank">CoinDesk</a>
+      ·
+      <a href="https://cryptonews.com/news/senators-100-amendments-crypto-bill-senate-markup/" target="_blank">CryptoNews</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 机构与资金 ═══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">🏦 机构与资金</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-12 数据</span>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+    <div class="news-title">BTC现货ETF单日净流出$2.33亿，7周连续净流入势头中断</div>
+    <div class="news-desc">
+      5月12日比特币现货ETF合计净流出$2.332亿，为近期最大单日赎回：Fidelity FBTC -$86.1M、Ark 21Shares ARKB -$85.1M；仅 Morgan Stanley MSBT 录得+$600万小幅净流入（自上市保持零赎回记录）。此前ETF连续7周净流入，机构积累势头被PPI通胀数据和Warsh确认双重冲击中断。分析师指出，若$79,000支撑再失守，ETF流出压力可能进一步放大。
+    </div>
+    <div class="news-tags">
+      <span class="tag">BTC ETF流出</span>
+      <span class="tag">Fidelity FBTC</span>
+      <span class="tag">机构资金</span>
+      <span class="tag">$2.33亿</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://www.cryptotimes.io/2026/05/13/crypto-market-today-btc-pinned-below-81k-as-etf-outflows-return-trump-flies-to-beijing/" target="_blank">CryptoTimes</a>
+      ·
+      <a href="https://247wallst.com/investing/2026/05/13/bitcoin-btc-etfs-see-7-weeks-of-inflows-is-the-institutional-bid-back/" target="_blank">24/7 Wall St.</a>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-13</span>
+      <span class="badge badge-mid">MID</span>
+    </div>
+    <div class="news-title">XRP现货ETF合规AUM达$15.3亿，高盛持仓$1.54亿为最大机构方</div>
+    <div class="news-desc">
+      美国7支XRP现货ETF（Bitwise、Canary Capital XRPC、Franklin Templeton XRPZ、Grayscale GXRP、REX-Osprey XRPR、21Shares TOXR、Bitwise 10指数 BITW）在管资产合计约$10-15.3亿，持有XRP约7.73-8.62亿枚。4月累计净流入$8160万，自上市总计净流入$12.9亿。高盛于Q4 2025 13F披露持有价值$1.538亿的XRP现货ETF仓位，为目前已知最大机构持仓方。
+    </div>
+    <div class="news-tags">
+      <span class="tag">XRP ETF</span>
+      <span class="tag">高盛持仓</span>
+      <span class="tag">机构合规配置</span>
+      <span class="tag">AUM$15.3亿</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://finance.yahoo.com/markets/crypto/articles/xrp-etf-inflows-reach-82-210428487.html" target="_blank">Yahoo Finance</a>
+      ·
+      <a href="https://ripple.com/insights/xrp-etfs-the-institutional-era-has-begun/" target="_blank">Ripple Insights</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 安全态势 ═══ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">🔐 安全态势</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-time">05-13</span>
+      <span class="badge badge-mid">MID</span>
+    </div>
+    <div class="news-title">Skynet报告：朝鲜关联黑客自2016年累计盗窃加密资产$67.5亿，2026年YTD达$11亿</div>
+    <div class="news-desc">
+      CertiK子品牌 Skynet 最新研究报告显示，朝鲜（DPRK）关联黑客自2016年累计实施263起攻击事件，盗窃加密货币总额$67.5亿。2026年迄今（截至5月初）：全行业总损失$11亿（185起），其中$6.209亿（55%）归因于朝鲜。主要攻击手法：社会工程（伪造招聘邀请、VC身份冒充）、供应链入侵、开发者环境污染。背景：4月KelpDAO $2.94亿漏洞为2026年最大单起DeFi事件。
+    </div>
+    <div class="news-tags">
+      <span class="tag">朝鲜黑客</span>
+      <span class="tag">DPRK$67.5亿</span>
+      <span class="tag">社会工程攻击</span>
+      <span class="tag">DeFi安全</span>
+    </div>
+    <div class="news-source">
+      来源：<a href="https://www.globenewswire.com/news-release/2026/05/13/3294034/0/en/Skynet-DPRK-Crypto-Threats-Report-North-Korea-Linked-Hackers-Stole-6-75-Billion-in-Crypto-Since-2016.html" target="_blank">GlobeNewswire</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 今日关键词 ═══ -->
+<div class="keywords-section">
+  <div class="keywords-label">🏷️ 今日关键词</div>
+  <div class="keywords-row">
+    <span class="kw">Warsh 54-45</span>
+    <span class="kw">PPI +1.4% MoM</span>
+    <span class="kw">通胀双击</span>
+    <span class="kw">降息概率39%</span>
+    <span class="kw">特朗普-习近平峰会</span>
+    <span class="kw">Jensen Huang随行</span>
+    <span class="kw">纳指历史新高</span>
+    <span class="kw">CLARITY Act审议</span>
+    <span class="kw">BTC ETF流出$2.33亿</span>
+    <span class="kw">XRP ETF高盛$1.54亿</span>
+    <span class="kw">DPRK$67.5亿</span>
+    <span class="kw">BTC $80K强压</span>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <p>OKX Research · 加密早报 · 2026年5月14日</p>
+  <p>本报告数据来源：CNBC、Bloomberg、Fortune、CoinDesk、Yahoo Finance、GlobeNewswire、CryptoTimes</p>
+  <p>市场数据截止：2026年5月14日 09:30（北京时间）· 仅供参考，不构成投资建议</p>
+</div>
+
+</body>
+</html>
