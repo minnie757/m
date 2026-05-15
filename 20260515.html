@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月15日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #111;
+      text-align: center;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      color: #555;
+      font-size: 11px;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { color: #555; font-size: 11px; }
+
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 10px;
+      border-top: 1px solid #111;
+    }
+    .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+    }
+
+    .market-section { margin: 0 20px 16px; }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell { background: #0c0c0c; padding: 12px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    .news-section { margin: 0 20px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority { font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.15);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.3);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.12);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
+    .news-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 5px; }
+    .news-tag {
+      font-size: 10px;
+      color: #555;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    .keywords-section {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 6px;
+    }
+    .keywords-title { font-size: 12px; color: #555; margin-bottom: 10px; }
+    .keywords-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      font-size: 11px;
+      padding: 3px 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #BCFF2F; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026年5月15日 星期五</div>
+  <div class="header-title"><span class="green">加密</span>热点早报</div>
+  <div class="header-sub">时间窗口：05月14日 20:00 — 05月15日 09:30（北京时间）</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">CoinDesk</div>
+  <div class="pill">CNBC</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">CryptoTimes</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Fortune</div>
+  <div class="pill">Yahoo Finance</div>
+  <div class="pill">UPI</div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="section-header">
+    <div class="section-title">📊 市场行情</div>
+  </div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$81,409</div>
+      <div class="market-change up">▲ +1.4%（日内低$79,400）</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,258</div>
+      <div class="market-change down">▼ -1.3%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">49</div>
+      <div class="market-change neutral">■ 中性</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$101.00</div>
+      <div class="market-change neutral">■ 持稳</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,652</div>
+      <div class="market-change down">▼ -0.74%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,635</div>
+      <div class="market-change up">▲ +0.9%（历史新高）</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 监管与立法 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">⚖️ 监管与立法</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/15 02:00 BJ前后（05/14 下午 ET）</span>
+    </div>
+    <div class="news-title">CLARITY Act 15-9通过参议院银行委员会；两名民主党人跨党支持，仍需60票方能闯过参议院全体</div>
+    <div class="news-desc">《数字资产市场结构法案》（CLARITY Act，H.R.3633）在参议院银行委员会以15-9投票获得通过，两名民主党参议员跨党支持：Ruben Gallego（AZ）和Angela Alsobrooks（MD）。Alsobrooks明确表示委员会票不代表地板票承诺，要求在执法权限、伦理条款和DeFi条款上继续谈判。法案下一步须与参议院农业委员会的配套法案合并，再经参议院全体投票——需达到60票跨越冗长辩论门槛，意味着至少再需8名民主党票。SEC/CFTC管辖分权、稳定币yield妥协方案（Tillis-Alsobrooks条款禁止模仿银行存款利息的yield，保留链上奖励例外）已锁定进草案。Circle（CRCL）此前因妥协消息大涨约20%；银行游说团体（ABA等六家协会）仍反对yield例外条款，称其"过于宽泛"。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">全球监管·加密立法</span>
+      <span class="news-tag">CLARITY Act · 15-9 · Gallego · Alsobrooks · 60票门槛 · 稳定币yield · Circle +20%</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/14/clarity-act-clears-u-s-senate-committee-on-its-way-to-a-final-test-in-congress" target="_blank">CoinDesk（委员会投票结果 05/14）</a> · <a href="https://www.cnbc.com/2026/05/14/clarity-act-congress-crypto-senate.html" target="_blank">CNBC（CLARITY Act通过 05/14）</a> · <a href="https://bitcoinmagazine.com/news/senate-committee-advances-clarity-act" target="_blank">Bitcoin Magazine（05/14）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/14 背景</span>
+    </div>
+    <div class="news-title">CLARITY Act稳定币yield妥协条款解析：链上真实交易奖励获豁免，银行游说团体六家联合反对</div>
+    <div class="news-desc">CLARITY Act通过的核心妥协：Tillis-Alsobrooks条款禁止稳定币发行方提供模仿银行存款被动利息的yield，但为"真实链上交易相关奖励"（如交易手续费返还、质押参与奖励）设立豁免通道。ABA、ICBA等六大银行贸易团体向参议员联名发函，警告豁免条款过宽将导致规避，潜在推动稳定币市场从目前$3000亿扩张至$2万亿级别并绕开存款保险体系。Circle此前以"对话模式"积极参与立法进程，CRCL股价较月初已累涨约20%。分析师认为稳定币yield争议是后续全院辩论中民主党谈判的最大筹码之一。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">监管·稳定币·立法博弈</span>
+      <span class="news-tag">稳定币yield · ABA · Tillis-Alsobrooks · Circle CRCL · $3000亿稳定币市场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/01/clarity-act-text-lets-crypto-firms-offer-stablecoin-rewards-while-shielding-bank-yield" target="_blank">CoinDesk（yield条款解析 05/01）</a> · <a href="https://www.coindesk.com/policy/2026/05/11/banking-groups-escalate-fight-over-stablecoin-yield-ahead-of-senate-vote" target="_blank">CoinDesk（银行游说升级 05/11）</a></div>
+  </div>
+</div>
+
+<!-- Section 2: 货币政策 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏛️ 货币政策</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/15 正式生效</span>
+    </div>
+    <div class="news-title">Warsh今日正式就任美联储第17任主席；鲍威尔留任理事至2028年，创1948年以来先例</div>
+    <div class="news-desc">Kevin Warsh于5月15日正式接任Jerome Powell出任美联储主席，鲍威尔8年任期落幕。特殊安排：鲍威尔选择留任理事会理事（其理事任期至2028年），为1948年Marriner Eccles以来首例主席卸任后继续担任理事，鲍威尔援引特朗普政府对美联储法律上的持续施压作为留任原因。Warsh首次以主席身份主持FOMC定于6月16-17日，届时将是其货币政策立场的首次正式表态。市场共识：Warsh在通胀问题上立场较鲍威尔更严，短期内不会寻求降息；CME FedWatch显示6月维持利率概率约70%，12月加息概率约39%。黄金连续两日承压正是对Warsh鹰派预期的提前定价。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：季度级</span>
+      <span class="news-tag">货币政策·制度交接</span>
+      <span class="news-tag">Warsh就任 · 鲍威尔留任理事 · 1948年先例 · 6月FOMC · 鹰派预期 · 12月加息39%</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/04/29/jerome-powell-says-he-will-continue-to-serve-as-a-fed-governor-even-after-chairmanship-ends-.html" target="_blank">CNBC（鲍威尔留任理事 04/29）</a> · <a href="https://www.npr.org/2026/05/10/nx-s1-5814105/looking-back-at-jerome-powells-8-year-term-as-federal-reserve-chair" target="_blank">NPR（鲍威尔八年回顾 05/10）</a> · <a href="https://www.washingtonpost.com/business/2026/05/14/warsh-be-confirmed-fed-chair-trump-allies-warn-rate-cuts/" target="_blank">WaPo（Warsh就任影响 05/14）</a></div>
+  </div>
+</div>
+
+<!-- Section 3: 机构与资金 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏢 机构与资金</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/14 数据</span>
+    </div>
+    <div class="news-title">BTC现货ETF单日净流出$6.35亿，为近数周最大；BlackRock IBIT独揽$2.85亿，5日累计流出$12.6亿</div>
+    <div class="news-desc">5月14日比特币现货ETF合计净流出$6.35亿，为近期最大单日赎回：BlackRock IBIT单独流出$2.85亿（最大单基金赎回），Fidelity FBTC流出$8613万。5日累计净流出约$12.6亿。背景：BTC在美股时段一度跌穿$80,000，触及日内低位$79,400，跌破200日均线（约$82,000）引发机构止损；通胀压力和Warsh鹰派预期双重压制。乐观面：ETF资产规模仍高于$1050亿，自上市以来累计净流入总量依然维持正值，机构长期布局方向未变。分析师警告若BTC无法重新站上$82K，ETF流出压力可能延续。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">机构资金·ETF·资金流向</span>
+      <span class="news-tag">BTC ETF -$6.35亿 · IBIT -$2.85亿 · Fidelity -$8613万 · 5日累计-$12.6亿 · 200日均线</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/14/bitcoin-investors-yanked-usd635-million-from-spot-etfs-in-a-day-here-s-what-it-means-for-price" target="_blank">CoinDesk（ETF流出分析 05/14）</a> · <a href="https://www.cryptotimes.io/2026/05/14/bitcoin-etfs-post-635m-outflows-largest-in-weeks-blackrock-hit-by-285m/" target="_blank">CryptoTimes（IBIT赎回 05/14）</a></div>
+  </div>
+</div>
+
+<!-- Section 4: 宏观数据 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">📉 宏观数据</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/14 20:30 BJ（08:30 ET）</span>
+    </div>
+    <div class="news-title">美国4月零售销售+0.5% MoM连续第三月增长，超预期；消费者在通胀压力下转向必需品</div>
+    <div class="news-desc">美国商务部公布4月零售销售数据：整体环比+0.5%（预期+0.4%），同比+4.9%；核心剔除波动项目后环比+0.46%（预期+0.2%），为连续第三月正增长。分项：电子及家电+1.4%，加油站+2.8%（但较3月+13.7%大幅降温）；弱项：家具-2%、百货-3.2%、服装-1.5%、汽车经销商-0.5%，显示消费者在高油价和高通胀压力下向必需品消费转移。结合PPI+1.4%和CPI+3.8%，消费数据强劲但结构分化——支撑经济韧性预期的同时，也强化了"降息无必要"的市场共识，利率敏感资产（BTC、黄金）短期承压。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">宏观数据·消费·通胀</span>
+      <span class="news-tag">零售销售+0.5% · 消费分化 · 必需品转移 · 降息预期压制 · 电子+1.4%</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.upi.com/Top_News/US/2026/05/14/consumer-spending-retail-sales-april-2026/4611778775158/" target="_blank">UPI（零售销售 05/14）</a> · <a href="https://www.cnn.com/2026/05/14/economy/us-retail-sales-consumer-spending-april" target="_blank">CNN（消费数据解读 05/14）</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-14/us-retail-sales-moderated-in-april-as-gas-surge-crimped-budgets" target="_blank">Bloomberg（消费结构 05/14）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 项目与生态 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔧 项目与生态</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/14 背景</span>
+    </div>
+    <div class="news-title">以太坊开发者挪威斯瓦尔巴德互操性会议完成；Glamsterdam升级锁定200M Gas上限，ePBS跨客户端稳定</div>
+    <div class="news-desc">以太坊核心开发者在挪威斯瓦尔巴德完成Glamsterdam升级互操性测试（interop）会议，关键里程碑：①200M gas limit下限正式确立（当前约3600万，增幅约5倍）；②ePBS（执行层提议者-构建者分离）跨多个客户端实现稳定运行；③EIP-8037 Gas重定价完成最终修订。Glamsterdam目标：并行交易处理、抗审查性改善、Gas上限大幅提升以扩展网络容量。第二个2026年升级"Hegota"（H2 2026预期）将聚焦降低存储需求，减轻全节点运营压力。ETH当日价格约$2,258，未对开发进展产生明显价格反应。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">链上事件·协议升级</span>
+      <span class="news-tag">Glamsterdam · 200M Gas · ePBS · EIP-8037 · Hegota · 斯瓦尔巴德 · 以太坊升级</span>
+    </div>
+    <div class="news-source">来源：<a href="https://blog.ethereum.org/2026/05/11/protocol-update-may-26" target="_blank">Ethereum Foundation（协议更新 05/11）</a> · <a href="https://ambcrypto.com/ethereum-how-eths-2026-upgrades-aim-to-reshape-the-network/" target="_blank">AMBCrypto（升级路线解析）</a></div>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="keywords-section">
+  <div class="keywords-title">🏷️ 今日关键词</div>
+  <div class="keywords-wrap">
+    <span class="keyword">CLARITY Act 15-9</span>
+    <span class="keyword">参议院银行委员会通过</span>
+    <span class="keyword">Gallego跨党</span>
+    <span class="keyword">Alsobrooks跨党</span>
+    <span class="keyword">60票全院门槛</span>
+    <span class="keyword">稳定币yield豁免</span>
+    <span class="keyword">Tillis-Alsobrooks条款</span>
+    <span class="keyword">ABA六大协会反对</span>
+    <span class="keyword">Circle CRCL +20%</span>
+    <span class="keyword">Warsh正式就任</span>
+    <span class="keyword">鲍威尔留任理事</span>
+    <span class="keyword">1948年先例</span>
+    <span class="keyword">6月FOMC首秀</span>
+    <span class="keyword">鹰派预期</span>
+    <span class="keyword">12月加息39%</span>
+    <span class="keyword">BTC ETF -$6.35亿</span>
+    <span class="keyword">IBIT -$2.85亿</span>
+    <span class="keyword">5日累计-$12.6亿</span>
+    <span class="keyword">BTC跌穿$79,400</span>
+    <span class="keyword">200日均线$82K</span>
+    <span class="keyword">零售销售+0.5%</span>
+    <span class="keyword">消费结构分化</span>
+    <span class="keyword">必需品转移</span>
+    <span class="keyword">Glamsterdam升级</span>
+    <span class="keyword">200M Gas上限</span>
+    <span class="keyword">ePBS稳定</span>
+    <span class="keyword">EIP-8037</span>
+    <span class="keyword">ETH $2,258</span>
+    <span class="keyword">纳指新高26,635</span>
+    <span class="keyword">标普首破7,500</span>
+    <span class="keyword">黄金-0.74%</span>
+    <span class="keyword">WTI $101持稳</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月15日 星期五</div>
+  <div>数据来源：CoinDesk · CNBC · Bloomberg · Fortune · CryptoTimes · Yahoo Finance · UPI · Ethereum Foundation</div>
+  <div>时间窗口：2026年05月14日 20:00 — 05月15日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供信息参考，不构成任何投资建议。市场有风险，投资需谨慎。</div>
+</div>
+
+</body>
+</html>
