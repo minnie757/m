@@ -122,6 +122,11 @@
       color: #FFD600;
       border: 1px solid rgba(255,214,0,0.25);
     }
+    .tag-priority.low {
+      background: #0d0d0d;
+      color: #444;
+      border: 1px solid #1e1e1e;
+    }
     .tag-time { font-size: 10px; color: #444; }
     .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
     .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
@@ -177,14 +182,14 @@
 
 <!-- Source Pills -->
 <div class="sources">
-  <div class="pill">CoinDesk</div>
+  <div class="pill">BlockBeats</div>
   <div class="pill">CNBC</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">NPR</div>
   <div class="pill">Bloomberg</div>
-  <div class="pill">CryptoTimes</div>
+  <div class="pill">Foresight News</div>
   <div class="pill">The Block</div>
   <div class="pill">Fortune</div>
-  <div class="pill">Yahoo Finance</div>
-  <div class="pill">UPI</div>
 </div>
 
 <!-- Market -->
@@ -195,13 +200,13 @@
   <div class="market-grid">
     <div class="market-cell">
       <div class="market-name">BTC</div>
-      <div class="market-price">$81,409</div>
-      <div class="market-change up">▲ +1.4%（日内低$79,400）</div>
+      <div class="market-price">$79,200</div>
+      <div class="market-change down">▼ -2.3%（高点$81,248）</div>
     </div>
     <div class="market-cell">
       <div class="market-name">ETH</div>
-      <div class="market-price">$2,258</div>
-      <div class="market-change down">▼ -1.3%</div>
+      <div class="market-price">$2,241</div>
+      <div class="market-change down">▼ -1.8%</div>
     </div>
     <div class="market-cell">
       <div class="market-name">恐惧贪婪</div>
@@ -226,45 +231,60 @@
   </div>
 </div>
 
-<!-- Section 1: 监管与立法 -->
+<!-- Section 1: 全球事件 -->
 <div class="news-section">
   <div class="section-header">
-    <div class="section-title">⚖️ 监管与立法</div>
-    <div class="section-count">2</div>
+    <div class="section-title">🌍 全球事件</div>
+    <div class="section-count">3</div>
   </div>
 
   <div class="news-item">
     <div class="news-meta">
       <span class="tag-priority high">HIGH</span>
-      <span class="tag-time">05/15 02:00 BJ前后（05/14 下午 ET）</span>
+      <span class="tag-time">05/15 凌晨 BJ（05/14 下午 ET）</span>
     </div>
-    <div class="news-title">CLARITY Act 15-9通过参议院银行委员会；两名民主党人跨党支持，仍需60票方能闯过参议院全体</div>
-    <div class="news-desc">《数字资产市场结构法案》（CLARITY Act，H.R.3633）在参议院银行委员会以15-9投票获得通过，两名民主党参议员跨党支持：Ruben Gallego（AZ）和Angela Alsobrooks（MD）。Alsobrooks明确表示委员会票不代表地板票承诺，要求在执法权限、伦理条款和DeFi条款上继续谈判。法案下一步须与参议院农业委员会的配套法案合并，再经参议院全体投票——需达到60票跨越冗长辩论门槛，意味着至少再需8名民主党票。SEC/CFTC管辖分权、稳定币yield妥协方案（Tillis-Alsobrooks条款禁止模仿银行存款利息的yield，保留链上奖励例外）已锁定进草案。Circle（CRCL）此前因妥协消息大涨约20%；银行游说团体（ABA等六家协会）仍反对yield例外条款，称其"过于宽泛"。</div>
+    <div class="news-title">特习峰会Day 2核心成果：稀土换关税、H200"已批未收"双重博弈、台湾最强硬信号、"3年战略框架"</div>
+    <div class="news-desc">北京时间5月14日夜间至5月15日凌晨，特朗普与习近平在北京完成峰会实质谈判，四大成果并存：①【稀土换关税】中方宣布暂停镓、锗、锑、石墨等关键矿产出口管制（为期一年），换取特朗普撤销100%对华关税威胁，中美贸易博弈暂时降温；②【H200"已批未收"博弈】美方批准英伟达向阿里巴巴、腾讯、字节跳动、京东等约10家中企销售H200 AI芯片，但据多名知情人士披露，北京随即向上述企业发出内部指引要求"暂停收货"——实际交货仍悬而未决，"已批未收"格局耐人寻味；③【战略框架确立】双方同意将中美关系定位为"建设性战略稳定关系"，框架有效期约三年，是2022年以来两国最高规格关系定位；④【台湾最强硬信号】习近平就台湾问题发出峰会最严厉表态："台湾是中美关系中最重要的问题，若处理不当将使两国陷入重大危机"——这一表态直接摧毁峰会乐观情绪，BTC从$81,248深跌至$79,200（-2.3%），Solana跌-5%，与同步创历史新高的亚洲科技股形成鲜明"分裂行情"。</div>
     <div class="news-tags">
       <span class="news-tag">影响周期：月级</span>
-      <span class="news-tag">全球监管·加密立法</span>
-      <span class="news-tag">CLARITY Act · 15-9 · Gallego · Alsobrooks · 60票门槛 · 稳定币yield · Circle +20%</span>
+      <span class="news-tag">全球事件·地缘·贸易</span>
+      <span class="news-tag">特习峰会 · 稀土管制暂停 · H200 10家中企 · 暂停收货 · 台湾红线 · 3年战略框架</span>
     </div>
-    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/14/clarity-act-clears-u-s-senate-committee-on-its-way-to-a-final-test-in-congress" target="_blank">CoinDesk（委员会投票结果 05/14）</a> · <a href="https://www.cnbc.com/2026/05/14/clarity-act-congress-crypto-senate.html" target="_blank">CNBC（CLARITY Act通过 05/14）</a> · <a href="https://bitcoinmagazine.com/news/senate-committee-advances-clarity-act" target="_blank">Bitcoin Magazine（05/14）</a></div>
+    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/05/14/trump-xi-summit-beijing-takeaway-taiwan-trade-iran-war-strategic-relations-.html" target="_blank">CNBC（特习峰会五大关键结论 05/14）</a> · <a href="https://www.cnbc.com/2026/05/14/us-clears-h200-chip-sales-to-10-china-firms-as-nvidia-ceo-looks-for-breakthrough.html" target="_blank">CNBC（H200批准10家中企 05/14）</a></div>
   </div>
 
   <div class="news-item">
     <div class="news-meta">
-      <span class="tag-priority mid">MID</span>
-      <span class="tag-time">05/14 背景</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/15 08:23 BJ</span>
     </div>
-    <div class="news-title">CLARITY Act稳定币yield妥协条款解析：链上真实交易奖励获豁免，银行游说团体六家联合反对</div>
-    <div class="news-desc">CLARITY Act通过的核心妥协：Tillis-Alsobrooks条款禁止稳定币发行方提供模仿银行存款被动利息的yield，但为"真实链上交易相关奖励"（如交易手续费返还、质押参与奖励）设立豁免通道。ABA、ICBA等六大银行贸易团体向参议员联名发函，警告豁免条款过宽将导致规避，潜在推动稳定币市场从目前$3000亿扩张至$2万亿级别并绕开存款保险体系。Circle此前以"对话模式"积极参与立法进程，CRCL股价较月初已累涨约20%。分析师认为稳定币yield争议是后续全院辩论中民主党谈判的最大筹码之一。</div>
+    <div class="news-title">Warsh今日正式接掌美联储；强鸽派理事Waller宣布辞职；鸽派阵营历史性清场，6月FOMC为首秀</div>
+    <div class="news-desc">两则同步确认美联储历史性重组的消息在北京时间今日早间落地：①美联储最强鸽派理事Christopher Waller宣布辞职，与白宫政策分歧使其难以继续履职；Waller离去使Fed内部鸽派阵营瓦解，Warsh的鹰派政策主张将不再受到实质性内部挑战；②Kevin Warsh正式就任美联储主席，鲍威尔8年任期落幕——但鲍威尔以前所未有的方式留任理事（理事任期至2028年），成为1948年Marriner Eccles以来首例主席卸任后继续担任理事，鲍威尔援引特朗普政府对美联储的持续法律施压作为留任原因。Warsh核心政策立场：通胀控制凌驾就业目标、积极推进缩表（目标从当前约7万亿缩至4-5万亿）、在2%通胀目标未实现前不降息。Warsh首次FOMC定于6月16-17日，届时为其政策框架首次正式表态。</div>
     <div class="news-tags">
-      <span class="news-tag">影响周期：月级</span>
-      <span class="news-tag">监管·稳定币·立法博弈</span>
-      <span class="news-tag">稳定币yield · ABA · Tillis-Alsobrooks · Circle CRCL · $3000亿稳定币市场</span>
+      <span class="news-tag">影响周期：季度级</span>
+      <span class="news-tag">货币政策·制度交接</span>
+      <span class="news-tag">Warsh接任 · Waller辞职 · 鸽派清场 · 鲍威尔留任理事 · 1948年先例 · 6月FOMC首秀</span>
     </div>
-    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/05/01/clarity-act-text-lets-crypto-firms-offer-stablecoin-rewards-while-shielding-bank-yield" target="_blank">CoinDesk（yield条款解析 05/01）</a> · <a href="https://www.coindesk.com/policy/2026/05/11/banking-groups-escalate-fight-over-stablecoin-yield-ahead-of-senate-vote" target="_blank">CoinDesk（银行游说升级 05/11）</a></div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/346018" target="_blank">BlockBeats（Waller辞职+Warsh正式接任 05/15）</a> · <a href="https://www.npr.org/2026/05/13/nx-s1-5816235/kevin-warsh-federal-reserve-chair-jerome-powell" target="_blank">NPR（Warsh确认为新Fed主席）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/15 亚市早盘</span>
+    </div>
+    <div class="news-title">英伟达H200中国获批推动NVDA市值突破$5.4万亿历史新高（+1.45%）；亚洲科技股+2.3%创历史高位</div>
+    <div class="news-desc">H200向10家中企开绿灯的消息在亚洲时段引发科技股全面上涨：①英伟达（NVDA）涨+1.45%至$238.98，市值突破5.4万亿美元历史新高，H200中国出口每年可新增约35-40亿美元收入空间；②恒生科技及亚洲科技指数大盘在北京时间今日早盘跳涨+2.3%，刷新历史高点；③中国科技股：阿里巴巴（港股）大涨约+15%，腾讯约+12%，市场将H200获批视为中国AI产业的结构性利好；④Cisco盘后大涨+20%，显示AI数据中心连接需求超预期，AI基础设施投资旺盛信号持续。反常分析：英伟达涨而BTC跌（-2.3%）的反向走势，揭示峰会情绪的核心裂缝——AI硬件出口是"建设性信号"，台湾紧张是"风险信号"，两者在同一峰会并存，市场对不同资产类别做出了截然不同的解读。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">传统金融·AI半导体·亚洲市场</span>
+      <span class="news-tag">NVDA +1.45% · $5.4万亿历史新高 · 亚洲科技+2.3% · 阿里+15% · 腾讯+12% · Cisco +20%</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/05/14/trump-xi-meeting-china-stocks-ai-rally.html" target="_blank">CNBC（H200引发中国科技股+英伟达新高 05/14）</a></div>
   </div>
 </div>
 
-<!-- Section 2: 货币政策 -->
+<!-- Section 2: 货币政策延伸 -->
 <div class="news-section">
   <div class="section-header">
     <div class="section-title">🏛️ 货币政策</div>
@@ -273,86 +293,131 @@
 
   <div class="news-item">
     <div class="news-meta">
-      <span class="tag-priority high">HIGH</span>
-      <span class="tag-time">05/15 正式生效</span>
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/15</span>
     </div>
-    <div class="news-title">Warsh今日正式就任美联储第17任主席；鲍威尔留任理事至2028年，创1948年以来先例</div>
-    <div class="news-desc">Kevin Warsh于5月15日正式接任Jerome Powell出任美联储主席，鲍威尔8年任期落幕。特殊安排：鲍威尔选择留任理事会理事（其理事任期至2028年），为1948年Marriner Eccles以来首例主席卸任后继续担任理事，鲍威尔援引特朗普政府对美联储法律上的持续施压作为留任原因。Warsh首次以主席身份主持FOMC定于6月16-17日，届时将是其货币政策立场的首次正式表态。市场共识：Warsh在通胀问题上立场较鲍威尔更严，短期内不会寻求降息；CME FedWatch显示6月维持利率概率约70%，12月加息概率约39%。黄金连续两日承压正是对Warsh鹰派预期的提前定价。</div>
+    <div class="news-title">美联储理事Barr：缩表是"错误目标"；与Warsh政策哲学直接冲突，QT执行节奏或慢于预期</div>
+    <div class="news-desc">就在Warsh正式接任的同一天，美联储理事Michael Barr公开表示以"量化紧缩（QT）/缩减资产负债表"作为货币政策工具是"错误目标"，主张联储应主要依赖利率工具。Barr的表态与Warsh政策哲学构成直接冲突——Warsh曾多次表示"缩表是恢复联储传统工具独立性的必要条件"，计划将联储资产从当前约7万亿压缩至4-5万亿。关键背景：Barr的理事任期独立于主席职位，Warsh无权直接免去其职位（需参议院介入），这一内部分歧短期难以消除。对加密市场边际含义：若QT执行节奏因内部分歧而慢于预期，意味着流动性收缩速度放缓，属于边际利好。</div>
     <div class="news-tags">
-      <span class="news-tag">影响周期：季度级</span>
-      <span class="news-tag">货币政策·制度交接</span>
-      <span class="news-tag">Warsh就任 · 鲍威尔留任理事 · 1948年先例 · 6月FOMC · 鹰派预期 · 12月加息39%</span>
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">货币政策·流动性预期</span>
+      <span class="news-tag">Barr批评缩表 · QT执行节奏 · Warsh vs Barr · 资产负债表分歧 · 流动性边际利好</span>
     </div>
-    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/04/29/jerome-powell-says-he-will-continue-to-serve-as-a-fed-governor-even-after-chairmanship-ends-.html" target="_blank">CNBC（鲍威尔留任理事 04/29）</a> · <a href="https://www.npr.org/2026/05/10/nx-s1-5814105/looking-back-at-jerome-powells-8-year-term-as-federal-reserve-chair" target="_blank">NPR（鲍威尔八年回顾 05/10）</a> · <a href="https://www.washingtonpost.com/business/2026/05/14/warsh-be-confirmed-fed-chair-trump-allies-warn-rate-cuts/" target="_blank">WaPo（Warsh就任影响 05/14）</a></div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/346021" target="_blank">BlockBeats（美联储理事Barr：缩表是错误目标 05/15）</a></div>
   </div>
 </div>
 
-<!-- Section 3: 机构与资金 -->
+<!-- Section 3: 传统金融 -->
 <div class="news-section">
   <div class="section-header">
-    <div class="section-title">🏢 机构与资金</div>
-    <div class="section-count">1</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="tag-priority high">HIGH</span>
-      <span class="tag-time">05/14 数据</span>
-    </div>
-    <div class="news-title">BTC现货ETF单日净流出$6.35亿，为近数周最大；BlackRock IBIT独揽$2.85亿，5日累计流出$12.6亿</div>
-    <div class="news-desc">5月14日比特币现货ETF合计净流出$6.35亿，为近期最大单日赎回：BlackRock IBIT单独流出$2.85亿（最大单基金赎回），Fidelity FBTC流出$8613万。5日累计净流出约$12.6亿。背景：BTC在美股时段一度跌穿$80,000，触及日内低位$79,400，跌破200日均线（约$82,000）引发机构止损；通胀压力和Warsh鹰派预期双重压制。乐观面：ETF资产规模仍高于$1050亿，自上市以来累计净流入总量依然维持正值，机构长期布局方向未变。分析师警告若BTC无法重新站上$82K，ETF流出压力可能延续。</div>
-    <div class="news-tags">
-      <span class="news-tag">影响周期：周级</span>
-      <span class="news-tag">机构资金·ETF·资金流向</span>
-      <span class="news-tag">BTC ETF -$6.35亿 · IBIT -$2.85亿 · Fidelity -$8613万 · 5日累计-$12.6亿 · 200日均线</span>
-    </div>
-    <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/14/bitcoin-investors-yanked-usd635-million-from-spot-etfs-in-a-day-here-s-what-it-means-for-price" target="_blank">CoinDesk（ETF流出分析 05/14）</a> · <a href="https://www.cryptotimes.io/2026/05/14/bitcoin-etfs-post-635m-outflows-largest-in-weeks-blackrock-hit-by-285m/" target="_blank">CryptoTimes（IBIT赎回 05/14）</a></div>
-  </div>
-</div>
-
-<!-- Section 4: 宏观数据 -->
-<div class="news-section">
-  <div class="section-header">
-    <div class="section-title">📉 宏观数据</div>
+    <div class="section-title">🏦 传统金融</div>
     <div class="section-count">1</div>
   </div>
 
   <div class="news-item">
     <div class="news-meta">
       <span class="tag-priority mid">MID</span>
-      <span class="tag-time">05/14 20:30 BJ（08:30 ET）</span>
+      <span class="tag-time">05/14 21:00 BJ（09:00 ET）</span>
     </div>
-    <div class="news-title">美国4月零售销售+0.5% MoM连续第三月增长，超预期；消费者在通胀压力下转向必需品</div>
-    <div class="news-desc">美国商务部公布4月零售销售数据：整体环比+0.5%（预期+0.4%），同比+4.9%；核心剔除波动项目后环比+0.46%（预期+0.2%），为连续第三月正增长。分项：电子及家电+1.4%，加油站+2.8%（但较3月+13.7%大幅降温）；弱项：家具-2%、百货-3.2%、服装-1.5%、汽车经销商-0.5%，显示消费者在高油价和高通胀压力下向必需品消费转移。结合PPI+1.4%和CPI+3.8%，消费数据强劲但结构分化——支撑经济韧性预期的同时，也强化了"降息无必要"的市场共识，利率敏感资产（BTC、黄金）短期承压。</div>
+    <div class="news-title">韩亚银行$6.7亿战略收购Upbit母公司Dunamu股份；传统银行控股最大加密交易所，全球监管参考案例</div>
+    <div class="news-desc">韩国第三大金融集团韩亚金融集团旗下韩亚银行（Hana Bank）宣布以约6.7亿美元投资收购Dunamu株式会社大量股份——Dunamu是韩国最大加密货币交易所Upbit的运营母公司（日均交易量约20-40亿美元，市场份额约75%）。此次投资是继2023年韩亚银行首次参股Dunamu（约10%）后的进一步增持。战略意义：①传统银行对加密交易所进行大规模战略性控股的最新案例，加速"传统金融+加密"合并叙事；②韩国监管层此前明确允许银行持有加密交易所股权，此次并购将成为全球监管参考案例；③Dunamu同期正准备IPO，韩亚银行持股增至重大股东级别可能影响其IPO进程；④Upbit已通过ISMS认证+100%冷钱包储备证明，平台业务连续性不受影响。</div>
     <div class="news-tags">
       <span class="news-tag">影响周期：月级</span>
-      <span class="news-tag">宏观数据·消费·通胀</span>
-      <span class="news-tag">零售销售+0.5% · 消费分化 · 必需品转移 · 降息预期压制 · 电子+1.4%</span>
+      <span class="news-tag">传统金融·加密交易所并购</span>
+      <span class="news-tag">韩亚银行 · $6.7亿 · Dunamu/Upbit · 银行控股加密交易所 · Dunamu IPO</span>
     </div>
-    <div class="news-source">来源：<a href="https://www.upi.com/Top_News/US/2026/05/14/consumer-spending-retail-sales-april-2026/4611778775158/" target="_blank">UPI（零售销售 05/14）</a> · <a href="https://www.cnn.com/2026/05/14/economy/us-retail-sales-consumer-spending-april" target="_blank">CNN（消费数据解读 05/14）</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-14/us-retail-sales-moderated-in-april-as-gas-surge-crimped-budgets" target="_blank">Bloomberg（消费结构 05/14）</a></div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/346029" target="_blank">BlockBeats（韩亚银行$6.7亿收购Dunamu股份 05/14）</a></div>
   </div>
 </div>
 
-<!-- Section 5: 项目与生态 -->
+<!-- Section 4: 项目与生态 -->
 <div class="news-section">
   <div class="section-header">
     <div class="section-title">🔧 项目与生态</div>
-    <div class="section-count">1</div>
+    <div class="section-count">3</div>
   </div>
 
   <div class="news-item">
     <div class="news-meta">
       <span class="tag-priority mid">MID</span>
-      <span class="tag-time">05/14 背景</span>
+      <span class="tag-time">05/15 09:19 BJ</span>
     </div>
-    <div class="news-title">以太坊开发者挪威斯瓦尔巴德互操性会议完成；Glamsterdam升级锁定200M Gas上限，ePBS跨客户端稳定</div>
-    <div class="news-desc">以太坊核心开发者在挪威斯瓦尔巴德完成Glamsterdam升级互操性测试（interop）会议，关键里程碑：①200M gas limit下限正式确立（当前约3600万，增幅约5倍）；②ePBS（执行层提议者-构建者分离）跨多个客户端实现稳定运行；③EIP-8037 Gas重定价完成最终修订。Glamsterdam目标：并行交易处理、抗审查性改善、Gas上限大幅提升以扩展网络容量。第二个2026年升级"Hegota"（H2 2026预期）将聚焦降低存储需求，减轻全节点运营压力。ETH当日价格约$2,258，未对开发进展产生明显价格反应。</div>
+    <div class="news-title">Coinbase原生USDC入驻Hyperliquid，HYPE突破$45.34历史区间；巨鲸建仓浮盈$900万，a16z持续积累</div>
+    <div class="news-desc">Coinbase宣布在Hyperliquid L1上原生部署USDC，使交易者可直接使用USDC作为保证金和结算货币，同时释放Coinbase对Hyperliquid基础设施的战略认可信号。HYPE在多重催化下突破$45.34历史价格区间：①Coinbase原生USDC注入机构级流动性背书；②链上监测显示疑似a16z关联钱包过去一个月持续积累158.8万枚HYPE并质押130万枚；③Hyperliquid上周手续费收入$1100万（占全链43%），用户粘性强劲；④某头部巨鲸在$45突破后浮盈约$900万。同步消息：去中心化券商trade.xyz在AI云计算公司CBRS纳斯达克上市数小时前完成链上IPO预定价，"链上纳斯达克"雏形初现，允许用户通过链上机制以接近传统发行价参与认购，打破机构IPO优先权壁垒。</div>
     <div class="news-tags">
       <span class="news-tag">影响周期：月级</span>
-      <span class="news-tag">链上事件·协议升级</span>
-      <span class="news-tag">Glamsterdam · 200M Gas · ePBS · EIP-8037 · Hegota · 斯瓦尔巴德 · 以太坊升级</span>
+      <span class="news-tag">链上金融·DeFi主流化</span>
+      <span class="news-tag">Coinbase USDC · Hyperliquid · HYPE $45.34 · a16z积累 · trade.xyz · 链上纳斯达克 · CBRS IPO</span>
     </div>
-    <div class="news-source">来源：<a href="https://blog.ethereum.org/2026/05/11/protocol-update-may-26" target="_blank">Ethereum Foundation（协议更新 05/11）</a> · <a href="https://ambcrypto.com/ethereum-how-eths-2026-upgrades-aim-to-reshape-the-network/" target="_blank">AMBCrypto（升级路线解析）</a></div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/346025" target="_blank">BlockBeats（Coinbase USDC入驻Hyperliquid+HYPE $45.34 05/15）</a> · <a href="https://www.theblockbeats.info/flash/346026" target="_blank">BlockBeats（trade.xyz链上CBRS IPO预定价 05/15）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/15</span>
+    </div>
+    <div class="news-title">OpenAI聘外部律所准备起诉苹果违约：AI合作集成协议履约争议，双方处于"法律战前夜"</div>
+    <div class="news-desc">据知情人士披露，OpenAI已聘请顶级外部律师事务所，准备就苹果公司未按约定履行AI功能集成合作协议提起违约诉讼。争议核心：苹果设备（iPhone/Mac）上的Apple Intelligence功能调用OpenAI API的深度集成承诺，以及相关流量分成和访问权限条款——苹果以"用户隐私"为由单方面限制了部分API访问路径，OpenAI认为构成实质违约。背景：双方于2024年WWDC宣布合作，但自ChatGPT整合上线以来持续存在数据使用、功能权限和商业分成摩擦。法律行动若成立将影响：①苹果AI功能路线图的短期不确定性；②其他AI公司重新评估与苹果合作条款；③去中心化AI Agent赛道的叙事情绪。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">AI格局·法律战</span>
+      <span class="news-tag">OpenAI起诉苹果 · Apple Intelligence · 违约诉讼 · AI合作协议 · AI Agent赛道情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/346019" target="_blank">BlockBeats（OpenAI聘律所准备起诉苹果违约 05/15）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/15</span>
+    </div>
+    <div class="news-title">马斯克"一周七天盯盘"管理文化逼走50+名SpaceX核心AI研发人员；DOGE代币边际受影响</div>
+    <div class="news-desc">多位前SpaceX员工披露，马斯克对SpaceX AI团队实施的高强度管控文化（全天候随时被呼叫、周末必须汇报、Grok 3项目实时监控）近期导致逾50名核心AI研发人员离职，部分加入OpenAI、Google DeepMind、Anthropic，部分选择创业。马斯克同期精力高度分散（政府DOGE工作+随Trump出访北京+SpaceX/Tesla多线战场），叠加SpaceX AI人才流失，对其科技版图的长期影响值得关注。对加密市场直接影响有限，但马斯克精力分散信号对DOGE等马斯克概念代币有边际负面情绪影响。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：日级</span>
+      <span class="news-tag">AI人才·马斯克</span>
+      <span class="news-tag">SpaceX AI人才流失 · 马斯克管理文化 · DOGE边际影响</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/346024" target="_blank">BlockBeats（马斯克盯盘文化逼走50+SpaceX AI研发 05/15）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 加密数据 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">📈 加密数据</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/15 亚市</span>
+    </div>
+    <div class="news-title">BTC从$81,248跌至$79,200（-2.3%）；习近平台湾强硬表态摧毁峰会乐观情绪；Solana领跌-5%</div>
+    <div class="news-desc">特习峰会双线并进（稀土+H200利好 vs 台湾红线利空）在加密市场引发剧烈方向转换：BTC在H200批准消息传出后短涨至$81,248（24小时高点），随即因习近平台湾最强硬表态传出而急剧逆转，在亚洲盘跌至$79,200（24小时-2.3%，7日跌幅-2.2%），$80,000关口告失。主流币同步受压：Solana（SOL）单日跌幅-5%为主流币中最大，以太坊（ETH）-1.8%，总加密市值约$3.05万亿（较峰会前下滑约$700亿）。技术层面：$79,000-$79,200区间是今年1月重要支撑区域，上方阻力在$80,500-$81,000。市场分析师指出：台湾问题是中美关系中唯一没有"90天暂停"机制的核心争议，其风险溢价是持续存在的结构性折价因素。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：日级</span>
+      <span class="news-tag">加密市场·情绪·技术面</span>
+      <span class="news-tag">BTC $79,200 · -2.3% · 高点$81,248 · SOL -5%领跌 · 台湾风险溢价 · $80K失守</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/14/solana-drops-5-bitcoin-below-usd80-000-as-xi-warns-trump-on-taiwan-conflict" target="_blank">CoinDesk（BTC跌破$80K/SOL -5%台湾警告 05/14）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/14 峰会</span>
+    </div>
+    <div class="news-title">特习峰会伊朗分歧：美方寻求中国减少伊朗石油进口，中方以"主权立场"婉拒；通胀压力持续</div>
+    <div class="news-desc">伊朗议题是特习会谈分歧最明显的领域之一。特朗普希望中国减少从伊朗进口石油（中国约占伊朗原油出口60%），以增加对德黑兰经济压力迫使其接受停战条件，从而平抑因伊朗战争推高的全球油价（4月CPI+3.8%、PPI+6%的核心推手）。中方以"主权立场"婉拒，未作任何公开承诺。若中方真的减少伊朗石油采购，全球油价可能显著下行；但目前迹象显示中方不会有实质让步，伊朗战争引发的通胀压力仍将持续，对Warsh领导下的美联储构成收紧条件。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">全球事件·能源·通胀</span>
+      <span class="news-tag">特习伊朗分歧 · 中国石油采购 · WTI价格 · 通胀关联 · 美联储压力</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cnbc.com/2026/05/14/trump-xi-beijing-summit-trade-taiwan-ai-iran-rare-earths-tariffs.html" target="_blank">CNBC（特习峰会伊朗石油议题详解 05/14）</a></div>
   </div>
 </div>
 
@@ -360,16 +425,16 @@
 <div class="keywords-section">
   <div class="keywords-title">🏷️ 今日关键词</div>
   <div class="keywords-wrap">
-    <span class="keyword">CLARITY Act 15-9</span>
-    <span class="keyword">60票全院门槛</span>
-    <span class="keyword">稳定币yield豁免</span>
-    <span class="keyword">Circle CRCL +20%</span>
-    <span class="keyword">Warsh正式就任</span>
-    <span class="keyword">鲍威尔留任理事</span>
-    <span class="keyword">12月加息39%</span>
-    <span class="keyword">BTC ETF -$6.35亿</span>
-    <span class="keyword">BTC触及$79,400</span>
-    <span class="keyword">Glamsterdam 200M Gas</span>
+    <span class="keyword">特习3年战略框架</span>
+    <span class="keyword">H200批准·暂停收货</span>
+    <span class="keyword">稀土管制暂停</span>
+    <span class="keyword">台湾强硬红线</span>
+    <span class="keyword">Warsh接任·Waller辞职</span>
+    <span class="keyword">NVDA $5.4万亿新高</span>
+    <span class="keyword">BTC $79,200 -2.3%</span>
+    <span class="keyword">SOL -5%领跌</span>
+    <span class="keyword">HYPE $45.34</span>
+    <span class="keyword">韩亚银行$6.7亿收购Dunamu</span>
   </div>
 </div>
 
@@ -377,7 +442,7 @@
 <div class="footer">
   <div class="footer-brand">OKX · 加密热点早报</div>
   <div>2026年5月15日 星期五</div>
-  <div>数据来源：CoinDesk · CNBC · Bloomberg · Fortune · CryptoTimes · Yahoo Finance · UPI · Ethereum Foundation</div>
+  <div>数据来源：BlockBeats · CNBC · CoinDesk · NPR · Bloomberg · Fortune · Foresight News</div>
   <div>时间窗口：2026年05月14日 20:00 — 05月15日 09:30（北京时间）</div>
   <div style="margin-top:8px;color:#222;">本报告仅供信息参考，不构成任何投资建议。市场有风险，投资需谨慎。</div>
 </div>
