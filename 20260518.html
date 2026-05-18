@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月18日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #111;
+      text-align: center;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      color: #555;
+      font-size: 11px;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { color: #555; font-size: 11px; }
+
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 10px;
+      border-top: 1px solid #111;
+    }
+    .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+    }
+
+    .market-section { margin: 0 20px 16px; }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell { background: #0c0c0c; padding: 12px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    .news-section { margin: 0 20px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority { font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.15);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.3);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.12);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.25);
+    }
+    .tag-priority.low {
+      background: #0d0d0d;
+      color: #444;
+      border: 1px solid #1e1e1e;
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
+    .news-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 5px; }
+    .news-tag {
+      font-size: 10px;
+      color: #555;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    .keywords-section {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 6px;
+    }
+    .keywords-title { font-size: 12px; color: #555; margin-bottom: 10px; }
+    .keywords-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      font-size: 11px;
+      padding: 3px 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #BCFF2F; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026年5月18日 星期一</div>
+  <div class="header-title"><span class="green">加密</span>热点早报</div>
+  <div class="header-sub">时间窗口：05月17日 20:00 — 05月18日 09:30（北京时间）</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily</div>
+  <div class="pill">PANews</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">Yahoo Finance</div>
+  <div class="pill">10x Research</div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="section-header">
+    <div class="section-title">📊 市场行情</div>
+  </div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$78,157</div>
+      <div class="market-change down">▼ -1.7%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,119</div>
+      <div class="market-change down">▼ -2.64%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">28</div>
+      <div class="market-change down">▼ 恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$105.42</div>
+      <div class="market-change up">▲ +4.2%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,527</div>
+      <div class="market-change down">▼ -2.7%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,238</div>
+      <div class="market-change down">▼ -1.5%（周五收盘）</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 宏观与通胀 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🌐 宏观与通胀</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">美债30年期收益率升至5.12%，CPI通胀数据点燃"通胀交易"，市场乐观情绪从87%骤降至45%</div>
+    <div class="news-desc">美国30年期国债收益率升至5.12%，长期通胀预期重新升温：①CPI数据公布后，市场对通胀持续性的担忧迅速发酵，投资者重新定价长期利率路径，通胀交易情绪全面回归；②10x Research追踪的市场乐观情绪指标从87%骤降至45%，为近期最大单日情绪逆转；③收益率上升直接压制风险资产，比特币ETF资金同步出现大规模流出，纳斯达克周五收跌1.5%，加密市场F&amp;G指数跌至28（恐惧）；④Warsh领导下的美联储"通胀目标优先"框架使市场对近期降息预期进一步降温，长端收益率曲线陡峭化压力加剧。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">宏观·货币政策·通胀</span>
+      <span class="news-tag">30年期收益率5.12% · CPI通胀交易 · 市场情绪骤降87%→45% · Warsh框架 · 降息预期降温</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（美债收益率升至5.12% 05/17）</a> · <a href="https://www.panewslab.com" target="_blank">PANews（10x Research情绪数据 05/17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">WTI原油突破$105，美伊核谈判再度僵局；纳斯达克周五大跌1.5%，风险资产多空双杀格局延续</div>
+    <div class="news-desc">WTI原油期货较前收$101.17大涨+4.2%至$105.42，能源通胀压力重燃：①美国总统特朗普警告伊朗"时间快用完了"，伊朗核谈判僵局持续——与此前"美伊协议"预期形成反差，地缘风险溢价迅速重回油价；②原油大涨叠加通胀数据，引发纳斯达克&amp;S&amp;P 500于周五大幅回落：纳指收盘-1.5%，道琼斯-1.1%，科技股主导的"风险偏好"受到直接压制；③黄金现货同步下跌-2.7%至$4,527，与原油此消彼长的"通胀资产轮动"信号明显；④能源成本上升叠加收益率走高，构成美联储Warsh政策框架下"暂缓降息"的强化理由。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">宏观·地缘·能源·美股</span>
+      <span class="news-tag">WTI $105.42 · 美伊僵局 · 纳斯达克-1.5% · 道琼斯-1.1% · 黄金-2.7% · 通胀资产轮动</span>
+    </div>
+    <div class="news-source">来源：<a href="https://sundayguardianlive.com/business/us-stock-market-today-15-may-2026-dow-falls-nasdaq-sp-500-crash-after-trump-china-visit-oil-surges-109-on-us-iran-deal-gold-silver-hit-bitcoin-retreats-82k-what-investors-should-watch-192641/" target="_blank">Sunday Guardian（美股周五全线下跌 05/15）</a> · <a href="https://www.investing.com/commodities/crude-oil" target="_blank">Investing.com（WTI $105.42）</a></div>
+  </div>
+</div>
+
+<!-- Section 2: 监管与立法 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">📋 监管与立法</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">NCUA发布GENIUS Act稳定币发行人拟议规则，公众评论期至7月17日；稳定币监管框架落地加速</div>
+    <div class="news-desc">美国全国信用合作社管理局（NCUA）发布针对《GENIUS Act》授权稳定币发行人的拟议监管规则，进入公众评论阶段（截止2026年7月17日）。关键背景：①《GENIUS Act》已于近期通过国会，确立了美国首个全面的联邦稳定币发行框架，NCUA为其授权机构之一；②拟议规则明确信用合作社类机构作为稳定币发行人的资本充足率、储备要求及合规路径；③与此同步，CLARITY Act（数字资产市场结构法案）已于5月14日以15:9通过参议院银行委员会，进入全参议院投票阶段，两项立法共同构成2026年美国加密监管的制度基础；④a16z警告，若CLARITY Act未能尽快落地，美国或全面落后于欧盟MiCA框架。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">监管·稳定币·立法</span>
+      <span class="news-tag">NCUA · GENIUS Act稳定币规则 · 评论期7月17日 · CLARITY Act全院投票 · MiCA对比</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com" target="_blank">PANews（NCUA GENIUS Act拟议规则 05/17）</a> · <a href="https://www.coindesk.com/policy/2026/05/14/clarity-act-clears-u-s-senate-committee-on-its-way-to-a-final-test-in-congress" target="_blank">CoinDesk（CLARITY Act通过委员会 05/14）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">众议院农业委员会正式向特朗普施压：要求尽快任命CFTC专员，将其与CLARITY Act落地进程挂钩</div>
+    <div class="news-desc">美国众议院农业委员会向特朗普政府发出正式信函，要求尽快填补CFTC（商品期货交易委员会）专员职位空缺。关键点：①CLARITY Act明确将大量数字资产（非证券类）的监管权划归CFTC，若CFTC专员空缺未补，法案执行机制将面临人力空档；②农业委员会将CFTC任命与CLARITY Act的立法落地节奏直接挂钩，显示国会对监管行政协同的高度重视；③短期内此举可推动特朗普行政团队加快CFTC任命进程，有助于清除CLARITY Act完整执行的行政障碍。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">监管·CFTC·立法行政</span>
+      <span class="news-tag">CFTC专员空缺 · 众议院农业委员会施压 · CLARITY Act执行 · 监管人事</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（众议院农业委员会敦促任命CFTC专员 05/17）</a></div>
+  </div>
+</div>
+
+<!-- Section 3: 机构与ETF -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">💼 机构与ETF</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">比特币现货ETF单日净流出超$10亿美元，创近期最大单日流出纪录；CPI引爆通胀交易后机构情绪急转直下</div>
+    <div class="news-desc">CPI数据公布后，美国比特币现货ETF出现近期最大单日净流出，规模超10亿美元（约$1B）：①ETF资金动向是市场情绪最直接的机构指标，单日超$10亿的净流出意味着机构在通胀数据发布后进行了系统性减仓；②对比背景：此前比特币ETF月度累计净流入处于正值区间，此次单日逆转打破短期积累趋势；③BTC同期从$79,125短期牛熊分界线下方进一步下行，与ETF流出形成"价格+资金"双向确认的弱势信号；④10x Research指出，若BTC无法在$76,922主要支撑位守住，可能触发进一步的系统性减仓。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">机构资金·ETF·情绪</span>
+      <span class="news-tag">BTC ETF净流出$10亿 · 近期最大单日 · 机构减仓 · 价格资金双弱 · $76,922支撑</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（BTC ETF单日流出$10亿 05/17）</a> · <a href="https://www.panewslab.com" target="_blank">PANews（10x Research ETF分析 05/17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">哈佛大学完全清空以太坊ETF持仓；阿布扎比主权基金Mubadala增持BlackRock IBIT至$6.6亿——机构资金结构性分化加速</div>
+    <div class="news-desc">5月17日机构资金动向出现鲜明的"分化格局"：①【哈佛清仓ETH ETF】哈佛大学捐赠基金完全撤出其以太坊现货ETF持仓，成为顶级学术机构中首个完全退出ETH ETF的案例，折射出传统大型机构对ETH价值储存逻辑的短期信心不足；②【Mubadala大幅加码BTC ETF】阿布扎比主权财富基金Mubadala持续增持BlackRock旗下比特币现货ETF（IBIT），总持仓升至约6.6亿美元（较上一报告期增持超9000万美元）——显示主权级机构将BTC视为长期战略资产配置；③两相对比：机构在"ETH vs BTC"之间正在做出明确的方向性抉择，BTC的机构接受度持续领先ETH。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">机构资金·主权基金·ETH/BTC分化</span>
+      <span class="news-tag">哈佛清仓ETH ETF · Mubadala $6.6亿 · IBIT增持9000万 · 主权基金BTC · 机构结构分化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com" target="_blank">PANews（哈佛清空ETH ETF + Mubadala增持IBIT 05/17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">10x Research：BTC $79,125短期牛熊线告破，当前测试$76,922主要支撑；ETH触发技术看跌信号</div>
+    <div class="news-desc">知名加密分析机构10x Research发布技术研判：①BTC短期牛熊分界线$79,125已被有效跌破，当前多空势力重心下移，主要支撑位为$76,922（近期低点密集成交区）；②若BTC在$76,922无法企稳，下一关键技术位在$74,500-$75,000区间；③ETH已触发技术层面看跌信号——具体指标未详述，但与哈佛清仓、鲸鱼抛售相互印证，ETH短期走势承压明显；④10x Research警示，当前ETF流出超$10亿+技术面破位是本轮回调"最高确信度"组合信号，需警惕进一步下行。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">技术分析·市场结构·BTC/ETH</span>
+      <span class="news-tag">$79,125牛熊线 · $76,922主要支撑 · ETH看跌信号 · 10x Research · 技术破位</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com" target="_blank">PANews（10x Research BTC技术分析 05/17）</a></div>
+  </div>
+</div>
+
+<!-- Section 4: 链上市场 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔗 链上市场</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">鲸鱼地址8小时内持续抛售4,870枚ETH（约$1061万），以太坊承压加剧</div>
+    <div class="news-desc">链上数据追踪显示，某大型鲸鱼地址在连续8小时内持续出售4,870枚ETH，折合约$1061万美元。关键分析：①此次抛售规模和速度均超过近期均值，在ETH价格本已承压（-2.64%）的情况下形成额外抛压；②该鲸鱼的持续性抛售（非单次清仓）暗示持仓方对短期价格方向的悲观预判，或在进行系统性减仓；③与哈佛清仓ETH ETF的机构动作相叠加，ETH当前面临"链上鲸鱼+机构ETF双重减仓"的多空格局；④ETH对BTC汇率（ETH/BTC）在本时段继续走弱，以太坊相对价值在短期内面临压力。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">链上数据·ETH·鲸鱼动向</span>
+      <span class="news-tag">鲸鱼抛售4870 ETH · $1061万 · 8小时连续 · ETH双重减仓 · ETH/BTC走弱</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com" target="_blank">PANews（鲸鱼链上抛售ETH 05/17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/17—05/18 BJ</span>
+    </div>
+    <div class="news-title">双重代币大额解锁：PYTH解锁21.3亿枚（约$9550万）；ZRO解锁2571万枚（约$3340万）</div>
+    <div class="news-desc">本时间窗口内两大代币面临大额定期解锁：①PYTH（Pyth Network预言机）：解锁21.3亿枚代币，折合约$9550万美元，为本周期最大批次解锁之一，归属方包括团队、投资机构及生态激励池；②ZRO（LayerZero跨链协议）：解锁2571万枚代币，折合约$3340万美元，归属投资者及早期参与方；③两项解锁合计约$1.29亿美元面临潜在抛售压力；④重要背景：在当前市场整体情绪偏空（F&amp;G=28）、ETF流出和鲸鱼减仓的叠加背景下，大额解锁对相关代币价格的短期压制效应更为显著。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">代币经济·解锁·供应压力</span>
+      <span class="news-tag">PYTH 21.3亿解锁$9550万 · ZRO 2571万解锁$3340万 · 合计$1.29亿 · 抛售压力 · 情绪叠加</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com" target="_blank">PANews（PYTH/ZRO代币解锁 05/17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">与$1300万BTC盗窃案相关地址新转移$259万加密资产；链上资金仍在持续流动</div>
+    <div class="news-desc">链上追踪机构监测到，此前与一起$1300万比特币盗窃案相关联的链上地址群，在5月17日期间新转移了约$259万美元的加密资产。关键点：①资金仍在持续流动表明攻击方尚未完成洗钱或套现操作，链上追踪仍有意义；②此类转移通常为洗钱流程的中间步骤（混币器/跨链/DEX兑换）；③执法机构和链上分析公司（如Chainalysis）通常持续追踪此类地址，转移行为可能加速司法程序；④对市场的直接影响有限，但凸显了加密生态中链上资金追踪能力的持续强化。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">链上安全·黑客追踪·洗钱监控</span>
+      <span class="news-tag">$1300万BTC盗窃 · 相关地址转移$259万 · 链上追踪 · 洗钱流程 · Chainalysis</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（BTC盗窃相关地址转移$259万 05/17）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 安全事件 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔒 安全事件</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">Verus以太坊跨链桥遭黑客攻击，损失约$1158万美元，攻击手法待披露</div>
+    <div class="news-desc">跨链互操作协议Verus（Verus Coin）的以太坊跨链桥遭到黑客攻击，损失约$1158万美元。初步情况：①攻击针对Verus的以太坊跨链桥合约，具体攻击向量（闪电贷、重入、权限漏洞等）尚待团队正式披露；②Verus以太坊桥承担BTC/Verus生态与以太坊之间的跨链结算功能，此次攻击导致相关桥接服务暂停；③$1158万属中等规模安全事件，年内加密领域跨链桥安全问题再次浮出水面；④用户资产安全状态及赔付方案待团队官方公告。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">链上安全·跨链桥·黑客攻击</span>
+      <span class="news-tag">Verus以太坊跨链桥 · 损失$1158万 · 攻击手法待披露 · 桥接暂停 · 跨链安全</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（Verus跨链桥攻击$1158万 05/17）</a> · <a href="https://www.panewslab.com" target="_blank">PANews（Verus安全事件 05/17）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/17 BJ</span>
+    </div>
+    <div class="news-title">Kelp宣布rsETH协议全面恢复正常运营；将于6月15日前停止对20条链的跨链支持，用户需完成迁移</div>
+    <div class="news-desc">流动质押协议Kelp发布两则重要运营公告：①rsETH（Kelp的再质押衍生品）在此前经历短暂中断后，已全面恢复以太坊主网及所有L2网络的正常运营；②Kelp宣布将于2026年6月15日前，逐步停止对20条区块链网络的跨链桥支持，相关用户须在6月15日之前将资产从上述链上迁移至已支持的网络（主要为以太坊主网及核心L2）；③此次收缩跨链覆盖范围或与维护成本、安全审计优先级及流动性集中策略相关；④用户需关注官方公告确认自己的持仓是否受影响，并完成迁移以避免资产被锁定。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">DeFi·再质押·跨链迁移</span>
+      <span class="news-tag">Kelp rsETH恢复 · 6月15日停止20链跨链 · 用户迁移 · 再质押收缩 · L2聚焦</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（Kelp rsETH恢复+跨链收缩 05/17）</a></div>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-wrap">
+    <span class="keyword">通胀交易</span>
+    <span class="keyword">美债收益率5.12%</span>
+    <span class="keyword">BTC ETF净流出$10亿</span>
+    <span class="keyword">哈佛清仓ETH</span>
+    <span class="keyword">Mubadala增持BTC</span>
+    <span class="keyword">恐惧贪婪28</span>
+    <span class="keyword">$79,125牛熊线</span>
+    <span class="keyword">$76,922支撑</span>
+    <span class="keyword">GENIUS Act稳定币</span>
+    <span class="keyword">CLARITY Act</span>
+    <span class="keyword">CFTC任命空缺</span>
+    <span class="keyword">WTI $105</span>
+    <span class="keyword">鲸鱼抛售ETH</span>
+    <span class="keyword">PYTH/ZRO解锁</span>
+    <span class="keyword">Verus跨链桥攻击</span>
+    <span class="keyword">机构资金分化</span>
+    <span class="keyword">ETH看跌信号</span>
+    <span class="keyword">能源通胀</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月18日 · 时间窗口 05/17 20:00—05/18 09:30 BJ</div>
+  <div>数据来源：Odaily · PANews · CoinDesk · Yahoo Finance · 10x Research</div>
+</div>
+
+</body>
+</html>
