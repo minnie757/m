@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月19日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #111;
+      text-align: center;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      color: #555;
+      font-size: 11px;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { color: #555; font-size: 11px; }
+
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 10px;
+      border-top: 1px solid #111;
+    }
+    .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+    }
+
+    .market-section { margin: 0 20px 16px; }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-cell { background: #0c0c0c; padding: 12px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    .news-section { margin: 0 20px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .tag-priority { font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.15);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.3);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.12);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.25);
+    }
+    .tag-priority.low {
+      background: #0d0d0d;
+      color: #444;
+      border: 1px solid #1e1e1e;
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
+    .news-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 5px; }
+    .news-tag {
+      font-size: 10px;
+      color: #555;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 4px;
+      padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    .keywords-section {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border: 1px solid #111;
+      border-radius: 6px;
+    }
+    .keywords-title { font-size: 12px; color: #aaa; font-weight: 700; margin-bottom: 10px; }
+    .keywords-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword {
+      border-radius: 12px;
+      color: #888;
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      font-size: 11px;
+      padding: 3px 10px;
+    }
+    .keyword .knum {
+      color: #BCFF2F;
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #BCFF2F; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026年5月19日 星期二</div>
+  <div class="header-title"><span class="green">加密</span>热点早报</div>
+  <div class="header-sub">时间窗口：05月18日 20:00 — 05月19日 09:30（北京时间）</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">PANews</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">Fortune</div>
+  <div class="pill">Galaxy Research</div>
+  <div class="pill">CoinDesk</div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="section-header">
+    <div class="section-title">📊 市场行情</div>
+  </div>
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$77,115</div>
+      <div class="market-change up">▲ +0.05%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,135</div>
+      <div class="market-change up">▲ +1.06%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐惧贪婪</div>
+      <div class="market-price">25</div>
+      <div class="market-change down">▼ 极度恐惧</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">$106.87</div>
+      <div class="market-change up">▲ +0.07%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,562</div>
+      <div class="market-change up">▲ +1.49%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,091</div>
+      <div class="market-change down">▼ -0.51%（5/18收盘）</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 全球事件 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🌍 全球事件</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">美以或恢复对伊军事行动，WTI 原油飙至 $106.87；Moody's 降级余震叠加，亚市股市、加密市场广泛承压</div>
+    <div class="news-desc">地缘风险与评级冲击共振，形成本轮加密下行的宏观双重压制：①【美伊冲突升温】美国与以色列或恢复对伊朗的军事打击行动，消息一出原油现货迅速拉升，WTI 站稳 $106.87/桶（+0.07%），能源通胀压力重燃；②【亚市连带下跌】地缘风险情绪蔓延至亚洲市场，日韩港台主要指数开盘走弱，加密市场亦同步承压；③【Moody's余震】5月16日盘后，Moody's 将美国主权信用评级从 Aaa 下调至 Aa1，三大评级机构（S&amp;P 2011、Fitch 2023、Moody's 2026）完成历史性"三杀"——美债收益率应声飙升，BTC 已连续三日收跌；④综合影响：油价高企 + 美债收益率上行 + 评级降级，三重宏观逆风构成 BTC 当前跌势的深层驱动，短期内宏观压制难以解除。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">全球事件·地缘风险·宏观压制</span>
+      <span class="news-tag">美以对伊军事行动 · WTI $106.87 · Moody's Aaa→Aa1 · 三大评级三杀 · BTC三连跌</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（美伊冲突风险 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（Moody's降级余波 05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">人民币兑美元中间价升至 6.8375，创 2023 年 3 月以来近三年新高，中美贸易缓和信号持续释放</div>
+    <div class="news-desc">中国人民银行5月18日公布的美元/人民币中间价报 6.8375，刷新自2023年3月24日以来最高纪录：①【信号含义】人民币快速升值在主要经济体中仍属强势表现，通常与市场对中美贸易摩擦缓和预期正相关；②【宏观背景】美元指数在 Moody's 降级后持续走弱，人民币单边升值动能进一步被放大；③【加密联动】人民币升值历史上与香港和内地链上资金活跃度呈弱正相关，对港股上市加密公司基本面亦构成间接正向影响；④需注意：升值速度若持续过快，中国央行可能择机干预，为人民币汇率引入双向波动风险。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">全球事件·汇率·中美关系</span>
+      <span class="news-tag">人民币6.8375 · 近3年新高 · 美元走弱 · 中美缓和 · 港股加密联动</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（人民币中间价 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 2: 货币政策 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏛️ 货币政策</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">Kalshi 预测市场：美联储 2026 年全年不降息概率升至 66.9%；美债 2Y、10Y 收益率维持 12 个月高位，利率"更高更久"预期固化</div>
+    <div class="news-desc">利率预期的鸽派空间正在系统性收窄，构成 BTC 等风险资产的持续压制：①【Kalshi数据】预测平台 Kalshi 显示，2026年美联储全年不降息概率已升至66.9%，较月初约50%水平显著上升，市场宽松预期急剧退坡；②【美债收益率】2年期和10年期美国国债收益率均升至12个月高点，无息资产 BTC 的持有机会成本显著上升；③【Moody's降级催化】Moody's 下调美国评级后，投资者要求更高风险溢价，美债收益率应声走高，形成降息预期收窄→收益率高企→加密承压的传导链；④市场定价：CME FedWatch 显示全年首次降息最早或推至2026年Q4，年内降息空间几近为零。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">货币政策·美联储·利率预期</span>
+      <span class="news-tag">美联储不降息66.9% · 12个月高位收益率 · Moody's催化 · Kalshi预测 · CME FedWatch</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（Kalshi利率预期 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（美债收益率高位 05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">加密多头单日爆仓 $5.63 亿，创 2 月 6 日以来单日最高——BTC 三连跌跌破 $77K，ETH 多头占 $2.44 亿</div>
+    <div class="news-desc">杠杆清算数据揭示多头仓位的集中脆弱性：①单日加密总爆仓约$5.63亿，为自2月6日以来的最大单日清算规模，市场技术修正力度显著；②ETH多头爆仓$2.44亿，占全市场多单爆仓总额约43%，ETH 承压尤为突出；③BTC多头爆仓约$1.60亿，BTC价格在$77,000关口跌破后，级联清算触发下行加速效应；④数据分析：本次爆仓规模与Moody's降级 + 美伊冲突双重利空事件高度重合，表明宏观黑天鹅触发了系统性去杠杆；⑤结构影响：爆仓清算后市场杠杆率有所下降，短期反弹空间理论上有所扩大，但F&amp;G=25极度恐惧仍压制买盘情绪。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">货币政策·杠杆清算·BTC ETH</span>
+      <span class="news-tag">多头爆仓$5.63亿 · ETH $2.44亿 · BTC $1.60亿 · 2月6日以来最高 · 级联清算</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（加密爆仓数据 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 3: 监管立法 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">📋 监管立法</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">SEC 或本周率先推出代币化股票"创新豁免"监管框架；DTCC 同步宣布计划 7 月启动代币化资产交易服务</div>
+    <div class="news-desc">传统金融基础设施与监管框架的双重升级，为 RWA 赛道开辟合规通道：①【SEC创新豁免】SEC 计划本周发布专门针对代币化股票的监管框架，核心机制为"创新豁免"（Innovation Exemption），允许符合条件的代币化股票在受监管环境下进行试验性运作，降低合规门槛同时保留投资者保护机制；②【DTCC入场】美国存管信托与清算公司（DTCC）宣布计划于2026年7月推出代币化资产交易与清算服务，DTCC 每年处理超 $100 万亿资产，其入场代表传统金融清算基础设施的链上化拐点；③【赛道影响】两大利好同步落地，利好 RWA/代币化赛道项目（Ondo Finance、Centrifuge、Maple Finance 等）及具备合规基础设施的公链；④注意风险：框架内容尚未正式公布，实际政策边界仍待明确。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">监管立法·SEC·RWA·代币化</span>
+      <span class="news-tag">SEC创新豁免 · DTCC代币化7月 · RWA合规通道 · 代币化股票 · 传统金融上链</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（SEC代币化框架 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（DTCC代币化计划 05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">俄罗斯批准库尔斯克州边境地区禁止加密货币挖矿，安全原因为由；全球特定地区挖矿管控趋势延续</div>
+    <div class="news-desc">俄罗斯继续对特定地区加密挖矿活动实施管控：①【政策内容】俄罗斯联邦政府正式批准库尔斯克州（与乌克兰接壤边境地区）禁止加密货币挖矿，官方理由为维护国家安全和边境稳定，防止矿机高功耗对军事敏感区电网造成干扰；②【影响评估】库尔斯克州并非俄罗斯主要矿业集中地，对全网算力影响极为有限，更多为政治信号；③【地区背景】该地区自2024年起持续处于俄乌冲突前线区域，电力资源优先保障军事需求；④全球视角：此举延续了多国对特定地区挖矿活动监管收紧的一般趋势，但局限于战区边境，不具有全国政策意义。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">监管立法·挖矿·俄罗斯</span>
+      <span class="news-tag">俄罗斯库尔斯克禁挖矿 · 安全原因 · 边境地区 · 算力影响微弱 · 地区性监管</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com/" target="_blank">PANews（俄罗斯库尔斯克禁挖矿 05/18）</a> · <a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 4: 传统金融 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🏦 传统金融</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">Strategy 上周增持 24,869 枚 BTC（均价 $80,985），总持仓升至 843,738 枚；动用超 $20 亿持续高位布局</div>
+    <div class="news-desc">MicroStrategy 更名后的 Strategy 延续机构级高频增持策略，逆势加仓信号明确：①【增持规模】本周增持 24,869 枚 BTC，均价约 $80,985/枚，高于当前市价，显示其战略性高位买入意图；②【持仓总量】累计持有 843,738 枚 BTC，已超过比特币总供应量的 4%，仍是全球最大单一 BTC 企业持有方；③【资金来源】本次增持通过发行债券/优先股等方式融资超 $20 亿，展示强融资能力；④【信号解读】Strategy 在 BTC 价格跌破 $77K 区间仍坚持买入，为市场提供重要的机构底部支撑信号；⑤策略风险：若 BTC 价格持续下跌，Strategy 的高成本持仓将面临压力，但其债务结构为长期无抵押，短期流动性风险可控。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">传统金融·机构持仓·BTC</span>
+      <span class="news-tag">Strategy增持24869枚 · 均价$80985 · 总持仓843738枚 · 超$20亿 · 逆势建仓</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（Strategy增持BTC 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">美股 5/18 收盘：Nasdaq -0.51%，S&amp;P500 -0.07%，道指 +0.32%；加密概念股全线下挫：Upexi -8.97%，American Bitcoin -7.21%</div>
+    <div class="news-desc">美股市场在 Moody's 降级消化期内呈结构性分化，加密概念股跌幅显著超出大盘：①纳斯达克指数收盘约 26,091 点（-0.51%），科技板块继续受高利率环境压制；②道琼斯工业指数小幅上涨（+0.32%），传统防御板块相对抗跌；③加密概念股遭集中抛售：Upexi（UPXI）-8.97%，American Bitcoin（ABTC）-7.21%，与加密现货市场跌势高度联动；④原因分析：加密概念股的超额下跌反映出机构投资者对加密资产中期前景的谨慎——宏观逆风（高利率+评级降级+地缘风险）叠加 ETF 资金外流，形成连锁做空预期；⑤对比：传统金融股（银行、能源）表现相对稳健，而加密、AI 等高贝塔资产集中承压。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">传统金融·美股·加密概念股</span>
+      <span class="news-tag">Nasdaq -0.51% · S&amp;P -0.07% · 道指+0.32% · Upexi -8.97% · American Bitcoin -7.21%</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（美股收盘 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 5: 行业趋势 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔮 行业趋势</div>
+    <div class="section-count">2</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">Nvidia 财报（5/20）+ Google I/O（5/19—20）：AI 超级周来临，加密 AI 叙事情绪升温；Meta 宣布裁员约 20%，7000 人转向 AI 岗位</div>
+    <div class="news-desc">AI 与加密的叙事共振窗口本周集中爆发：①【Nvidia财报】Nvidia 将于5月20日公布季度财报，市场预期营收创历史新高，财报结果将直接影响 AI 基础设施投资情绪，进而传导至加密 AI 赛道（RNDR、FET、TAO 等）；②【Google I/O】5月19-20日举行的 Google I/O 大会将发布 Gemini 新模型和 Android AI 功能，或引发 AI 代理/去中心化推理叙事热度回升；③【Meta裁员转型】Meta 宣布裁减约20%员工（约7000人），大规模转岗 AI 相关职位，科技巨头"去人化"布局信号继续强化 AI 长期叙事；④综合影响：AI 超级周可能在宏观悲观背景下为加密市场提供短期结构性催化，AI Meme 代币和 AI 基础设施代币可重点关注情绪窗口。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">行业趋势·AI叙事·加密AI</span>
+      <span class="news-tag">Nvidia财报5/20 · Google I/O 5/19-20 · Meta裁员20% · AI超级周 · RNDR FET TAO</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（Meta裁员 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（Nvidia/Google I/O预期 05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">SpaceX IPO 或令 D1 Capital 账面浮盈逾 $200 亿；代币化 RWA 市场规模突破 $314 亿，较 2025 年初增长 5 倍</div>
+    <div class="news-desc">科技 IPO 与链上金融的双重叙事共振：①【SpaceX IPO影响】SpaceX 若近期正式 IPO，D1 Capital Partners 将因其持有的大量 SpaceX 私募股权产生逾 $200 亿账面浮盈，成为近年最大单笔风险投资回报之一；②【链上盘前合约】SpaceX 链上盘前合约 SPCX 在 Polymarket 和 dYdX 等平台已有活跃交易，为加密市场提供 IPO 预期价差敞口；③【RWA $314亿里程碑】链上代币化 RWA 市场规模已突破 $314 亿，较2025年初增长约5倍，tokenized 美债为最大份额，BlackRock BUIDL 和 Franklin Templeton 为主要发行方；④高利率环境反而加速了链上代币化美债的吸引力，RWA 成为熊市周期中的结构性增长赛道；⑤代表项目：Ondo Finance（ONDO）、Centrifuge（CFG）和 Maple Finance（MPL）为主要受益方。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">行业趋势·RWA·SpaceX IPO</span>
+      <span class="news-tag">SpaceX IPO D1浮盈$200亿 · RWA $314亿 · 5倍增长 · 代币化美债 · BlackRock BUIDL</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（SpaceX D1 Capital 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（RWA $314亿 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 6: 安全事件 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔒 安全事件</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">Echo Protocol 在 Monad 链遭私钥攻击，黑客铸造 1000 枚 eBTC（约 $7670 万），暂无赔付方案公告</div>
+    <div class="news-desc">Monad 链上首个重大安全事件引发生态关注：①【攻击方式】攻击者通过获取 Echo Protocol 管理员私钥，直接调用铸币合约大量铸造 eBTC（BTC 映射资产），无需触发价格操控或闪贷逻辑，属最直接的私钥泄露型攻击；②【损失规模】黑客成功铸造 1000 枚 eBTC，按 BTC 当前价格折合约 $7670 万美元，为 Monad 生态迄今最大安全事件；③【项目背景】Monad 是高性能 EVM 兼容链，近期已吸引多个 DeFi 和结构性产品部署，Echo Protocol 是其中较早的 BTC 映射协议之一；④【影响评估】事件尚无正式赔付声明，对 Monad 链上用户信心构成短期冲击；⑤历史对比：类似私钥泄露导致铸币的攻击（如 Harmony Horizon Bridge）往往造成代币价格短期归零，需密切跟踪后续处置方案。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">安全事件·Monad·私钥攻击</span>
+      <span class="news-tag">Echo Protocol被盗$7670万 · 私钥泄露 · 铸造1000eBTC · Monad链 · 无赔付声明</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com/" target="_blank">PANews（Echo Protocol被攻击 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 7: 链上数据 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">🔗 链上数据</div>
+    <div class="section-count">3</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">BTC 现货 ETF 六连周净流入终结——上周净流出 $10.39 亿；BlackRock IBIT 单周流出 $3.17 亿，Grayscale 迷你信托逆势净流入 $1.26 亿</div>
+    <div class="news-desc">机构资金对 BTC 的配置热情出现明显阶段性逆转，ETF 资金流向成为关键做空指标：①【六周逆转】截至5月15日当周，美国 BTC 现货 ETF 整体净流出 $10.39亿，打破此前连续六周正向净流入的格局，是今年以来最大单周净流出之一；②【IBIT领跌】BlackRock IBIT 单周流出 $3.17亿，为规模最大的单只 ETF 净流出；③【异类逆势】Grayscale BTC 迷你信托逆势净流入 $1.26亿，可能受益于部分资金从竞争对手转移；④【信号含义】ETF 六连周终结标志着主导本轮行情的机构增量资金开始退潮，是判断 BTC 短期顶部的重要领先指标；⑤背景对比：与4月初 ETF 开始连续净流入时的 BTC 上涨行情相比，当前净流出与价格下跌形成相互强化的负反馈循环。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">链上数据·BTC ETF·机构资金</span>
+      <span class="news-tag">ETF净流出$10.39亿 · 六连周终结 · IBIT流出$3.17亿 · Grayscale迷你+$1.26亿 · 机构退潮</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（BTC ETF资金流 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">ONDO Finance 将逾 $3.28 亿 ONDO 代币转入交易所，短期抛压信号；BTC 百枚以上鲸鱼地址增至 20,229 个（同比 +11.2%）</div>
+    <div class="news-desc">链上大额资金动向呈现"项目方减持 vs 大户积累"两条线索并存：①【ONDO抛压】链上监测显示 Ondo Finance 将相当于逾 $3.28亿的 ONDO 代币转入交易所地址，为潜在大额出售信号；结合 RWA 代币整体估值处于高位，需警惕项目方借利好窗口套现；②【BTC鲸鱼积累】与此同时，持有超过100枚 BTC 的鲸鱼钱包地址数量已增至 20,229 个，同比增长 11.2%，显示大户在价格下跌时持续积累，与 ETF 净流出形成反向信号；③【矛盾信号解读】短期 ETF 资金外流与长期鲸鱼囤积并存，是典型的"机构短期获利了结、大户长期看多"结构，常见于牛市中的阶段性回调区间。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：天级</span>
+      <span class="news-tag">链上数据·大额转账·鲸鱼</span>
+      <span class="news-tag">ONDO转入交易所$3.28亿 · BTC鲸鱼20229个 · +11.2%YoY · 抛压信号 · 矛盾指标</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（ONDO转账+BTC鲸鱼 05/18）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">Stripe 旗下 Tempo 区块链整合 Morpho $75 亿 DeFi 借贷市场；伊朗交易所 Nobitex 通过 Tron/BNB Chain 累计处理逾 $23 亿</div>
+    <div class="news-desc">两条独立链上动态揭示 DeFi 基础设施扩张与制裁规避两大平行脉络：①【Tempo整合Morpho】Stripe 战略支持的 Tempo 区块链完成与 Morpho Protocol 的集成，用户可在 Tempo 链上访问 Morpho 约 $75亿 TVL 的借贷市场，进一步打通支付+DeFi 的无缝组合；Stripe 的支付信用背书将为 Morpho 带来大量非原生 DeFi 用户；②【Nobitex制裁规避】链上分析机构披露，伊朗最大合规交易所 Nobitex 通过 Tron 和 BNB Chain 累计处理超 $23亿美元的资金转移，被指控用于协助规避美国制裁体系；③监管警示：此案例可能引发美国 OFAC 加强对 Tron 和 BNB Chain 上 USDT 流动的合规审查，波及整个稳定币监管生态。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：月级</span>
+      <span class="news-tag">链上数据·DeFi·制裁合规</span>
+      <span class="news-tag">Tempo整合Morpho $75亿 · Nobitex $23亿 · Tron/BNBChain · OFAC制裁 · Stripe支付DeFi</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.panewslab.com/" target="_blank">PANews（Tempo+Morpho整合 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（Nobitex制裁规避 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Section 8: 加密市场 -->
+<div class="news-section">
+  <div class="section-header">
+    <div class="section-title">📈 加密市场</div>
+    <div class="section-count">1</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+      <span class="tag-time">05/18 BJ</span>
+    </div>
+    <div class="news-title">BTC 三连跌后 200 日均线下方技术面持续承压；CME + Nasdaq 将推出含 ETH 的加密指数期货，机构合规通道扩大</div>
+    <div class="news-desc">技术面弱势与机构通道扩张并存，短期下行压力与中期结构优化形成对冲：①【BTC技术面】BTC 已连续三日收跌并跌破 $77,000 关口，当前运行在200日移动均线下方（约$80,000-81,000区间），技术面转为偏弱；加密波动率指数 BVIX 报 40.3（降0.54%），显示恐慌情绪较前日略有消化；②【ETH/BTC汇率】ETH 相对 BTC 汇率连续四日走弱，反映市场在不确定环境下倾向于减少 ETH 敞口，维持 BTC 相对避险地位；③【CME+Nasdaq期货】CME 与纳斯达克计划联合推出包含 ETH 的加密指数期货产品，打通传统金融机构进入加密市场的合规衍生品通道，为下一轮机构配置周期布局；④短中期对比：当前 F&amp;G=25 极度恐惧，价格在关键支撑位下方震荡，但机构基础设施（ETF+CME期货+RWA）持续完善，为下一阶段反弹提供结构性支撑。</div>
+    <div class="news-tags">
+      <span class="news-tag">影响周期：周级</span>
+      <span class="news-tag">加密市场·BTC技术面·机构通道</span>
+      <span class="news-tag">BTC三连跌 · 200日均线下方 · BVIX 40.3 · ETH/BTC走弱 · CME+Nasdaq加密期货</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash" target="_blank">Odaily（BTC技术分析 05/18）</a> · <a href="https://www.panewslab.com/" target="_blank">PANews（CME Nasdaq期货 05/18）</a></div>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="keywords-section">
+  <div class="keywords-title">📌 今日关键数字</div>
+  <div class="keywords-wrap">
+    <span class="keyword">美联储不降息概率 <span class="knum">66.9%</span></span>
+    <span class="keyword">加密多头单日爆仓 <span class="knum">$5.63亿</span></span>
+    <span class="keyword">ETH爆仓占比 <span class="knum">$2.44亿</span></span>
+    <span class="keyword">BTC ETF上周净流出 <span class="knum">$10.39亿</span></span>
+    <span class="keyword">IBIT单周流出 <span class="knum">$3.17亿</span></span>
+    <span class="keyword">Strategy增持均价 <span class="knum">$80,985</span></span>
+    <span class="keyword">Strategy总持仓 <span class="knum">843,738枚 BTC</span></span>
+    <span class="keyword">代币化RWA规模 <span class="knum">$314亿</span>（5倍增长）</span>
+    <span class="keyword">Echo Protocol被盗 <span class="knum">$7670万</span></span>
+    <span class="keyword">ONDO转入交易所 <span class="knum">$3.28亿+</span></span>
+    <span class="keyword">BTC鲸鱼地址 <span class="knum">20,229个</span>（+11.2%）</span>
+    <span class="keyword">WTI原油 <span class="knum">$106.87</span></span>
+    <span class="keyword">人民币中间价 <span class="knum">6.8375</span>（近3年新高）</span>
+    <span class="keyword">Nasdaq收盘 <span class="knum">-0.51%</span></span>
+    <span class="keyword">SpaceX IPO D1浮盈 <span class="knum">逾$200亿</span></span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月19日 · 时间窗口 05/18 20:00—05/19 09:30 BJ</div>
+  <div>数据来源：Odaily · BlockBeats · PANews · Fortune · Galaxy Research · CoinDesk</div>
+</div>
+
+</body>
+</html>
