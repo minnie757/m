@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月24日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 05 · 24</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">05/23 20:00 — 05/24 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美伊和平协议草案基本达成，特朗普宣布与沙特、阿联酋等多国领导人通话确认，草案包含全面停火、解冻伊朗数十亿美元资产及重开霍尔木兹海峡；消息推动 BTC 突破 77,000 美元、ETH 突破 2,100 美元，全网多单爆仓 8.26 亿美元。监管层面，日本金融厅稳定币细则 6 月 1 日落地，欧央行与土耳其同步收紧稳定币管控。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$76,788</div>
+      <div class="market-change up">▲ +1.88%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,120</div>
+      <div class="market-change up">▲ +2.74%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">25</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$96.60</div>
+      <div class="market-change up">▲ +0.26%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,519</div>
+      <div class="market-change up">▲ +0.50%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,344</div>
+      <div class="market-change up">▲ +0.19%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/23 20:38 BJ</span>
+      </div>
+      <div class="news-title">美伊和平协议草案基本达成，包含停火·解冻资产·重开霍尔木兹三大条款</div>
+      <div class="news-desc">特朗普宣布美伊协议已基本谈成，已与沙特、阿联酋、卡塔尔、巴基斯坦等多国领导人通话确认。据披露，草案核心条款包括：结束所有战线战争、解冻伊朗数十亿美元被冻结境外资产、重开霍尔木兹海峡正常通行；草案已提交两国最高领导层批准，目标将六周停火框架转化为永久和平协议。消息推动 BTC 当日突破 77,000 美元、ETH 突破 2,100 美元，全球风险资产全线反弹，原油期货小幅震荡。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·宏观情绪</span>
+        <span class="news-tag">美伊停火·霍尔木兹·BTC反弹</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/483610" target="_blank">Odaily（协议消息 20:38）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/483611" target="_blank">Odaily（BTC突破77K 20:55）</a></div>
+    </div>
+  </div>
+
+  <!-- 监管立法 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">监管立法</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/23 21:57 BJ</span>
+      </div>
+      <div class="news-title">日本金融厅正式公布稳定币监管实施细则，6月1日起施行</div>
+      <div class="news-desc">日本金融厅（FSA）正式发布稳定币监管实施细则，明确发行许可、托管要求与流通规则，将于 2026 年 6 月 1 日起正式生效。这是日本稳定币监管框架从立法到落地执行的关键里程碑，为海外稳定币发行商进入日本市场提供了明确的准入标准，Tether、Circle 等主流发行方均在规则覆盖范围之内。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·合规</span>
+        <span class="news-tag">日本·FSA·稳定币细则·6月1日</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-a0a" target="_blank">吴说区块链（精选资讯 21:57）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/23 21:57 BJ</span>
+      </div>
+      <div class="news-title">欧央行反对放宽欧元稳定币规则，担忧银行存款大规模外流</div>
+      <div class="news-desc">欧洲央行（ECB）明确反对现行议案中放宽欧元稳定币限制的条款，核心担忧是若稳定币大规模采用将导致商业银行存款外流，削弱欧洲货币政策传导效率。ECB 的强硬立场可能推迟欧盟 MiCA 框架内稳定币规则的进一步放宽，对欧元区稳定币发行商形成短期不确定性。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·货币政策</span>
+        <span class="news-tag">ECB·欧元稳定币·MiCA·银行存款</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-a0a" target="_blank">吴说区块链（精选资讯 21:57）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/23 21:57 BJ</span>
+      </div>
+      <div class="news-title">土耳其对稳定币转账设置日均 3,000 美元上限</div>
+      <div class="news-desc">土耳其监管机构对个人稳定币转账实施日均 3,000 美元上限管控，主要针对 USDT 等美元挂钩稳定币的跨境流转，旨在抑制资本外流并强化外汇管理。土耳其因此前高通胀曾出现大规模民间持有稳定币浪潮，此举标志着当局对稳定币监管正式收紧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球监管·外汇管制</span>
+        <span class="news-tag">土耳其·USDT·$3,000/日限额</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-a0a" target="_blank">吴说区块链（精选资讯 21:57）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/24 08:39 BJ</span>
+      </div>
+      <div class="news-title">前瑞信主管：比特币相对黄金结束长达 142 天历史最长跑输周期</div>
+      <div class="news-desc">前瑞信投资组合主管发文指出，比特币对黄金的相对回报已结束长达 142 天的历史最长跑输周期，超越此前所有历史同类记录。反转节点与美伊协议带来的风险资产反弹在时间上高度吻合。分析认为，若 BTC 能维持相对黄金的回报优势超过 2 周，将有望吸引配置黄金的宏观基金开始切换仓位。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">观点研报·周期信号</span>
+        <span class="news-tag">BTC·黄金·142天跑输结束</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266841" target="_blank">ChainCatcher（前瑞信主管分析 08:39）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/24 08:55 BJ</span>
+      </div>
+      <div class="news-title">HYPE 创历史新高，协议 97% 交易费用流入回购基金是核心推手</div>
+      <div class="news-desc">Hyperliquid 原生代币 HYPE 创下历史价格新高。分析指出，协议 Assistance Fund 将 97% 以上的交易手续费持续从公开市场回购并销毁 HYPE，基金累计回购规模已逾 10 亿美元，形成强力价格支撑；Coinbase 与 Circle 的 USDC 国库相继在 Hyperliquid 部署，进一步吸引机构资金流入，叠加多重利好推动本轮历史新高。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·DEX·代币回购</span>
+        <span class="news-tag">HYPE·Hyperliquid·历史新高·回购$10亿+</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266844" target="_blank">ChainCatcher（HYPE深度分析 08:55）</a> · <a href="https://foresightnews.pro/article/detail/97220" target="_blank">Foresight News（四重利好分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/24 00:52 BJ</span>
+      </div>
+      <div class="news-title">Aave 创始人：未来 12 个月坚持收入导向策略，营收是 DeFi 可持续性核心</div>
+      <div class="news-desc">Aave 创始人 Stani Kulechov 宣布，协议未来 12 个月将持续推进收入导向发展策略，将协议营收置于扩张速度之上。其强调，真实营收是 DeFi 协议长期可持续运营的唯一可靠基础，并暗示 Aave 将优先通过提高资本效率而非代币激励来驱动增长，被市场解读为基本面建设信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·DeFi·协议治理</span>
+        <span class="news-tag">Aave·收入导向策略·可持续DeFi</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/483621" target="_blank">Odaily（创始人声明 00:52）</a> · <a href="https://www.chaincatcher.com/article/2266845" target="_blank">ChainCatcher（08:58）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">05/24 08:59 BJ</span>
+      </div>
+      <div class="news-title">加密游说浪潮加速：多家主要机构聚集华盛顿 1155 F Street</div>
+      <div class="news-desc">报道揭示，华盛顿特区 1155 F Street 已成为加密货币行业游说活动的核心据点，Coinbase、Ripple、Circle 等多家主要机构均在此设立办公室，行业在特朗普第二任期内的政治资源投入持续加码。这一趋势与近期多项亲加密立法提速高度相关。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·政治游说</span>
+        <span class="news-tag">华盛顿·游说·Coinbase·Ripple·Circle</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266846" target="_blank">ChainCatcher（游说机构报道 08:59）</a></div>
+    </div>
+  </div>
+
+  <!-- 安全事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔒</span>
+      <span class="section-title">安全事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/23 21:57 BJ</span>
+      </div>
+      <div class="news-title">英国 5 名"扳手攻击"涉案人被判刑，Coinbase 协助警方链上举报</div>
+      <div class="news-desc">英国法院对 5 名针对加密货币持有者实施人身暴力劫持（俗称"扳手攻击"，即以武力强迫受害者转移资产）的涉案人员作出判决。案件中 Coinbase 主动协助警方提供链上分析数据，帮助锁定嫌疑人转移路径，标志着加密交易所与执法机构在打击物理犯罪领域协作模式的新进展。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">安全事件·物理攻击·司法</span>
+        <span class="news-tag">英国·扳手攻击·判刑5人·Coinbase举报</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-a0a" target="_blank">吴说区块链（精选资讯 21:57）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">05/24 09:15 BJ</span>
+      </div>
+      <div class="news-title">法国已发生 41 起加密绑架案，占全球暴力劫持事件约 70%</div>
+      <div class="news-desc">据 Cointelegraph 报告，法国已成为全球加密货币持有者遭受暴力劫持的重灾区，迄今已发生 41 起相关案件，约占全球同类事件的 70%。法国当局已开始为持币量较大的个人提供专项安保指导，行业安全教育意识持续升温。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">安全事件·物理风险</span>
+        <span class="news-tag">法国·加密绑架·41起·全球70%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266848" target="_blank">ChainCatcher（法国安全报告 09:15）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/24 00:30 BJ</span>
+      </div>
+      <div class="news-title">过去 24 小时全网爆仓 9.16 亿美元，多单主导占比约 90%</div>
+      <div class="news-desc">过去 24 小时全网合约爆仓总额达 9.16 亿美元，其中多单爆仓 8.26 亿美元（约占 90%），空单爆仓约 8,988 万美元。本次大规模多单爆仓主要源于 5 月 23 日日内 BTC 一度跌破 75,000 美元时触发的连环清算；随后美伊协议消息带动价格反弹，又触发部分空单清算，形成双向爆仓格局。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·合约清算</span>
+        <span class="news-tag">爆仓$9.16亿·多单$8.26亿·空单$0.90亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266821" target="_blank">ChainCatcher（爆仓数据 00:30）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">05/24 02:30 BJ</span>
+      </div>
+      <div class="news-title">BTC 若突破 79,594 美元，CEX 累计空单清算规模将达 16.52 亿美元</div>
+      <div class="news-desc">链上数据监控显示，当前主流中心化交易所空单仓位分布显示，BTC 突破 79,594 美元将触发 16.52 亿美元集中空单清算；ETH 方面，若突破 2,179 美元将触发 10.56 亿美元空单清算。两个关口均构成下一阶段重要多头助力节点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上数据·清算墙分析</span>
+        <span class="news-tag">BTC关口$79,594·空单$16.52亿·ETH关口$2,179</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266824" target="_blank">ChainCatcher（清算墙数据 02:30）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密市场 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密市场</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/24 00:15 BJ</span>
+      </div>
+      <div class="news-title">FTX 第二批集体诉讼和解：前律所与审计机构合计支付 6,617 万美元</div>
+      <div class="news-desc">FTX 前律师事务所 Fenwick &amp; West 支付 5,400 万美元、审计机构 Prager Metis 支付 1,175 万美元，完成 FTX 债权人集体诉讼第二批和解，合计约 6,617 万美元。Fenwick &amp; West 因被指控在 FTX 崩盘前未充分执行尽职调查而遭起诉，此次和解未承认任何过失。债权人追偿进程持续推进。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密市场·司法赔付</span>
+        <span class="news-tag">FTX·Fenwick $5,400万·Prager $1,175万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/483617" target="_blank">Odaily（和解通报 00:15）</a> · <a href="https://www.chaincatcher.com/article/2266842" target="_blank">ChainCatcher（08:40）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">05/23 21:57 BJ</span>
+      </div>
+      <div class="news-title">灰度：监管框架明确后，机构资金将集中流向以太坊与 Solana 等头部链</div>
+      <div class="news-desc">灰度研究部门发表观点认为，当前加密市场机构配置仍以 BTC 为主，但随美国监管框架逐步明确（尤其是现货 ETH 质押 ETF 获批预期升温），后续机构增量资金将更多向以太坊、Solana 等具备生态护城河的头部公链倾斜，轮动趋势已初现端倪。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·机构配置</span>
+        <span class="news-tag">灰度·ETH·SOL·机构资金轮动</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-a0a" target="_blank">吴说区块链（精选资讯 21:57）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">05/24 08:47 BJ</span>
+      </div>
+      <div class="news-title">分析师预警：若关键支撑失守，BTC 短期有下探 60,000 美元风险</div>
+      <div class="news-desc">多位技术分析师发出预警，认为 BTC 当前多头反弹尚未有效突破 77,000 美元关键阻力位，若日线收盘未能企稳该水平，短期存在回落至 60,000 美元支撑区间的技术风险。空方观点与美伊协议带来的乐观情绪形成明显多空博弈，市场方向待关键价位验证。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·技术分析</span>
+        <span class="news-tag">BTC·$60,000支撑·$77,000阻力·多空博弈</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2266843" target="_blank">ChainCatcher（分析师预警 08:47）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">美伊协议 草案基本达成</span>
+      <span class="keyword">全网爆仓 <span class="knum">$9.16亿</span></span>
+      <span class="keyword">多单爆仓 <span class="knum">$8.26亿</span></span>
+      <span class="keyword">BTC清算墙 <span class="knum">$79,594</span></span>
+      <span class="keyword">空单清算 <span class="knum">$16.52亿</span></span>
+      <span class="keyword">FTX和解 <span class="knum">$6,617万</span></span>
+      <span class="keyword">Fenwick &amp; West <span class="knum">$5,400万</span></span>
+      <span class="keyword">Prager Metis <span class="knum">$1,175万</span></span>
+      <span class="keyword">HYPE 历史新高</span>
+      <span class="keyword">回购基金 <span class="knum">$10亿+</span></span>
+      <span class="keyword">日本稳定币 <span class="knum">6月1日</span>施行</span>
+      <span class="keyword">土耳其限额 <span class="knum">$3,000</span>/日</span>
+      <span class="keyword">英国判刑 <span class="knum">5人</span></span>
+      <span class="keyword">法国绑架 <span class="knum">41起</span> · 全球70%</span>
+      <span class="keyword">BTC/黄金 <span class="knum">142天</span>跑输结束</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月24日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· Yahoo Finance（纳斯达克 / WTI）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
