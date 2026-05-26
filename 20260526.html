@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密行业早报 · 2026年5月26日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0B0B0B;
+    color: #E8E8E8;
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid #2A2A2A;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .brand {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .date-badge {
+    font-size: 11px;
+    color: #888;
+    background: #1A1A1A;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .title span { color: #BCFF2F; }
+  .subtitle {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Market Grid */
+  .market-section { margin-bottom: 28px; }
+  .section-label {
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .market-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .market-name {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .market-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+  .market-change { font-size: 12px; font-weight: 500; }
+  .up   { color: #4CAF50; }
+  .down { color: #F44336; }
+  .flat { color: #888; }
+
+  /* F&G Bar */
+  .fg-bar {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fg-score {
+    font-size: 32px;
+    font-weight: 800;
+    color: #FF9800;
+    min-width: 48px;
+  }
+  .fg-info { flex: 1; }
+  .fg-label { font-size: 13px; color: #E8E8E8; font-weight: 600; margin-bottom: 4px; }
+  .fg-bar-track { height: 6px; background: #2A2A2A; border-radius: 3px; overflow: hidden; }
+  .fg-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #F44336 0%, #FF9800 50%, #4CAF50 100%);
+    border-radius: 3px;
+  }
+  .fg-desc { font-size: 11px; color: #555; margin-top: 4px; }
+
+  /* Key Numbers */
+  .keynumbers {
+    background: #111;
+    border: 1px solid #1E1E1E;
+    border-left: 3px solid #BCFF2F;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-bottom: 28px;
+  }
+  .keynumbers-title {
+    font-size: 10px;
+    color: #BCFF2F;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .keynumbers p { font-size: 13px; color: #999; line-height: 1.9; }
+  .knum { color: #BCFF2F; font-weight: 700; }
+
+  /* News Sections */
+  .news-section { margin-bottom: 28px; }
+  .news-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1E1E1E;
+  }
+  .news-section-icon { font-size: 16px; }
+  .news-section-title { font-size: 14px; font-weight: 700; color: #FFFFFF; }
+  .news-count {
+    font-size: 11px;
+    color: #555;
+    background: #1A1A1A;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: auto;
+  }
+
+  /* News Items */
+  .news-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #161616;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .priority-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+  }
+  .badge-high { background: #3D1A1A; color: #FF5252; border: 1px solid #5A2020; }
+  .badge-mid  { background: #1A2A3D; color: #64B5F6; border: 1px solid #1E3A5A; }
+  .badge-low  { background: #1E1E1E; color: #777;    border: 1px solid #2A2A2A; }
+  .news-source { font-size: 10px; color: #555; }
+  .news-time   { font-size: 10px; color: #444; margin-left: auto; }
+  .news-title  { font-size: 14px; font-weight: 600; color: #E8E8E8; line-height: 1.5; margin-bottom: 5px; }
+  .news-title .hl { color: #BCFF2F; }
+  .news-body   { font-size: 12px; color: #777; line-height: 1.75; }
+  .news-body strong { color: #AAAAAA; font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #1E1E1E;
+    text-align: center;
+  }
+  .footer p { font-size: 11px; color: #444; line-height: 1.9; }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="header">
+  <div class="header-top">
+    <div class="brand">OKG Research · Crypto Morning Brief</div>
+    <div class="date-badge">2026年5月26日 周二</div>
+  </div>
+  <h1 class="title">加密行业早报<br><span>2026·05·26</span></h1>
+  <p class="subtitle">覆盖时段：05/25 20:00 — 05/26 09:30（北京时间）· 7大信息源 · 15条精选</p>
+</div>
+
+<!-- ── Market Snapshot ── -->
+<div class="market-section">
+  <div class="section-label">今日行情快照</div>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$76,771</div>
+      <div class="market-change down">▼ 0.48%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$2,096</div>
+      <div class="market-change down">▼ 0.42%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">XAUT（黄金）</div>
+      <div class="market-price">$4,527</div>
+      <div class="market-change down">▼ 0.66%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$92.36</div>
+      <div class="market-change down">▼ 3.36%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,344</div>
+      <div class="market-change flat">上周五收盘 ▲0.19%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">ETH / BTC</div>
+      <div class="market-price">0.02713</div>
+      <div class="market-change down">▼ 熊市新低</div>
+    </div>
+  </div>
+
+  <div class="fg-bar">
+    <div class="fg-score">34</div>
+    <div class="fg-info">
+      <div class="fg-label">恐惧 · Fear</div>
+      <div class="fg-bar-track">
+        <div class="fg-bar-fill" style="width:34%"></div>
+      </div>
+      <div class="fg-desc">贪婪恐惧指数 34 / 100 · 市场情绪持续处于恐惧区间</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Key Numbers ── -->
+<div class="keynumbers">
+  <div class="keynumbers-title">今日关键数字</div>
+  <p>
+    稳定币总市值创历史新高 <span class="knum">$3,220亿</span>，超全球 <span class="knum">95</span> 国外汇储备 ／
+    Squid跨链协议遭攻击，<span class="knum">86</span> 个多签钱包损失约 <span class="knum">$320万</span> ／
+    ESPORTS代币 <span class="knum">11h</span> 崩盘 <span class="knum">92%</span>，套现 <span class="knum">1,729万USDT</span> ／
+    BTC现货成交量较2025年10月峰值暴跌 <span class="knum">81%</span> ／
+    全网24h爆仓 <span class="knum">$1.95亿</span> ／
+    Lazarus 2026年已累计窃取 <span class="knum">$5.77亿</span>
+  </p>
+</div>
+
+<!-- ── Section 1: Global Events ── -->
+<div class="news-section">
+  <div class="news-section-header">
+    <span class="news-section-icon">🌍</span>
+    <span class="news-section-title">全球事件</span>
+    <span class="news-count">2 条</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-high">HIGH</span>
+      <span class="news-source">吴说 · 金十数据</span>
+      <span class="news-time">05/26 00:41</span>
+    </div>
+    <div class="news-title">美伊达成停火延长框架：霍尔木兹海峡开放 + 协助扫雷 + 解冻 <span class="hl">$120亿</span> 资产</div>
+    <div class="news-body">美国与伊朗就延长停火协议框架取得实质进展，协议核心条款包括：伊朗承诺维持霍尔木兹海峡开放并协助清除此前布设的水雷；作为对等条件，美方同意解冻约 <strong>$120亿</strong> 伊朗被冻结资产，双方进入 <strong>60天</strong> 冷静观察期。消息令WTI原油进一步承压，当前报 <strong>$92.36/桶</strong>，较上周 $95.57 累计下跌约 <strong>3.4%</strong>，黄金避险溢价同步收窄。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-high">HIGH</span>
+      <span class="news-source">Foresight News · 金十数据</span>
+      <span class="news-time">05/26 07:05</span>
+    </div>
+    <div class="news-title">伊朗警告：若谈判破裂、战争重启，将 <span class="hl">封锁地区石油出口通道</span></div>
+    <div class="news-body">与框架协议的积极进展形成对冲，伊朗官方发言人表示，若和平进程受外部军事压力阻断，伊方保留封锁霍尔木兹海峡及周边出口通道的权利，届时将影响全球约 <strong>20%</strong> 的海运石油流量。分析人士普遍认为此为谈判筹码而非真实意图，但短期内将为原油和黄金提供下行缓冲。XAUT（黄金）当前报 <strong>$4,527</strong>，仍维持历史高位附近。</div>
+  </div>
+</div>
+
+<!-- ── Section 2: Regulation ── -->
+<div class="news-section">
+  <div class="news-section-header">
+    <span class="news-section-icon">📋</span>
+    <span class="news-section-title">监管立法</span>
+    <span class="news-count">1 条</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">Odaily · ChainCatcher</span>
+      <span class="news-time">05/26</span>
+    </div>
+    <div class="news-title">肯尼亚《2026财政法案》拟对加密平台征收 <span class="hl">10% 消费税</span>，非居民平台同等适用</div>
+    <div class="news-body">肯尼亚国民议会正在审议《2026财政法案》，核心条款拟对境内运营的加密货币交易平台服务费征收 <strong>10%</strong> 消费税，并将范围延伸至向肯尼亚居民提供服务的境外平台。业界担忧此举将显著提升交易成本，可能加剧用户向P2P及非合规渠道流失。肯尼亚为非洲加密渗透率最高的市场之一，此前已因监管争议暂停多家主流交易所的本地服务。</div>
+  </div>
+</div>
+
+<!-- ── Section 3: Traditional Finance ── -->
+<div class="news-section">
+  <div class="news-section-header">
+    <span class="news-section-icon">🏦</span>
+    <span class="news-section-title">传统金融</span>
+    <span class="news-count">1 条</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">BlockBeats · 吴说</span>
+      <span class="news-time">05/25 22:00</span>
+    </div>
+    <div class="news-title">BitMine 入选 <span class="hl">罗素1000</span> 指数初步名单，被动资金入场预期升温</div>
+    <div class="news-body">矿业及加密资产管理公司 BitMine（BTMN）出现在富时罗素2026年指数重组初步名单中。若正式纳入罗素1000，将强制触发大量被动型ETF和指数基金的买入操作，显著放大流动性和机构关注度。罗素指数通常于每年 <strong>6月底</strong> 完成重组并正式生效，这与此前 MicroStrategy（MSTR）被纳入纳指100后引发的预期行情路径相似。</div>
+  </div>
+</div>
+
+<!-- ── Section 4: Industry Trends ── -->
+<div class="news-section">
+  <div class="news-section-header">
+    <span class="news-section-icon">🔮</span>
+    <span class="news-section-title">行业趋势</span>
+    <span class="news-count">3 条</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">Odaily · 金色财经</span>
+      <span class="news-time">05/26 06:22</span>
+    </div>
+    <div class="news-title">稳定币总市值创历史新高 <span class="hl">$3,220亿</span>，已超越全球 <span class="hl">95</span> 个国家外汇储备</div>
+    <div class="news-body">链上数据显示，全球稳定币总市值突破 <strong>$3,220亿</strong>，刷新历史纪录。以IMF外汇储备排名为参照，该体量已超过全球 <strong>95</strong> 个主权国家储备规模。USDT约占 <strong>62%</strong>、USDC约 <strong>22%</strong>，收益类与合规类稳定币持续蚕食市场份额。分析认为，美国《GENIUS法案》的推进预期为机构增持提供了政策支撑，2026年稳定币市值有望突破 <strong>$5,000亿</strong>。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">吴说 · Foresight News</span>
+      <span class="news-time">05/26 07:01</span>
+    </div>
+    <div class="news-title">币安将上线 <span class="hl">OpenAI Pre-IPO</span> 永续合约，AI叙事与加密市场深度融合</div>
+    <div class="news-body">币安官方宣布即将推出以 OpenAI 上市前估值为标的的永续合约（Pre-IPO Perp），允许用户在 OpenAI 正式IPO前进行多空双向押注。此类产品此前已覆盖 SpaceX、Anthropic 等头部独角兽，标志着加密市场对传统科技资本市场定价权的延伸。OpenAI 当前私募轮估值约 <strong>$3,000亿</strong>，市场预期其IPO时间窗口在 <strong>2026年内</strong>。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-low">LOW</span>
+      <span class="news-source">Odaily</span>
+      <span class="news-time">05/26 06:35</span>
+    </div>
+    <div class="news-title">Tether 与格鲁吉亚合作发行 <span class="hl">GEL 锚定稳定币</span>，新兴市场本币稳定币布局提速</div>
+    <div class="news-body">Tether 宣布与格鲁吉亚方合作，计划发行与格鲁吉亚拉里（GEL）锚定的法币稳定币。这是继与萨尔瓦多、阿联酋合作之后，Tether进一步拓展新兴市场本币稳定币版图的举措，符合其"本地化数字美元替代方案"战略。格鲁吉亚加密市场渗透率约居全球前15，具备一定用户基础。</div>
+  </div>
+</div>
+
+<!-- ── Section 5: Security Events ── -->
+<div class="news-section">
+  <div class="news-section-header">
+    <span class="news-section-icon">🔒</span>
+    <span class="news-section-title">安全事件</span>
+    <span class="news-count">4 条</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">Odaily · BlockBeats</span>
+      <span class="news-time">05/26 00:30</span>
+    </div>
+    <div class="news-title">Squid 跨链协议第三方模块遭攻击，<span class="hl">86 个 Gnosis Safe</span> 多签钱包损失约 <span class="hl">$320万</span></div>
+    <div class="news-body">跨链路由协议 Squid 确认其集成的第三方适配模块存在安全漏洞，攻击者利用该漏洞获取了对用户 Gnosis Safe 多签钱包的操作授权，共导致 <strong>86</strong> 个钱包损失合计约 <strong>$320万</strong>。Squid 核心路由合约未受波及，团队已紧急暂停问题模块并启动链上资金追踪。此事件再次暴露第三方集成模块的审计盲区——即便协议本身无漏洞，外部依赖仍可成为攻击入口。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">金色财经 · ChainCatcher</span>
+      <span class="news-time">05/25 23:00</span>
+    </div>
+    <div class="news-title">ESPORTS 代币 <span class="hl">11小时</span> 内崩盘 <span class="hl">92%</span>，关联地址套现 <span class="hl">1,729万USDT</span> 疑似 Rug Pull</div>
+    <div class="news-body">链上监测显示，电竞主题代币 ESPORTS 在约 <strong>11小时</strong> 内价格暴跌 <strong>92%</strong>，与项目方关联地址持续出货高度吻合——该地址期间共抛售约占总流通量 <strong>43%</strong> 的代币，套现金额约 <strong>1,729万USDT</strong>。社区已将此事件定性为 Rug Pull，项目方 Discord 和 X 账号均已停止更新。请勿与相关合约交互，防止资产进一步损失。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-low">LOW</span>
+      <span class="news-source">Foresight News · 吴说</span>
+      <span class="news-time">05/25</span>
+    </div>
+    <div class="news-title">Lazarus 黑客组织部署 <span class="hl">RemotePE</span> 无文件木马，2026年已累计窃取 <span class="hl">$5.77亿</span></div>
+    <div class="news-body">安全机构披露，朝鲜关联黑客组织 Lazarus 已部署新型无文件木马 <strong>RemotePE</strong>，该恶意程序在内存中远程加载并执行 PE 文件，可完全绕过依赖磁盘扫描的传统杀毒方案。据链上追踪，Lazarus 2026年至今已从加密市场累计窃取约 <strong>$5.77亿</strong>，主要攻击向量为伪造招聘邮件与钱包私钥钓鱼链接。建议相关从业者不要点击来路不明的邮件附件或执行陌生代码。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-low">LOW</span>
+      <span class="news-source">Odaily · 金色财经</span>
+      <span class="news-time">05/26 05:47</span>
+    </div>
+    <div class="news-title">仿冒 Uniswap 钓鱼网站购买 <span class="hl">Google 广告位</span> 置顶，诱骗用户损失逾 <span class="hl">$40万</span></div>
+    <div class="news-body">安全机构报告，一批高仿 Uniswap 官方界面的钓鱼网站通过购买 Google 关键词广告获得搜索结果置顶展示，诱导用户连接钱包并签署恶意授权，已确认盗取资产逾 <strong>$40万</strong>。建议：① 通过书签直接访问DeFi协议，不依赖搜索引擎跳转；② 开启钱包的交易模拟预览功能；③ 授权前仔细核对合约地址与域名。</div>
+  </div>
+</div>
+
+<!-- ── Section 6: Crypto Market ── -->
+<div class="news-section">
+  <div class="news-section-header">
+    <span class="news-section-icon">📈</span>
+    <span class="news-section-title">加密市场</span>
+    <span class="news-count">4 条</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">Foresight News · 吴说</span>
+      <span class="news-time">05/26 04:42</span>
+    </div>
+    <div class="news-title">Cathie Wood 重申 BTC 长期目标：基础情景 <span class="hl">$75万</span>，乐观情景 <span class="hl">$125万</span></div>
+    <div class="news-body">ARK Invest CEO Cathie Wood 在最新访谈中再度重申比特币长期预测：以2030年为时间节点，基础情景目标价 <strong>$750,000</strong>，乐观情景达 <strong>$1,250,000</strong>。她认为当前市场处于机构采用加速阶段，主权财富基金对"数字黄金"叙事的实质关注正在增加。按当前 BTC 报价 <strong>$76,771</strong> 计算，距 ARK 基础目标尚有约 <strong>9.8倍</strong> 潜在空间。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">金色财经 · ChainCatcher</span>
+      <span class="news-time">05/26 05:37</span>
+    </div>
+    <div class="news-title">ETH / BTC 汇率跌至 <span class="hl">0.02713</span>，创本轮熊市新低</div>
+    <div class="news-body">以太坊相对比特币的汇率跌至 <strong>0.02713</strong>，为本轮熊市以来最低水平，反映出市场资金持续向BTC集中的"比特币主导"格局加剧。自2021年 ETH 生态爆发期高点（约0.088）以来，ETH/BTC 已累计回落约 <strong>69%</strong>。目前 BTC 市值占比（Dominance）维持在约 <strong>62%</strong> 附近，分析人士认为ETH需等待下一轮应用层叙事催化才能实现相对估值修复。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-mid">MID</span>
+      <span class="news-source">Odaily · BlockBeats</span>
+      <span class="news-time">05/26 06:16</span>
+    </div>
+    <div class="news-title">BTC 现货成交量较 2025 年 10 月峰值暴跌 <span class="hl">81%</span>，流动性显著收缩</div>
+    <div class="news-body">数据显示，比特币主要交易所现货日均成交量已较2025年10月峰值水平下滑约 <strong>81%</strong>，订单薄深度同步大幅收窄。当前 BTC 日均现货成交规模约 <strong>$80–120亿</strong>，而峰值期曾突破 <strong>$400亿</strong>。分析师指出，成交量萎缩往往是价格区间震荡的先行信号，同时也意味着大额订单的滑点成本显著上升，机构自营交易策略需相应调整。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="priority-badge badge-low">LOW</span>
+      <span class="news-source">Odaily · 金色财经</span>
+      <span class="news-time">05/26 09:23</span>
+    </div>
+    <div class="news-title">过去 24 小时全网爆仓 <span class="hl">$1.95亿</span>，多头占比约 62%</div>
+    <div class="news-body">据合约数据追踪，过去24小时全市场合约爆仓总额约 <strong>$1.95亿</strong>，其中多头爆仓占比约 <strong>62%</strong>，集中于 BTC 和 ETH 永续合约。当前整体杠杆率处于历史中低位，但方向性仓位仍较活跃。技术面看，BTC 关键支撑区间 <strong>$74,000–$75,500</strong>，上方压力位 <strong>$78,500</strong>，短期或延续区间震荡格局。</div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<div class="footer">
+  <p>本报告由 OKG Research 自动生成 · 数据来源：Odaily、BlockBeats、Foresight News、吴说区块链、ChainCatcher、金十数据、金色财经</p>
+  <p>内容仅供参考，不构成任何投资建议 · © 2026 OKG Research</p>
+  <p style="margin-top:6px;color:#333;">Generated: 2026-05-26 09:30 CST</p>
+</div>
+
+</body>
+</html>
