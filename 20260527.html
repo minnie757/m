@@ -1,363 +1,580 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>加密行业早报 · 2026年5月27日</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #0B0B0B;
-    color: #E8E8E8;
-    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 24px 20px 40px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 5月27日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-  .header { border-bottom: 1px solid #2A2A2A; padding-bottom: 20px; margin-bottom: 24px; }
-  .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-  .brand { font-size: 11px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
-  .date-badge { font-size: 11px; color: #888; background: #1A1A1A; padding: 3px 10px; border-radius: 20px; }
-  .title { font-size: 26px; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin-bottom: 6px; }
-  .title span { color: #BCFF2F; }
-  .subtitle { font-size: 13px; color: #666; line-height: 1.6; }
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
 
-  .market-section { margin-bottom: 28px; }
-  .section-label { font-size: 10px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-  .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .market-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 14px 16px; }
-  .market-name { font-size: 11px; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .market-price { font-size: 18px; font-weight: 700; color: #FFFFFF; margin-bottom: 3px; line-height: 1; }
-  .market-change { font-size: 12px; font-weight: 500; }
-  .up   { color: #4CAF50; }
-  .down { color: #F44336; }
-  .flat { color: #888; }
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
 
-  .fg-bar {
-    background: #141414; border: 1px solid #222; border-radius: 10px;
-    padding: 14px 16px; margin-top: 10px; display: flex; align-items: center; gap: 16px;
-  }
-  .fg-score { font-size: 32px; font-weight: 800; color: #F44336; min-width: 48px; }
-  .fg-info { flex: 1; }
-  .fg-label { font-size: 13px; color: #E8E8E8; font-weight: 600; margin-bottom: 4px; }
-  .fg-bar-track { height: 6px; background: #2A2A2A; border-radius: 3px; overflow: hidden; }
-  .fg-bar-fill { height: 100%; background: linear-gradient(90deg, #F44336 0%, #FF9800 50%, #4CAF50 100%); border-radius: 3px; }
-  .fg-desc { font-size: 11px; color: #555; margin-top: 4px; }
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
 
-  .keynumbers {
-    background: #111; border: 1px solid #1E1E1E; border-left: 3px solid #BCFF2F;
-    border-radius: 0 8px 8px 0; padding: 14px 16px; margin-bottom: 28px;
-  }
-  .keynumbers-title { font-size: 10px; color: #BCFF2F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-  .keynumbers p { font-size: 13px; color: #999; line-height: 1.9; }
-  .knum { color: #BCFF2F; font-weight: 700; }
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up      { color: #BCFF2F; }
+    .down    { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
 
-  .news-section { margin-bottom: 28px; }
-  .news-section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #1E1E1E; }
-  .news-section-icon { font-size: 16px; }
-  .news-section-title { font-size: 14px; font-weight: 700; color: #FFFFFF; }
-  .news-count { font-size: 11px; color: #555; background: #1A1A1A; padding: 2px 8px; border-radius: 10px; margin-left: auto; }
+    /* Main Content */
+    .content { padding: 0 20px; }
 
-  .news-item { padding: 14px 0; border-bottom: 1px solid #161616; }
-  .news-item:last-child { border-bottom: none; }
-  .news-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-  .priority-badge { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 3px; letter-spacing: 1px; }
-  .badge-high { background: #3D1A1A; color: #FF5252; border: 1px solid #5A2020; }
-  .badge-mid  { background: #1A2A3D; color: #64B5F6; border: 1px solid #1E3A5A; }
-  .badge-low  { background: #1E1E1E; color: #777;    border: 1px solid #2A2A2A; }
-  .news-source { font-size: 10px; color: #555; }
-  .news-time   { font-size: 10px; color: #444; margin-left: auto; }
-  .news-title  { font-size: 14px; font-weight: 600; color: #E8E8E8; line-height: 1.5; margin-bottom: 5px; }
-  .news-title .hl { color: #BCFF2F; }
-  .news-body   { font-size: 12px; color: #777; line-height: 1.75; }
-  .news-body strong { color: #AAAAAA; font-weight: 600; }
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
 
-  .footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid #1E1E1E; text-align: center; }
-  .footer p { font-size: 11px; color: #444; line-height: 1.9; }
-</style>
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
 </head>
 <body>
 
-<!-- ── Header ── -->
+<!-- Header -->
 <div class="header">
-  <div class="header-top">
-    <div class="brand">OKG Research · Crypto Morning Brief</div>
-    <div class="date-badge">2026年5月27日 周三</div>
-  </div>
-  <h1 class="title">加密行业早报<br><span>2026·05·27</span></h1>
-  <p class="subtitle">覆盖时段：05/26 20:00 — 05/27 09:30（北京时间）· 7大信息源 · 15条精选</p>
+  <div class="header-date">2026 · 05 · 27</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">05/26 20:00 — 05/27 09:30 · 北京时间</div>
 </div>
 
-<!-- ── Market Snapshot ── -->
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    数字资产基金两周累计净流出 25.4 亿美元，BTC 基金单周赎回 131.5 亿美元创年内新高，F&amp;G 指数跌至 25 极度恐惧。亚太市场率先反弹，日韩股市大幅高开触发熔断，AI 芯片需求拉动半导体板块五连涨，加密概念股集体走强。监管政治面，加密 PAC Fairshake 砸 1,050 万美元在德州大选中击败连任 26 年反加密众议员，行业政治影响力持续兑现。RWA 赛道重磅利空：Ondo Finance 创始人 Nathan Allman 突然离世，ONDO 代币短时重挫约 8%。
+  </div>
+</div>
+
+<!-- Market -->
 <div class="market-section">
-  <div class="section-label">今日行情快照</div>
+  <div class="market-title">市场行情</div>
   <div class="market-grid">
-    <div class="market-card">
-      <div class="market-name">BTC / USDT</div>
+    <div class="market-item">
+      <div class="market-name">BTC</div>
       <div class="market-price">$76,026</div>
-      <div class="market-change down">▼ 0.93%</div>
+      <div class="market-change down">▼ -0.93%</div>
     </div>
-    <div class="market-card">
-      <div class="market-name">ETH / USDT</div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
       <div class="market-price">$2,080</div>
-      <div class="market-change down">▼ 0.73%</div>
+      <div class="market-change down">▼ -0.73%</div>
     </div>
-    <div class="market-card">
-      <div class="market-name">XAUT（黄金）</div>
-      <div class="market-price">$4,509</div>
-      <div class="market-change down">▼ 0.51%</div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">25</div>
+      <div class="market-change down">极度恐惧</div>
     </div>
-    <div class="market-card">
+    <div class="market-item">
       <div class="market-name">WTI 原油</div>
       <div class="market-price">$93.00</div>
-      <div class="market-change up">▲ 0.69%</div>
+      <div class="market-change up">▲ +0.69%</div>
     </div>
-    <div class="market-card">
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,509</div>
+      <div class="market-change down">▼ -0.51%</div>
+    </div>
+    <div class="market-item">
       <div class="market-name">纳斯达克</div>
       <div class="market-price">26,656</div>
-      <div class="market-change up">▲ 1.19%（05/26收）</div>
-    </div>
-    <div class="market-card">
-      <div class="market-name">ETH / BTC</div>
-      <div class="market-price">0.02736</div>
-      <div class="market-change up">▲ 小幅回升</div>
+      <div class="market-change up">▲ +1.19%</div>
     </div>
   </div>
+</div>
 
-  <div class="fg-bar">
-    <div class="fg-score">25</div>
-    <div class="fg-info">
-      <div class="fg-label">极度恐惧 · Extreme Fear</div>
-      <div class="fg-bar-track">
-        <div class="fg-bar-fill" style="width:25%"></div>
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/27 00:05 BJ</span>
       </div>
-      <div class="fg-desc">贪婪恐惧指数 25 / 100 · 情绪跌至极度恐惧区间，较昨日恶化</div>
+      <div class="news-title">日韩股市大幅高开，KOSPI 涨 5% 触发熔断，AI 芯片需求驱动亚太市场集体走强</div>
+      <div class="news-desc">亚太市场全线走强：日经 225 开盘涨 1.36%；韩国 KOSPI 一度飙升 5%，SK 海力士市值突破 1 万亿美元，KOSPI 200 期货触发 5% 熔断线，程序化交易暂停 5 分钟；台湾加权指数涨 2.29% 至 44,522 点。主要驱动力为 AI 芯片需求旺盛——美光科技前日盘后涨逾 19%，带动半导体板块五连涨，加密概念股 Tron Inc. 涨超 14%，Riot Platforms 涨 6.49%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">全球事件·亚太市场</span>
+        <span class="news-tag">KOSPI熔断5%·SK海力士$1万亿·半导体五连涨</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347896" target="_blank">BlockBeats（日韩市场 00:05）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/484365" target="_blank">Odaily（加密概念股 01:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/27 早间 BJ</span>
+      </div>
+      <div class="news-title">CME FedWatch：美联储 6 月维持利率不变概率达 97.3%，降息预期几乎归零</div>
+      <div class="news-desc">CME FedWatch 最新数据显示，市场定价 6 月 FOMC 会议维持基准利率不变的概率为 97.3%，加息 25bp 的概率仅 2.7%，降息预期基本出清。高利率环境（当前 4.25%–4.50%）被视为近两周数字资产基金持续净流出、市场流动性整体萎缩的核心宏观压力。市场对年内首次降息的最早预期已延后至 9 月。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球事件·货币政策</span>
+        <span class="news-tag">美联储·维持利率97.3%·降息延后至9月</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347889" target="_blank">BlockBeats（FedWatch 数据）</a></div>
     </div>
   </div>
+
+  <!-- 监管立法 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">监管立法</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/27 00:54 BJ</span>
+      </div>
+      <div class="news-title">加密 PAC Fairshake 砸 1,050 万美元助选，亲加密候选人击败连任 26 年反加密众议员</div>
+      <div class="news-desc">加密货币政治行动委员会 Fairshake 在得克萨斯州众议员初选中投入约 1,050 万美元，助力候选人 Menefee 击败连任 26 年的现任众议员 Al Green（行业评级"F"，曾多次投票反对加密立法）。这是加密行业 2026 年在美国国会选举中迄今最标志性的胜利，Fairshake 目前仍持有约 8,500 万美元可用竞选资金，用于支持 11 月中期选举。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">监管立法·政治选举</span>
+        <span class="news-tag">Fairshake·$1,050万·德州大选·击败26年反加密议员</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347905" target="_blank">BlockBeats（大选结果 00:54）</a> · <a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（晚报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/27 00:41 BJ</span>
+      </div>
+      <div class="news-title">FTX 破产赔付时间表明确：下轮债权登记截至 6 月 16 日，赔付 7 月 31 日正式启动</div>
+      <div class="news-desc">FTX 破产清算委员会公告，下一轮债权人赔付计划中，债权登记截止日期为 2026 年 6 月 16 日，实际赔付将于 2026 年 7 月 31 日正式启动。FTX 此前已按美元折算完成首轮赔付（覆盖不超过 5 万美元的小额债权人）。本轮为后续认定债权的清偿，主要涉及金额较大的机构级债权人。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">监管立法·破产清算</span>
+        <span class="news-tag">FTX·登记截止6/16·赔付7/31启动</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347903" target="_blank">BlockBeats（FTX公告 00:41）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/27 00:33 BJ</span>
+      </div>
+      <div class="news-title">Sharplink（持 868K ETH）与 Forward（持 $5.85 亿 SOL）入选罗素 2000/3000，持币企业首进主流指数</div>
+      <div class="news-desc">富时罗素宣布将 Sharplink Gaming（持有 868,699 枚 ETH）和 Forward Industries（持有价值约 5.85 亿美元的 SOL）纳入罗素 2000 及罗素 3000 指数，这是首批以加密资产储备为核心资产的企业进入主流股票指数。纳入后将强制触发大量被动型 ETF 和指数基金的买入。富时罗素同步修订规则，允许大盘股 IPO 上市后第 5 个交易日即可纳入指数，SpaceX 等科技独角兽将是主要受益方。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·指数纳入</span>
+        <span class="news-tag">Sharplink 868K ETH·Forward $5.85亿SOL·罗素2000/3000首例</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347901" target="_blank">BlockBeats（罗素指数公告 00:33）</a> · <a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（晚报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/27 00:25 BJ</span>
+      </div>
+      <div class="news-title">瑞银将美光目标价上调至 $1,625 创华尔街最高纪录，半导体板块五连涨市值破万亿</div>
+      <div class="news-desc">瑞银分析师 Timothy Arcuri 将美光科技（MU）目标价从 $535 大幅上调至 $1,625，创华尔街对该股目标价历史最高纪录，维持"买入"评级。美光此前股价突破 $976 历史新高，单日涨幅达 19.29%，带动半导体板块五连涨，整体市值突破万亿美元。此轮行情核心驱动力为 AI 训练数据中心对 HBM（高带宽内存）需求的超预期增长。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·半导体·AI需求</span>
+        <span class="news-tag">美光MU·目标价$1,625·单日+19.29%·HBM需求爆发</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347900" target="_blank">BlockBeats（瑞银研报 00:25）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/26 晚 BJ</span>
+      </div>
+      <div class="news-title">RWA 头部项目 Ondo Finance 创始人 Nathan Allman 突然离世，Ian De Bode 接任 CEO</div>
+      <div class="news-desc">链上国债代币化赛道领军项目 Ondo Finance 宣布，公司创始人兼 CEO Nathan Allman 意外离世。公司总裁 Ian De Bode（任职逾两年，主导公司战略扩张）将接任 CEO 职位。Ondo Finance 是目前最大的 RWA 协议之一，管理资产规模超 30 亿美元，旗下 OUSG（美国国债代币）被机构广泛配置。消息发布后 ONDO 代币短时下跌约 8%，RWA 赛道整体承压。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA·创始人变更</span>
+        <span class="news-tag">Ondo Finance·Nathan Allman·RWA $30亿·ONDO短时-8%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（晚报）</a> · <a href="https://foresightnews.pro/news" target="_blank">Foresight News</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/26—05/27 BJ</span>
+      </div>
+      <div class="news-title">Aptos 三项代币经济学提案全票通过：硬顶 21 亿 + 质押奖励减半 + Gas 费 ×10</div>
+      <div class="news-desc">Aptos 链上治理三项关键提案同步通过并进入执行阶段：① 设立 21 亿枚 APT 总供应量上限（硬顶）；② 质押年化奖励从 5.19% 削减至 2.60%；③ 全链 Gas 费整体上调 10 倍，以改善 Gas 经济可持续性。这是 Aptos 主网上线以来规模最大的经济模型改革，旨在控制通胀并向可持续费用市场迈进。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·公链治理·代币经济</span>
+        <span class="news-tag">Aptos·硬顶21亿·质押奖励减半·Gas费×10</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news" target="_blank">Foresight News</a> · <a href="https://www.chaincatcher.com/flashnews" target="_blank">ChainCatcher</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/26 晚 BJ</span>
+      </div>
+      <div class="news-title">Hyperliquid 推出链上官方预测市场，验证者网络负责事件裁决与新闻质量评级</div>
+      <div class="news-desc">Hyperliquid 官方宣布上线预测市场产品，支持基于链下真实世界事件的预测交易。与第三方预测协议不同，Hyperliquid 由其验证者网络负责新闻来源的质量评级和事件结果裁决，并集成自动化新闻流提升数据准确性。这是 Hyperliquid 从高性能 DEX 向综合链上金融协议扩展的重要战略节点，HYPE 生态应用场景进一步拓宽。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·预测市场·DEX扩张</span>
+        <span class="news-tag">Hyperliquid·链上预测市场·验证者裁决·HYPE生态</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（晚报）</a> · <a href="https://foresightnews.pro/news" target="_blank">Foresight News</a></div>
+    </div>
+  </div>
+
+  <!-- 安全事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔒</span>
+      <span class="section-title">安全事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/26—05/27 BJ</span>
+      </div>
+      <div class="news-title">ESPORTS 代币 11 小时崩盘 95%，关联地址抛售 2.53 亿枚套现 1,729 万 USDT 疑似 Rug Pull</div>
+      <div class="news-desc">链上监控（余烬监测）显示，电竞主题代币 ESPORTS 在约 11 小时内从 $0.70 暴跌至 $0.035，跌幅达 95%，与项目方关联地址持续出货完全吻合：该地址通过多笔交易抛售约 2.53 亿枚 ESPORTS（占总量约 28%），套现约 1,729 万 USDT。项目方 Discord 和 X 账号已停止更新，社区确认为 Rug Pull。请立即停止与相关合约的任何交互。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">安全事件·Rug Pull</span>
+        <span class="news-tag">ESPORTS·崩盘95%·套现1,729万USDT·28%流通量抛售</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news" target="_blank">Foresight News（余烬监测）</a> · <a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（晚报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/27 01:03 BJ</span>
+      </div>
+      <div class="news-title">Resolv 发布 USR 安全事件恢复方案：RLP 持有者按 55% 参考价以 USDC 形式赎回</div>
+      <div class="news-desc">Resolv 基金会正式发布针对 2026 年 3 月 22 日 USR 安全事件的全面恢复方案：风险层头寸 RLP（Risk Layer Position）持有者将按 55% 参考价以 USDC 形式完成赎回，以弥补协议因安全漏洞遭受的损失。这是今年 DeFi 领域规模较大的一次事件后清偿安排，USR 作为收益型去中心化稳定币的安全性再度引发市场对"结构性稳定币"风险敞口的审视。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">安全事件·DeFi·协议赔付</span>
+        <span class="news-tag">Resolv·USR安全事件·RLP按55%赔付·结构性稳定币风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/484368" target="_blank">Odaily（Resolv公告 01:03）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密市场 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密市场</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">05/26 晚 BJ</span>
+      </div>
+      <div class="news-title">数字资产基金两周累计净流出 $25.4 亿，BTC 基金单周赎回 $131.5 亿创年内最高</div>
+      <div class="news-desc">CoinShares 最新周报显示，数字资产投资基金上周净流出 14.7 亿美元，连续第二周出现资金外流，两周累计净流出达 25.4 亿美元。其中比特币基金单周遭遇 131.5 亿美元赎回，为 2026 年以来最大单周 BTC 基金净流出记录。以太坊基金小幅净流入 2.3 亿美元为少数亮点。F&amp;G 指数当前仅 25（极度恐惧），市场情绪处于年内低谷。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密市场·机构资金·ETF流向</span>
+        <span class="news-tag">两周净流出$25.4亿·BTC基金赎回$131.5亿·ETH流入$2.3亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（CoinShares周报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/27 00:10—00:23 BJ</span>
+      </div>
+      <div class="news-title">HYPE 现货 ETF 单日净流入 $2,045 万，新建钱包从 Coinbase 大额提取 $3,093 万 HYPE</div>
+      <div class="news-desc">数据显示，Hyperliquid 原生代币 HYPE 现货 ETF 在 5 月 26 日录得约 2,045 万美元净流入，为近期单日最大流入之一；链上监控同步显示，一个新建钱包从 Coinbase 大额提取 501,250 枚 HYPE（约 3,093 万美元），被认为是机构配置行为。对比 BTC 和 ETH ETF 持续流出，HYPE 是当前少数保持资金净流入态势的资产。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密市场·ETF·链上资金</span>
+        <span class="news-tag">HYPE ETF净流入$2,045万·Coinbase大额提币$3,093万·XRP ETF $150万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/484363" target="_blank">Odaily（ETF数据 00:10）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/484360" target="_blank">Odaily（链上提币 00:23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/26—05/27 BJ</span>
+      </div>
+      <div class="news-title">Strive 增持至 16,500 枚 BTC；不丹政府 11 个月累计抛售 9,180 枚 BTC 套现约 $9 亿</div>
+      <div class="news-desc">Strive Asset Management 宣布以约 76,988 美元均价新增购入 1,109 枚 BTC，总持仓升至 16,500 枚。与此形成对比，链上数据显示不丹王国政府相关地址在过去 11 个月内累计出售约 9,180 枚 BTC，均价约 98,067 美元，合计套现约 9 亿美元；目前不丹仍持有 3,021 枚 BTC，估值约 2.34 亿美元。两组数据反映机构增持与主权抛售并行的市场格局。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密市场·机构持仓·主权资金</span>
+        <span class="news-tag">Strive 16,500枚BTC·不丹抛售9,180枚BTC套现$9亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/hyperliquid-0ab" target="_blank">吴说区块链（Strive持仓）</a> · <a href="https://foresightnews.pro/news" target="_blank">Foresight News（不丹链上数据）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">05/27 00:06 BJ</span>
+      </div>
+      <div class="news-title">链上巨鲸 Evaded 亏损 $483 万平仓后急转向，以 30 倍杠杆开空 940 枚 BTC 约 $7,100 万</div>
+      <div class="news-desc">知名链上交易员 Evaded 在多头仓位亏损 483 万美元被强制平仓后，立即反手以 30 倍杠杆建立 940 枚 BTC（约 7,100 万美元）的空头仓位，当前 BTC 在 75,500–76,500 美元区间震荡。该空头仓位估算清算价约在 78,500–79,500 美元，市场高度关注。此外，链上还出现神秘地址通过 5 笔交易向 BTC 销毁地址共转入 107 枚 BTC（约 820 万美元）的罕见操作，动机未明。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密市场·链上大户·合约仓位</span>
+        <span class="news-tag">Evaded 亏损$483万·30倍杠杆做空940BTC·神秘销毁107BTC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/347897" target="_blank">BlockBeats（Evaded仓位 00:06）</a> · <a href="https://m.theblockbeats.info/flash/347888" target="_blank">BlockBeats（BTC销毁）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">F&amp;G <span class="knum">25</span> · 极度恐惧</span>
+      <span class="keyword">基金两周净流出 <span class="knum">$25.4亿</span></span>
+      <span class="keyword">BTC基金赎回 <span class="knum">$131.5亿</span></span>
+      <span class="keyword">Fairshake <span class="knum">$1,050万</span> 助选</span>
+      <span class="keyword">击败连任 <span class="knum">26年</span> 反加密议员</span>
+      <span class="keyword">Sharplink <span class="knum">868K ETH</span> 入罗素</span>
+      <span class="keyword">Forward <span class="knum">$5.85亿</span> SOL</span>
+      <span class="keyword">美光目标价 <span class="knum">$1,625</span></span>
+      <span class="keyword">KOSPI熔断 <span class="knum">5%</span></span>
+      <span class="keyword">ESPORTS崩盘 <span class="knum">95%</span> · Rug Pull</span>
+      <span class="keyword">套现 <span class="knum">1,729万USDT</span></span>
+      <span class="keyword">Ondo创始人离世 · RWA <span class="knum">$30亿</span></span>
+      <span class="keyword">Aptos硬顶 <span class="knum">21亿</span> · Gas费 <span class="knum">×10</span></span>
+      <span class="keyword">HYPE ETF <span class="knum">$2,045万</span> 净流入</span>
+      <span class="keyword">不丹抛售 <span class="knum">9,180枚BTC</span> 套现 <span class="knum">$9亿</span></span>
+    </div>
+  </div>
+
 </div>
 
-<!-- ── Key Numbers ── -->
-<div class="keynumbers">
-  <div class="keynumbers-title">今日关键数字</div>
-  <p>
-    数字资产基金两周累计净流出 <span class="knum">$25.4亿</span>，BTC基金单周赎回创年内新高 <span class="knum">$131.5亿</span> ／
-    加密PAC Fairshake投入 <span class="knum">$1,050万</span> 助力大选，击败连任 <span class="knum">26年</span> 反加密议员 ／
-    ESPORTS代币 <span class="knum">11h</span> 内崩盘 <span class="knum">95%</span>，关联地址套现 <span class="knum">1,729万USDT</span> ／
-    不丹政府 <span class="knum">11个月</span> 累计抛售 <span class="knum">9,180枚BTC</span>，套现约 <span class="knum">$9亿</span> ／
-    Aptos三提案通过：硬顶 <span class="knum">21亿</span> + Gas费 <span class="knum">×10</span>
-  </p>
-</div>
-
-<!-- ── Section 1: Global Macro ── -->
-<div class="news-section">
-  <div class="news-section-header">
-    <span class="news-section-icon">🌍</span>
-    <span class="news-section-title">全球宏观</span>
-    <span class="news-count">2 条</span>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">BlockBeats · Odaily</span>
-      <span class="news-time">05/27 00:05</span>
-    </div>
-    <div class="news-title">日韩股市大幅高开，KOSPI <span class="hl">涨5%触发熔断</span>，AI芯片需求驱动亚太集体走强</div>
-    <div class="news-body">亚太市场开盘全线走强：日经225开盘涨 <strong>1.36%</strong>；韩国KOSPI一度飙升 <strong>5%</strong>，SK海力士市值突破 <strong>1万亿美元</strong>，KOSPI 200期货触及5%熔断线，程序化交易被暂停5分钟；台湾加权指数涨 <strong>2.29%</strong> 至44,522点。主要驱动力为AI芯片需求旺盛预期——美光科技（MU）前日盘后涨超19%，瑞银上调目标价至 <strong>$1,625</strong>。加密概念股同步走强，Tron Inc.涨逾 <strong>14%</strong>，Riot涨 <strong>6.49%</strong>。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">BlockBeats · 金十数据</span>
-      <span class="news-time">05/27 早间</span>
-    </div>
-    <div class="news-title">CME FedWatch：美联储6月维持利率不变概率 <span class="hl">97.3%</span>，降息预期几乎归零</div>
-    <div class="news-body">CME FedWatch工具最新数据显示，市场定价6月FOMC会议维持基准利率不变的概率高达 <strong>97.3%</strong>，加息 <strong>25bp</strong> 的概率仅 <strong>2.7%</strong>，降息预期基本出清。持续高利率环境被视为近期数字资产基金持续两周净流出、市场流动性整体收缩的核心宏观背景。当前联邦基准利率维持 <strong>4.25%–4.50%</strong> 区间，市场对年内首次降息的最早预期已推迟至 <strong>9月</strong>。</div>
-  </div>
-</div>
-
-<!-- ── Section 2: Regulation ── -->
-<div class="news-section">
-  <div class="news-section-header">
-    <span class="news-section-icon">📋</span>
-    <span class="news-section-title">监管立法</span>
-    <span class="news-count">2 条</span>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">BlockBeats · 吴说</span>
-      <span class="news-time">05/27 00:54</span>
-    </div>
-    <div class="news-title">加密PAC Fairshake砸 <span class="hl">$1,050万</span> 助选，亲加密候选人击败连任 <span class="hl">26年</span> 反加密众议员</div>
-    <div class="news-body">加密货币政治行动委员会 Fairshake 在得克萨斯州众议员初选中投入约 <strong>$1,050万</strong>，助力候选人 Menefee 击败连任 <strong>26年</strong> 的现任众议员 Al Green（曾多次投票反对加密立法，行业评级"F"）。这是加密行业2026年在美国国会选举中迄今最标志性的胜利，也是继2024年大选加密行业斥资近2亿美元布局后，政治影响力持续兑现的最新例证。Fairshake目前仍持有约 <strong>$8,500万</strong> 可用竞选资金，用于支持11月中期选举。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">BlockBeats · Odaily</span>
-      <span class="news-time">05/27 00:41</span>
-    </div>
-    <div class="news-title">FTX破产赔付时间表明确：下轮债权登记截至 <span class="hl">6月16日</span>，赔付 <span class="hl">7月31日</span> 启动</div>
-    <div class="news-body">FTX破产清算委员会公告，下一轮债权人赔付计划中，债权登记截止日期为 <strong>2026年6月16日</strong>，实际赔付将于 <strong>2026年7月31日</strong> 正式启动。FTX此前已按美元折算价值完成首轮赔付，覆盖大多数未超过 <strong>$50,000</strong> 的小额债权人。本轮为后续认定债权的清偿，涉及金额较大的机构债权人。</div>
-  </div>
-</div>
-
-<!-- ── Section 3: Traditional Finance ── -->
-<div class="news-section">
-  <div class="news-section-header">
-    <span class="news-section-icon">🏦</span>
-    <span class="news-section-title">传统金融</span>
-    <span class="news-count">2 条</span>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">BlockBeats · 吴说</span>
-      <span class="news-time">05/27 00:33</span>
-    </div>
-    <div class="news-title">Sharplink（持868K枚ETH）+ Forward（持$5.85亿SOL）入选 <span class="hl">罗素2000/3000</span>，持币企业首次进入主流指数</div>
-    <div class="news-body">富时罗素宣布将 Sharplink Gaming（持有 <strong>868,699枚ETH</strong>）和 Forward Industries（持有价值约 <strong>$5.85亿</strong> 的SOL）纳入罗素2000及罗素3000指数，这是首批以加密资产储备为核心资产的企业进入主流股票指数。纳入后将强制触发大量被动型ETF和指数基金的买入，显著扩大流动性。富时罗素同期修订规则，允许大盘股IPO在上市后 <strong>第5个交易日</strong> 即可纳入指数，SpaceX等科技独角兽被认为将是主要受益方。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">BlockBeats</span>
-      <span class="news-time">05/27 00:25</span>
-    </div>
-    <div class="news-title">瑞银将美光目标价上调至 <span class="hl">$1,625</span>，创华尔街最高纪录，半导体板块五连涨市值破万亿</div>
-    <div class="news-body">瑞银分析师 Timothy Arcuri 将美光科技（MU）目标价从 $535 大幅上调至 <strong>$1,625</strong>，创华尔街对该股最高目标价纪录，并维持"买入"评级。美光此前股价突破 <strong>$976</strong> 历史新高，单日涨幅达 <strong>19.29%</strong>，带动半导体板块实现 <strong>五连涨</strong>，整体市值超越 <strong>万亿美元</strong>。此轮行情源于AI训练数据中心对HBM（高带宽内存）需求的超预期增长。</div>
-  </div>
-</div>
-
-<!-- ── Section 4: Industry Trends ── -->
-<div class="news-section">
-  <div class="news-section-header">
-    <span class="news-section-icon">🔮</span>
-    <span class="news-section-title">行业趋势</span>
-    <span class="news-count">3 条</span>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">吴说 · Foresight News</span>
-      <span class="news-time">05/26 晚</span>
-    </div>
-    <div class="news-title">RWA头部项目 Ondo Finance 创始人 <span class="hl">Nathan Allman 突然离世</span>，Ian De Bode 接任CEO</div>
-    <div class="news-body">链上国债代币化赛道领军项目 Ondo Finance 宣布，公司创始人兼CEO <strong>Nathan Allman</strong> 意外离世。公司总裁 <strong>Ian De Bode</strong>（任职逾两年，主导公司战略扩张）将接任CEO职位。Ondo Finance 是目前最大的RWA（真实世界资产）协议之一，管理资产规模超 <strong>$30亿</strong>，旗下 OUSG（美国国债代币）被机构广泛配置。消息令 ONDO 代币短时下跌约 <strong>8%</strong>，RWA行业整体受到震动。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">Foresight News · ChainCatcher</span>
-      <span class="news-time">05/26—05/27</span>
-    </div>
-    <div class="news-title">Aptos 三项代币经济学提案全票通过：设 <span class="hl">21亿硬顶</span> + 质押奖励减半 + <span class="hl">Gas费×10</span></div>
-    <div class="news-body">Aptos 链上治理三项关键提案同步通过并进入执行阶段：① 设立 <strong>21亿枚APT</strong> 总供应量上限（硬顶）；② 质押年化奖励从 <strong>5.19%</strong> 削减至 <strong>2.60%</strong>；③ 全链Gas费整体上调 <strong>10倍</strong>，以改善Gas经济可持续性。这是Aptos主网上线以来规模最大的经济模型改革，旨在控制通胀并向可持续费用市场迈进，APT代币对此有短线正面反应。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">吴说 · Foresight News</span>
-      <span class="news-time">05/26 晚</span>
-    </div>
-    <div class="news-title">Hyperliquid 推出链上 <span class="hl">官方预测市场</span>，验证者网络负责事件裁决与数据质量评级</div>
-    <div class="news-body">Hyperliquid 官方宣布上线预测市场产品，支持基于链下真实世界事件的预测交易。与第三方预测协议不同，Hyperliquid 由其 <strong>验证者网络</strong> 负责对新闻来源的质量评级和事件结果裁决，并集成自动化新闻流提升数据准确性。这是 Hyperliquid 从高性能DEX向综合链上金融协议扩展的重要一步，HYPE代币生态应用场景进一步拓宽。</div>
-  </div>
-</div>
-
-<!-- ── Section 5: Security Events ── -->
-<div class="news-section">
-  <div class="news-section-header">
-    <span class="news-section-icon">🔒</span>
-    <span class="news-section-title">安全事件</span>
-    <span class="news-count">2 条</span>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">Foresight News · 吴说</span>
-      <span class="news-time">05/26—05/27</span>
-    </div>
-    <div class="news-title">ESPORTS 代币 <span class="hl">11小时</span> 崩盘 <span class="hl">95%</span>，关联地址抛售 2.53亿枚，套现 <span class="hl">1,729万USDT</span></div>
-    <div class="news-body">链上监控（余烬监测）显示，电竞主题代币 ESPORTS 在约 <strong>11小时</strong> 内从 <strong>$0.70</strong> 暴跌至 <strong>$0.035</strong>，跌幅达 <strong>95%</strong>，与项目方关联地址持续出货完全吻合：该地址期间通过多笔交易抛售约 <strong>2.53亿枚</strong> ESPORTS（占总量约 <strong>28%</strong>），套现约 <strong>1,729万USDT</strong>。项目方的Discord和X账号已停止更新，社区确认为 Rug Pull。请立即停止与相关合约的任何交互。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">Odaily · ChainCatcher</span>
-      <span class="news-time">05/27 01:03</span>
-    </div>
-    <div class="news-title">Resolv 发布 USR 安全事件恢复方案：RLP持有者按 <span class="hl">55% 参考价</span> 以USDC形式赎回</div>
-    <div class="news-body">Resolv基金会正式发布针对2026年3月22日 USR 安全事件的全面恢复方案：风险层头寸 RLP（Risk Layer Position）持有者将按 <strong>55%</strong> 参考价以 USDC 形式完成赎回，以弥补协议因安全漏洞遭受的损失。这是今年DeFi领域规模较大的一次事件后清偿安排，USR作为收益型去中心化稳定币的安全性再度引发市场对"结构性稳定币"风险敞口的审视。</div>
-  </div>
-</div>
-
-<!-- ── Section 6: Crypto Market ── -->
-<div class="news-section">
-  <div class="news-section-header">
-    <span class="news-section-icon">📈</span>
-    <span class="news-section-title">加密市场</span>
-    <span class="news-count">4 条</span>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-high">HIGH</span>
-      <span class="news-source">吴说 · CoinShares</span>
-      <span class="news-time">05/26 晚</span>
-    </div>
-    <div class="news-title">数字资产基金两周累计净流出 <span class="hl">$25.4亿</span>，BTC基金单周录得 <span class="hl">$131.5亿</span> 赎回创年内最高</div>
-    <div class="news-body">CoinShares最新周报显示，数字资产投资基金上周净流出 <strong>$14.7亿</strong>，连续第二周出现资金外流，两周累计净流出达 <strong>$25.4亿</strong>。其中比特币基金单周遭遇 <strong>$131.5亿</strong> 赎回，为2026年以来最大单周BTC基金净流出记录。以太坊基金小幅净流入 <strong>$2.3亿</strong> 为少数亮点。分析师将此归因于美联储降息预期延后与宏观不确定性，F&G指数当前仅 <strong>25</strong>（极度恐惧）。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">Odaily · BlockBeats</span>
-      <span class="news-time">05/27 00:10—00:23</span>
-    </div>
-    <div class="news-title">HYPE 现货ETF单日净流入 <span class="hl">$2,045万</span>，新建钱包从Coinbase提取 <span class="hl">$3,093万</span> HYPE</div>
-    <div class="news-body">数据显示，Hyperliquid原生代币 HYPE 现货ETF在5月26日（周一）录得约 <strong>$2,045万</strong> 净流入，为近期单日最大流入之一；与此同时，链上监控显示一个新建钱包从 Coinbase 大额提取 <strong>501,250枚HYPE</strong>（价值约 <strong>$3,093万</strong>），被认为是机构配置行为。XRP现货ETF同日录得 <strong>$150万</strong> 净流入。相比之下，BTC和ETH ETF资金持续流出，HYPE是当前少数保持流入态势的资产。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">吴说 · BlockBeats</span>
-      <span class="news-time">05/26—05/27</span>
-    </div>
-    <div class="news-title">Strive 再增持 <span class="hl">1,109枚BTC</span>，总持仓升至 <span class="hl">16,500枚</span>；不丹政府11个月累计抛售9,180枚BTC</div>
-    <div class="news-body">Strive Asset Management 宣布以约 <strong>$76,988</strong>/枚均价新增购入 <strong>1,109枚BTC</strong>，总持仓升至 <strong>16,500枚</strong>。与此形成对比，链上数据显示不丹王国政府相关地址在过去 <strong>11个月</strong> 内累计出售约 <strong>9,180枚BTC</strong>，均价约 <strong>$98,067</strong>，合计套现约 <strong>$9亿</strong>；目前不丹仍持有 <strong>3,021枚BTC</strong>，估值约 <strong>$2.34亿</strong>。两组数据反映机构增持与主权抛售并行的市场格局。</div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-meta">
-      <span class="priority-badge badge-mid">MID</span>
-      <span class="news-source">BlockBeats · Odaily</span>
-      <span class="news-time">05/27 00:06</span>
-    </div>
-    <div class="news-title">链上巨鲸 Evaded 亏损 <span class="hl">$483万</span> 平仓后急转向，以 <span class="hl">30倍杠杆</span> 开空 940枚BTC</div>
-    <div class="news-body">知名链上交易员 Evaded 在多头仓位亏损 <strong>$483万</strong> 被强制平仓后，立即反手以 <strong>30倍杠杆</strong> 建立 <strong>940枚BTC</strong>（约 <strong>$7,100万</strong>）的空头仓位，当前BTC在 <strong>$75,500–$76,500</strong> 区间震荡。该空头仓位的估算清算价约在 <strong>$78,500–$79,500</strong>，市场高度关注后续走势。此外，链上还出现神秘地址通过5笔交易向BTC销毁地址共转入 <strong>107枚BTC</strong>（约 <strong>$820万</strong>）的罕见操作，动机未明。</div>
-  </div>
-</div>
-
-<!-- ── Footer ── -->
+<!-- Footer -->
 <div class="footer">
-  <p>本报告由 OKG Research 自动生成 · 数据来源：Odaily、BlockBeats、Foresight News、吴说区块链、ChainCatcher、金十数据、金色财经</p>
-  <p>内容仅供参考，不构成任何投资建议 · © 2026 OKG Research</p>
-  <p style="margin-top:6px;color:#333;">Generated: 2026-05-27 09:30 CST</p>
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年5月27日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· Yahoo Finance（纳斯达克 / WTI）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
 </div>
 
 </body>
