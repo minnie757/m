@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKX · 加密热点早报 · 2026年5月28日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ① Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 20px 12px;
+      text-align: center;
+    }
+    .header-date-pill {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header-title .neon {
+      color: #BCFF2F;
+    }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* ② Source Pills */
+    .sources {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #111;
+      scrollbar-width: none;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .source-pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ③ Banner */
+    .banner {
+      margin: 14px 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #080808;
+      border-radius: 0 8px 8px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.75;
+    }
+
+    /* ④ Market Grid */
+    .market {
+      margin: 0 16px 16px;
+    }
+    .market-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .market-card {
+      background: #0b0b0b;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 10px;
+    }
+    .market-card-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .market-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eee;
+      margin-bottom: 3px;
+      letter-spacing: -0.3px;
+    }
+    .market-card-change {
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #888; }
+
+    /* ⑤ Content Sections */
+    .content {
+      padding: 0 16px;
+    }
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-emoji {
+      font-size: 15px;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ddd;
+      flex: 1;
+    }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    /* News Item */
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #0e0e0e;
+    }
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high {
+      background: rgba(255, 59, 59, 0.12);
+      color: #FF3B3B;
+      border: 1px solid rgba(255, 59, 59, 0.25);
+    }
+    .tag-priority.mid {
+      background: rgba(255, 214, 0, 0.10);
+      color: #FFD600;
+      border: 1px solid rgba(255, 214, 0, 0.22);
+    }
+    .tag-priority.low {
+      background: rgba(80,80,80, 0.12);
+      color: #666;
+      border: 1px solid rgba(80,80,80, 0.25);
+    }
+    .tag-time {
+      font-size: 10px;
+      color: #444;
+    }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #eee;
+      line-height: 1.55;
+      margin-bottom: 7px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .news-tag {
+      font-size: 10px;
+      background: #0e0e0e;
+      border: 1px solid #1e1e1e;
+      color: #555;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .news-source {
+      font-size: 11px;
+      color: #3a3a3a;
+    }
+    .news-source a {
+      color: #4a4a4a;
+      text-decoration: none;
+    }
+    .news-source a:hover {
+      color: #BCFF2F;
+    }
+
+    /* ⑥ Keywords */
+    .keywords {
+      margin: 20px 16px 24px;
+    }
+    .keywords-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .keywords-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .keyword-chip {
+      background: rgba(188, 255, 47, 0.06);
+      border: 1px solid rgba(188, 255, 47, 0.2);
+      color: #BCFF2F;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ⑦ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      border-top: 1px solid #111;
+    }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .footer-sources {
+      font-size: 11px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .footer-disclaimer {
+      font-size: 10px;
+      color: #2a2a2a;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ① Sticky Header -->
+  <div class="header">
+    <div class="header-date-pill">2026 · 05 · 28</div>
+    <div class="header-title">OKX 加密热点<span class="neon">早报</span></div>
+    <div class="header-sub">覆盖时间：5月27日 20:00 — 5月28日 09:30（北京时间）</div>
+  </div>
+
+  <!-- ② Source Pills -->
+  <div class="sources">
+    <div class="source-pill">Odaily 星球日报</div>
+    <div class="source-pill">BlockBeats 律动</div>
+    <div class="source-pill">Foresight News</div>
+    <div class="source-pill">吴说区块链</div>
+    <div class="source-pill">链捕手 ChainCatcher</div>
+    <div class="source-pill">金十数据</div>
+    <div class="source-pill">金色财经</div>
+  </div>
+
+  <!-- ③ Banner -->
+  <div class="banner">
+    <div class="banner-label">🟢 今日核心主线</div>
+    <div class="banner-text">
+      美伊谈判彻底破裂——特朗普称谈判"毫无希望"并宣称美军对伊朗再次发动打击，阿巴斯港爆炸触发防空系统，亚太股市周四"开门黑"，比特币率先跳水，F&G骤降至22（极度恐惧）。与此同时，美联储理事库克鹰派警告"若通胀持续将再次加息"，双重压力使风险市场全面承压。监管面却释放积极信号：CFTC正式承认2022年对Gemini提起诉讼"不应提起"并申请撤销，SEC主席明确承诺在特朗普任期内提供监管明确性，特朗普宣称美国已成全球"加密货币之都"——政策春风与市场寒冬形成鲜明背离。
+    </div>
+  </div>
+
+  <!-- ④ Market Grid -->
+  <div class="market">
+    <div class="market-header">📊 市场行情（北京时间 09:30）</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-name">BTC</div>
+        <div class="market-card-price">$74,514</div>
+        <div class="market-card-change down">▼ 1.09%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">ETH</div>
+        <div class="market-card-price">$2,026</div>
+        <div class="market-card-change down">▼ 2.18%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">恐贪指数</div>
+        <div class="market-card-price">22</div>
+        <div class="market-card-change down">极度恐惧</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">WTI 原油</div>
+        <div class="market-card-price">$90.17</div>
+        <div class="market-card-change down">▼ 3.96%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">黄金 XAUT</div>
+        <div class="market-card-price">$4,438</div>
+        <div class="market-card-change up">▲ 0.11%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">纳斯达克</div>
+        <div class="market-card-price">26,675</div>
+        <div class="market-card-change up">▲ 0.07%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Content -->
+  <div class="content">
+
+    <!-- 全球事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🌏</span>
+        <span class="section-title">全球事件</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/27 20:00 — 05/28 07:20 BJ</span>
+        </div>
+        <div class="news-title">美伊谈判彻底破裂：美军重启对伊打击，阿巴斯港爆炸，BTC跌至 $74,514</div>
+        <div class="news-desc">特朗普在社交媒体连续发文称谈判"毫无希望"、对协议结果"并不满意"，并暗示"或许得重新完成这场战争"；伊朗战略港口阿巴斯港发生爆炸并触发防空系统数分钟，美国官员随即证实美军对伊朗境内军事目标实施新一轮打击。亚太股市周四开门黑，日经225跌197点至64,802点，韩国KOSPI跌78点至8,150点，比特币率先大幅下行，F&G骤降至22（极度恐惧）。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球事件·地缘冲突升级</span>
+          <span class="news-tag">霍尔木兹海峡·能源风险</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348086" target="_blank">BlockBeats（特朗普发言 05/28 00:06）</a> · <a href="https://www.theblockbeats.info/flash/348094" target="_blank">BlockBeats（阿巴斯港爆炸 06:51）</a> · <a href="https://www.theblockbeats.info/flash/348096" target="_blank">BlockBeats（美军打击 07:18）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 07:54 BJ</span>
+        </div>
+        <div class="news-title">美联储理事库克鹰派警告：若通胀持续，准备再次加息</div>
+        <div class="news-desc">美联储理事库克在公开讲话中明确表态鹰派立场，指出若通胀持续保持高位，美联储已做好再次加息准备，在美伊冲突升级背景下进一步打压风险资产情绪；另外，美联储副主席杰斐逊亦表示"不仅要沟通，还要采取行动让公众理解美联储恢复2%通胀目标的意图和承诺"。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">货币政策·加息预期升温</span>
+          <span class="news-tag">美联储库克·杰斐逊·鹰派</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348099" target="_blank">BlockBeats（库克 05/28 07:54）</a> · <a href="https://www.odaily.news/newsflash/484707" target="_blank">Odaily（杰斐逊 05/28 00:36）</a></div>
+      </div>
+    </div>
+
+    <!-- 全球监管 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⚖️</span>
+        <span class="section-title">全球监管</span>
+        <span class="section-count">4</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 00:55 BJ</span>
+        </div>
+        <div class="news-title">CFTC承认2022年Gemini诉讼"不应提起"，双方联合申请撤销判决</div>
+        <div class="news-desc">CFTC正式宣布就2022年对Gemini提起的诉讼联合申请豁免判决，承认该案本不应被提起；监管审查报告指出六项主要问题，包括主要依赖缺乏可信度的举报人陈述以及调查聚焦方向错误等。这是特朗普政府重塑与加密行业监管关系的最新里程碑动作，标志着执法方向的历史性转变。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">全球监管·执法撤案</span>
+          <span class="news-tag">CFTC·Gemini·诉讼撤销</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/484712" target="_blank">Odaily 星球日报（05/28 00:55）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 08:25 / 08:48 BJ</span>
+        </div>
+        <div class="news-title">SEC主席：将为数字资产提供监管明确性；特朗普宣称美国已是全球"加密货币之都"</div>
+        <div class="news-desc">SEC主席Paul Atkins表示，该机构过去与创新发展相悖的局面已结束，正在特朗普政府支持下为数字资产市场提供"亟需的监管明确性"；特朗普同日在社交媒体发文称美国现已成全球"加密货币之都"，承诺制定面向未来的数字资产市场框架，防止批评者轻易推翻相关政策。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">全球监管·政策明确化</span>
+          <span class="news-tag">SEC·特朗普·加密战略宣示</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267676" target="_blank">链捕手（SEC主席 08:25）</a> · <a href="https://www.chaincatcher.com/article/2267689" target="_blank">链捕手（特朗普 08:48）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 00:47 BJ</span>
+        </div>
+        <div class="news-title">Google工程师利用内幕信息在Polymarket获利120万美元，被美国司法部起诉</div>
+        <div class="news-desc">美国司法部指控Google软件工程师Michele Spagnuolo，使用账户"AlphaRaccoon"在预测市场平台Polymarket围绕Google搜索榜单事件下注超270万美元，涉嫌利用公司内部机密信息进行内幕交易并获利约120万美元，这是预测市场领域首次出现涉及科技公司内幕信息的联邦起诉案例。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">全球监管·内幕交易起诉</span>
+          <span class="news-tag">Polymarket·Google·DOJ·$120万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/484709" target="_blank">Odaily 星球日报（05/28 00:47）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/27 21:16 / 21:30 BJ</span>
+        </div>
+        <div class="news-title">万事达卡获纽约BitLicense；Polymarket拟引入KYC身份验证应对制裁风险</div>
+        <div class="news-desc">万事达卡正式获得纽约州虚拟货币牌照BitLicense，将以此为基础推进稳定币结算和数字支付基础设施布局；同日Polymarket宣布计划引入KYC（了解你的客户）验证机制以应对监管压力及制裁合规风险，将是该预测市场平台首次实施身份验证要求。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·合规牌照+KYC</span>
+          <span class="news-tag">万事达卡·Polymarket·纽约BitLicense</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348063" target="_blank">BlockBeats（万事达卡 21:30）</a> · <a href="https://www.theblockbeats.info/flash/348060" target="_blank">BlockBeats（Polymarket KYC 21:16）</a></div>
+      </div>
+    </div>
+
+    <!-- 传统金融 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🏦</span>
+        <span class="section-title">传统金融</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 01:03 BJ</span>
+        </div>
+        <div class="news-title">三星证券拟斥资2.04亿美元收购Upbit运营商Dunamu 2%，估值约102亿美元</div>
+        <div class="news-desc">三星证券获董事会批准，计划以3063亿韩元（约2.04亿美元）向Kakao等机构收购韩国最大加密交易所Upbit运营商Dunamu 2%股份，按交易价格推算Dunamu整体估值约102亿美元；三星证券表示此举旨在强化数字资产业务竞争力，显示韩国传统金融机构对加密行业布局意图明确。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">传统金融·机构入场</span>
+          <span class="news-tag">三星证券·Dunamu·Upbit·$2.04亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/484718" target="_blank">Odaily（05/28 01:03）</a> · <a href="https://www.chaincatcher.com/article/2267695" target="_blank">链捕手（05/28 09:03）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/28 00:07 BJ</span>
+        </div>
+        <div class="news-title">矿企转型AI股价全线飙升：Cipher与Hut 8创历史新高，IREN涨13%获30亿可转债</div>
+        <div class="news-desc">IREN宣布完成30亿美元可转债融资并与英伟达合作建设5吉瓦AI数据中心，股价涨超13%；Cipher Mining和Hut 8双双创下历史新高，Hut 8过去一年涨幅近600%；TeraWulf上涨超6%，其HPC算力业务季度收入首次超越比特币挖矿收入，矿企转型AI算力的叙事全面爆发。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">传统金融·矿企AI转型</span>
+          <span class="news-tag">IREN·Hut 8·30亿可转债·+13%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/484699" target="_blank">Odaily 星球日报（05/28 00:07）</a></div>
+      </div>
+    </div>
+
+    <!-- 行业趋势 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🚀</span>
+        <span class="section-title">行业趋势</span>
+        <span class="section-count">3</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/27 21:04 / 22:40 BJ</span>
+        </div>
+        <div class="news-title">稳定币支付双箭齐发：Circle+Nium接入190+国家；Cash App向6000万用户推USDC</div>
+        <div class="news-desc">Circle与跨境支付平台Nium达成合作，将USDC结算能力接入Nium覆盖190+国家的全球支付网络，推进稳定币在国际支付领域的落地应用；同日Block旗下Cash App宣布分阶段向近6000万用户推出USDC支付功能，用户可直接发送和接收USDC，是稳定币迈向大众普及的两个重要里程碑。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">行业趋势·稳定币支付普及</span>
+          <span class="news-tag">Circle·Cash App·6000万用户·190国</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348057" target="_blank">BlockBeats（Circle+Nium 21:04）</a> · <a href="https://www.theblockbeats.info/flash/348073" target="_blank">BlockBeats（Cash App 22:40）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 08:10 BJ</span>
+        </div>
+        <div class="news-title">联合德克萨斯银行获OCC国家牌照，每月为全球加密企业清算约100亿美元</div>
+        <div class="news-desc">联合德克萨斯银行（UTB）获美国货币监理署（OCC）批准转换为国家特许银行，是《多德-弗兰克法案》生效15年来首批完成此类转换的银行之一；该行每月为全球加密企业清算约100亿美元，今夏还将推出数字资产托管和信托服务，为加密行业提供符合传统银行监管标准的金融基础设施。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">行业趋势·加密银行合规</span>
+          <span class="news-tag">联合德克萨斯银行·OCC·月清算$100亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267670" target="_blank">链捕手 ChainCatcher（05/28 08:10）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/28 08:30 BJ</span>
+        </div>
+        <div class="news-title">BIS启动Project Agorá真实价值跨境支付测试：7央行+40余机构参与</div>
+        <div class="news-desc">国际清算银行（BIS）及其合作伙伴正式启动数字跨境支付项目Project Agorá的真实价值交易测试，由7家主要央行和40多家受监管金融机构共同参与；系统采用区块链技术在数秒内完成不同国家银行间的转账结算，标志着全球央行级数字支付协作正式进入实操阶段。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">行业趋势·央行数字支付</span>
+          <span class="news-tag">BIS·Project Agorá·7央行</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267679" target="_blank">链捕手 ChainCatcher（05/28 08:30）</a></div>
+      </div>
+    </div>
+
+    <!-- 链上事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⛓️</span>
+        <span class="section-title">链上事件</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/27 约22:00 BJ</span>
+        </div>
+        <div class="news-title">Squid跨链路由协议遭攻击，86个Gnosis Safe被盗约300万美元</div>
+        <div class="news-desc">据Blockaid监测，跨链路由协议Squid在以太坊和Base网络上的SquidRouterModule模块遭受持续攻击，约2小时内86个Gnosis Safe钱包被盗共约300万美元；所有被盗代币均通过攻击者控制的Uniswap V3流动性池兑换为DAI，建议相关用户立即检查并撤销Squid路由合约授权权限。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·协议漏洞攻击</span>
+          <span class="news-tag">Squid·Gnosis Safe·$300万·DAI</span>
+        </div>
+        <div class="news-source">来源：<a href="https://foresightnews.pro/news" target="_blank">Foresight News 快讯（05/27 约22:00）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/28 00:25 / 08:07 / 08:30 BJ</span>
+        </div>
+        <div class="news-title">Pump.fun再转832万美元SOL入Kraken，累计售出7.91亿；沉睡两年ETH巨鲸苏醒转3466枚</div>
+        <div class="news-desc">Pump.fun平台再次向Kraken转入约10万枚SOL（约832万美元），自2024年初已累计出售454万枚SOL手续费收益，总价值7.91亿美元，平均售价约174美元；同期链上监测发现沉寂两年的以太坊巨鲸将3466枚ETH（约700万美元）转入Kraken交易所，市场关注其后续动作。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">链上事件·大额转移</span>
+          <span class="news-tag">Pump.fun·7.91亿·巨鲸·3466 ETH</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/484706" target="_blank">Odaily（00:29）</a> · <a href="https://www.chaincatcher.com/article/2267668" target="_blank">链捕手（ETH巨鲸 08:07）</a> · <a href="https://www.chaincatcher.com/article/2267678" target="_blank">链捕手（Pump.fun 08:27）</a></div>
+      </div>
+    </div>
+
+    <!-- 加密数据 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📊</span>
+        <span class="section-title">加密数据</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/28 08:10 / 08:49 BJ</span>
+        </div>
+        <div class="news-title">HYPE现货ETF单日净流入340.37万美元；SOL现货ETF净流入55.72万，历史总流入超11亿</div>
+        <div class="news-desc">据SoSoValue数据，美东时间5月27日HYPE现货ETF单日总净流入340.37万美元，21Shares THYP领涨净流入172.86万美元，HYPE ETF总资产净值达1.19亿美元；SOL现货ETF同日净流入55.72万美元，历史累计净流入已达11.32亿美元，总资产净值9.63亿美元。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·ETF资金流向</span>
+          <span class="news-tag">HYPE ETF·SOL ETF·$340万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267669" target="_blank">链捕手（HYPE ETF 08:10）</a> · <a href="https://www.chaincatcher.com/article/2267690" target="_blank">链捕手（SOL ETF 08:49）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/28 08:24 / 08:26 BJ</span>
+        </div>
+        <div class="news-title">巨鲸Evaded开ETH 25倍空单+BTC 30倍空单；Binance 24小时净流入2.1亿USDT</div>
+        <div class="news-desc">链上监测显示，巨鲸Evaded新开1.26万枚ETH的25倍空头仓位，并持有BTC 30倍空头仓位浮盈超160万美元；与此同时，Coinglass数据显示Binance过去24小时净流入2.1亿USDT，早间单小时净流入1.91亿USDT，大额稳定币流入显示底部买盘正在积累。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">加密数据·衍生品持仓</span>
+          <span class="news-tag">Evaded·1.26万ETH空单·Binance·2.1亿USDT</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267677" target="_blank">链捕手（Evaded 08:26）</a> · <a href="https://www.chaincatcher.com/article/2267675" target="_blank">链捕手（USDT流入 08:24）</a></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ⑥ Keywords -->
+  <div class="keywords">
+    <div class="keywords-header">📌 今日关键数字</div>
+    <div class="keywords-chips">
+      <span class="keyword-chip">BTC $74,514（-1.09%）</span>
+      <span class="keyword-chip">ETH $2,026（-2.18%）</span>
+      <span class="keyword-chip">F&G 22 极度恐惧</span>
+      <span class="keyword-chip">WTI $90.17（-3.96%）</span>
+      <span class="keyword-chip">XAUT $4,438（+0.11%）</span>
+      <span class="keyword-chip">纳指 26,675（+0.07%）</span>
+      <span class="keyword-chip">Squid被盗 $300万</span>
+      <span class="keyword-chip">CFTC撤销Gemini诉讼</span>
+      <span class="keyword-chip">Dunamu估值 $102亿</span>
+      <span class="keyword-chip">Cash App USDC 6000万用户</span>
+      <span class="keyword-chip">UTB月清算 $100亿</span>
+      <span class="keyword-chip">HYPE ETF净流入 $340万</span>
+      <span class="keyword-chip">Polymarket内幕获利 $120万</span>
+      <span class="keyword-chip">Pump.fun累计 $7.91亿</span>
+      <span class="keyword-chip">Binance净流入 2.1亿USDT</span>
+    </div>
+  </div>
+
+  <!-- ⑦ Footer -->
+  <div class="footer">
+    <div class="footer-brand">OKX · 加密热点早报</div>
+    <div class="footer-sources">
+      来源：Odaily 星球日报 · BlockBeats 律动财经 · Foresight News · 吴说区块链 · 链捕手 ChainCatcher · 金十数据 · 金色财经
+    </div>
+    <div class="footer-disclaimer">
+      免责声明：本早报仅供参考，不构成投资建议。数字资产投资存在较大风险，请独立判断并谨慎决策。<br>
+      © 2026 · OKX Research · 每日 09:30 更新
+    </div>
+  </div>
+
+</body>
+</html>
