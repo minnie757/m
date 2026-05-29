@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKX · 加密热点早报 · 2026年5月29日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ① Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 20px 12px;
+      text-align: center;
+    }
+    .header-date-pill {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header-title .neon { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* ② Source Pills */
+    .sources {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #111;
+      scrollbar-width: none;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .source-pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ③ Banner */
+    .banner {
+      margin: 14px 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #080808;
+      border-radius: 0 8px 8px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.75;
+    }
+
+    /* ④ Market Grid */
+    .market {
+      margin: 0 16px 16px;
+    }
+    .market-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .market-card {
+      background: #0b0b0b;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 10px;
+    }
+    .market-card-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .market-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eee;
+      margin-bottom: 3px;
+      letter-spacing: -0.3px;
+    }
+    .market-card-change { font-size: 11px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #888; }
+
+    /* ⑤ Content */
+    .content { padding: 0 16px; }
+    .section { margin-bottom: 28px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-emoji { font-size: 15px; }
+    .section-title { font-size: 14px; font-weight: 600; color: #ddd; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* News Item */
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #0e0e0e;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.12);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.25);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.10);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.22);
+    }
+    .tag-priority.low {
+      background: rgba(80,80,80,0.12);
+      color: #666;
+      border: 1px solid rgba(80,80,80,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #eee;
+      line-height: 1.55;
+      margin-bottom: 7px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .news-tag {
+      font-size: 10px;
+      background: #0e0e0e;
+      border: 1px solid #1e1e1e;
+      color: #555;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .news-source { font-size: 11px; color: #3a3a3a; }
+    .news-source a { color: #4a4a4a; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+
+    /* ⑥ Keywords */
+    .keywords { margin: 20px 16px 24px; }
+    .keywords-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .keywords-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword-chip {
+      background: rgba(188,255,47,0.06);
+      border: 1px solid rgba(188,255,47,0.2);
+      color: #BCFF2F;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ⑦ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      border-top: 1px solid #111;
+    }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .footer-sources { font-size: 11px; color: #333; line-height: 1.8; margin-bottom: 10px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- ① Sticky Header -->
+  <div class="header">
+    <div class="header-date-pill">2026 · 05 · 29</div>
+    <div class="header-title">OKX 加密热点<span class="neon">早报</span></div>
+    <div class="header-sub">覆盖时间：5月28日 20:00 — 5月29日 09:30（北京时间）</div>
+  </div>
+
+  <!-- ② Source Pills -->
+  <div class="sources">
+    <div class="source-pill">Odaily 星球日报</div>
+    <div class="source-pill">BlockBeats 律动</div>
+    <div class="source-pill">Foresight News</div>
+    <div class="source-pill">吴说区块链</div>
+    <div class="source-pill">链捕手 ChainCatcher</div>
+    <div class="source-pill">金十数据</div>
+    <div class="source-pill">金色财经</div>
+  </div>
+
+  <!-- ③ Banner -->
+  <div class="banner">
+    <div class="banner-label">🟢 今日核心主线</div>
+    <div class="banner-text">
+      美伊谈判出现重大转机——副总统万斯称谈判"已接近目标"，据报双方达成60天停火延期框架，WTI原油再度走弱至$89区间，日韩股市周五高开（KOSPI+2.64%，日经+0.72%），BTC小幅反弹至$73,700区域但F&G仍维持23（极度恐惧）。AI赛道风起云涌：Anthropic完成650亿美元H轮融资，估值9650亿美元首次超越OpenAI，并披露Q2营收预期达109亿美元。链上负面事件接连引爆——DxSale疑似"监守自盗"730万美元LP，Hyperliquid SPACEX永续合约闪崩45%致405用户爆仓超150万美元，Galaxy Digital解质押100万枚HYPE转入交易所引发市场抛压担忧。
+    </div>
+  </div>
+
+  <!-- ④ Market Grid -->
+  <div class="market">
+    <div class="market-header">📊 市场行情（北京时间 09:30）</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-name">BTC</div>
+        <div class="market-card-price">$73,742</div>
+        <div class="market-card-change up">▲ 1.11%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">ETH</div>
+        <div class="market-card-price">$2,013</div>
+        <div class="market-card-change up">▲ 1.14%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">恐贪指数</div>
+        <div class="market-card-price">23</div>
+        <div class="market-card-change down">极度恐惧</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">WTI 原油</div>
+        <div class="market-card-price">$89.00</div>
+        <div class="market-card-change down">▼ 1.30%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">黄金 XAUT</div>
+        <div class="market-card-price">$4,481</div>
+        <div class="market-card-change up">▲ 0.23%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">纳斯达克</div>
+        <div class="market-card-price">26,918</div>
+        <div class="market-card-change up">▲ 0.91%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Content -->
+  <div class="content">
+
+    <!-- 全球事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🌏</span>
+        <span class="section-title">全球事件</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 04:02 / 06:48 BJ</span>
+        </div>
+        <div class="news-title">美伊谈判重大转机：万斯称"已接近目标"，双方达成60天停火延期框架，WTI再跌</div>
+        <div class="news-desc">美国副总统万斯表示美伊双方尚未正式达成协议但"已接近目标"，感到相当乐观，谈判涉及伊朗浓缩铀库存等关键问题，需特朗普最终批准；据报双方已达成60天停火延期框架，波斯湾能源出口有望逐步恢复，WTI原油随之继续下行至$89区间，日韩股市周五大幅高开以积极回应。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球事件·地缘缓和</span>
+          <span class="news-tag">美伊谈判·霍尔木兹·WTI $89</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.jinse.com.cn/lives/514830.html" target="_blank">金色财经（万斯 06:48）</a> · <a href="https://www.jinse.com.cn/lives/514815.html" target="_blank">金色财经（伊朗副外长 04:02）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 07:13 BJ</span>
+        </div>
+        <div class="news-title">美财长贝森特：将制裁伊朗航司，切断降落、加油、售票渠道；OFAC制裁"霍尔木兹管理局"</div>
+        <div class="news-desc">贝森特宣布将切断伊朗航司获取降落点、加油和售票的渠道，财政部OFAC同时将"波斯湾海峡管理局"列入制裁名单；同时宣布美国不会推出央行数字货币（CBDC），已完全排除该选项，美国的稳定币路线将以私营合规形式推进。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球事件·美国制裁</span>
+          <span class="news-tag">贝森特·OFAC·伊朗航司</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.jinse.com.cn/lives/514838.html" target="_blank">金色财经（07:13）</a> · <a href="https://www.odaily.news/newsflash/485030" target="_blank">Odaily（CBDC 05/28 20:06）</a></div>
+      </div>
+    </div>
+
+    <!-- 货币政策 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🏛️</span>
+        <span class="section-title">货币政策</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 06:02 BJ</span>
+        </div>
+        <div class="news-title">CME数据：美联储6月维持利率不变概率99.4%，7月维持概率93%</div>
+        <div class="news-desc">根据CME"美联储观察"工具最新数据，6月FOMC会议维持利率不变概率达99.4%，加息25基点概率仅0.6%；7月维持现状概率为93%，市场对美联储年内加息预期已显著降低，但昨日库克鹰派言论仍使降息预期持续延后。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">货币政策·利率预期</span>
+          <span class="news-tag">美联储·CME·6月暂停99.4%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267927" target="_blank">链捕手 ChainCatcher（05/29 06:02）</a></div>
+      </div>
+    </div>
+
+    <!-- 全球监管 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⚖️</span>
+        <span class="section-title">全球监管</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 08:33 BJ</span>
+        </div>
+        <div class="news-title">意大利联合信贷警告：欧盟MiCA规则或令欧洲难以遏制加密银行危机</div>
+        <div class="news-desc">意大利联合信贷银行高管表示，MiCA规则要求稳定币储备存入受监管银行，但欧洲存款担保制度最高仅保障10万欧元，形成"双重弱点"；若出现加密银行挤兑，欧洲应对能力存在明显制度缺口，相关监管配套亟待完善。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">全球监管·MiCA漏洞</span>
+          <span class="news-tag">意大利联合信贷·欧洲·稳定币储备</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267946" target="_blank">链捕手 ChainCatcher（05/29 08:33）</a></div>
+      </div>
+    </div>
+
+    <!-- 传统金融 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🏦</span>
+        <span class="section-title">传统金融</span>
+        <span class="section-count">3</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 03:28 / 07:32 BJ</span>
+        </div>
+        <div class="news-title">Anthropic完成650亿美元H轮融资，估值9650亿美元首次超越OpenAI，Q2营收预期109亿</div>
+        <div class="news-desc">AI公司Anthropic宣布完成650亿美元H轮融资，投后估值达9650亿美元，由Altimeter Capital、红杉资本、Dragoneer等领投，首次超越OpenAI估值；公司同步披露受AI软件需求激增驱动，Q2营收预计达109亿美元（环比增超一倍），年化营收运行率将超500亿美元，有望实现首个季度盈利，AI基础设施叙事持续强化。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·年级</span>
+          <span class="news-tag">传统金融·AI巨头融资</span>
+          <span class="news-tag">Anthropic·$650亿·估值$9650亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.jinse.com.cn/lives/514810.html" target="_blank">金色财经（融资 03:28）</a> · <a href="https://www.jinse.com.cn/lives/514841.html" target="_blank">金色财经（营收 07:32）</a> · <a href="https://www.chaincatcher.com/article/2267941" target="_blank">链捕手（08:24）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 08:20 BJ</span>
+        </div>
+        <div class="news-title">加密交易公司FalconX秘密递交IPO申请，聘请Cantor等华尔街投行辅导上市</div>
+        <div class="news-desc">机构级加密交易公司FalconX已向SEC秘密提交S-1上市草案，聘请Cantor Fitzgerald等华尔街投行提供IPO辅导服务，预计最早今年晚些时候推进上市；FalconX 2022年估值曾高达80亿美元，为全球主要加密机构提供大宗交易和结算服务，每月交易规模达数十亿美元。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">传统金融·加密公司IPO</span>
+          <span class="news-tag">FalconX·SEC S-1·Cantor</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348322" target="_blank">BlockBeats（05/29 00:19）</a> · <a href="https://www.chaincatcher.com/article/2267939" target="_blank">链捕手（08:20）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 08:25 BJ</span>
+        </div>
+        <div class="news-title">Robinhood接入特朗普"Trump Accounts"儿童投资计划，HOOD单日收涨11.29%</div>
+        <div class="news-desc">美国"Trump Accounts"儿童投资账户正式上线，符合条件的18岁以下美国儿童可获1000美元初始资金，Robinhood Securities担任初始受托机构；受此政策利好推动，Robinhood（HOOD）股价单日上涨11.29%，进一步强化平台在零售投资领域的品牌地位。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">传统金融·零售投资扩容</span>
+          <span class="news-tag">Robinhood·Trump Accounts·HOOD +11.29%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267942" target="_blank">链捕手 ChainCatcher（05/29 08:25）</a></div>
+      </div>
+    </div>
+
+    <!-- 链上事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⛓️</span>
+        <span class="section-title">链上事件</span>
+        <span class="section-count">3</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 23:50 / 05/29 07:49 BJ</span>
+        </div>
+        <div class="news-title">DxSale疑似"监守自盗"：730万美元LP从1400+流动性池被抽干</div>
+        <div class="news-desc">链上安全分析账号Eye发文揭露，BNB Chain项目启动平台DxSale疑似利用隐藏后门，将2021年锁定的老旧流动性池资金悄然抽走，涉及超1400个LP、金额约730万美元，链上分析显示攻击地址与DxSale团队存在直接资金关联。该事件对早期DeFi流动性锁定机制的可信度构成严重打击。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·后门盗取</span>
+          <span class="news-tag">DxSale·BNB Chain·$730万·1400个LP</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348314" target="_blank">BlockBeats（05/28 23:50）</a> · <a href="https://www.odaily.news/newsflash/485055" target="_blank">Odaily（05/29 00:05）</a> · <a href="https://www.chaincatcher.com/article/2267928" target="_blank">链捕手（07:49）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/28 23:52 / 05/29 00:52 BJ</span>
+        </div>
+        <div class="news-title">Hyperliquid SPACEX-USDH永续合约闪崩45%：30分钟从$2277跌至$1254，405人爆仓超150万美元</div>
+        <div class="news-desc">北京时间5月28日深夜，Hyperliquid上SPACEX-USDH永续合约在30分钟内从2277美元暴跌至1254美元，跌幅近45%，导致405名用户共1393个仓位被强制清算，损失超150万美元；事件引发对预测市场私人公司合约流动性和操纵风险的广泛讨论，昨日Odaily已披露SpaceX持有18,712枚BTC。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·永续合约闪崩</span>
+          <span class="news-tag">Hyperliquid·SPACEX·45%跌幅·405人爆仓</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348331" target="_blank">BlockBeats（05/28 00:56）</a> · <a href="https://www.odaily.news/newsflash/485064" target="_blank">Odaily（05/29 00:52）</a> · <a href="https://www.chaincatcher.com/article/2267949" target="_blank">链捕手（08:51）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 00:51 / 08:08 / 08:37 BJ</span>
+        </div>
+        <div class="news-title">Galaxy Digital解质押100万枚HYPE（约$6150万），50万枚已转入Bybit和OKX</div>
+        <div class="news-desc">据Lookonchain和Onchain Lens监测，Galaxy Digital解除100万枚HYPE代币质押（价值约6150万美元），已向Bybit和OKX各转入共50万枚HYPE（价值约3036万美元），市场解读为潜在减仓信号，叠加Loracle大空单亏损局面，HYPE价格短期承压。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">链上事件·机构大额解质押</span>
+          <span class="news-tag">Galaxy Digital·100万HYPE·$6150万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348330" target="_blank">BlockBeats（00:51）</a> · <a href="https://www.chaincatcher.com/article/2267935" target="_blank">链捕手（08:08）</a> · <a href="https://www.jinse.com.cn/lives/514850.html" target="_blank">金色财经（08:37）</a></div>
+      </div>
+    </div>
+
+    <!-- 加密数据 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📊</span>
+        <span class="section-title">加密数据</span>
+        <span class="section-count">4</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 08:20 BJ</span>
+        </div>
+        <div class="news-title">CryptoQuant：BTC大额持仓积累停滞，鲸鱼余额同比收缩最快，类似2022年3月熊市形态</div>
+        <div class="news-desc">CryptoQuant研究主管发布链上分析报告，指出比特币大额持仓地址需求出现积累停滞，鲸鱼余额同比收缩速度为年内最快；短期持有者（STH）供应量已从640万枚BTC降至约420万枚，结合当前市场结构，当前状况与2022年3月熊市初期形态高度相似，需关注进一步下行风险。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">加密数据·链上需求指标</span>
+          <span class="news-tag">CryptoQuant·STH供应420万·鲸鱼余额收缩</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267940" target="_blank">链捕手 ChainCatcher（05/29 08:20）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/28 23:52 / 05/29 07:51 BJ</span>
+        </div>
+        <div class="news-title">OTC巨鲸0xFB7再从FalconX购2万枚ETH，总持仓升至14.39万枚（约3.18亿美元）</div>
+        <div class="news-desc">据Onchain Lens监测，场外交易大户0xFB7再次从FalconX购入20,000枚ETH（约4048万美元），同时向Wintermute转入5000万枚USDT用于可能继续买入，当前总ETH持仓升至143,906枚，价值约3.18亿美元；该地址的持续逢低积累被市场视为以太坊中期底部信号。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·OTC大户积累</span>
+          <span class="news-tag">0xFB7·2万ETH·总持仓14.39万枚</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/348316" target="_blank">BlockBeats（05/28 23:54）</a> · <a href="https://www.chaincatcher.com/article/2267929" target="_blank">链捕手（07:51）</a> · <a href="https://www.jinse.com.cn/lives/514843.html" target="_blank">金色财经（07:54）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 00:53 / 08:55 BJ</span>
+        </div>
+        <div class="news-title">Loracle HYPE 5倍空单亏损超2900万美元，链上迹象显示疑开始确认亏损</div>
+        <div class="news-desc">据Onchain Lens监测，交易账户Loracle持有的HYPE代币5倍杠杆空头仓位，累计亏损已超2900万美元，链上数据显示其疑似已开始部分平仓并确认亏损；结合Galaxy Digital解质押套现的消息，HYPE代币近期面临机构端的两面夹击：一方是潜在买盘（空单被迫平仓），另一方是Galaxy抛压。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">加密数据·大额空单亏损</span>
+          <span class="news-tag">Loracle·HYPE·5倍空单·亏损$2900万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485065" target="_blank">Odaily（05/29 00:53）</a> · <a href="https://www.chaincatcher.com/article/2267950" target="_blank">链捕手（08:55）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 08:30 / 08:38 BJ</span>
+        </div>
+        <div class="news-title">Binance 24h净流出1.57亿USDT；BTC $77,436为关键空单清算阈值</div>
+        <div class="news-desc">Coinglass数据显示，Binance过去24小时净流出1.57亿USDT，稳定币呈净流出态势；关键价位方面，若BTC突破77,436美元主流CEX累计空单清算强度将达18.61亿美元，若跌破70,121美元多单清算强度达17.75亿美元；ETH方面，跌破1,914美元多单清算强度将达10.77亿美元。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">加密数据·清算阈值监控</span>
+          <span class="news-tag">Binance净流出·BTC $77,436·ETH $1,914</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2267944" target="_blank">链捕手（BTC阈值 08:30）</a> · <a href="https://www.chaincatcher.com/article/2267945" target="_blank">链捕手（ETH阈值 08:30）</a> · <a href="https://www.chaincatcher.com/article/2267947" target="_blank">链捕手（净流出 08:38）</a></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ⑥ Keywords -->
+  <div class="keywords">
+    <div class="keywords-header">📌 今日关键数字</div>
+    <div class="keywords-chips">
+      <span class="keyword-chip">BTC $73,742（+1.11%）</span>
+      <span class="keyword-chip">ETH $2,013（+1.14%）</span>
+      <span class="keyword-chip">F&G 23 极度恐惧</span>
+      <span class="keyword-chip">WTI $89.00（-1.3%）</span>
+      <span class="keyword-chip">纳指 26,918（+0.91%）</span>
+      <span class="keyword-chip">Anthropic融资 $650亿</span>
+      <span class="keyword-chip">Anthropic估值 $9650亿</span>
+      <span class="keyword-chip">DxSale被盗 $730万</span>
+      <span class="keyword-chip">SPACEX闪崩 -45%（405人爆仓）</span>
+      <span class="keyword-chip">Galaxy HYPE解质押 100万枚</span>
+      <span class="keyword-chip">Loracle空单亏损 $2900万</span>
+      <span class="keyword-chip">ETH巨鲸持仓 14.39万枚</span>
+      <span class="keyword-chip">BTC空单清算阈 $77,436</span>
+      <span class="keyword-chip">Robinhood HOOD +11.29%</span>
+      <span class="keyword-chip">美联储6月维持利率 99.4%</span>
+    </div>
+  </div>
+
+  <!-- ⑦ Footer -->
+  <div class="footer">
+    <div class="footer-brand">OKX · 加密热点早报</div>
+    <div class="footer-sources">
+      来源：Odaily 星球日报 · BlockBeats 律动财经 · Foresight News · 吴说区块链 · 链捕手 ChainCatcher · 金十数据 · 金色财经
+    </div>
+    <div class="footer-disclaimer">
+      免责声明：本早报仅供参考，不构成投资建议。数字资产投资存在较大风险，请独立判断并谨慎决策。<br>
+      © 2026 · OKX Research · 每日 09:30 更新
+    </div>
+  </div>
+
+</body>
+</html>
