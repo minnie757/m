@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKX · 加密热点早报 · 2026年5月30日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ① Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 20px 12px;
+      text-align: center;
+    }
+    .header-date-pill {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header-title .neon { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* ② Source Pills */
+    .sources {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #111;
+      scrollbar-width: none;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .source-pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ③ Banner */
+    .banner {
+      margin: 14px 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #080808;
+      border-radius: 0 8px 8px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.75;
+    }
+
+    /* ④ Market Grid */
+    .market {
+      margin: 0 16px 16px;
+    }
+    .market-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .market-card {
+      background: #0b0b0b;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 10px;
+    }
+    .market-card-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .market-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eee;
+      margin-bottom: 3px;
+      letter-spacing: -0.3px;
+    }
+    .market-card-change { font-size: 11px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #888; }
+
+    /* ⑤ Content */
+    .content { padding: 0 16px; }
+    .section { margin-bottom: 28px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-emoji { font-size: 15px; }
+    .section-title { font-size: 14px; font-weight: 600; color: #ddd; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* News Item */
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #0e0e0e;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.12);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.25);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.10);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.22);
+    }
+    .tag-priority.low {
+      background: rgba(80,80,80,0.12);
+      color: #666;
+      border: 1px solid rgba(80,80,80,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #eee;
+      line-height: 1.55;
+      margin-bottom: 7px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .news-tag {
+      font-size: 10px;
+      background: #0e0e0e;
+      border: 1px solid #1e1e1e;
+      color: #555;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .news-source { font-size: 11px; color: #3a3a3a; }
+    .news-source a { color: #4a4a4a; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+
+    /* ⑥ Keywords */
+    .keywords { margin: 20px 16px 24px; }
+    .keywords-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .keywords-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword-chip {
+      background: rgba(188,255,47,0.06);
+      border: 1px solid rgba(188,255,47,0.2);
+      color: #BCFF2F;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ⑦ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      border-top: 1px solid #111;
+    }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .footer-sources { font-size: 11px; color: #333; line-height: 1.8; margin-bottom: 10px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- ① Sticky Header -->
+  <div class="header">
+    <div class="header-date-pill">2026 · 05 · 30</div>
+    <div class="header-title">OKX 加密热点<span class="neon">早报</span></div>
+    <div class="header-sub">覆盖时间：5月29日 20:00 — 5月30日 09:30（北京时间）</div>
+  </div>
+
+  <!-- ② Source Pills -->
+  <div class="sources">
+    <div class="source-pill">Odaily 星球日报</div>
+    <div class="source-pill">BlockBeats 律动</div>
+    <div class="source-pill">Foresight News</div>
+    <div class="source-pill">吴说区块链</div>
+    <div class="source-pill">链捕手 ChainCatcher</div>
+    <div class="source-pill">金十数据</div>
+    <div class="source-pill">金色财经</div>
+  </div>
+
+  <!-- ③ Banner -->
+  <div class="banner">
+    <div class="banner-label">🟢 今日核心主线</div>
+    <div class="banner-text">
+      监管清晰化浪潮持续：美SEC主席明确推动链上资本市场改革框架、CFTC发布24/7加密衍生品监管指引，Coinbase成为美国首家合规接入全球加密衍生品平台（永续+期权），监管基础设施加速成型。地缘制裁延伸至加密领域——贝森特宣布美财政部已查封约10亿美元伊朗加密资产。Hyperliquid持续占据行业焦点：ICE CEO公开点名其交易量已超纳斯达克而仅靠11人运营，灰度同步拟为其Staking ETF注入1.15亿美元种子资金。Sui主网连续第二天停滞，公链可靠性遭市场质疑。BTC整盘于$73,500，F&G维持23（极度恐惧）。
+    </div>
+  </div>
+
+  <!-- ④ Market Grid -->
+  <div class="market">
+    <div class="market-header">📊 市场行情（北京时间 09:30）</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-name">BTC</div>
+        <div class="market-card-price">$73,534</div>
+        <div class="market-card-change down">▼ 0.37%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">ETH</div>
+        <div class="market-card-price">$2,015</div>
+        <div class="market-card-change down">▼ 0.79%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">恐贪指数</div>
+        <div class="market-card-price">23</div>
+        <div class="market-card-change down">极度恐惧</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">WTI 原油</div>
+        <div class="market-card-price">$87.51</div>
+        <div class="market-card-change down">▼ 1.57%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">黄金 XAUT</div>
+        <div class="market-card-price">$4,519</div>
+        <div class="market-card-change down">▼ 0.68%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">纳斯达克</div>
+        <div class="market-card-price">26,972</div>
+        <div class="market-card-change up">▲ 0.25%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Content -->
+  <div class="content">
+
+    <!-- 全球事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🌏</span>
+        <span class="section-title">全球事件</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 20:42 / 05/30 08:34 BJ</span>
+        </div>
+        <div class="news-title">贝森特宣布：美财政部已查封约10亿美元伊朗加密资产，用于切断其恐怖融资渠道</div>
+        <div class="news-desc">美国财政部长贝森特在新一轮对伊制裁发布会上披露，美方已动用监管工具扣押约10亿美元与伊朗相关的加密货币资产，是"经济怒火"行动的组成部分；同步将伊朗"霍尔木兹海峡港务局"（PGSA）列入OFAC制裁名单，并威胁对协助伊朗转移资金的第三方国家银行实施二级制裁。此举是美国首次大规模公开披露对特定国家加密资产的系统性追缴行动，可能推动更多国家强化链上监控合规要求。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球事件·制裁</span>
+          <span class="news-tag">贝森特·伊朗·加密资产$10亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485386" target="_blank">Odaily（05/29 20:42）</a> · <a href="https://www.chaincatcher.com/article/2268190" target="_blank">链捕手 ChainCatcher（05/30 08:34）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority low">⚪ 情绪噪音</span>
+          <span class="tag-time">05/29 21:39 BJ</span>
+        </div>
+        <div class="news-title">马斯克否认SpaceX IPO估值下调至1.8万亿美元报道：属于误读</div>
+        <div class="news-desc">此前有消息称SpaceX在最新内部融资中IPO目标估值从此前预期下调至1.8万亿美元，马斯克在社交媒体明确否认，称该报道存在误读。SpaceX目前仍是全球估值最高的未上市科技公司之一，是否IPO及时间表尚无官方公告。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">全球事件·科技</span>
+          <span class="news-tag">马斯克·SpaceX·1.8万亿否认</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268138" target="_blank">链捕手 ChainCatcher（05/29 21:39）</a></div>
+      </div>
+    </div>
+
+    <!-- 全球监管 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⚖️</span>
+        <span class="section-title">全球监管</span>
+        <span class="section-count">4</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/30 00:07 BJ</span>
+        </div>
+        <div class="news-title">美SEC主席阿特金斯：将推动链上资本市场改革，明确数字资产证券与非证券边界</div>
+        <div class="news-desc">SEC主席保罗·阿特金斯在公开声明中表示，将推动建立链上资本市场的整体监管框架，核心目标是明确哪些数字资产属于证券、哪些不属于证券，为市场提供法律确定性；同时强调不会阻碍金融创新，将以"最小干预原则"保护投资者并鼓励竞争。此举被视为SEC正式转向对加密友好监管立场的里程碑信号，或推动大量数字资产项目重新选择合规路径。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">全球监管·数字资产</span>
+          <span class="news-tag">SEC·阿特金斯·链上资本市场</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268173" target="_blank">链捕手 ChainCatcher（05/30 00:07）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 22:13 BJ</span>
+        </div>
+        <div class="news-title">美CFTC发布24/7交易监管指引：加密永续合约正式归类为境外期货，更适配全天候交易</div>
+        <div class="news-desc">美国商品期货交易委员会（CFTC）发布最新监管指引，明确将加密货币永续合约归类为"境外期货合约"，并发布专项24/7交易监管要求——受监管平台须确保全天候清算与风险管理能力。此举实质上为Coinbase等合规交易所在美国境内提供永续合约服务提供了法律背书，是美国加密衍生品监管框架落地的重要一步。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·衍生品</span>
+          <span class="news-tag">CFTC·永续合约·24/7监管</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268144" target="_blank">链捕手 ChainCatcher（05/29 22:13）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 22:44 BJ</span>
+        </div>
+        <div class="news-title">Coinbase成为美国首家合规接入全球加密衍生品平台：永续期货+期权一站式上线</div>
+        <div class="news-desc">Coinbase宣布成为美国首家获CFTC批准、合规提供全球加密永续期货及期权交易的平台，用户可在Coinbase International Exchange（CIE）完成一站式现货+衍生品交易；此前Coinbase通过收购Deribit整合了全球最大加密期权平台，此次合规上线标志其产品矩阵正式对标Binance。这是美国监管对加密衍生品态度从打压转向接纳的实质性转折点。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·合规衍生品</span>
+          <span class="news-tag">Coinbase·CFTC·永续期权首批</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268154" target="_blank">链捕手 ChainCatcher（05/29 22:44）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 22:37 BJ</span>
+        </div>
+        <div class="news-title">灰度拟为Hyperliquid Staking ETF注入1.15亿美元HYPE代币种子资金</div>
+        <div class="news-desc">灰度投资（Grayscale）披露计划为其即将推出的Hyperliquid Staking ETF引入约1.15亿美元HYPE代币作为种子资金，以支持ETF的初始流动性；这将是首个以Hyperliquid（HYPE）为底层资产的美国合规ETF产品。结合ICE CEO对Hyperliquid规模的公开认可，HYPE生态正持续获得传统金融机构关注。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·ETF</span>
+          <span class="news-tag">灰度·HYPE·1.15亿美元种子</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268152" target="_blank">链捕手 ChainCatcher（05/29 22:37）</a></div>
+      </div>
+    </div>
+
+    <!-- 传统金融 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">💹</span>
+        <span class="section-title">传统金融</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/30 01:00 BJ</span>
+        </div>
+        <div class="news-title">美股5月29日收盘：道指+0.72%、标普+0.22%，加密概念股全线上涨；BNB Network涨幅居首+14.06%</div>
+        <div class="news-desc">美股周四（5月29日）收盘三大指数小幅上涨，其中道指收涨0.72%，标普500指数收涨0.22%，纳指收涨约0.25%至26,972点。加密概念股全线走强，BNB Network单日暴涨14.06%领涨板块，Coinbase、Riot Platforms等主流加密股也随市上行。此外，戴尔财报超预期推动盘后股价暴涨近40%，带动科技股情绪。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">传统金融·美股</span>
+          <span class="news-tag">道指·纳斯达克·BNB Network+14%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485392" target="_blank">Odaily（05/30 01:00）</a></div>
+      </div>
+    </div>
+
+    <!-- 行业趋势 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🔥</span>
+        <span class="section-title">行业趋势</span>
+        <span class="section-count">4</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 21:42 BJ</span>
+        </div>
+        <div class="news-title">ICE CEO公开点名Hyperliquid：交易量规模已超纳斯达克，但仅11人运营——传统金融巨头正式警觉</div>
+        <div class="news-desc">洲际交易所（ICE）CEO杰夫·斯普雷彻在公开场合点名Hyperliquid，称其在加密衍生品领域的交易量规模已超越纳斯达克，但运营团队仅有11人，这一极致效率引发传统交易所警觉。此言论标志着去中心化交易基础设施对传统金融市场结构的挑战已被主流机构明确认识；与此同时灰度的ETF布局（上方）进一步强化了HYPE的机构叙事。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·DEX颠覆</span>
+          <span class="news-tag">ICE·Hyperliquid·11人超纳斯达克</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/ice-ceo-hyperliquid-11" target="_blank">吴说区块链（05/29 21:42）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 窗口内 BJ</span>
+        </div>
+        <div class="news-title">FalconX秘密向SEC提交S-1申请，计划最快2026年年内完成IPO</div>
+        <div class="news-desc">据CoinDesk报道，机构级加密经纪商FalconX已秘密向美国SEC提交S-1注册申请草稿，并聘用Cantor Fitzgerald等投行为潜在IPO提供咨询服务；受市场条件影响，上市时间最早预计在2026年下半年。FalconX服务全球数百家机构客户，此次IPO若成功推进将是继Coinbase之后美国加密原生机构市场最重要的上市里程碑之一。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">行业趋势·机构IPO</span>
+          <span class="news-tag">FalconX·S-1·SEC·Cantor</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/ice-ceo-hyperliquid-11" target="_blank">吴说区块链（综合报道）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/30 00:44 BJ</span>
+        </div>
+        <div class="news-title">Bitmine新钱包从Kraken提现2.5万枚ETH（约5056万美元），企业持币动作持续</div>
+        <div class="news-desc">链上数据显示，矿业公司Bitmine的一个新钱包地址从Kraken交易所接收了2.5万枚ETH，价值约5056万美元；这是Bitmine近期系列链上动作的延续，继续强化其将ETH纳入企业资产负债表的战略。企业持币趋势在比特币之外正逐步扩展至ETH等主流资产。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">行业趋势·企业持币</span>
+          <span class="news-tag">Bitmine·ETH 2.5万枚·$5056万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485391" target="_blank">Odaily（05/30 00:44）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority low">⚪ 情绪噪音</span>
+          <span class="tag-time">05/29 22:08 BJ</span>
+        </div>
+        <div class="news-title">币安宣布将于6月1日正式发布新产品，未披露具体内容</div>
+        <div class="news-desc">币安官方在社交媒体宣布将于2026年6月1日发布一款新产品，未公布任何细节；市场猜测可能涉及新交易功能、稳定币相关产品或生态扩展。暂无确认信息，建议观望。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">行业趋势·交易所</span>
+          <span class="news-tag">币安·6月1日·新产品待揭晓</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268148" target="_blank">链捕手 ChainCatcher（05/29 22:08）</a></div>
+      </div>
+    </div>
+
+    <!-- 链上事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⛓️</span>
+        <span class="section-title">链上事件</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/29 21:12 / 05/30 08:32 BJ</span>
+        </div>
+        <div class="news-title">Sui主网连续第二日停滞：epoch变更触发新一轮停止接受交易，公链可靠性严重受损</div>
+        <div class="news-desc">Sui主网于5月30日08:32再度出现网络停滞，起因为epoch（纪元）变更机制引发验证节点共识中断，主网暂停接受用户交易；这是继5月28日因版本1.72"瓦斯计费逻辑崩溃"漏洞导致6小时宕机之后，48小时内第二次重大故障。Sui Core团队已紧急介入调查，但接连发生的停机事件显著削弱市场对其"高性能L1"叙事的信心。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·公链故障</span>
+          <span class="news-tag">Sui·epoch变更·连续48h停滞</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268128" target="_blank">链捕手 ChainCatcher（05/29 21:12）</a> · <a href="https://www.chaincatcher.com/article/2268193" target="_blank">链捕手 ChainCatcher（05/30 08:32）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/29 21:42 BJ</span>
+        </div>
+        <div class="news-title">浙江黑客将网络犯罪所得转换为USDT/TRX被依法判刑，链上洗钱追溯能力再获验证</div>
+        <div class="news-desc">据吴说区块链报道，浙江一名黑客将网络犯罪所得资金通过链上操作转换为USDT和TRX进行洗钱，最终被司法机关追踪并依法判决。该案是中国司法机关利用链上数据追踪加密洗钱的典型案例，表明区块链的不可篡改性正在成为执法的有力工具，也对试图利用加密货币隐匿犯罪收益者形成震慑。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·执法</span>
+          <span class="news-tag">浙江·USDT/TRX洗钱·链上追溯</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/ice-ceo-hyperliquid-11" target="_blank">吴说区块链（05/29 21:42）</a></div>
+      </div>
+    </div>
+
+    <!-- 加密数据 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📈</span>
+        <span class="section-title">加密数据</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/30 00:44 BJ</span>
+        </div>
+        <div class="news-title">美国XRP现货ETF单日净流入1187.94万美元，创2026年单日新高；BTC/ETH ETF同期承压</div>
+        <div class="news-desc">5月29日，美国所有上市XRP现货ETF合计单日净流入达1187.94万美元（约合1.19亿人民币），为2026年以来最高单日纪录；而同期BTC和ETH现货ETF均出现资金净流出压力。XRP ETF自2025年11月推出以来累计净流入已超14亿美元，5月已成为年内流入最强月份，显示投资者对XRP的机构配置需求持续回暖。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·ETF资金流</span>
+          <span class="news-tag">XRP ETF·$11.88M·2026年单日新高</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485390" target="_blank">Odaily（05/30 00:44）</a></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ⑥ Keywords -->
+  <div class="keywords">
+    <div class="keywords-header">📌 今日关键数字</div>
+    <div class="keywords-chips">
+      <span class="keyword-chip">BTC $73,534</span>
+      <span class="keyword-chip">ETH $2,015</span>
+      <span class="keyword-chip">F&G 23 极度恐惧</span>
+      <span class="keyword-chip">WTI $87.51</span>
+      <span class="keyword-chip">黄金XAUT $4,519</span>
+      <span class="keyword-chip">纳斯达克 26,972</span>
+      <span class="keyword-chip">伊朗加密资产 $10亿 被查封</span>
+      <span class="keyword-chip">灰度HYPE种子 $1.15亿</span>
+      <span class="keyword-chip">XRP ETF单日 $11.88M 年内新高</span>
+      <span class="keyword-chip">Coinbase 首家合规衍生品</span>
+      <span class="keyword-chip">Hyperliquid 11人超纳斯达克量</span>
+      <span class="keyword-chip">FalconX S-1 秘密递交</span>
+      <span class="keyword-chip">Bitmine 2.5万ETH $5056万</span>
+      <span class="keyword-chip">Sui 连续48h停滞</span>
+    </div>
+  </div>
+
+  <!-- ⑦ Footer -->
+  <div class="footer">
+    <div class="footer-brand">OKX · 加密热点早报 · 2026年5月30日</div>
+    <div class="footer-sources">
+      信息来源：Odaily 星球日报 · BlockBeats 律动 · Foresight News · 吴说区块链 · 链捕手 ChainCatcher · 金十数据 · 金色财经
+    </div>
+    <div class="footer-disclaimer">
+      本早报仅作信息汇总与参考，不构成任何投资建议。加密资产价格波动剧烈，投资有风险，入市需谨慎。所有资讯均来源于公开媒体报道，OKX不对内容准确性及完整性作出任何保证。
+    </div>
+  </div>
+
+</body>
+</html>
