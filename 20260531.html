@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKX · 加密热点早报 · 2026年5月31日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ① Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 20px 12px;
+      text-align: center;
+    }
+    .header-date-pill {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header-title .neon { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* ② Source Pills */
+    .sources {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #111;
+      scrollbar-width: none;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .source-pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ③ Banner */
+    .banner {
+      margin: 14px 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #080808;
+      border-radius: 0 8px 8px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.75;
+    }
+
+    /* ④ Market Grid */
+    .market {
+      margin: 0 16px 16px;
+    }
+    .market-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .market-card {
+      background: #0b0b0b;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 10px;
+    }
+    .market-card-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .market-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eee;
+      margin-bottom: 3px;
+      letter-spacing: -0.3px;
+    }
+    .market-card-change { font-size: 11px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #888; }
+
+    /* ⑤ Content */
+    .content { padding: 0 16px; }
+    .section { margin-bottom: 28px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-emoji { font-size: 15px; }
+    .section-title { font-size: 14px; font-weight: 600; color: #ddd; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* News Item */
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #0e0e0e;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.12);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.25);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.10);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.22);
+    }
+    .tag-priority.low {
+      background: rgba(80,80,80,0.12);
+      color: #666;
+      border: 1px solid rgba(80,80,80,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #eee;
+      line-height: 1.55;
+      margin-bottom: 7px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .news-tag {
+      font-size: 10px;
+      background: #0e0e0e;
+      border: 1px solid #1e1e1e;
+      color: #555;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .news-source { font-size: 11px; color: #3a3a3a; }
+    .news-source a { color: #4a4a4a; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+
+    /* ⑥ Keywords */
+    .keywords { margin: 20px 16px 24px; }
+    .keywords-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .keywords-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword-chip {
+      background: rgba(188,255,47,0.06);
+      border: 1px solid rgba(188,255,47,0.2);
+      color: #BCFF2F;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ⑦ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      border-top: 1px solid #111;
+    }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .footer-sources { font-size: 11px; color: #333; line-height: 1.8; margin-bottom: 10px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- ① Sticky Header -->
+  <div class="header">
+    <div class="header-date-pill">2026 · 05 · 31</div>
+    <div class="header-title">OKX 加密热点<span class="neon">早报</span></div>
+    <div class="header-sub">覆盖时间：5月30日 20:00 — 5月31日 09:00（北京时间）</div>
+  </div>
+
+  <!-- ② Source Pills -->
+  <div class="sources">
+    <div class="source-pill">Odaily 星球日报</div>
+    <div class="source-pill">BlockBeats 律动</div>
+    <div class="source-pill">Foresight News</div>
+    <div class="source-pill">吴说区块链</div>
+    <div class="source-pill">链捕手 ChainCatcher</div>
+    <div class="source-pill">金十数据</div>
+    <div class="source-pill">金色财经</div>
+  </div>
+
+  <!-- ③ Banner -->
+  <div class="banner">
+    <div class="banner-label">🟢 今日核心主线</div>
+    <div class="banner-text">
+      美伊谈判再度生变——特朗普向伊方提交收紧版协议条款，被困商船录音曝光加剧对峙，美国防部长宣称保留军事打击选项，停火协议能否落地仍存变数。Strategy将411枚BTC短暂转入Coinbase Prime后随即取回，Polymarket押注其2026年卖出BTC概率随即升至84%，"永不卖出"叙事再度承压。BitMine有望纳入Russell 1000，预计触发逾20亿美元被动资金买入，企业持币ETH趋势获进一步强化。CLARITY法案因特朗普个人加密利益纠葛受到立法质疑，参议院全体投票悬而未决。BTC小幅反弹至$74,000，F&G从极度恐惧（23）回升至恐惧（28），情绪边际好转。
+    </div>
+  </div>
+
+  <!-- ④ Market Grid -->
+  <div class="market">
+    <div class="market-header">📊 市场行情（北京时间 09:00，WTI/纳指为周五收盘价）</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-name">BTC</div>
+        <div class="market-card-price">$74,085</div>
+        <div class="market-card-change up">▲ 0.21%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">ETH</div>
+        <div class="market-card-price">$2,029</div>
+        <div class="market-card-change up">▲ 0.08%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">恐贪指数</div>
+        <div class="market-card-price">28</div>
+        <div class="market-card-change neutral">恐惧</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">WTI 原油</div>
+        <div class="market-card-price">$87.20</div>
+        <div class="market-card-change down">▼ 2.00%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">黄金 XAUT</div>
+        <div class="market-card-price">$4,510</div>
+        <div class="market-card-change down">▼ 0.13%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">纳斯达克</div>
+        <div class="market-card-price">26,972</div>
+        <div class="market-card-change up">▲ 0.25%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Content -->
+  <div class="content">
+
+    <!-- 全球事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🌏</span>
+        <span class="section-title">全球事件</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/30 23:19 / 05/31 00:17 / 00:33 BJ</span>
+        </div>
+        <div class="news-title">美伊谈判再度生变：特朗普收紧协议条款、被困商船录音曝光、美国防部长保留军事打击权</div>
+        <div class="news-desc">凌晨多条快讯交织出现：美国防部长证实美伊谈判仍在进行但宣称美方保留重启军事打击选项；伊朗被困商船船员录音曝光，显示伊朗革命卫队以"海峡处于关闭状态"为由强行扣押船只，加剧双方对峙；深夜美媒报道称特朗普已向伊方提交经过修改的收紧版协议建议文本，其核心将伊朗的浓缩铀处置要求与制裁解除条件挂钩。停火协议能否在60天框架内落地仍有重大变数，油价在停火预期与军事威胁之间持续承压。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球事件·美伊地缘</span>
+          <span class="news-tag">特朗普·霍尔木兹·WTI $87.20</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485525" target="_blank">Odaily（05/30 23:19 国防部长）</a> · <a href="https://www.odaily.news/newsflash/485530" target="_blank">Odaily（05/31 00:17 商船录音）</a> · <a href="https://www.odaily.news/newsflash/485533" target="_blank">Odaily（05/31 00:33 特朗普收紧条款）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/30 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">法国法院裁定引渡：嫌疑人涉嫌挪用美国政府4600万美元加密资产，相关资金已全额追回</div>
+        <div class="news-desc">法国法院批准引渡John Daghita，该人涉嫌从美国政府相关账户挪用价值4600万美元的加密货币，执法机构已将相关资金全额追回。此案是加密资产执法领域的典型案例——链上可追溯性与跨境司法协作的结合，正在让过去被认为"匿名性强"的加密犯罪越来越难以逃脱法律追究。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">全球事件·执法引渡</span>
+          <span class="news-tag">法国·Daghita·$4600万追回</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-4d3" target="_blank">吴说区块链（05/30 22:07）</a></div>
+      </div>
+    </div>
+
+    <!-- 全球监管 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⚖️</span>
+        <span class="section-title">全球监管</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/30 22:17 BJ</span>
+        </div>
+        <div class="news-title">CLARITY法案立法受阻：特朗普加密个人利益遭国会质疑，参议院全体投票悬而未决</div>
+        <div class="news-desc">美国数字资产市场结构《CLARITY法案》推进再遇阻力——部分参议员及外部批评者指出，特朗普家族在加密货币领域持有重大经济利益（包括TRUMP meme币及World Liberty Financial稳定币项目），使其在推动加密立法时存在利益冲突，引发合规质疑；当前法案距参议院全体投票尚存在若干未解决条款，包括稳定币收益条款和道德回避问题。这是美国加密立法周期中的重要变数。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·加密立法</span>
+          <span class="news-tag">CLARITY法案·特朗普利益冲突·参议院</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485523" target="_blank">Odaily（05/30 22:17）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/30 22:38 / 05/31 08:07 BJ</span>
+        </div>
+        <div class="news-title">SEC起诉德克萨斯州男子：以AI交易机器人为幌子骗取1230万美元，仅3%用于实际交易</div>
+        <div class="news-desc">SEC起诉德克萨斯州居民Nathan Fuller，指控其通过Privvy Investments LLC运营诈骗计划，以"AI驱动的加密交易机器人"为噱头向约150名投资者募集约1230万美元，承诺21至45天内回报率达40%-100%；实际仅3%资金用于加密交易，其余被挪用个人消费（620万美元）及庞氏支付（550万美元）。SEC还指出Fuller使用AI生成的虚假声明欺骗投资者。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">全球监管·执法</span>
+          <span class="news-tag">SEC·Privvy·AI骗局·$1230万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485524" target="_blank">Odaily（05/30 22:38）</a> · <a href="https://www.chaincatcher.com/article/2268296" target="_blank">链捕手 ChainCatcher（05/31 08:07）</a></div>
+      </div>
+    </div>
+
+    <!-- 行业趋势 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🔥</span>
+        <span class="section-title">行业趋势</span>
+        <span class="section-count">3</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/30 22:07 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">Strategy将411枚BTC短暂转入Coinbase Prime后随即取回，Polymarket卖出概率飙升至84%</div>
+        <div class="news-desc">链上数据显示，Strategy（原MicroStrategy）于5月29日将411枚比特币（约3030万美元）转入Coinbase Prime——这是该公司近两年来首次向交易所存款，随即在数小时内原样取回；但这一操作已触发市场担忧，Polymarket上"Strategy在2026年12月31日前卖出任何BTC"的概率随即升至84%。背景是Saylor在5月5日Q1财报电话会上暗示可能出售少量BTC以支付优先股股息，并将其定性为"给市场接种疫苗"；公司目前持有约82万枚BTC，并运营多系列优先股（STRF/STRC等），年化股息率达11.5%，支付压力客观存在。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·企业持币</span>
+          <span class="news-tag">Strategy·411 BTC·Polymarket 84%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-4d3" target="_blank">吴说区块链（05/30 22:07）</a> · <a href="https://news.bitcoin.com/strategy-moves-411-btc-coinbase-prime-polymarket-sell-odds-2026/" target="_blank">Bitcoin.com（英）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/30 22:07 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">BitMine（BMNR）有望纳入Russell 1000大型股指数，预计触发逾20亿美元被动资金买入</div>
+        <div class="news-desc">FTSE Russell于5月22日发布的初步调整名单中，以太坊储备公司BitMine（BMNR，市值约101亿美元）被列为Russell 1000指数候选成员；经5月29日更新确认，此后将于6月26日收盘后正式纳入生效。Tom Lee等机构分析师指出，被动指数基金通常持有成分股市值约25%的资产，若按当前市值计算，BitMine纳入将带来约21.5亿美元的被动买入需求，与此同时SharpLink和Galaxy Digital也将被纳入Russell系列指数。企业持币ETH的机构叙事正从"小众配置"向"指数标配"演进。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·机构持币</span>
+          <span class="news-tag">BitMine·Russell 1000·$21.5亿被动流入</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-4d3" target="_blank">吴说区块链（05/30 22:07）</a> · <a href="https://abmedia.io/bitmine-ftse-russell-index" target="_blank">链新闻 ABMedia</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 00:42 / 08:43 BJ</span>
+        </div>
+        <div class="news-title">巨鲸向HyperLiquid存入312万美元USDC，68美元均价扫货4.59万枚HYPE</div>
+        <div class="news-desc">链上数据显示，一条大型鲸鱼账户于今日凌晨向HyperLiquid平台存入312万美元USDC，并以每枚约68.09美元的均价买入共计45,887枚HYPE代币。HYPE代币近期在ICE CEO背书、灰度ETF布局等多重机构叙事推动下受市场持续关注，链上筹码增加或为价格提供支撑。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">行业趋势·链上巨鲸</span>
+          <span class="news-tag">HyperLiquid·HYPE·$312万USDC</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485535" target="_blank">Odaily（05/31 00:42）</a> · <a href="https://www.chaincatcher.com/article/2268300" target="_blank">链捕手 ChainCatcher（05/31 08:43）</a></div>
+      </div>
+    </div>
+
+    <!-- 加密数据 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📈</span>
+        <span class="section-title">加密数据</span>
+        <span class="section-count">3</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 08:42 BJ</span>
+        </div>
+        <div class="news-title">分析师警告：BTC正站在关键价位，若有效跌破支撑或下探6.5万美元以下</div>
+        <div class="news-desc">多位链上分析师指出，比特币目前在$73,500–$74,500区间的关键支撑位整理，若未能有效守住该区间，则下一支撑可能在$65,000–$68,000区域；当前F&G仅28（恐惧），多头动能不足，短期市场情绪仍偏谨慎。需重点观察周末低流动性期间是否有较大卖盘出现。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·技术分析</span>
+          <span class="news-tag">BTC·关键支撑·$65,000目标</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268299" target="_blank">链捕手 ChainCatcher（05/31 08:42）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 08:30 BJ</span>
+        </div>
+        <div class="news-title">数据预警：ETH若跌破1924美元，主流CEX多单累计清算规模将达5.43亿美元</div>
+        <div class="news-desc">链上清算热力图数据显示，在主流中心化交易所（CEX）中，若以太坊现货价格有效跌破1924美元关键清算密集区，合约多单的累计强制平仓规模将达到约5.43亿美元，可能引发瀑布式清算效应。当前ETH报价约$2,029，距离该清算阈值约5.2%，需警惕大盘波动传导。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">加密数据·清算风险</span>
+          <span class="news-tag">ETH·$1,924清算阈值·$5.43亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2268298" target="_blank">链捕手 ChainCatcher（05/31 08:30）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 09:30 BJ</span>
+        </div>
+        <div class="news-title">F&G指数从极度恐惧（23）回升至恐惧（28），市场情绪出现边际修复</div>
+        <div class="news-desc">今日恐惧与贪婪指数（Fear &amp; Greed Index）读数为28，较昨日的23（极度恐惧）上升5点，回归"恐惧"区间，显示短期情绪出现边际好转但整体仍偏保守；BTC同步小幅反弹至$74,085（+0.21%），ETH微涨至$2,029（+0.08%）。5月整体F&G均值维持偏低，市场多空博弈情绪尚未出现实质性转向。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">加密数据·市场情绪</span>
+          <span class="news-tag">F&G 28·极度恐惧修复·BTC $74,085</span>
+        </div>
+        <div class="news-source">来源：<a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank">Alternative.me Fear &amp; Greed Index</a></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ⑥ Keywords -->
+  <div class="keywords">
+    <div class="keywords-header">📌 今日关键数字</div>
+    <div class="keywords-chips">
+      <span class="keyword-chip">BTC $74,085</span>
+      <span class="keyword-chip">ETH $2,029</span>
+      <span class="keyword-chip">F&G 28 恐惧（回升+5）</span>
+      <span class="keyword-chip">WTI $87.20（周五收盘）</span>
+      <span class="keyword-chip">黄金XAUT $4,510</span>
+      <span class="keyword-chip">纳斯达克 26,972（周五收盘）</span>
+      <span class="keyword-chip">Strategy 411 BTC 转出后取回</span>
+      <span class="keyword-chip">Polymarket MSTR卖币概率 84%</span>
+      <span class="keyword-chip">BitMine Russell 1000 $21.5亿被动流入</span>
+      <span class="keyword-chip">SEC Privvy AI骗局 $1230万</span>
+      <span class="keyword-chip">ETH清算阈值 $1,924</span>
+      <span class="keyword-chip">法国引渡 $4600万追回</span>
+      <span class="keyword-chip">HYPE巨鲸买入 $312万USDC</span>
+      <span class="keyword-chip">CLARITY法案 参议院投票待定</span>
+    </div>
+  </div>
+
+  <!-- ⑦ Footer -->
+  <div class="footer">
+    <div class="footer-brand">OKX · 加密热点早报 · 2026年5月31日</div>
+    <div class="footer-sources">
+      信息来源：Odaily 星球日报 · BlockBeats 律动 · Foresight News · 吴说区块链 · 链捕手 ChainCatcher · 金十数据 · 金色财经
+    </div>
+    <div class="footer-disclaimer">
+      本早报仅作信息汇总与参考，不构成任何投资建议。加密资产价格波动剧烈，投资有风险，入市需谨慎。所有资讯均来源于公开媒体报道，OKX不对内容准确性及完整性作出任何保证。
+    </div>
+  </div>
+
+</body>
+</html>
