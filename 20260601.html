@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKX · 加密热点早报 · 2026年6月1日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ① Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 20px 12px;
+      text-align: center;
+    }
+    .header-date-pill {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header-title .neon { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* ② Source Pills */
+    .sources {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #111;
+      scrollbar-width: none;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .source-pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ③ Banner */
+    .banner {
+      margin: 14px 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #080808;
+      border-radius: 0 8px 8px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.75;
+    }
+
+    /* ④ Market Grid */
+    .market {
+      margin: 0 16px 16px;
+    }
+    .market-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .market-card {
+      background: #0b0b0b;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 10px;
+    }
+    .market-card-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .market-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eee;
+      margin-bottom: 3px;
+      letter-spacing: -0.3px;
+    }
+    .market-card-change { font-size: 11px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #888; }
+
+    /* ⑤ Content */
+    .content { padding: 0 16px; }
+    .section { margin-bottom: 28px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-emoji { font-size: 15px; }
+    .section-title { font-size: 14px; font-weight: 600; color: #ddd; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* News Item */
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #0e0e0e;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.12);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.25);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.10);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.22);
+    }
+    .tag-priority.low {
+      background: rgba(80,80,80,0.12);
+      color: #666;
+      border: 1px solid rgba(80,80,80,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #eee;
+      line-height: 1.55;
+      margin-bottom: 7px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .news-tag {
+      font-size: 10px;
+      background: #0e0e0e;
+      border: 1px solid #1e1e1e;
+      color: #555;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .news-source { font-size: 11px; color: #3a3a3a; }
+    .news-source a { color: #4a4a4a; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+
+    /* ⑥ Keywords */
+    .keywords { margin: 20px 16px 24px; }
+    .keywords-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .keywords-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword-chip {
+      background: rgba(188,255,47,0.06);
+      border: 1px solid rgba(188,255,47,0.2);
+      color: #BCFF2F;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ⑦ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      border-top: 1px solid #111;
+    }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .footer-sources { font-size: 11px; color: #333; line-height: 1.8; margin-bottom: 10px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- ① Sticky Header -->
+  <div class="header">
+    <div class="header-date-pill">2026 · 06 · 01</div>
+    <div class="header-title">OKX 加密热点<span class="neon">早报</span></div>
+    <div class="header-sub">覆盖时间：5月31日 20:00 — 6月1日 09:00（北京时间）</div>
+  </div>
+
+  <!-- ② Source Pills -->
+  <div class="sources">
+    <div class="source-pill">Odaily 星球日报</div>
+    <div class="source-pill">BlockBeats 律动</div>
+    <div class="source-pill">Foresight News</div>
+    <div class="source-pill">吴说区块链</div>
+    <div class="source-pill">链捕手 ChainCatcher</div>
+    <div class="source-pill">金十数据</div>
+    <div class="source-pill">金色财经</div>
+  </div>
+
+  <!-- ③ Banner -->
+  <div class="banner">
+    <div class="banner-label">🟢 今日核心主线</div>
+    <div class="banner-text">
+      代币化金融提速、DEX衍生品崛起双主线共振：Binance预告今日发布新产品（社区普遍猜测为bStocks美股代币化服务），消息驱动BNB日内涨逾11%至712美元；Hyperliquid借HIP-4协议上线链下事件预测市场、挑战Polymarket腹地，叠加CFTC批准首份美国BTC永续合约（Kalshi BTCPERP），HYPE代币直线突破72美元历史高位，5倍杠杆巨鲸单仓浮盈超4600万美元。宏观面，鲍威尔卸任主席后以理事身份就美联储独立性再度发出警告，政治干预货币政策的担忧持续压制风险偏好。美光科技盘前突破1000美元历史新高，AI芯片牛市叙事延续。韩国散户五年最大借贷追涨，情绪过热信号值得警惕。
+    </div>
+  </div>
+
+  <!-- ④ Market Grid -->
+  <div class="market">
+    <div class="market-header">📊 市场行情（北京时间 09:00，WTI/纳指为周五收盘价）</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-name">BTC</div>
+        <div class="market-card-price">$73,688</div>
+        <div class="market-card-change up">▲ 0.05%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">ETH</div>
+        <div class="market-card-price">$2,011</div>
+        <div class="market-card-change up">▲ 0.03%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">恐贪指数</div>
+        <div class="market-card-price">29</div>
+        <div class="market-card-change neutral">恐惧</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">WTI 原油</div>
+        <div class="market-card-price">$87.20</div>
+        <div class="market-card-change down">▼ 2.00%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">黄金 XAUT</div>
+        <div class="market-card-price">$4,519</div>
+        <div class="market-card-change down">▼ 0.06%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">纳斯达克</div>
+        <div class="market-card-price">26,972</div>
+        <div class="market-card-change up">▲ 0.25%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Content -->
+  <div class="content">
+
+    <!-- 货币政策 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🏦</span>
+        <span class="section-title">货币政策</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/01 00:40 BJ</span>
+        </div>
+        <div class="news-title">鲍威尔卸任主席留任理事，就美联储独立性遭政治侵蚀发出严厉警告</div>
+        <div class="news-desc">美联储主席任期于2026年5月正式届满，鲍威尔选择以理事身份留任以捍卫货币政策独立性。他明确警告，特朗普政府通过司法渠道（DOJ大陪审团传票）对美联储高层施压，是以"华盛顿总部翻修"为名义实施政治化干预的预谋行动；若美联储独立性遭破坏，将触发市场对美元信誉长期锚定的根本性质疑。鲍威尔留任理事本身被市场解读为对下一任主席的政治防线示范，美债市场对利率政策独立性的定价敏感度明显上升。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">货币政策·独立性危机</span>
+          <span class="news-tag">鲍威尔·DOJ干预·美元信誉</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485644" target="_blank">Odaily（06/01 00:40）</a></div>
+      </div>
+    </div>
+
+    <!-- 全球事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🌏</span>
+        <span class="section-title">全球事件</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 00:03 / 00:04 BJ</span>
+        </div>
+        <div class="news-title">美伊停火协议继续博弈：特朗普表态协议不涉核武处置，伊朗否认总统辞职传闻</div>
+        <div class="news-desc">北京时间6月1日凌晨，特朗普再度就美伊核谈判发声，表明当前框架中不包含要求伊朗转移或销毁核武器能力的条款，但坚持伊方须停止铀浓缩活动；伊朗总统府同时否认外界流传的总统佩泽希齐扬辞职传闻，称局势稳定可控。停火协议走向持续牵动霍尔木兹海峡开放预期，是当前WTI原油价格维持低位的核心地缘压力来源。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">全球事件·美伊地缘</span>
+          <span class="news-tag">特朗普·霍尔木兹·WTI $87.20</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485634" target="_blank">Odaily（06/01 00:03 特朗普表态）</a> · <a href="https://www.odaily.news/newsflash/485635" target="_blank">Odaily（06/01 00:04 伊朗否认）</a></div>
+      </div>
+    </div>
+
+    <!-- 传统金融 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📈</span>
+        <span class="section-title">传统金融</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 00:45 BJ</span>
+        </div>
+        <div class="news-title">美光科技盘前突破1000美元再创历史新高，AI芯片存储需求牛市叙事延续</div>
+        <div class="news-desc">美光科技（MU）美股盘前价格率先突破1000美元关口，创历史新高，延续英伟达等AI芯片龙头的强势上涨主线。市场对AI数据中心高速内存（HBM）及大容量存储的长期需求预期持续推升估值。科技股整体高位运行背景下，风险资产偏好维持，对加密市场流动性形成边际正向溢出。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">传统金融·AI科技股</span>
+          <span class="news-tag">美光科技·MU·$1000历史新高</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485648" target="_blank">Odaily（06/01 00:45）</a></div>
+      </div>
+    </div>
+
+    <!-- 行业趋势 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🚀</span>
+        <span class="section-title">行业趋势</span>
+        <span class="section-count">4</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/31 BJ（预告；今日揭晓）</span>
+        </div>
+        <div class="news-title">Binance宣布今日发布新产品，社区解读为bStocks美股代币化服务，BNB日内涨逾11%至$712</div>
+        <div class="news-desc">Binance官方账号于5月29日以一张"干草堆"图片发布神秘预告（"New product reveal on June 1"），社区将Haystack读作"Hey Stock"，普遍猜测即将上线的是美股代币化交易服务"bStocks"。CZ转发提振市场情绪，BNB日内涨幅超11%，突破700美元关键阻力位至712美元，续写近期以来的上涨趋势。若bStocks正式落地，将成为继今年2月与Ondo Finance达成RWA合作后，Binance在链上金融赛道的最大战略部署，并将对传统券商格局形成重大冲击。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·RWA代币化</span>
+          <span class="news-tag">Binance·bStocks·BNB +11%·$712</span>
+        </div>
+        <div class="news-source">来源：<a href="https://en.coin-turk.com/bnb-jumps-11-percent-to-712-after-binance-announcement/" target="_blank">CoinTurk（BNB 11%涨幅）</a> · <a href="https://cryptoadventure.com/binance-june-1-teaser-fuels-stock-trading-speculation/" target="_blank">CryptoAdventure（预告分析）</a> · <a href="https://www.panewslab.com/en/articles/019e7de2-a48e-76bd-8cea-5e9a7fb97047" target="_blank">PANews（周预览）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 21:46 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">Hyperliquid推出HIP-4链下事件预测市场，首发CPI合约，直接挑战Polymarket</div>
+        <div class="news-desc">Hyperliquid通过HIP-4协议升级，将"结果合约"（Outcome Contracts）作为链上原生预测市场工具，由验证者节点自动获取链外数据并完成结算，无须第三方预言机。首批上线美国CPI宏观事件合约，6月10日BLS数据到期结算，初期录得逾605万合约成交量和约4000名独立交易者，占全球预测市场约0.7%份额。Hyperliquid此举明确对标Polymarket，从纯永续DEX向综合衍生品平台全面扩展，与HYPE历史高位新高相互印证。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·预测市场</span>
+          <span class="news-tag">HIP-4·Polymarket·605万合约</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/72c" target="_blank">吴说区块链（05/31 21:46）</a> · <a href="https://coinpedia.org/crypto-live-news/hyperliquid-launches-validator-backed-prediction-markets-for-real-world-events/" target="_blank">Coinpedia（详情）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 21:46 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">Base主网Azul升级上线：TEE+ZK双重证明，空区块减少99%，TVL突破44亿美元</div>
+        <div class="news-desc">Coinbase旗下L2网络Base完成Azul重大升级，引入可信执行环境（TEE）与零知识证明（ZK Multiproof）双重架构，在去中心化路径上迈出关键一步：空区块（无交易区块）数量骤降99%，网络资源利用率大幅提升。升级后Base网络TVL达44亿美元，在L2赛道中保持领先地位。Azul是Base通向Stage 2全去中心化路线图的核心里程碑，为以太坊L2生态安全边界的提升树立新标准。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·L2/ZK</span>
+          <span class="news-tag">Base·Azul·TEE+ZK·TVL $44亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/72c" target="_blank">吴说区块链（05/31 21:46）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority low">⚪ 情绪噪音</span>
+          <span class="tag-time">05/31 21:46 BJ（吴说报道，原事件5/25-26）</span>
+        </div>
+        <div class="news-title">Ondo Finance联合创始人兼CEO Nathan Allman意外离世（享年32岁），Ian De Bode接任CEO</div>
+        <div class="news-desc">加密RWA龙头Ondo Finance联合创始人兼CEO Nathan Allman于5月下旬意外离世，享年32岁。他曾就读于布朗大学，后加入高盛数字资产团队，于2021年共同创立Ondo Finance，带领团队将平台TVL扩展至约35亿美元，成为机构级链上国债领域的标志性项目。公司已任命前合伙人Ian De Bode接任CEO，ONDO代币在消息发酵后短期承压。RWA赛道叙事不受影响，Binance与Ondo的早期合作仍在延续。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">行业趋势·RWA</span>
+          <span class="news-tag">Ondo Finance·Nathan Allman·TVL $35亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/72c" target="_blank">吴说区块链（05/31 21:46 周回顾）</a> · <a href="https://cryptobriefing.com/ondo-finance-nathan-allman-passes-away/" target="_blank">CryptoBriefing（05/26）</a></div>
+      </div>
+    </div>
+
+    <!-- 链上事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⛓️</span>
+        <span class="section-title">链上事件</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 21:46 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">Socket安全团队披露大规模供应链攻击：npm/PyPI/Crates.io植入34个恶意包，专盗私钥助记词</div>
+        <div class="news-desc">Socket安全团队发现针对Web3开发者的大规模供应链攻击——恶意行为者在npm、PyPI和Crates.io三大主流包管理器中植入共34个伪装成合法工具的恶意包，专门针对加密钱包助记词、私钥及API凭证进行静默窃取。开发者应立即检查项目依赖项并更新至官方认证版本，避免使用未经审计的第三方包。此次事件规模和覆盖范围为近年来Web3开源生态中最值得关注的供应链安全事件之一。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·供应链攻击</span>
+          <span class="news-tag">Socket·34恶意包·私钥窃取风险</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/72c" target="_blank">吴说区块链（05/31 21:46）</a></div>
+      </div>
+    </div>
+
+    <!-- 加密数据 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📊</span>
+        <span class="section-title">加密数据</span>
+        <span class="section-count">2</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">05/31 23:55 / 06/01 00:44 BJ</span>
+        </div>
+        <div class="news-title">HYPE突破72美元创历史新高，5倍杠杆巨鲸单仓浮盈超4600万美元，两日内另有交易员10倍杠杆盈利逾140万美元</div>
+        <div class="news-desc">Hyperliquid原生代币HYPE突破72美元，刷新历史高位。多重利好叠加驱动：①CFTC于5月29日批准Kalshi BTCPERP，成为美国首批受监管BTC永续合约，为DEX永续赛道合规化背书；②Hyperliquid推出HIP-4预测市场，平台扩张预期强化；③Hyperliquid当前占据全球DEX永续合约70%以上市场份额，协议97%费用用于回购HYPE。链上巨鲸以5倍杠杆持有HYPE多单，浮盈超4600万美元；另有激进交易员两日内通过10倍杠杆多单盈利逾140万美元。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·DEX衍生品</span>
+          <span class="news-tag">HYPE $72历史新高·巨鲸浮盈$4600万·CFTC BTCPERP</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485633" target="_blank">Odaily（05/31 23:55 创ATH）</a> · <a href="https://www.odaily.news/newsflash/485647" target="_blank">Odaily（06/01 00:44 交易员盈利）</a> · <a href="https://www.cftc.gov/PressRoom/PressReleases/9240-26" target="_blank">CFTC.gov（BTCPERP批准）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 00:48 BJ</span>
+        </div>
+        <div class="news-title">韩国散户借贷规模出现五年最大增幅，加密追涨情绪过热信号升温</div>
+        <div class="news-desc">据Odaily凌晨报道，韩国个人贷款规模近期出现五年以来最大单月增幅，部分分析指出增量资金中相当比例流入加密货币及AI科技股市场。散户高杠杆借贷追涨历史上往往是阶段性市场顶部的先行信号，可与当前F&G指数仍处于恐惧区间（29）对照理解——机构资金仍保持谨慎，散户却开始加杠杆，两者情绪分化值得警惕。BTC当前仍在$73,000-$74,000区间震荡，尚未突破前高。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·市场情绪</span>
+          <span class="news-tag">韩国散户·五年最大借贷·F&G 29</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485649" target="_blank">Odaily（06/01 00:48）</a></div>
+      </div>
+    </div>
+
+    <!-- 观点研报 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">💡</span>
+        <span class="section-title">观点研报</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">05/31 21:46 BJ（吴说报道）</span>
+        </div>
+        <div class="news-title">Vitalik盛赞Interfold隐私协议：通过ZK证明实现链上投票完全私密，称其"实现了MACI的最初愿景"</div>
+        <div class="news-desc">以太坊创始人Vitalik Buterin公开盛赞Interfold隐私协议，称其通过零知识证明（ZK Proofs）实现了链上投票的完整私密性，是他多年前设想的MACI（Minimal Anti-Collusion Infrastructure，最小化反共谋基础设施）愿景的现实落地。Interfold允许投票者在链上证明"我参与了投票"却不泄露具体选项，在防止选票收购和协调攻击的同时保持完整的可验证性。Vitalik的背书是生态资金流向的重要风向标，隐私计算×治理赛道关注度有望提升。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">观点研报·Vitalik</span>
+          <span class="news-tag">Interfold·ZK·MACI·隐私治理</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/72c" target="_blank">吴说区块链（05/31 21:46）</a></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ⑥ Keywords -->
+  <div class="keywords">
+    <div class="keywords-header">📌 今日关键数字</div>
+    <div class="keywords-chips">
+      <span class="keyword-chip">BNB +11% → $712</span>
+      <span class="keyword-chip">HYPE历史新高 $72</span>
+      <span class="keyword-chip">巨鲸浮盈 $4,600万</span>
+      <span class="keyword-chip">CFTC BTCPERP 首批美国BTC永续</span>
+      <span class="keyword-chip">Hyperliquid DEX永续市占率 70%</span>
+      <span class="keyword-chip">Base TVL $44亿 Azul升级</span>
+      <span class="keyword-chip">Socket恶意包 34个</span>
+      <span class="keyword-chip">BTC $73,688 ▲0.05%</span>
+      <span class="keyword-chip">ETH $2,011 ▲0.03%</span>
+      <span class="keyword-chip">F&G 29 恐惧</span>
+      <span class="keyword-chip">美光科技 $1,000 历史新高</span>
+      <span class="keyword-chip">韩国个人贷款 五年最大增幅</span>
+      <span class="keyword-chip">Ondo Finance TVL $35亿</span>
+      <span class="keyword-chip">HIP-4首日成交 605万合约</span>
+    </div>
+  </div>
+
+  <!-- ⑦ Footer -->
+  <div class="footer">
+    <div class="footer-brand">OKX · 加密热点早报</div>
+    <div class="footer-sources">
+      信息来源：Odaily 星球日报 · 吴说区块链 · BlockBeats 律动 · Foresight News · 链捕手 ChainCatcher · 金十数据 · 金色财经
+    </div>
+    <div class="footer-disclaimer">
+      本早报仅供参考，不构成任何投资建议。加密资产价格波动剧烈，投资有风险，入市需谨慎。<br>
+      数据截止时间：2026年6月1日 09:00（北京时间）
+    </div>
+  </div>
+
+</body>
+</html>
