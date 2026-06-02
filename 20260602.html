@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKX · 加密热点早报 · 2026年6月2日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ① Sticky Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 20px 12px;
+      text-align: center;
+    }
+    .header-date-pill {
+      display: inline-block;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header-title .neon { color: #BCFF2F; }
+    .header-sub {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* ② Source Pills */
+    .sources {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      border-bottom: 1px solid #111;
+      scrollbar-width: none;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .source-pill {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ③ Banner */
+    .banner {
+      margin: 14px 16px;
+      padding: 14px 16px;
+      border-left: 3px solid #BCFF2F;
+      background: #080808;
+      border-radius: 0 8px 8px 0;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .banner-text {
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.75;
+    }
+
+    /* ④ Market Grid */
+    .market {
+      margin: 0 16px 16px;
+    }
+    .market-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .market-card {
+      background: #0b0b0b;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 10px;
+    }
+    .market-card-name {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .market-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eee;
+      margin-bottom: 3px;
+      letter-spacing: -0.3px;
+    }
+    .market-card-change { font-size: 11px; font-weight: 500; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #888; }
+
+    /* ⑤ Content */
+    .content { padding: 0 16px; }
+    .section { margin-bottom: 28px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-emoji { font-size: 15px; }
+    .section-title { font-size: 14px; font-weight: 600; color: #ddd; flex: 1; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* News Item */
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #0e0e0e;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .tag-priority {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+    .tag-priority.high {
+      background: rgba(255,59,59,0.12);
+      color: #FF3B3B;
+      border: 1px solid rgba(255,59,59,0.25);
+    }
+    .tag-priority.mid {
+      background: rgba(255,214,0,0.10);
+      color: #FFD600;
+      border: 1px solid rgba(255,214,0,0.22);
+    }
+    .tag-priority.low {
+      background: rgba(80,80,80,0.12);
+      color: #666;
+      border: 1px solid rgba(80,80,80,0.25);
+    }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #eee;
+      line-height: 1.55;
+      margin-bottom: 7px;
+    }
+    .news-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+    .news-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .news-tag {
+      font-size: 10px;
+      background: #0e0e0e;
+      border: 1px solid #1e1e1e;
+      color: #555;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .news-source { font-size: 11px; color: #3a3a3a; }
+    .news-source a { color: #4a4a4a; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+
+    /* ⑥ Keywords */
+    .keywords { margin: 20px 16px 24px; }
+    .keywords-header {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .keywords-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword-chip {
+      background: rgba(188,255,47,0.06);
+      border: 1px solid rgba(188,255,47,0.2);
+      color: #BCFF2F;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ⑦ Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      border-top: 1px solid #111;
+    }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .footer-sources { font-size: 11px; color: #333; line-height: 1.8; margin-bottom: 10px; }
+    .footer-disclaimer { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- ① Sticky Header -->
+  <div class="header">
+    <div class="header-date-pill">2026 · 06 · 02</div>
+    <div class="header-title">OKX 加密热点<span class="neon">早报</span></div>
+    <div class="header-sub">覆盖时间：6月1日 20:00 — 6月2日 09:00（北京时间）</div>
+  </div>
+
+  <!-- ② Source Pills -->
+  <div class="sources">
+    <div class="source-pill">Odaily 星球日报</div>
+    <div class="source-pill">BlockBeats 律动</div>
+    <div class="source-pill">Foresight News</div>
+    <div class="source-pill">吴说区块链</div>
+    <div class="source-pill">链捕手 ChainCatcher</div>
+    <div class="source-pill">金十数据</div>
+    <div class="source-pill">金色财经</div>
+  </div>
+
+  <!-- ③ Banner -->
+  <div class="banner">
+    <div class="banner-label">🟢 今日核心主线</div>
+    <div class="banner-text">
+      市场双线并进，链上流动性加速分化：HYPE在美国现货ETF双产品（21Shares THYP + Bitwise BHYP）持续净流入与链上巨量质押双引擎驱动下续创历史新高$75.8，与比特币ETF 5月净流出$24.3亿的持续萎缩形成强烈反差。DeFi借贷协议Radiant Capital正式宣告关闭，2024年$5000万黑客攻击后18个月资金追回告终，成为DeFi史上最具代表性的协议关闭事件。宏观层面，伊朗IRGC报复打击美军基地，WTI原油暴涨6.2%至$92.60，韩国KOSPI单日跌3%；纳斯达克因Nvidia RTX Spark发布收创历史新高27,087，与加密市场（F&G 23，极度恐惧）背向而行。Strategy披露近三年首次卖出32枚BTC，Saylor"永不卖出"叙事出现首次裂缝。
+    </div>
+  </div>
+
+  <!-- ④ Market Grid -->
+  <div class="market">
+    <div class="market-header">📊 市场行情（北京时间 09:00，WTI/纳指为周一收盘价）</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-card-name">BTC</div>
+        <div class="market-card-price">$71,279</div>
+        <div class="market-card-change up">▲ 0.21%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">ETH</div>
+        <div class="market-card-price">$1,994</div>
+        <div class="market-card-change up">▲ 1.27%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">恐贪指数</div>
+        <div class="market-card-price">23</div>
+        <div class="market-card-change down">极度恐惧</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">WTI 原油</div>
+        <div class="market-card-price">$92.60</div>
+        <div class="market-card-change up">▲ 6.2%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">黄金 XAUT</div>
+        <div class="market-card-price">$4,467</div>
+        <div class="market-card-change up">▲ 0.06%</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-name">纳斯达克</div>
+        <div class="market-card-price">27,087</div>
+        <div class="market-card-change up">▲ 0.42%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Content -->
+  <div class="content">
+
+    <!-- 全球事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🌏</span>
+        <span class="section-title">全球事件</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/01 21:10 BJ</span>
+        </div>
+        <div class="news-title">伊朗IRGC报复打击美军基地，科威特遭导弹无人机袭击，霍尔木兹封锁风险骤然升级</div>
+        <div class="news-desc">伊朗伊斯兰革命卫队（IRGC）宣布，在格尼斯岛（Sirik Island）美军通信塔遭袭后，IRGC航天部队战斗机随即锁定并摧毁该美军基地。与此同时，科威特多地防空系统拦截来袭导弹和无人机，科威特外交部谴责伊朗袭击其领土。消息引发霍尔木兹全面封锁恐慌，WTI原油盘中一度飙升逾8%至$94+，后因特朗普表态以色列-黎巴嫩停火谈判取得进展，涨幅部分收敛，仍收涨6.2%至$92.60。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球事件·美伊军事冲突</span>
+          <span class="news-tag">IRGC·霍尔木兹·WTI +6.2%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485983" target="_blank">Odaily（06/01 21:10）</a> · <a href="https://www.aljazeera.com/amp/news/2026/6/1/irans-irgc-launches-retaliatory-strike-after-us-attacks" target="_blank">Al Jazeera（详情）</a></div>
+      </div>
+    </div>
+
+    <!-- 传统金融 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📈</span>
+        <span class="section-title">传统金融</span>
+        <span class="section-count">5</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/01 收盘（周一）</span>
+        </div>
+        <div class="news-title">WTI原油暴涨6.2%至$92.60，盘中最高涨8.3%至$94+，为近年最大单日涨幅之一</div>
+        <div class="news-desc">受IRGC报复打击美军基地、伊朗暗示可能关闭霍尔木兹海峡等消息驱动，WTI原油期货从前收盘$87.20跳空高开，盘中触及$94+，涨幅一度超8%。随后特朗普表示以色列-黎巴嫩谈判向好并强调美伊谈判仍在推进，油价自高位部分回落，但仍以$92.60收盘，单日涨幅约6.2%。能源价格急升将推高通胀预期，对风险资产形成进一步压制，也是BTC随后承压的重要宏观背景。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">传统金融·大宗商品</span>
+          <span class="news-tag">WTI $92.60·霍尔木兹·通胀压力</span>
+        </div>
+        <div class="news-source">来源：<a href="https://fxdailyreport.com/wti-crude-oil-price-analysis-for-june-1-2026/" target="_blank">FX Daily Report（WTI分析）</a> · <a href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-monday-june-1-dow-sp-nasdaq-waver-225422932.html" target="_blank">Yahoo Finance（市场综述）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 收盘（Computex 2026）</span>
+        </div>
+        <div class="news-title">Nvidia于Computex 2026发布RTX Spark超级芯片，正式进军PC市场，股价涨6.3%，纳斯达克收创历史新高27,087</div>
+        <div class="news-desc">Nvidia CEO黄仁勋在台北Computex 2026发布RTX Spark——基于Arm架构的Windows超级芯片，集成20核CPU与Blackwell GPU（6144个CUDA核心），AI算力达1 PetaFLOP，统一内存最高128GB，正面挑战英特尔、AMD及苹果M系列。戴尔、惠普、华硕、联想、微软Surface等合作伙伴今秋上市。英特尔应声跌6%，AMD跌5%，Nvidia自身大涨6.3%，支撑纳斯达克综合指数以27,087点收创历史新高。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·季度级</span>
+          <span class="news-tag">传统金融·AI科技股</span>
+          <span class="news-tag">Nvidia·RTX Spark·纳斯达克ATH 27,087</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.techtimes.com/articles/317526/20260601/nvidia-rtx-spark-superchip-windows-pc-chip-full-cuda-stack-targets-dell-microsoft-this-fall.htm" target="_blank">TechTimes（RTX Spark详情）</a> · <a href="https://247wallst.com/investing/2026/06/01/live-nasdaq-composite-markets-open-june-with-caution-as-oil-spikes-and-nvidia-powers-tech-higher/" target="_blank">247 Wall St.（纳指综述）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 21:11 BJ</span>
+        </div>
+        <div class="news-title">谷歌拟完成800亿美元新一轮融资，巴菲特旗下伯克希尔跟投100亿美元</div>
+        <div class="news-desc">据报道，谷歌（Alphabet）正推进规模约800亿美元的新一轮融资，伯克希尔·哈撒韦计划跟投约100亿美元，成为本轮最大单一外部投资方之一。若交易落地，这将是科技行业近年来最大规模私募融资之一，也是巴菲特旗下公司罕见大手笔参与科技股私募。此举被解读为伯克希尔对AI基础设施赛道战略价值的认可，对科技股整体估值构成正向信号。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">传统金融·科技融资</span>
+          <span class="news-tag">谷歌·$800亿融资·伯克希尔$100亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485984" target="_blank">Odaily（06/01 21:11）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/02 00:13 BJ（韩市6月1日）</span>
+        </div>
+        <div class="news-title">中东地缘风险蔓延，韩国KOSPI指数单日大跌3%，亚太避险情绪升温</div>
+        <div class="news-desc">受中东地缘政治紧张升级、原油价格飙涨及全球避险情绪走高影响，韩国首尔综合股价指数（KOSPI）单日跌幅达3%，半导体及出口导向型企业受创尤为明显。亚太市场普遍承压，投资者转入黄金等避险资产，韩元兑美元同步走弱。KOSPI此次跌幅为近期单日最大，市场担忧中东局势持续恶化对全球供应链和大宗商品价格的连锁影响。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">传统金融·亚太股市</span>
+          <span class="news-tag">韩国KOSPI·-3%·地缘避险</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/486000" target="_blank">Odaily（06/02 00:13）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/02 01:01 BJ（美股6月1日收盘）</span>
+        </div>
+        <div class="news-title">美股收盘加密概念股全面下挫：Bullish跌7.99%，Coinbase跌约4%，MSTR跌6%</div>
+        <div class="news-desc">6月1日美股收盘，加密概念股全线走低。Bullish（CME集团持股的数字资产交易所）跌幅最大达7.99%；Coinbase（COIN）跌约4%，延续5月以来的调整态势；MicroStrategy（MSTR）在Strategy披露近三年首次出售BTC消息后跌约6%。加密概念股整体表现大幅弱于大盘，与纳斯达克当日收创历史新高27,087形成鲜明背离，反映加密行业特有的情绪下行压力持续积聚。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">传统金融·加密概念股</span>
+          <span class="news-tag">Bullish -7.99%·COIN -4%·MSTR -6%</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/486011" target="_blank">Odaily（06/02 01:01）</a></div>
+      </div>
+    </div>
+
+    <!-- 全球监管 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⚖️</span>
+        <span class="section-title">全球监管</span>
+        <span class="section-count">3</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/01 报道（5月累计数据）</span>
+        </div>
+        <div class="news-title">比特币现货ETF 5月净流出$24.3亿为年内最大月度流出，IBIT发生$12.6亿史上最大单笔大宗卖盘</div>
+        <div class="news-desc">美国比特币现货ETF 5月累计净流出24.3亿美元，为2026年以来最大月度流出，各产品5月15日至29日每个交易日均录得净流出。其中，5月26日有人在场外以$44.17/份（折价2.3%，损失约$2950万）大宗抛售价值$12.6亿的IBIT份额——NYDIG分析认为这是单一大型持仓方的快速撤离。BTC ETF总资产从5月14日$1077亿跌至5月29日$941亿，两周蒸发$136亿。BTC从5月中旬$80,000+高位跌至当前$71,000区域，机构减仓信号已明确显现。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·ETF资金流向</span>
+          <span class="news-tag">IBIT·$12.6亿大宗卖盘·5月净流出$24.3亿</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/05/31/a-massive-usd1-26-billion-sale-of-blackrock-s-ibit-was-likely-a-rapid-exit-by-a-large-investor" target="_blank">CoinDesk（IBIT大宗卖盘分析）</a> · <a href="https://www.cryptotimes.io/2026/06/01/bitcoin-starts-june-near-73k-after-massive-etf-selloff-whats-next/" target="_blank">CryptoTimes（6月展望）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/02 00:40 BJ</span>
+        </div>
+        <div class="news-title">美国HYPE现货ETF单日净流入$127.71万，21Shares THYP与Bitwise BHYP双产品逆势吸金</div>
+        <div class="news-desc">6月1日，美国已上市的HYPE现货ETF合计录得单日净流入约127.71万美元，其中21Shares THYP（Nasdaq，5月12日上市）与Bitwise BHYP（NYSE，5月15日上市）均保持净买入态势。ETF资金持续流入叠加链上巨量HYPE质押，成为推动HYPE突破$75.8创历史新高的双重驱动力。相较比特币和以太坊ETF当前的净流出困境，HYPE ETF逆势吸金，凸显资金对高贝塔Altcoin ETF产品的阶段性偏好。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">全球监管·Altcoin ETF</span>
+          <span class="news-tag">HYPE ETF·净流入$127.71万·THYP·BHYP</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/486007" target="_blank">Odaily（06/02 00:40）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 BJ</span>
+        </div>
+        <div class="news-title">Coinbase正式在印度上线直接卢比存取款，通过IMPS完成FIU-IND合规布局，进入$30亿市场</div>
+        <div class="news-desc">Coinbase于6月1日正式为印度用户开通IMPS（即时支付系统）直接卢比存取款通道，支持与现货交易、永续期货及Coinbase Advanced账户绑定，同时建立专属INR本地订单簿以提升流动性。Coinbase已于2025年在印度FIU-IND完成注册，此次上线是其在亚洲监管合规布局的关键落地。印度是全球加密货币采用率第一大国，2025年加密市场规模约$30亿，预计2034年增至$142亿，CAGR约18.7%。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">全球监管·亚洲合规</span>
+          <span class="news-tag">Coinbase·印度·INR·$30亿市场</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.banklesstimes.com/articles/2026/06/01/coinbase-expands-in-india-launches-direct-inr-bank-rails-for-crypto-traders/" target="_blank">BanklessTimes（06/01）</a> · <a href="https://coingape.com/coinbase-re-enters-india-with-direct-inr-deposits-trading-and-withdrawals/" target="_blank">CoinGape（详情）</a></div>
+      </div>
+    </div>
+
+    <!-- 链上事件 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">⛓️</span>
+        <span class="section-title">链上事件</span>
+        <span class="section-count">7</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/01 Form 8-K披露</span>
+        </div>
+        <div class="news-title">Strategy近三年来首次卖出BTC：5月26-31日卖出32枚（约$250万），MSTR盘前跌6%，Polymarket引发$1400万押注争议</div>
+        <div class="news-desc">Strategy（前MicroStrategy）通过6月1日提交的Form 8-K向SEC披露，公司于5月26日至31日间卖出32枚比特币，套现约250万美元，均价约$78,125，所得用于支付STRC优先股分红——这是Strategy自2022年12月以来首次出售比特币。公司当前仍持有843,706枚BTC（成本基础$638.7亿），本次卖出量仅占持仓0.0038%。但象征意义远超数额本身：MSTR盘前暴跌6%，Polymarket预测合约爆发$1400万押注争议，Michael Saylor"永不卖出"叙事首次出现裂缝。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">链上事件·机构减仓</span>
+          <span class="news-tag">Strategy·32 BTC·$250万·近三年首次卖出</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/06/01/strategy-sold-32-btc-for-usd2-5-million-in-late-may-filing-shows" target="_blank">CoinDesk（Form 8-K披露）</a> · <a href="https://www.coindesk.com/markets/2026/06/01/strategy-s-bitcoin-sale-sparks-a-usd14-million-crypto-betting-chaos-on-a-major-prediction-market" target="_blank">CoinDesk（Polymarket争议）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/02 00:04 BJ</span>
+        </div>
+        <div class="news-title">Radiant Capital正式宣布关闭运营：18个月黑客恢复失败，$5000万失窃资金无望追回，协议代码开源</div>
+        <div class="news-desc">跨链借贷协议Radiant Capital宣布正式关闭运营，原因是2024年10月遭受约5000万美元黑客攻击（攻击者利用恶意软件入侵至少3名核心开发者硬件钱包，在多签批准流程中实施攻击）后，历时18个月的资金追回努力宣告失败。DAO将正式解散，所有协议代码开源。Radiant Capital是Arbitrum和BNB Chain上主要借贷协议之一，此次关闭是DeFi行业迄今最大协议级清算事件之一，引发行业对多签安全性与硬件钱包供应链风险的深度反思。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">链上事件·DeFi协议关闭</span>
+          <span class="news-tag">Radiant Capital·$5000万失窃·18个月·代码开源</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485995" target="_blank">Odaily（06/02 00:04）</a> · <a href="https://www.cryptotimes.io/2026/06/02/radiant-capital-winds-down-after-18-months-without-fund-recovery/" target="_blank">CryptoTimes（详情）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/02 00:01 BJ · 00:28 BJ</span>
+        </div>
+        <div class="news-title">EDGE单日暴跌70%，edgeX项目方宣布启动调查，疑与空投机制争议及大户抛售相关</div>
+        <div class="news-desc">链上数据显示，EDGE代币（edgeX项目）今晨出现异常，短时暴跌逾70%，触发多个清算。edgeX官方随即发布公告称已注意到EDGE价格的异常波动，并宣布将启动专项调查。市场猜测此次崩盘可能与近期edgeX空投分配机制存在争议、大量早期持仓者获利了结抛售有关，但项目方未披露具体原因。EDGE暴跌也拖累相关生态代币连带下挫。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·代币闪崩</span>
+          <span class="news-tag">EDGE·-70%·edgeX·调查中</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485994" target="_blank">Odaily（06/02 00:01，暴跌）</a> · <a href="https://www.odaily.news/newsflash/486002" target="_blank">Odaily（06/02 00:28，调查公告）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/02 00:06 BJ</span>
+        </div>
+        <div class="news-title">链上巨鲸在Hyperliquid开立10倍杠杆ETH空单，规模约$4,400万</div>
+        <div class="news-desc">链上监测工具显示，某巨鲸地址于北京时间6月2日凌晨在去中心化永续交易所Hyperliquid开立以太坊（ETH）空单，合约规模约4400万美元，使用10倍杠杆，均价约$1,996。此举被解读为大型资金对ETH近期反弹持悲观态度，或为现货多头的套期保值操作。ETH同期从$1,994附近小幅上涨至$2,010区域，令该空头头寸处于初步浮亏状态。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">链上事件·巨鲸追踪</span>
+          <span class="news-tag">ETH空单·$4,400万·10倍杠杆·Hyperliquid</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485996" target="_blank">Odaily（06/02 00:06）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/01 21:36 BJ</span>
+        </div>
+        <div class="news-title">Sui主网v1.72升级引发三次连续宕机，验证者需手动重启节点，官方称用户资金无风险</div>
+        <div class="news-desc">Sui主网因v1.72版本升级中gas费用计算逻辑存在缺陷（balance函数中的gas费赤字问题），连续触发三次宕机事故，部分验证者节点停止产块，需通过手动重启各验证者节点的方式恢复正常运行。官方表示所有已确认的链上交易均有效，用户资金安全无虞，但事件再次暴露高吞吐量L1网络在大版本升级时的脆弱性。Sui此前于今年初亦发生过类似事故，连续宕机对项目声誉和机构采用进程构成一定负面影响。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">链上事件·网络宕机</span>
+          <span class="news-tag">Sui·v1.72·三次宕机·验证者重启</span>
+        </div>
+        <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/cca" target="_blank">吴说区块链（06/01 21:36）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority low">⚪ 情绪噪音</span>
+          <span class="tag-time">06/02 00:32 BJ</span>
+        </div>
+        <div class="news-title">链上ETH早期持有者再次抛售5,000枚ETH，约合$998万，持续减仓信号</div>
+        <div class="news-desc">链上监测显示，某以太坊早期持有者（OG）地址于6月2日凌晨再次卖出5,000枚ETH，约合998万美元。该地址此前已多次减仓，本次为近期连续抛售的延续。ETH OG大户减仓在当前市场情绪低迷背景下，对ETH价格构成一定心理压力，但因规模相对有限，短期实际冲击预计可控。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·日级</span>
+          <span class="news-tag">链上事件·大户减仓</span>
+          <span class="news-tag">ETH OG·5,000 ETH·约$998万</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/486003" target="_blank">Odaily（06/02 00:32）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority mid">🟡 中优级</span>
+          <span class="tag-time">06/02 01:07 BJ</span>
+        </div>
+        <div class="news-title">链上监测：近2.2亿美元被盗资金几乎全部清洗完毕，追索资产可能性大幅降低</div>
+        <div class="news-desc">据链上数据追踪工具显示，约2.2亿美元的被盗加密资产已几乎全部完成洗钱流程，资金经由多个混币器及跨链桥进行清洗后转移至法币套现渠道。此类大规模被盗资金清洗完成，意味着相关项目追索资产的可能性大幅降低。被盗资金的完整清洗通常历时数周至数月，此次完成清洗是相关黑客攻击事件的最终收尾，具有周期性风险警示意义。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·月级</span>
+          <span class="news-tag">链上事件·资金清洗</span>
+          <span class="news-tag">$2.2亿·混币器·清洗完毕</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/486012" target="_blank">Odaily（06/02 01:07）</a></div>
+      </div>
+    </div>
+
+    <!-- 加密数据 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📊</span>
+        <span class="section-title">加密数据</span>
+        <span class="section-count">1</span>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta">
+          <span class="tag-priority high">🔴 高价值</span>
+          <span class="tag-time">06/01 23:58 BJ</span>
+        </div>
+        <div class="news-title">HYPE突破$75.8续创历史新高，24小时涨约7.2%，ETF净流入+链上18万枚质押双引擎驱动</div>
+        <div class="news-desc">Hyperliquid原生代币HYPE于北京时间6月1日23:58突破$75.8，续创历史新高，24小时涨约7.2%，年内涨幅已超180%。驱动因素三重叠加：①美国HYPE现货ETF（21Shares THYP + Bitwise BHYP）单日合计净流入$127.71万；②某新建地址当日从Coinbase提取18万枚HYPE（约$1362万）随即全部质押，链上质押总量持续走高；③Hyperliquid HIP-4提案讨论升温，市场对协议未来收入分配机制预期向好。HYPE 2026年初约$27，截至本次高点$75.8，年内涨幅超180%。</div>
+        <div class="news-tags">
+          <span class="news-tag">影响周期·周级</span>
+          <span class="news-tag">加密数据·Altcoin ATH</span>
+          <span class="news-tag">HYPE·$75.8·ATH·+7.2%·ETF驱动·18万枚质押</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/485993" target="_blank">Odaily（06/01 23:58，ATH）</a> · <a href="https://www.odaily.news/newsflash/485991" target="_blank">Odaily（06/01 23:56，18万枚质押）</a></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ⑥ Keywords -->
+  <div class="keywords">
+    <div class="keywords-header">📌 今日关键数字</div>
+    <div class="keywords-chips">
+      <span class="keyword-chip">WTI +6.2% → $92.60</span>
+      <span class="keyword-chip">纳斯达克历史新高 27,087</span>
+      <span class="keyword-chip">Nvidia RTX Spark +6.3%</span>
+      <span class="keyword-chip">韩国KOSPI -3%</span>
+      <span class="keyword-chip">BTC ETF 5月净流出 $24.3亿</span>
+      <span class="keyword-chip">IBIT大宗卖盘 $12.6亿</span>
+      <span class="keyword-chip">Strategy 32 BTC → $250万（近3年首卖）</span>
+      <span class="keyword-chip">BTC $71,279 ▲0.21%</span>
+      <span class="keyword-chip">F&G 23 极度恐惧</span>
+      <span class="keyword-chip">HYPE ATH $75.8 ▲7.2%</span>
+      <span class="keyword-chip">HYPE ETF净流入 $127.71万</span>
+      <span class="keyword-chip">Radiant Capital关闭·$5000万失窃</span>
+      <span class="keyword-chip">EDGE -70%</span>
+      <span class="keyword-chip">巨鲸ETH空单·$4,400万·10倍杠杆</span>
+    </div>
+  </div>
+
+  <!-- ⑦ Footer -->
+  <div class="footer">
+    <div class="footer-brand">OKX · 加密热点早报</div>
+    <div class="footer-sources">
+      信息来源：Odaily 星球日报 · 吴说区块链 · BlockBeats 律动 · Foresight News · 链捕手 ChainCatcher · 金十数据 · 金色财经
+    </div>
+    <div class="footer-disclaimer">
+      本早报仅供参考，不构成任何投资建议。加密资产价格波动剧烈，投资有风险，入市需谨慎。<br>
+      数据截止时间：2026年6月2日 09:00（北京时间）
+    </div>
+  </div>
+
+</body>
+</html>
