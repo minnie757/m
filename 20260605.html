@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月5日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 05</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/04 20:00 — 06/05 09:00 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">金十数据</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    BTC跌至$63,224，F&amp;G维持极度恐慌12，美国比特币ETF连续13日净流出创历史新纪录、20天累计$54.2亿；Arthur Hayes清仓全部HYPE与NEAR并警告9月前市场或见顶，HYPE应声跌7%，6月6日992万代币解锁进一步施压。宏观面：美国初请失业金22.5万人超预期，与ADP强劲数据形成分歧，市场全力聚焦今日（6月5日）美东8:30发布的非农就业（NFP）数据。正面亮点：美财长贝森特确认战略BTC储备持仓32.84万枚以"审慎速度"推进，韩国KOSPI因全球芯片股崩跌5%触发熔断。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,224</div>
+      <div class="market-change down">▼ −1.05%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,754</div>
+      <div class="market-change down">▼ −1.32%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">12</div>
+      <div class="market-change down">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$94.30</div>
+      <div class="market-change down">▼ −0.94%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,439</div>
+      <div class="market-change down">▼ −0.34%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,831</div>
+      <div class="market-change down">▼ −0.09%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/04 20:30 BJ</span>
+      </div>
+      <div class="news-title">美国至5月30日当周初请失业金22.5万人：超预期21.3万，劳动力市场软化信号出现，NFP今日发布</div>
+      <div class="news-desc">美国当周初请失业金人数22.5万，高于预期21.3万，前值为18.9万，涨幅明显，显示就业市场出现轻微裂缝。这与周三ADP强劲数据（+12.2万）形成分歧，给市场留下"数据打架"的困惑。市场目光随即转向今日（6月5日）美东8:30发布的5月非农就业报告（NFP），经济学家预期新增约8.5-9.6万人，为全年首次大幅低于10万人的预期——直接影响美联储6月16-17日（新任主席凯文·沃什首次会议）的政策路径。目前市场隐含9月前降息概率约35%，NFP意外下行将大幅推升。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">宏观数据·初请失业金·NFP前瞻</span>
+        <span class="news-tag">初请失业金22.5万·NFP今日发布·沃什首次会议</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/5-30-225-213" target="_blank">吴说区块链（06/04 22:00 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/04 22:00 BJ</span>
+      </div>
+      <div class="news-title">美财长贝森特：战略比特币储备以"审慎速度"推进，美国当前持有32.84万枚BTC，同步催推《CLARITY法案》立法</div>
+      <div class="news-desc">美国财政部长斯科特·贝森特在参议院财政委员会听证时表示，特朗普政府正"以审慎速度"（deliberate speed）推进战略比特币储备建设，储备主体由刑事没收资产构成，当前合计持有约32.84万枚BTC（市值约$207亿）。他同时呼吁参议院在夏季休会前通过《数字资产市场结构清晰法案》（CLARITY Act），称此为维护美国金融竞争力的关键立法。储备扩张的"预算中性路径"正在探索中，尚无大规模主动购买计划。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·战略储备·美国立法</span>
+        <span class="news-tag">贝森特·战略BTC储备·32.84万BTC·CLARITY Act</span>
+      </div>
+      <div class="news-source">来源：<a href="https://decrypt.co/369993/us-bitcoin-reserve-moving-ahead-at-deliberate-speed-bessent" target="_blank">Decrypt（贝森特听证）</a> · <a href="https://wublockchain123.substack.com/p/5-30-225-213" target="_blank">吴说区块链（06/04 22:00 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/04 22:00 BJ</span>
+      </div>
+      <div class="news-title">加密犯罪重案：25岁加州加密商人Adam Iza认罪，涉以4100枚BTC（约$2.45亿）实施绑架勒索</div>
+      <div class="news-desc">25岁加州加密货币商人Adam Iza在联邦法院认罪，承认其在一起绑架勒索案中试图以4100枚比特币（约2.45亿美元）作为勒索目标。此案为目前披露的涉案加密资产金额最大的绑架案之一，凸显高净值加密持有者面临的人身安全与资产保管风险，也推动美国执法部门升级对加密相关暴力犯罪的打击优先级。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·加密犯罪·执法</span>
+        <span class="news-tag">Adam Iza·4100 BTC·$2.45亿·绑架勒索认罪</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/5-30-225-213" target="_blank">吴说区块链（06/04 22:00 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/05 00:16 BJ</span>
+      </div>
+      <div class="news-title">韩国KOSPI跌超5%触发熔断机制：三星跌6.5%，SK海力士跌超8%，纳指期货跌近1%</div>
+      <div class="news-desc">受博通盘后大跌与全球AI芯片情绪低迷传导，韩国KOSPI指数跌幅扩大至5%，韩国交易所因KOSPI 200期货下跌5%启动熔断机制，程序化交易暂停5分钟。芯片龙头三星电子跌6.5%，SK海力士跌超8%，显示全球半导体下行预期已充分反映。纳指期货同步下跌近1%，大型芯片股盘后普跌，市场担忧博通软件业务不及预期所揭示的科技支出放缓信号是否将蔓延更广。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·全球股市·半导体</span>
+        <span class="news-tag">韩国KOSPI熔断·三星-6.5%·SK海力士-8%·芯片股崩跌</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487090" target="_blank">Odaily（06/05 00:16 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/05 01:00 BJ</span>
+      </div>
+      <div class="news-title">美股6月4日收盘：AI概念股逆势大涨（Tempus AI+10%，道指+1.73%），纳指受芯片拖累小跌0.09%</div>
+      <div class="news-desc">美股6月4日收盘呈结构分化：医疗AI股Tempus AI涨超10%领涨，道指大涨1.73%，八成板块上涨；但纳指因半导体权重股受博通盘后大跌传导微跌0.09%（收26,831点）。AI应用层与芯片基础设施的裂痕进一步显现——应用层（AI医疗/AI软件）维持强势，而AI算力硬件（英伟达、博通、AMD等）受供需预期修正继续承压。原油方面，WTI跌约1%至$94.30，打破三连涨后出现技术性回调。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·美股·AI板块分化</span>
+        <span class="news-tag">道指+1.73%·纳指-0.09%·Tempus AI+10%·WTI$94.30</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487115" target="_blank">Odaily（06/05 01:00 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/04 23:49 BJ</span>
+      </div>
+      <div class="news-title">新建钱包从Coinbase提取17万枚HYPE（约$1090万），疑似机构大额建仓或转仓</div>
+      <div class="news-desc">链上监控平台Onchain Lens检测到，一个新建钱包在7小时前（约06/04 16:49 BJ）从Coinbase提取17万枚HYPE代币，价值约1090万美元。此时正值Arthur Hayes宣布清仓HYPE导致价格下跌7%后，该大额转移方向为流入（买入或转仓），引发市场对"抄底机构"入场的讨论。叠加6月6日即将到来的992万枚HYPE代币解锁，供需动态将是近日HYPE价格走势的核心驱动。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·巨鲸·HYPE转移</span>
+        <span class="news-tag">新钱包·Coinbase·17万HYPE·$1090万转移</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487080" target="_blank">Odaily（06/04 23:49 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/05 00:08 BJ</span>
+      </div>
+      <div class="news-title">Zcash修复可无限增发ZEC的重大漏洞：漏洞自2022年5月潜伏，因隐私池特性无法确认是否被利用</div>
+      <div class="news-desc">Zcash安全研究员Taylor Hornby披露，Zcash Orchard资金池（隐私交易层）存在伪造漏洞，攻击者理论上可在Zcash Orchard内秘密铸造无限数量的伪造ZEC。漏洞自2022年5月存在，团队已于2026年6月1日部署修复补丁。由于Zcash隐私交易的零知识证明特性，无法通过链上审计确认漏洞是否曾被恶意利用，相关代币供应量透明度问题引发关注。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·安全漏洞·隐私币</span>
+        <span class="news-tag">Zcash·Orchard无限增发漏洞·ZEC·已修复</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487085" target="_blank">Odaily（06/05 00:08 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/04 BJ</span>
+      </div>
+      <div class="news-title">Arthur Hayes清仓全部HYPE和NEAR：HYPE跌7%，警告9月前市场或见顶；6月6日992万枚解锁在即</div>
+      <div class="news-desc">BitMEX联创Arthur Hayes在X平台宣布已清仓全部HYPE和NEAR持仓，将于下周二发布研报《现实测试》（Reality Test）解释逻辑。Hayes此前持有HYPE的目标价为$150（至2026年8月），此次反转理由包括：美伊战争驱动能源通胀持续、AI领域三大超大型IPO压制风险资产流动性、特朗普中期选举前或转向反AI立场。HYPE跌7%，同时6月6日将有992万枚HYPE代币解锁，供给侧压力与KOL离场双重施压。此前Hayes刚以$10万赌注与Multicoin Capital联创押注HYPE未来走势，此次清仓极具戏剧性。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·KOL动向·HYPE叙事转折</span>
+        <span class="news-tag">Arthur Hayes·清仓HYPE+NEAR·HYPE跌7%·6/6解锁992万枚</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.banklesstimes.com/articles/2026/06/04/arthur-hayes-dumps-hype-and-near-warns-market-top-before-september/" target="_blank">BanklessTimes（06/04）</a> · <a href="https://www.cryptotimes.io/2026/06/04/arthur-hayes-dumps-entire-hype-and-near-stack-days-after-100k-charity-bet/" target="_blank">CryptoTimes（清仓详情）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/05 01:01 BJ</span>
+      </div>
+      <div class="news-title">Jane Street寻求新建数据中心，GPU算力从数万块扩展至数十万块（约10倍提升）</div>
+      <div class="news-desc">量化交易巨头Jane Street正积极寻求新建大型AI数据中心，目标将其GPU算力容量从目前的数万块扩大至数十万块，以支撑内部AI模型训练及量化策略优化。作为全球最大流动性提供商之一，Jane Street此举标志着传统金融机构对AI基础设施投资的进一步升级，也间接验证了AI基础设施需求仍处于长期扩张轨道，与加密/AI融合趋势高度吻合。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·AI基础设施·传统金融AI化</span>
+        <span class="news-tag">Jane Street·数据中心·GPU×10倍·AI训练算力</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487116" target="_blank">Odaily（06/05 01:01 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/04 22:00 BJ</span>
+      </div>
+      <div class="news-title">美国比特币ETF连续13日净流出创历史新纪录，过去20天累计流出规模达$54.2亿</div>
+      <div class="news-desc">Galaxy Research数据显示，美国比特币现货ETF已连续13个交易日实现净流出，打破历史最长连续净流出记录，过去20天累计流出规模达54.2亿美元，为该周期历史最高单阶段流出量。贝莱德IBIT、富达FBTC等主力产品均持续录得流出。各ETF合计持仓约850亿美元BTC，机构信心的阶段性动摇正推动BTC价格中枢下移，同时加剧场内对"战略持有者是否亦开始减仓"的担忧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">加密数据·ETF资金流·机构行为</span>
+        <span class="news-tag">BTC ETF·13连日流出创纪录·20天累计$54.2亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/5-30-225-213" target="_blank">吴说区块链（Galaxy Research 06/04 22:00 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/04 BJ</span>
+      </div>
+      <div class="news-title">BTC本周累计跌逾13%（加密史上最大ETF周度流出），Schwab分析师：主因为AI股+大型IPO资金轮动</div>
+      <div class="news-desc">BTC本周价格从约$73,000跌至$63,224，周度跌幅逾13%，为本轮周期内最大单周回撤之一。嘉信理财分析师Jim Ferraioli指出，此次下跌并非源于对Strategy减仓的担忧，而是反映更广泛的资金轮动：大量资金从加密市场流出，流入AI科技股及当前季度计划IPO的多家AI科技巨头。值得关注的是，Strategy（原MicroStrategy）于5月26-31日首次出售32枚BTC（约$250万），以支付优先股股息，公司持仓未实现亏损扩大至逾$108亿，mNAV跌至0.82，"加密财库公司"融资模式面临考验。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">加密数据·价格·资金轮动</span>
+        <span class="news-tag">BTC周跌13%·AI轮动·Strategy首售BTC·$250万·mNAV 0.82</span>
+      </div>
+      <div class="news-source">来源：<a href="https://beincrypto.com/microstrategy-saylor-bitcoin-sell-off-ai-capital-rotation/" target="_blank">BeInCrypto（Schwab分析 06/04）</a> · <a href="https://blockchainreporter.net/bitcoin-price-today-btc-at-63649-as-selloff-hits-13-on-the-week-1-5b-liquidated/" target="_blank">BlockchainReporter（BTC价格）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/05 01:00 BJ</span>
+      </div>
+      <div class="news-title">加密波动率指数BVIX回落至46.46（日降2.8%），美元兑日元逼近160关口施压亚洲风险资产</div>
+      <div class="news-desc">加密波动率指数BVIX报46.46，日内下跌2.8%，显示短期隐含波动率小幅收敛，但绝对水平仍处高位，市场尚未脱离恐慌状态。外汇方面，美元兑日元汇率逼近160关口（报159.96），美元强势反映市场对"高利率维持更长时间"的定价，美元的持续升值将进一步压制以美元计价的风险资产（包括BTC和黄金）的上行空间。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·波动率·外汇</span>
+        <span class="news-tag">BVIX 46.46·美元兑日元159.96·160关口压力</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487114" target="_blank">Odaily（06/05 01:00 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/04 22:00 BJ</span>
+      </div>
+      <div class="news-title">Bankless联创David Hoffman：当前市场"远未及FTX暴雷时期"，BTC守住200周均线为关键信号</div>
+      <div class="news-desc">Bankless联合创始人David Hoffman发文称，尽管市场情绪极度悲观，但当前环境的"毒性程度远未达到FTX等黑天鹅暴雷时期"。他指出BTC价格仍守在200周移动平均线上方，这是历次熊市底部的关键技术支撑，意味着本轮下跌更可能是宏观驱动的中周期回调，而非系统性崩溃。他同时提示：加密基本面（链上采用、ETF持仓规模、合规基础设施建设）较2022年有根本性改善，短期恐慌不代表长期叙事破裂。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">观点研报·市场底部判断·KOL</span>
+        <span class="news-tag">David Hoffman·Bankless·BTC 200周均线·非FTX级底部</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/5-30-225-213" target="_blank">吴说区块链（06/04 22:00 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC $63,224 ▼1.05%（F&amp;G 12极度恐慌）</span>
+      <span class="keyword">ETH $1,754 ▼1.32%</span>
+      <span class="keyword">BTC ETF 13连日净流出（历史新纪录）</span>
+      <span class="keyword">20天累计流出 $54.2亿</span>
+      <span class="keyword">BTC周跌逾13%（本周期最大单周跌幅之一）</span>
+      <span class="keyword">Arthur Hayes清仓HYPE+NEAR（HYPE跌7%）</span>
+      <span class="keyword">HYPE 6月6日解锁 992万枚代币</span>
+      <span class="keyword">韩国KOSPI触发熔断（跌5%）</span>
+      <span class="keyword">战略BTC储备 328,372 BTC（约$207亿）</span>
+      <span class="keyword">初请失业金 22.5万（超预期21.3万）</span>
+      <span class="keyword">NFP今日发布·预期新增~9万（美东8:30）</span>
+      <span class="keyword">美元兑日元 159.96（逼近160关口）</span>
+      <span class="keyword">Jane Street GPU算力扩至数十万块（×10）</span>
+      <span class="keyword">WTI $94.30 ▼0.94%（三连涨后回调）</span>
+      <span class="keyword">Strategy mNAV 0.82（首售32 BTC支付股息）</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · 金十数据 · BlockBeats · 金色财经</div>
+  <div>行情数据：OKX API（北京时间 09:00）· CoinGlass · Alternative.me · TradingView</div>
+  <div style="margin-top:6px;color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产价格波动剧烈，投资需自行评估风险。</div>
+  <div style="color:#1a1a1a;margin-top:4px;">© 2026 · 06 · 05 · OKX Research</div>
+</div>
+
+</body>
+</html>
