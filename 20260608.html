@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月8日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 08</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/07 20:00 — 06/08 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    伊朗于周日向以色列发射弹道导弹，打破4月停火协议，引发全球风险资产集体承压：日韩股市开盘遭遇熔断级别暴跌（KOSPI触发熔断跌超8%、日经跌近4%）；BTC在极度恐惧（F&amp;G=8）背景下逆势反弹至$63,500，多条链上巨鲸同步加速抄底。链上侦探ZachXBT公开指控Arthur Hayes于15天内系统性用HYPE/ZEC/NEAR/WLD四个代币制造退出流动性，WLD推荐不足24小时即清仓引发行业信任危机。Radiant Capital宣布正式关闭，Telegram创始人Durov宣布TON代币更名为Gram。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,527</div>
+      <div class="market-change up">▲ +2.30%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,698</div>
+      <div class="market-change up">▲ +4.16%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">8</div>
+      <div class="market-change down">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$92.82</div>
+      <div class="market-change up">▲ +2.0%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,452</div>
+      <div class="market-change up">▲ +0.3%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,709</div>
+      <div class="market-change down">▼ -4.18%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/08 07:46 BJ</span>
+      </div>
+      <div class="news-title">伊朗向以色列发射弹道导弹，4月停火协议破裂边缘；以色列同意暂不报复</div>
+      <div class="news-desc">伊朗在以色列空袭贝鲁特南郊（真主党据点）后发起还击，发射多枚弹道导弹，为自2026年4月停火协议以来首次军事行动；以色列铁穹/箭系统成功拦截大部分来袭导弹。伊朗高级军事顾问威胁称，若以色列进一步升级，将封锁曼德海峡（全球第二关键石油通道）。特朗普斡旋后，美国官员称以色列"勉强同意"暂不反击，并表示与伊朗协议"仍在推进"。此事件触发全球风险资产承压，WTI原油期货大幅跳升。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·地缘政治</span>
+        <span class="news-tag">伊朗·以色列·曼德海峡·油价</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487860" target="_blank">Odaily（以色列暂不报复 07:46）</a> · <a href="https://www.odaily.news/newsflash/487884" target="_blank">Odaily（伊朗军事准备 09:02）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📉</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/08 08:10 BJ</span>
+      </div>
+      <div class="news-title">韩国KOSPI开盘暴跌8.37%触发熔断，三星/SK海力士各跌10%；跌幅最终收窄至4.4%</div>
+      <div class="news-desc">韩国综合股指（KOSPI）周一开盘即告暴跌逾8.37%，触发韩国交易所（KRX）自动熔断机制，交易暂停20分钟。三星电子与SK海力士盘中各跌逾10%，为AI芯片题材全球回调传导至韩国市场的集中体现。本次暴跌直接导火索为美股上周五（Nasdaq -4.18%）Broadcom AI芯片指引不及预期引发的科技股链式崩跌。市场恢复交易后跌幅逐步收窄，收盘报-4.4%。韩元（KRW）同步大幅走弱。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·股市</span>
+        <span class="news-tag">KOSPI熔断·三星·SK海力士·AI芯片回调</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487864" target="_blank">Odaily（KOSPI熔断 08:10）</a> · <a href="https://www.odaily.news/newsflash/487876" target="_blank">Odaily（恢复至-4.4% 08:39）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/08 08:21 BJ</span>
+      </div>
+      <div class="news-title">日经225触及64,000点关口，日内跌幅达3.89%；AI科技股全线受压</div>
+      <div class="news-desc">日本Nikkei 225指数在同期KOSPI熔断消息冲击下进一步下探，触及64,000点整数关口，日内最大跌幅达3.89%。软银集团（重仓AI相关资产）领跌，瑞萨电子、东京电子等半导体设备商跌幅均超6%。日经此轮跌势延续美股上周五Broadcom引发的AI板块杀估值逻辑，叠加伊朗-以色列地缘风险的新增压力，亚洲市场流动性全面趋紧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·股市</span>
+        <span class="news-tag">日经225·64000·软银·AI杀估值</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487869" target="_blank">Odaily（触64,000点 08:21）</a> · <a href="https://www.odaily.news/newsflash/487866" target="_blank">Odaily（日内跌3% 08:10）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/08 08:17 BJ</span>
+      </div>
+      <div class="news-title">纽约法官暂停39万个休眠比特币钱包所有权诉讼，7月14日举行听证会</div>
+      <div class="news-desc">纽约高等法院法官Kathy J. King签署命令，暂停一起涉及39,069个休眠比特币钱包所有权的诉讼，并定于7月14日就法庭之友简报举行听证。原告化名"Noah Doe"及两家空壳公司依据纽约州遗失财产法（Abandoned Property Law）提出索赔。律师Ian R. Cohen反驳称：区块链地址对全世界永久可见，不属于"遗失"范畴；持有者因安全顾虑无法提取属于被动限制而非主动放弃，不符合遗失财产认定标准。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·法律</span>
+        <span class="news-tag">休眠BTC·纽约遗失财产法·39000钱包</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487867" target="_blank">Odaily（法官裁定 08:17）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/08 08:06 BJ</span>
+      </div>
+      <div class="news-title">以太坊OG已回购5.73万枚ETH+361枚WBTC，总价值约1.46亿美元，操作仍在进行</div>
+      <div class="news-desc">据Onchain Lens监测，该以太坊OG巨鲸（钱包0xc1b…740e / 0xB4d…186a）此前以均价$2,106卖出6万枚ETH（价值$1.22亿），此轮下跌后以均价$1,577买回5.73万枚ETH（$9,041万），并以均价$63,120买入361枚WBTC（$2,278万），合计回购$1.46亿。链上显示大额操作仍在持续，被市场解读为高信度的抄底行为。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·巨鲸</span>
+        <span class="news-tag">ETH OG·回购1.46亿·均价1577</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487863" target="_blank">Odaily（Onchain Lens监测 08:06）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/08 07:22 BJ</span>
+      </div>
+      <div class="news-title">某巨鲸斥资5,985万美元建仓WBTC+ETH，链上仍备有逾7,000万美元稳定币</div>
+      <div class="news-desc">链上数据显示，一知名巨鲸地址以约5,985万美元大手笔建仓WBTC与ETH，建仓完成后链上仍保有超7,000万美元稳定币，被市场解读为尚有后续加仓空间。该地址操作时间点与多个ETH做多信号同步，叠加ETH当日涨幅+4.16%，机构级抄底行为迹象明显。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·巨鲸</span>
+        <span class="news-tag">WBTC+ETH·5985万·后续7000万稳定币</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487858" target="_blank">Odaily（链上监测 07:22）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/08 07:05 BJ</span>
+      </div>
+      <div class="news-title">某地址时隔6个月再度建仓，抵押ETH借贷做多3,000万美元wstETH</div>
+      <div class="news-desc">据链上分析师Ai姨监测，某地址抵押10,570枚ETH后借出1,600万枚USDS稳定币，以均价$2,028买入14,730枚wstETH（流动性质押ETH），并进一步借出1,400万USDS进行二次加仓，总做多规模约3,000万美元。该地址上次建仓为六个月前，重入信号被解读为对ETH后市强烈看多。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·杠杆多单</span>
+        <span class="news-tag">ETH·wstETH·借贷3000万·均价2028</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487856" target="_blank">Odaily（Ai姨监测 07:05）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/07 21:55 BJ</span>
+      </div>
+      <div class="news-title">Radiant Capital宣布正式关闭：2024年10月被盗5,000万美元后无法恢复运营</div>
+      <div class="news-desc">借贷协议Radiant Capital在其DAO投票通过后正式宣布关闭，称"DAO已无可持续运营路径"并将启动逐步关闭流程。2024年10月，Radiant遭受跨链攻击，损失超5,000万美元；此后深陷流动性危机，存款规模从高峰期近10亿美元骤降至不足5,000万美元。此次关闭是2026年大量DeFi协议关闭潮的组成部分（据统计2026年内已有逾40个协议关闭）。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·协议关闭</span>
+        <span class="news-tag">Radiant Capital·被盗5000万·DeFi关闭潮</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/feb" target="_blank">吴说区块链（精选资讯 21:55）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/07 21:55 BJ</span>
+      </div>
+      <div class="news-title">Telegram创始人Durov宣布：TON区块链原生代币将更名为"Gram"</div>
+      <div class="news-desc">Pavel Durov在Telegram频道宣布TON生态品牌升级，原生代币"TON"将更名为"Gram"，区块链网络名称保持不变。"Gram"名称有历史渊源：系Telegram 2018年首次ICO（SAFT协议，融资约17亿美元）时的计划代币名，后因美国SEC禁令被迫放弃；此次复用被市场视为品牌强化信号。TON生态目前月活用户约9,000万，与Telegram深度绑定。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·品牌升级</span>
+        <span class="news-tag">TON·Gram更名·Durov·Telegram生态</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/feb" target="_blank">吴说区块链（精选资讯 21:55）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/07 21:55 BJ</span>
+      </div>
+      <div class="news-title">Hyperliquid永续合约市场份额升至6.63%创历史新高，相较Binance比例已达14.4%</div>
+      <div class="news-desc">5月永续合约交易量统计显示，去中心化衍生品平台Hyperliquid占全球中心化交易所永续合约总量比例升至6.63%，创历史新高。相较行业龙头Binance约46%的份额，Hyperliquid对比比例已达14.4%，去中心化衍生品对CEX的渗透率持续提升。背景：HYPE代币上月创下$75.63 ATH后持续高位震荡，协议日交易量屡创纪录。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·DeFi衍生品</span>
+        <span class="news-tag">Hyperliquid·6.63%份额ATH·永续合约</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/feb" target="_blank">吴说区块链（精选资讯 21:55）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/08 08:25 BJ</span>
+      </div>
+      <div class="news-title">黄仁勋：英伟达今年从SK海力士采购芯片数量将大幅增长</div>
+      <div class="news-desc">英伟达CEO Jensen Huang公开表示，2026年英伟达从SK海力士采购AI芯片的数量将较去年"大幅增长"，进一步强化SK海力士作为HBM（高带宽内存）核心供应商地位。此表态在SK海力士因KOSPI熔断重挫10%的同一日发出，形成强烈对比，被认为是对长期供应链合作关系的信心背书。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·AI芯片</span>
+        <span class="news-tag">英伟达·SK海力士·HBM·供应链</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487870" target="_blank">Odaily（黄仁勋表态 08:25）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/08 07:47 BJ</span>
+      </div>
+      <div class="news-title">James Wynn BTC空单爆仓，过去6天全部利润归零</div>
+      <div class="news-desc">据Onchain Lens监测，知名链上交易员James Wynn在持有ETH和BTC多头头寸并完成获利了结后，转向做空BTC，随即遭遇空单爆仓，6天内累积的全部收益一次性亏损殆尽。Wynn此前凭借多单在本轮下跌行情中的逆向操作曾引发广泛关注；此次做空失败在BTC日内反弹+2.30%背景下尤为典型，或提示极度悲观情绪（F&amp;G=8）下的短空陷阱。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·杠杆爆仓</span>
+        <span class="news-tag">James Wynn·BTC空单爆仓·情绪极端</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487861" target="_blank">Odaily（Onchain Lens监测 07:47）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/08 08:57 BJ</span>
+      </div>
+      <div class="news-title">ZachXBT指控Arthur Hayes将粉丝作为"退出流动性"：15天内4代币系统性建仓后套现</div>
+      <div class="news-desc">链上侦探ZachXBT公开记录并指控BitMEX联创Arthur Hayes存在系统性"喊单-套现"行为：5月22日Hayes宣称HYPE、ZEC、NEAR为"Holy Trinity"并建仓；6月4-5日全数清仓；6月4日再发文力推WLD（称将"熔化人脸"），不足24小时后完成清仓。ZachXBT总结：Hayes在15天内借助其庞大粉丝群系统性制造4个代币的退出流动性。Hayes回应称"以合理价格卖给了愿意买的人"。此事件引发加密圈对KOL操纵市场行为的广泛讨论。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">观点研报·KOL操纵</span>
+        <span class="news-tag">ZachXBT·Arthur Hayes·HYPE/ZEC/NEAR/WLD·退出流动性</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/487882" target="_blank">Odaily（ZachXBT指控 08:57）</a> · <a href="https://www.cryptotimes.io/2026/06/06/zachxbt-slams-arthur-hayes-for-dumping-wld-within-24-hours-of-hyping-it/" target="_blank">CryptoTimes（详细记录）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/07 21:55 BJ</span>
+      </div>
+      <div class="news-title">Glassnode联创：BTC概率底部区间$4.6-5.4万，极端情景防守底线$3.5-4万</div>
+      <div class="news-desc">Glassnode联合创始人Rafael在社交媒体表示，基于链上持仓成本分布模型，"较高概率的BTC底部区域位于$46,000-54,000"，该区间集中了大量长期持有者的持仓成本；极端情景下（类似2022年LUNA崩盘级别的冲击）防守底线约为$35,000-40,000。当前BTC周跌约13%，F&amp;G指数为8（极度恐慌），模型信号偏向"吸筹区间"。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·链上分析</span>
+        <span class="news-tag">Glassnode·BTC底部46K-54K·极端情景35K</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/feb" target="_blank">吴说区块链（精选资讯 21:55）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$63,527</span> (+2.30%)</span>
+      <span class="keyword">ETH <span class="knum">$1,698</span> (+4.16%)</span>
+      <span class="keyword">F&amp;G <span class="knum">8</span> | 极度恐慌</span>
+      <span class="keyword">Nasdaq <span class="knum">25,709</span> (-4.18% 周五)</span>
+      <span class="keyword">KOSPI 触发熔断 <span class="knum">-8.37%</span> → 最终-4.4%</span>
+      <span class="keyword">日经225 <span class="knum">-3.89%</span> 触64,000点</span>
+      <span class="keyword">WTI <span class="knum">$92.82</span> (伊朗风险溢价)</span>
+      <span class="keyword">伊朗向以色列发射弹道导弹（4月停火后首次）</span>
+      <span class="keyword">ZachXBT：Hayes <span class="knum">15天</span> 4代币退出（HYPE/ZEC/NEAR/WLD）</span>
+      <span class="keyword">WLD推荐 <span class="knum">&lt;24小时</span> 清仓</span>
+      <span class="keyword">以太坊OG回购 <span class="knum">$1.46亿</span> ETH+WBTC</span>
+      <span class="keyword">Radiant Capital 正式关闭（被盗<span class="knum">$5000万</span>）</span>
+      <span class="keyword">TON代币更名为 <span class="knum">Gram</span>（Durov宣布）</span>
+      <span class="keyword">Hyperliquid永续份额 <span class="knum">6.63%</span> ATH</span>
+      <span class="keyword">Glassnode BTC底部区间 <span class="knum">$4.6-5.4万</span></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>信息来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>免责声明：本早报仅供信息参考，不构成任何投资建议。数字资产价格波动风险极大，请谨慎评估。</div>
+  <div style="color:#222;margin-top:8px;">2026 · 06 · 08</div>
+</div>
+
+</body>
+</html>
