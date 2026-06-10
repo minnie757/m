@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月10日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 10</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/09 20:00 — 06/10 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美伊军事冲突升级至直接对抗：美国CENTCOM于今晨完成对伊朗防空系统的报复性精确打击（针对霍尔木兹海峡附近雷达与地控站），伊朗IRGC随即以无人机反击美第五舰队巴林基地，并扬言"更严厉回应"，两国进入正面军事交火阶段。恐惧贪婪指数维持极度恐惧（9），黄金跌破$4,200创三月新低，纳指-0.97%，AI概念股普跌。宏观焦点转向今日20:30发布的5月CPI——预期YoY+4.2%为三年来最高，若超预期将进一步打压美联储降息预期。结构性支撑方面，日本三大银行联合稳定币计划宣布，SpaceX IPO需求超$2,500亿超额认购4倍，XRP/SOL ETF持续净流入，为加密市场下行中提供长期叙事锚点。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$61,891</div>
+      <div class="market-change up">▲ +1.24%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,644</div>
+      <div class="market-change up">▲ +0.47%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">9</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$89.38</div>
+      <div class="market-change down">▼ -2.12%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,188</div>
+      <div class="market-change down">▼ -1.65%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,679</div>
+      <div class="market-change down">▼ -0.97%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/10 05:00 BJ</span>
+      </div>
+      <div class="news-title">美国CENTCOM完成对伊朗报复性精确打击，伊朗IRGC以无人机反击美第五舰队巴林基地</div>
+      <div class="news-desc">美国中央司令部（CENTCOM）于北京时间6月10日凌晨5时，以"自卫反击"名义对伊朗实施精确打击，摧毁霍尔木兹海峡附近多处防空雷达站与地面控制站。此前，美军AH-64阿帕奇直升机于6月9日（北京时间07:33）在霍尔木兹海峡附近被伊朗击落，两名飞行员安全获救。当晚，伊朗IRGC海军随即以无人机反击美国第五舰队驻巴林基地（2:30 AM当地时间），巴林防空系统击落3枚导弹及多架无人机。CENTCOM于北京时间09:01公告"已完成对伊朗的打击"，美伊两国由代理人冲突升级至正面直接军事交火。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·美伊直接军事对抗</span>
+        <span class="news-tag">CENTCOM打击·霍尔木兹·第五舰队巴林·阿帕奇被击落</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488776" target="_blank">Odaily（CENTCOM公告 09:01）</a> · <a href="https://www.cnn.com/2026/06/09/world/live-news/iran-war-trump-israel" target="_blank">CNN直播更新</a> · <a href="https://www.aljazeera.com/video/newsfeed/2026/6/9/us-military-launches-self-defence-strikes-targeting-iran" target="_blank">Al Jazeera</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/10 08:51 BJ</span>
+      </div>
+      <div class="news-title">伊朗革命卫队：冲突仍在持续，若美国继续敌对行动将采取"更严厉的回应"</div>
+      <div class="news-desc">伊朗伊斯兰革命卫队（IRGC）就美国打击行动发表声明，明确表示军事冲突仍处于持续状态，并警告若美国继续实施敌对行动，伊方将升级至"更严厉的回应"。自2月28日美伊战事爆发以来，特朗普已超过30次表示"即将达成协议"，但双方实际行动持续背离。霍尔木兹海峡通航状态仍受威胁，市场对能源供应中断风险保持高度警惕。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·冲突升级·地缘风险</span>
+        <span class="news-tag">IRGC威胁·霍尔木兹封锁·特朗普30次喊停火</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488771" target="_blank">Odaily（IRGC声明 08:51）</a> · <a href="https://www.odaily.news/newsflash/488758" target="_blank">Odaily（特朗普30+次表态 01:14）</a></div>
+    </div>
+  </div>
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/10 20:30 BJ（待发布）</span>
+      </div>
+      <div class="news-title">5月CPI今日20:30发布，预期YoY+4.2%创三年新高；超预期将强化美联储"高利率更久"路径</div>
+      <div class="news-desc">美国劳工统计局将于北京时间今日20:30发布5月CPI数据。市场中位数预测：整体CPI同比+4.2%（若实现将为2023年4月以来最高），环比+0.5%；核心CPI同比+2.9%，环比+0.3%。4月CPI同比已达3.8%，伊朗战事带来的持续能源与供应链压力或令5月数据进一步走高。若超预期，将直接压制美联储降息时间表，加剧美元走强，对加密及风险资产构成短期利空。本窗口时段内该数据尚未公布，为当日最大宏观悬念。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·CPI·美联储路径</span>
+        <span class="news-tag">5月CPI·预期+4.2%·核心+2.9%·20:30 BJ发布</span>
+      </div>
+      <div class="news-source">来源：<a href="https://insight.factset.com/consumer-price-index-cpi-for-may-2026-is-projected-to-rise-4.2-year-over-year" target="_blank">FactSet CPI预测</a> · <a href="https://www.kiplinger.com/investing/economy/cpi-report-may-2026-what-to-expect" target="_blank">Kiplinger</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/10 08:46 BJ</span>
+      </div>
+      <div class="news-title">现货黄金跌破$4,200美元，创近3个月新低；避险情绪降温盖过伊朗冲突支撑</div>
+      <div class="news-desc">受美伊停火外交谈判短暂进展预期及美元走强影响，现货黄金价格跌破$4,200美元关口，创近3个月以来新低，XAUT当前约$4,188。值得注意的是，尽管美伊军事冲突持续升级，黄金的避险买盘反而受压——市场普遍解读为谈判进展优先于风险溢价，同时美联储高利率预期推高实际利率，压制黄金吸引力。WTI原油同步下跌-2.12%至$89.38，若霍尔木兹解封预期落空，油价存在反弹风险。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·贵金属·能源</span>
+        <span class="news-tag">黄金$4,188·三月新低·WTI $89.38 -2.12%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488768" target="_blank">Odaily（黄金跌破$4,200 08:46）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📉</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/10 08:46 BJ</span>
+      </div>
+      <div class="news-title">SpaceX IPO投资者需求超$2,500亿，约4倍超额认购；6月12日SPCX正式登陆纳斯达克</div>
+      <div class="news-desc">SpaceX IPO路演宣告完成，机构投资者认购需求超过$2,500亿美元，约为拟融资规模的4倍超额认购，定价本周进行，预计6月12日以代码SPCX正式登陆纳斯达克。此前披露，SpaceX金库持有18,712枚BTC，本次上市将成为迄今规模最大的企业BTC持有主体之一。强劲的IPO需求反映出传统资本市场对科技/新兴企业的高风险偏好仍存。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·IPO·科技股</span>
+        <span class="news-tag">SpaceX·SPCX·超额4倍·$2,500亿需求·18,712 BTC金库</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488767" target="_blank">Odaily（SpaceX IPO 08:46）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/10 09:01 BJ</span>
+      </div>
+      <div class="news-title">美股6月9日收盘：纳斯达克-0.97%至25,679，AI概念股普跌，超微电脑(SMCI)-7.62%</div>
+      <div class="news-desc">美国股市6月9日收盘，纳斯达克综合指数下跌0.97%收于25,679点，S&amp;P500小幅下跌0.26%收于7,387点。AI概念股全线承压：超微电脑（SMCI）领跌-7.62%，此前超微因服务器供应链争议已持续受压。大盘跌幅在特朗普暗示对伊新轮打击后盘中放大，随后出现部分回补。AI芯片板块与纳指同步走弱，市场对美伊局势影响全球供应链的担忧正向科技估值端传导。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·美股·AI板块</span>
+        <span class="news-tag">纳斯达克25,679·S&amp;P500 7,387·SMCI -7.62%·AI概念普跌</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488775" target="_blank">Odaily（美股收盘 09:01）</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026" target="_blank">TheStreet（市场日报）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/09 21:48 BJ</span>
+      </div>
+      <div class="news-title">日本三菱UFJ、三井住友、瑞穗三大银行将于2026财年内联合发行稳定币</div>
+      <div class="news-desc">吴说区块链报道，日本三大商业银行——三菱UFJ金融集团（MUFG）、三井住友金融集团（SMBC）、瑞穗金融集团——已就联合发行稳定币达成内部共识，计划在2026财年（即截至2027年3月31日）内完成发行。联合稳定币将依托日本金融厅稳定币监管框架，面向企业客户提供跨境结算与支付服务，或对现有Circle/Tether格局产生重大竞争冲击，也标志着全球最大传统银行集团之一正式进入稳定币赛道。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·稳定币·传统金融入场</span>
+        <span class="news-tag">日本三大银行·MUFG·SMBC·瑞穗·联合稳定币·2026财年</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/2026-adc" target="_blank">吴说区块链（精选资讯 21:48）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/10 01:06 BJ</span>
+      </div>
+      <div class="news-title">美国加密税收法案制定仍存分歧，众议院议员就征税范围与合规负担提出质疑</div>
+      <div class="news-desc">据报道，美国国会众议院部分议员对正在制定中的加密货币税收法案提出质疑，主要争议集中于：DeFi链上交易的应税事件认定、NFT及稳定币利得的税率差异，以及对中小开发者的合规负担。CLARITY Act已于上月获200+企业联署支持，但税收框架与主体立法进度的不匹配或导致整体立法推进出现时间差。当前市场预期2026年Q3完成关键立法里程碑的概率正在下降。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·美国税法·合规</span>
+        <span class="news-tag">加密税法·众议院·DeFi应税·合规负担·立法进度</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488754" target="_blank">Odaily（税法进展 01:06）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/10 01:12 BJ</span>
+      </div>
+      <div class="news-title">Kalshi拟要求部分预测市场参与者披露雇主信息，以防范内幕交易风险</div>
+      <div class="news-desc">美国预测市场平台Kalshi宣布将推出新合规措施，要求特定类别的参与者（尤其是高频交易者和大额持仓账户）披露雇主信息，以排查潜在的内幕信息套利行为。此举被视为预测市场监管成熟化的信号，也体现出SEC/CFTC对预测市场合法性审查加强的压力传导。加密预测市场（如Polymarket等）或将面临类似合规要求的参考压力。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球监管·预测市场·合规</span>
+        <span class="news-tag">Kalshi·雇主披露·内幕交易·预测市场监管</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488757" target="_blank">Odaily（Kalshi合规 01:12）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/09 21:48 BJ</span>
+      </div>
+      <div class="news-title">Humanity Protocol攻击损失更新至$3,600万，较初报上调$500万；攻击者已实现利润约$3,100万</div>
+      <div class="news-desc">吴说区块链最新报道，Humanity Protocol遭受的智能合约漏洞攻击，总损失已从初期公告的$3,100万上调至$3,600万美元，其中攻击者已通过链上兑换实现约$3,100万净利润，资产追回可能性极低。H代币自事件发生以来累计跌幅超90%，协议治理与安全审计机制受到社区强烈质疑。此次事件再次凸显链上协议安全的薄弱环节，尤其是在身份验证类协议的资金托管逻辑方面。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·安全漏洞·资产损失</span>
+        <span class="news-tag">Humanity Protocol·损失$3,600万·利润$3,100万·H代币-90%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/2026-adc" target="_blank">吴说区块链（安全更新 21:48）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/10 08:28 BJ</span>
+      </div>
+      <div class="news-title">某地址从Coinbase提取10万枚HYPE代币（约$590万），疑为大户进行场外建仓或出金操作</div>
+      <div class="news-desc">链上监控数据显示，一个地址在北京时间今日08:28前后从Coinbase提取了10万枚HYPE代币，总价值约$590万美元。HYPE是Hyperliquid协议的原生代币，本报道窗口内其现货市场深度变化值得关注。此类大额提取通常预示长期持有意图（减少托管风险）或场外大宗交易，但在当前极度恐惧的市场情绪下，出金可能性同样存在。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·巨鲸动向·大额转移</span>
+        <span class="news-tag">HYPE·10万枚·$590万·Coinbase提取·Hyperliquid</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488762" target="_blank">Odaily（链上监控 08:28）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/10 01:16 BJ</span>
+      </div>
+      <div class="news-title">美国XRP现货ETF单日净流入$744万，SOL现货ETF净流入$79.4万；多资产ETF市场持续扩容</div>
+      <div class="news-desc">美国XRP现货ETF6月9日录得单日总净流入744.34万美元，SOL现货ETF同日净流入79.43万美元，两者均实现连续净流入。在BTC价格维持低位、恐惧情绪主导的市场环境下，机构资金对XRP和SOL的ETF申购维持稳定，表明长线配置需求与短期价格波动的解耦趋势。XRP相对强势或与Ripple监管判决落地的预期修复相关。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·现货ETF·机构资金</span>
+        <span class="news-tag">XRP ETF净流入$744万·SOL ETF净流入$79.4万·机构配置</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488759" target="_blank">Odaily（XRP ETF数据 01:16）</a> · <a href="https://www.odaily.news/newsflash/488779" target="_blank">Odaily（SOL ETF数据 09:01）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/10 08:49 BJ</span>
+      </div>
+      <div class="news-title">Bitmine单日增持10万枚ETH（约$1.63亿），机构以太坊国库持仓规模持续扩张</div>
+      <div class="news-desc">以太坊机构持仓先锋Bitmine于6月9日单日增持10万枚ETH，合约价值约$1.63亿美元，累计ETH持仓规模持续扩大。此前已知Bitmine总持仓达554万枚ETH，占ETH总供应量约4.59%（市值约$96亿），为全球单一机构最大ETH持有方。在ETH价格处于$1,644的年内低位区间时持续买入，显示其对ETH长期价值的强烈信心，也与SpaceX BTC金库策略形成跨资产"机构冷储"范式对照。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·机构建仓·ETH国库</span>
+        <span class="news-tag">Bitmine·增持10万ETH·$1.63亿·总持仓554万枚·4.59%供应量</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/488769" target="_blank">Odaily（Bitmine增持 08:49）</a> · <a href="https://www.chaincatcher.com/article/2270388" target="_blank">ChainCatcher（09:16）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/09 21:48 BJ</span>
+      </div>
+      <div class="news-title">Wintermute：BTC尚未见底，但长期资金已开始逢低布局；关键支撑区间$50,000-59,000</div>
+      <div class="news-desc">做市商巨头Wintermute发布市场研判：当前BTC价格尚不具备底部确认信号，短期仍有下探可能；但观察到大型机构/家族办公室等长期资本已开始在$59,000以下价位分批建仓，表明$50,000-59,000区间为关键支撑带。Wintermute认为，在美伊局势及CPI数据明朗化之前，市场情绪将维持结构性压制，但极度恐惧（F&G=9）所对应的"机构贪婪底"正在悄然形成。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·市场分析·机构视角</span>
+        <span class="news-tag">Wintermute·BTC支撑$50K-$59K·长期资金建仓·F&amp;G底</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/2026-adc" target="_blank">吴说区块链（市场研判 21:48）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/09 21:48 BJ</span>
+      </div>
+      <div class="news-title">Arthur Hayes：AI泡沫若在利率高压下破裂，加密市场将面临短期资金抽离的连带冲击</div>
+      <div class="news-desc">BitMEX创始人Arthur Hayes在最新观点中警告，当前AI概念股（Nvidia、SMCI等）的高估值建立在"美联储将快速降息"的预期之上。若5月CPI超预期导致降息推迟，AI泡沫与高成长股估值将面临重估压力——资金将从加密市场抽离以补充股票保证金或赎回基金，形成"AI泡沫破裂→加密流动性收缩"的传导路径。Hayes提示：SMCI今日已跌7.62%，为上述传导链首次可见信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·风险预警·跨市场传导</span>
+        <span class="news-tag">Arthur Hayes·AI泡沫·加密流动性·SMCI·利率传导</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/2026-adc" target="_blank">吴说区块链（Hayes观点 21:48）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">美伊直接军事交火 正式开启</span>
+      <span class="keyword">CENTCOM打击 霍尔木兹雷达站</span>
+      <span class="keyword">IRGC无人机 攻击第五舰队巴林</span>
+      <span class="keyword">5月CPI预期 <span class="knum">+4.2%</span> YoY 三年高</span>
+      <span class="keyword">F&amp;G指数 <span class="knum">9</span> · 极度恐惧</span>
+      <span class="keyword">BTC <span class="knum">$61,891</span> ▲+1.24%</span>
+      <span class="keyword">黄金(XAUT) <span class="knum">$4,188</span> 三月新低</span>
+      <span class="keyword">WTI原油 <span class="knum">$89.38</span> ▼-2.12%</span>
+      <span class="keyword">纳斯达克 <span class="knum">25,679</span> ▼-0.97%</span>
+      <span class="keyword">SMCI ▼<span class="knum">-7.62%</span></span>
+      <span class="keyword">SpaceX IPO <span class="knum">超额4倍</span> · 需求$2,500亿</span>
+      <span class="keyword">日本三大银行 联合稳定币 <span class="knum">2026财年</span></span>
+      <span class="keyword">XRP ETF净流入 <span class="knum">$744万</span>/日</span>
+      <span class="keyword">Bitmine增持 <span class="knum">10万ETH</span> · $1.63亿</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月10日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· Yahoo Finance（纳斯达克 / WTI）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
