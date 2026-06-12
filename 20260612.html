@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月12日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 12</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/11 20:00 — 06/12 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美伊战争宣告结束——特朗普于今日08:04 BJ宣布"战争已经结束"，核武协议"概念上"已达成，取消最后一轮打击计划，协议有望本周末在欧洲正式签署。韩国KOSPI暴涨8%触发历史首次向上熔断、三星电子涨超11%，WTI跌至$87.71(-3.78%)重新定价地缘溢价。宏观层面出现双重"滞胀"冲击：5月PPI MoM+1.1%大幅超预期(+0.7%)，初请失业金22.9万创2月来新高；XAUT反升+2.29%，映射通胀忧虑主导。监管重磅：日本众议院通过加密税改法案，资本利得税从55%降至20%，开放ETF通道，全球最大零售加密市场迎来立法里程碑；SEC同步提议撤销Reg NMS第611条，为代币化股票扫清障碍。SpaceX SPCX今日正式登陆纳斯达克。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,487</div>
+      <div class="market-change up">▲ +1.17%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,669</div>
+      <div class="market-change up">▲ +1.44%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">12</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$87.71</div>
+      <div class="market-change down">▼ -3.78%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,176</div>
+      <div class="market-change up">▲ +2.29%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,236</div>
+      <div class="market-change up">▲ +0.26%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/12 08:04 BJ</span>
+      </div>
+      <div class="news-title">特朗普宣布"美伊战争已经结束"，核武协议"概念上"达成，取消最后一轮打击，有望本周末欧洲签署</div>
+      <div class="news-desc">美国总统特朗普在白宫发表声明：与伊朗的战争"已经结束"，双方已就核武器问题"概念上"达成协议，并亲自取消了原计划于6月11日夜间对伊朗实施的最后一轮空袭。协议框架包括：伊朗核浓缩物料全部移除、铀浓缩基础设施拆除、限制导弹产能、停止向地区代理武装提供支持；美方将解除部分制裁，并重开霍尔木兹海峡通行。协议文件将于未来几日完成定稿，正式签署或在欧洲进行。伊朗官方尚未公开确认，外交部表示"海峡目前仍然关闭"。此次和平宣告终结了自2026年2月28日开始历时约105天的美伊直接军事冲突。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·美伊停火·核武协议</span>
+        <span class="news-tag">战争结束·核设施拆除·霍尔木兹重开·105天冲突终止</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489628" target="_blank">Odaily（特朗普宣告 08:04）</a> · <a href="https://www.npr.org/2026/06/11/nx-s1-5854970/trump-iran-peace-deal-cancel-strikes" target="_blank">NPR（停打击详情）</a> · <a href="https://www.timesofisrael.com/liveblog-june-11-2026/" target="_blank">Times of Israel</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/12 05:24 BJ</span>
+      </div>
+      <div class="news-title">特朗普称美伊协议"最后定稿"有望本周末签署，以色列披露条款；伊朗外交部：霍尔木兹海峡目前仍然关闭</div>
+      <div class="news-desc">在宣布停战前数小时，特朗普表示协议已进入"最后定稿阶段"，并拒绝设定截止日期（"设了你们又会说我没按期完成"）。以色列总理内塔尼亚胡随后披露协议关键条款：伊朗将限制弹道导弹生产、停止向黎巴嫩真主党/哈马斯等地区武装提供支持，以换取美国承诺的部分制裁豁免。值得注意的是，尽管美伊宣布和谈进入尾声，伊朗外交部仍正式声明"霍尔木兹海峡目前依然关闭"，协议落地与海峡重开的时间差仍有不确定性，油价短期反应或比预期温和。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球事件·外交谈判·停火条款</span>
+        <span class="news-tag">协议最后定稿·以色列条款披露·伊朗导弹限制·霍尔木兹仍关闭</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489600" target="_blank">Odaily（协议定稿 05:34）</a> · <a href="https://www.odaily.news/newsflash/489599" target="_blank">Odaily（以色列条款 05:33）</a> · <a href="https://www.odaily.news/newsflash/489597" target="_blank">Odaily（伊朗外交部声明 05:24）</a></div>
+    </div>
+  </div>
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/11 21:55 BJ</span>
+      </div>
+      <div class="news-title">美国5月PPI月率+1.1%大幅超预期+0.7%（年率+6.5%），初请失业金22.9万创2026年2月来新高；滞胀信号双重强化</div>
+      <div class="news-desc">美国6月11日公布双重宏观数据：①5月生产者价格指数（PPI）月率+1.1%，大幅超出预期+0.7%（前值+0.7%）；年率+6.5%（预期+6.4%），为2022年以来最高水平。上游价格压力显示，CPI三年新高或仅是开始，而非顶峰。② 截至6月6日当周初请失业金人数22.9万（预期21.9万，前值22.5万），创2026年2月7日以来最高，就业市场开始松动。"高通胀+高失业"的滞胀组合信号形成——在美联储12月加息概率已升至63%的背景下，这一数据组合进一步收窄其降息空间，加密市场估值体系所依赖的"宽松预期"正在被系统性拆解。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">宏观数据·PPI·就业市场·滞胀</span>
+        <span class="news-tag">PPI +1.1%月率·+6.5%年率·初请22.9万·滞胀双信号</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/6-6-229-219" target="_blank">吴说区块链（精选资讯 21:55）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/12 08:31 BJ</span>
+      </div>
+      <div class="news-title">KOSPI暴涨8%触发历史首次向上熔断，三星+11.43%；WTI油价收跌3.78%至$87.71，伊朗和平重定价溢价</div>
+      <div class="news-desc">受特朗普宣布美伊停战的消息推动，韩国KOSPI指数开盘大涨6.69%，随后涨幅扩大至8%，触发韩国交易所历史上首次"向上熔断"（KOSPI 200期货上涨5%同步触发），三星电子单日飙涨11.43%；日经225指数同步高开超3%。这与6月8日KOSPI -8%触发向下熔断的灾难性走势完全反转，仅历时4天即完成V型反弹。WTI原油方面，由于伊朗停火预期消化了大部分地缘风险溢价，6月11日美市收盘WTI大跌3.78%至$87.71/桶（此前$91.15），进一步确认市场对霍尔木兹重开的乐观定价先行于正式协议。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·亚洲股市·能源</span>
+        <span class="news-tag">KOSPI +8%向上熔断·三星+11.43%·WTI $87.71 -3.78%·V型反转4天</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489642" target="_blank">Odaily（KOSPI熔断 08:31）</a> · <a href="https://www.odaily.news/newsflash/489635" target="_blank">Odaily（期货熔断 08:11）</a> · <a href="https://www.cnbc.com/2026/06/11/brent-wti-oil-prices-us-launches-fresh-strikes-on-iran-.html" target="_blank">CNBC（WTI油价）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/11 收盘</span>
+      </div>
+      <div class="news-title">美股6月11日收盘：纳斯达克+0.26%至25,236，三大指数小幅回升；SpaceX SPCX今日正式登陆纳斯达克</div>
+      <div class="news-desc">6月11日美股收盘：纳斯达克+0.26%（25,236），S&amp;P500+0.21%（7,282），道琼斯+0.45%，在前日-1.98%大跌后小幅企稳；PPI超预期压制盘初涨幅，但伊朗停战消息盘后持续扩散带动期货走强。与此同时，SpaceX（代码：SPCX）今日（6月12日）正式登陆纳斯达克，IPO定价$135/股，融资$750亿，估值$1.77万亿，成为史上规模最大科技IPO，超越Saudi Aramco 2019年$354亿的记录；SpaceX金库持有18,712枚BTC，上市后将成为全球最大BTC储备上市公司之一。美元兑日元触及160.168（+0.2%），日本央行政策与税改预期共振驱动日元持续走弱。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·美股·IPO</span>
+        <span class="news-tag">纳指25,236 +0.26%·SpaceX SPCX上市·$135/股·$750亿·18,712 BTC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-11-2026" target="_blank">TheStreet（市场日报）</a> · <a href="https://www.odaily.news/newsflash/489652" target="_blank">Odaily（USD/JPY 09:01）</a> · <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261960721-spacex-ipo-is-live-at-135-bull-base-and-bear-cases-for-the-first-90-days-tradingkey" target="_blank">TradingKey（SPCX上市）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/11 21:55 BJ</span>
+      </div>
+      <div class="news-title">日本众议院通过里程碑加密货币法案：资本利得税从55%降至20%，加密列为金融资产，开放ETF通道</div>
+      <div class="news-desc">日本众议院于6月11日正式通过加密货币综合改革法案，核心内容包括：①将加密资产资本利得税从现行最高55%（综合课税）降至20%统一税率（与股票/债券一致）；②将加密资产正式列为《金融商品交易法》管辖的金融资产，开放加密货币挂钩ETF设立通道；③强化内幕交易禁令（与上市公司相同标准），无执照交易所最高刑期从3年提高至10年。法案现进入参议院审议，预计2027年起实施、2028年税改生效。日本拥有全球规模最大的零售加密持仓群体之一，55%的税率是历史上抑制日本资金入市加密的最大制度性障碍，此次改革一旦生效将解锁数十万亿日元的潜在增量资金。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·税改·加密立法</span>
+        <span class="news-tag">日本55%→20%·加密列金融资产·ETF通道·内幕交易禁令·2027生效</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/6-6-229-219" target="_blank">吴说区块链（立法资讯 21:55）</a> · <a href="https://cryptobriefing.com/japan-set-cut-bitcoin-tax-rate-20-parliament-passes-landmark-crypto-legislation/" target="_blank">CryptoBriefing</a> · <a href="https://dataconomy.com/2026/06/11/japan-crypto-tax-etfs-legislation/" target="_blank">Dataconomy</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/12 07:07 BJ</span>
+      </div>
+      <div class="news-title">SEC提议撤销Reg NMS第611条"最优执行"规则，Galaxy研究主管：为代币化股票交易所开辟合规空间</div>
+      <div class="news-desc">Galaxy Digital研究主管Alex Thorn指出，美国SEC近期提议撤销Reg NMS第611条（即"Order Protection Rule"，最优执行规则），该规则长期以来要求股票交易必须路由至最优报价交易所执行，是阻止代币化股票（tokenized equities）在链上交易所实现原生结算的关键障碍。若第611条被撤销，代币化股票平台（如Ondo Finance、Securitize等RWA协议）将不再受到现有交易所路由规则的强制约束，可在合规框架内实现链上股票自由交易。结合日本加密资产税改，这可能成为RWA/代币化证券叙事2026年下半年最重要的催化剂组合。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·SEC·代币化资产·RWA</span>
+        <span class="news-tag">Reg NMS 611撤销·代币化股票·Galaxy·RWA叙事催化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489613" target="_blank">Odaily（SEC Reg NMS 07:07）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/12 07:22 BJ</span>
+      </div>
+      <div class="news-title">CFTC主席：必须确保即便下届政府"敌视加密货币"，也无法轻易推翻现有监管规则</div>
+      <div class="news-desc">CFTC（美国商品期货交易委员会）主席在公开发言中呼吁，当前应将加密货币监管框架以"法规"而非"指南"形式固化，以确保即使未来政府政策风向转变，现行的亲加密监管成果不会被轻易撤销。该发言折射出当前华盛顿加密监管圈对"政策可持续性"的深层焦虑——特朗普任期内快速推进的加密友好监管能否跨届生效，成为机构长期布局加密的关键变量之一。CLARITY Act和稳定币框架的正式立法进程，也与这一逻辑高度吻合。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·CFTC·政策稳定性</span>
+        <span class="news-tag">CFTC主席·规则持久化·政策可持续·CLARITY Act</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489619" target="_blank">Odaily（CFTC主席发言 07:22）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/12 08:44 BJ</span>
+      </div>
+      <div class="news-title">FTX/Alameda再解质押20万枚SOL（约$1,301万），累计已转出1,075万枚SOL；抛压来源持续可见</div>
+      <div class="news-desc">FTX/Alameda破产清算账户再次解质押20万枚SOL（按当前价约$1,301万），累计从质押合约转出SOL总量已达1,075万枚。自FTX破产以来，链上SOL归还计划分批次执行，历次解质押后均对SOL现货价格形成短暂卖压。SOL今日随大市走强，但FTX持续的解锁出售节奏构成结构性压制因素。目前FTX SOL质押仓位仍余有相当存量，预计未来数月将继续分批释放，市场需持续关注解锁节点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·FTX清算·SOL抛压</span>
+        <span class="news-tag">FTX/Alameda·解质押20万SOL·$1,301万·累计1,075万枚·持续卖压</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489646" target="_blank">Odaily（FTX解质押 08:44）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/12 08:45 BJ</span>
+      </div>
+      <div class="news-title">Ethena与Coinbase合作，在Morpho协议上线首个USDe稳定币收益池，机构级收益来源进一步多样化</div>
+      <div class="news-desc">稳定币协议Ethena官方宣布，与Coinbase合作推出的首个产品已正式上线：在DeFi借贷协议Morpho上建立USDe稳定币收益池，为持仓者提供可审计的链上收益来源。这是Ethena "机构级收益基础设施"战略的重要一步，也体现Coinbase Prime在链上流动性布局的延伸。在稳定币监管框架（Clarity Act）即将落地的背景下，合规收益池正成为各大稳定币发行方竞争机构资金的核心战场。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·稳定币·DeFi协议</span>
+        <span class="news-tag">Ethena·Coinbase·USDe·Morpho收益池·稳定币机构布局</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489647" target="_blank">Odaily（Ethena公告 08:45）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/11 21:55 BJ</span>
+      </div>
+      <div class="news-title">Tom Lee（BitMine主席）：Agentic AI高度依赖区块链可信结算，BTC/ETH网络"从未记录欺诈性交易"是核心竞争力</div>
+      <div class="news-desc">BitMine Immersion Technologies主席Tom Lee在DACFP会议上发表演讲，提出AI Agent（自主代理AI）的核心运行逻辑依赖不可篡改的可信结算层：当AI代理代表用户执行交易、代码或合约时，必须依托经过充分验证的账本，而比特币和以太坊网络"从未记录一笔欺诈性交易"，是当前技术上唯一成熟的选项。Lee还透露，BitMine ETH持仓有望于6月底前带动公司纳入Russell 1000指数；公司也不一定需要维持ETH持仓在总供应量5%以上。Agentic AI+区块链结算的叙事，是本轮熊市底部最具潜力的长期催化剂之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·AI+区块链·长期叙事</span>
+        <span class="news-tag">Tom Lee·Agentic AI·BTC/ETH零欺诈·BitMine Russell 1000·6月底</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/6-6-229-219" target="_blank">吴说区块链（Lee演讲 21:55）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/12 08:07 BJ</span>
+      </div>
+      <div class="news-title">Polymarket：2026年世界杯期间将提供100万美元流动性奖励；聪明钱押注韩国胜捷克36万美元</div>
+      <div class="news-desc">加密预测市场平台Polymarket宣布，在2026年世界杯赛事期间将向做市商及流动性提供者发放共计100万美元USDC奖励，以激励小组赛/淘汰赛各场次的市场深度。与此同时，链上监控显示一笔被标注为"聪明钱（Smart Money）"的地址以36万美元购入"韩国胜捷克"的预测市场头寸；此后消息，韩国股市当日触发上涨熔断，或与赛事情绪共振相关。预测市场受加密监管接受度提升（CFTC等机构正在规范化）的推动，正成为加密原生娱乐+金融的新兴赛道。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">行业趋势·预测市场·世界杯</span>
+        <span class="news-tag">Polymarket·$100万奖励·世界杯·韩国胜捷克$36万押注</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/489630" target="_blank">Odaily（Polymarket世界杯 08:07）</a> · <a href="https://www.odaily.news/newsflash/489629" target="_blank">Odaily（聪明钱押注 08:06）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">美伊战争 <span class="knum">结束</span> · 105天冲突终止</span>
+      <span class="keyword">KOSPI <span class="knum">+8%</span> 历史首次向上熔断</span>
+      <span class="keyword">三星电子 <span class="knum">+11.43%</span></span>
+      <span class="keyword">WTI <span class="knum">$87.71</span> ▼-3.78%</span>
+      <span class="keyword">PPI月率 <span class="knum">+1.1%</span> 超预期</span>
+      <span class="keyword">初请失业金 <span class="knum">22.9万</span> 2月来新高</span>
+      <span class="keyword">XAUT <span class="knum">$4,176</span> ▲+2.29%</span>
+      <span class="keyword">BTC <span class="knum">$63,487</span> ▲+1.17%</span>
+      <span class="keyword">F&amp;G <span class="knum">12</span> 极度恐惧（滞后）</span>
+      <span class="keyword">日本加密税 <span class="knum">55%→20%</span> 众议院通过</span>
+      <span class="keyword">SpaceX SPCX <span class="knum">$135/股</span> 今日上市</span>
+      <span class="keyword">FTX解质押SOL累计 <span class="knum">1,075万</span>枚</span>
+      <span class="keyword">SEC撤销Reg NMS <span class="knum">第611条</span></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月12日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· Yahoo Finance（纳斯达克 / WTI）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
