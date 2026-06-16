@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月16日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      text-align: center; padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block; border-radius: 20px;
+      background: #111; border: 1px solid #222;
+      padding: 3px 14px; font-size: 11px; color: #555;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; } .down { color: #FF3B3B; } .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword { border-radius: 12px; color: #BCFF2F; background: #0d0d0d; border: 1px solid #1a2a0a; padding: 4px 12px; font-size: 12px; }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer { text-align: center; padding: 24px 20px 32px; border-top: 1px solid #111; color: #333; font-size: 11px; line-height: 2; }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 16</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/15 20:00 — 06/16 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    全球进入本年度最密集央行决议周：日本央行（BOJ）今日（6月16日）决议，市场94%预期加息25bps至1.0%，在日元160.197的背景下，日元套利交易解仓风险持续为全球风险资产定价施压；美联储（6月18日）、英国央行（6月18日）同周跟进，三大央行决议将在72小时内依次落地。传统金融持续亮眼：SpaceX（SPCX）美股夜盘涨超10%突破$210，若开盘维持市值将超越亚马逊；Micron涨10.84%，AI概念股普涨，Nasdaq 6月15日大涨3.07%至26,683。加密市场分化：BitMine再增持76,881枚ETH（总持仓562万枚/4.66%供应），ETH今日涨至$1,791（+4.36%）；Strategy连续两周逆市扫货（+1,587 BTC，总持仓846,800+ BTC）；BTC小幅走高至$66,276（+1.17%）；F&G维持极度恐惧（23）。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$66,276</div>
+      <div class="market-change up">▲ +1.17%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,791</div>
+      <div class="market-change up">▲ +4.36%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">23</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$81.41</div>
+      <div class="market-change up">▲ +0.82%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,304</div>
+      <div class="market-change up">▲ +0.57%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,683</div>
+      <div class="market-change up">▲ +3.07%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/16 今日（决议周）</span>
+      </div>
+      <div class="news-title">全球三大央行决议周：BOJ今日预期加息至1.0%，美联储+英国央行周三同框；日元160，套利交易解仓风险压顶</div>
+      <div class="news-desc">日本央行（BOJ）两日会议于6月16日结束，政策声明预计12:00 JST（北京时间11:00）公布；市场调查显示94%经济学家预测加息25bps至1.0%，将是BOJ自2025年以来第三次加息。核心驱动：日元贬值至160.197（今晨），进口通胀压力持续累积，BOJ实际利率深度负值不可持续。若加息落地，日元套利交易（约$4,000亿规模）被迫解仓，将对包括加密在内的全球风险资产造成流动性压力。同周：美联储（6月18日）决议料维持利率不变但可能上调通胀预测；英国央行（6月18日）面临分歧——通胀vs经济放缓。三大央行72小时内顺序落地，为近年最密集利率决议集中周。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">货币政策·央行决议·利率风险</span>
+        <span class="news-tag">BOJ +25bps至1.0%·美元兑日元160.197·三大央行72小时·套利交易$4,000亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/82a" target="_blank">吴说区块链（6月15日晚报·本周宏观重点）</a> · <a href="https://www.japantimes.co.jp/business/2026/05/29/economy/boj-rate-hike-june-former-board-member/" target="_blank">Japan Times（BOJ加息预期）</a> · <a href="https://polymarket.com/event/bank-of-japan-decision-in-june" target="_blank">Polymarket（94%概率）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/16 08:58 BJ</span>
+      </div>
+      <div class="news-title">SpaceX(SPCX) 美股夜盘涨超10%突破$210，市值或将超越亚马逊；Micron涨10.84%，AI概念股普涨，Nasdaq +3.07%至26,683</div>
+      <div class="news-desc">SpaceX（纳斯达克代码SPCX）美股盘后大涨超10%，价格突破$210，若开盘延续涨幅其市值将超越亚马逊（目前约$2.2-2.4万亿）。SpaceX于6月12日以$135/股上市，首日收涨19.2%至$160.95，随后在散户热情和AI+航天概念叠加下持续走高。Micron Technology（美光科技）大涨10.84%，半导体板块领涨；Nvidia等AI算力概念股同步上行。Nasdaq综合指数6月15日（周一）大涨3.07%至26,683.94，创近月新高，受美伊和平协议情绪改善与AI板块全面反弹双重驱动。同期xAI（马斯克旗下）对OpenAI的商业秘密诉讼被联邦法官驳回，AI赛道竞争格局进一步明朗。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·科技股·AI板块</span>
+        <span class="news-tag">SPCX $210+夜盘涨10%·Micron +10.84%·Nasdaq 26,683 +3.07%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490966" target="_blank">Odaily（SPCX夜盘 08:58）</a> · <a href="https://www.odaily.news/newsflash/490969" target="_blank">Odaily（AI概念股收盘 09:01）</a> · <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank">CNBC（IPO详情）</a> · <a href="https://www.odaily.news/newsflash/490942" target="_blank">Odaily（xAI诉讼被驳 07:55）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/15 20:00+ BJ</span>
+      </div>
+      <div class="news-title">WTI原油6月15日收$81.41（+0.82%），在和平协议定价区间震荡企稳；XAUT今晨$4,306（-0.76%），巴克莱预测黄金将回升至$4,900</div>
+      <div class="news-desc">WTI原油6月15日收盘$81.41，环比小幅回升0.82%，表明市场在经历6月初急跌（从$97→$80）后逐步寻底；伊朗外交部仍未宣布霍尔木兹海峡正式重开，供给侧实际改善尚未充分兑现，支撑油价在$80-83区间偏稳运行。黄金（XAUT）今晨小幅回落至$4,306（-0.76%），巴克莱银行发布研报，预测现货黄金将从当前水平回升至$4,900，理由是地缘政治溢价调整已趋于消退，黄金中长期配置价值（通胀对冲+多极化储备）仍具吸引力。美元兑日元报160.197，欧股表现分化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">宏观数据·大宗商品·贵金属</span>
+        <span class="news-tag">WTI $81.41 +0.82%·XAUT $4,306 -0.76%·巴克莱黄金目标$4,900</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490968" target="_blank">Odaily（商品收盘 09:00）</a> · <a href="https://www.odaily.news/newsflash/490936" target="_blank">Odaily（巴克莱研报 07:02）</a> · <a href="https://stocktwits.com/news-articles/markets/equity/nasdaq-sp500-dow-futures-climb-while-oil-slides-as-us-iran-deal-signals-end-to-hormuz-disruption/cZKfbvBR7dP" target="_blank">StockTwits（6/15市场综述）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/15 21:28 BJ</span>
+      </div>
+      <div class="news-title">BitMine(BMNR) 再增持76,881枚ETH，总持仓达562万枚（占ETH总供应4.66%），总资产$104亿；ETH今涨至$1,797，接近5%供应目标</div>
+      <div class="news-desc">Tom Lee旗下BitMine Immersion Technologies（BMNR）宣布上周再度增持76,881枚ETH，总持仓达到5,620,754枚ETH，占以太坊总供应量4.66%（120.7亿枚），距公司5%供应量目标仅剩7%缺口（约80,000枚）。公司已将其中4,718,677枚（83%以上）质押入网络，按$1,718/ETH估算年化质押收益约$2.19亿。总资产构成：5,620,754枚ETH（约$100亿）+ 204枚BTC + Beast Industries $1.8亿股权 + Eightco Holdings $8,800万股权 + $5.02亿现金，合计约$104亿。今日ETH涨至$1,791（+4.36%）。Tom Lee预计6月底入选Russell 1000指数。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·ETH机构囤积·供应集中</span>
+        <span class="news-tag">BitMine BMNR·562万ETH·4.66%总供应·总资产$104亿·质押4.72万ETH年化$2.19亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/82a" target="_blank">吴说区块链（6月15日晚报）</a> · <a href="https://www.prnewswire.com/news-releases/bitmine-immersion-technologies-bmnr-announces-eth-holdings-reach-5-62-million-tokens-and-total-crypto-and-total-cash-holdings-of-10-4-billion-302799963.html" target="_blank">PR Newswire（官方公告）</a> · <a href="https://finance.yahoo.com/markets/crypto/articles/bitmine-nears-5-ethereum-tom-164133696.html" target="_blank">Yahoo Finance</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/15 23:57 BJ</span>
+      </div>
+      <div class="news-title">Strategy 6月8-14日再购入1,587枚BTC（~$1亿），总持仓846,800+ BTC，平均成本$75,656；连续两周逆市低位扫货，同期其余上市公司无一增持</div>
+      <div class="news-desc">Strategy（原MicroStrategy）宣布6月8日至14日期间以约$1亿购入1,587枚BTC，总持仓升至846,800+枚BTC，加权平均成本约$75,656/枚，总投入约$640亿。Odaily分析指出，Strategy已连续两周在BTC价格$61,000-67,000区间进行战术性低位扫货（合计约$2亿），而同期其他上市公司无一增持，机构BTC持仓集中度进一步提升。Strategy当前持仓相当于BTC总供应量约4.1%，按$66,335/BTC计算持仓市值约$561.9亿，与加权成本差（即浮亏/盈）受到市场密切关注。本轮买入验证了Saylor团队对当前价格区间的信心。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·BTC机构囤积·Strategy</span>
+        <span class="news-tag">Strategy +1,587 BTC·总持仓846,800+·平均成本$75,656·连续两周逆市扫货</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490944" target="_blank">Odaily（Strategy扫货 07:57）</a> · <a href="https://wublockchain123.substack.com/p/82a" target="_blank">吴说区块链（6月15日晚报）</a> · <a href="https://bitbo.io/treasuries/microstrategy/" target="_blank">Bitbo（持仓追踪）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 08:28 BJ</span>
+      </div>
+      <div class="news-title">MARA Holdings从FalconX购入1,000枚BTC，价值$6,670万（约$66,700/枚）</div>
+      <div class="news-desc">据链上分析机构Onchain Lens监测，比特币矿企MARA Holdings通过加密流动性平台FalconX购入1,000枚BTC，成交金额约$6,670万，折合约$66,700/枚，与当前市价基本持平。MARA总持仓约35,303枚BTC（约$23亿），本次购入代表公司在Q1销售套现后重新开始积累，显示矿企对当前价格区间的信心。此前MARA曾在Q1以偿债为目的出售超15,000枚BTC，本次逆向买入成为其短期内的策略转变信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·矿企BTC积累·机构动向</span>
+        <span class="news-tag">MARA Holdings·+1,000 BTC·$6,670万·来自FalconX·$66,700/枚</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490955" target="_blank">Odaily（MARA购入 08:28）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/15 23:48 BJ</span>
+      </div>
+      <div class="news-title">场外交易巨鲸向FalconX存入2.9万枚ETH，已持有$2.83亿ETH仓位，本次获利$641万</div>
+      <div class="news-desc">据链上监测，持有$2.83亿ETH仓位的场外交易巨鲸向FalconX存入29,000枚ETH并完成获利了结，本次操作净利润$641万（约以$1,720/ETH建仓，$1,741-1,742/ETH获利估算）。FalconX同日也是MARA购买BTC的交易对手方，表明该平台在机构级大宗加密交易中的枢纽地位在本轮行情中进一步凸显。ETH今日继续涨至$1,797（+4.42%），仍处于巨鲸获利平仓后的上行趋势中。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·ETH巨鲸·场外交易</span>
+        <span class="news-tag">ETH巨鲸·2.9万ETH存入FalconX·获利$641万·总持仓$2.83亿ETH</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490940" target="_blank">Odaily（巨鲸FalconX 07:48）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 08:37 BJ</span>
+      </div>
+      <div class="news-title">美国国会拟成立数字货币窃盗工作组，协调FBI/SEC/DOJ跨机构打击加密资产盗窃与诈骗</div>
+      <div class="news-desc">美国国会议员提案拟建立专项数字货币窃盗工作组（Digital Asset Theft Task Force），整合联邦调查局（FBI）、证券交易委员会（SEC）、司法部（DOJ）等机构，统一协调加密货币盗窃、欺诈和非法转移案件的调查与起诉。提案背景：2025-2026年间链上资金盗窃事件频发（累计损失逾$40亿），现有执法框架存在管辖权分散、信息孤岛等问题，导致追缴率极低。此举若立法落地将为未来执法行动提供制度框架，提升链上安全执法威慑力；短期而言，该提案展示了美国国会对加密合规基础设施的正面态度。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·美国立法·反欺诈执法</span>
+        <span class="news-tag">数字货币窃盗工作组·FBI+SEC+DOJ·跨机构协调·2025-26链上盗窃累计$40亿+</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490960" target="_blank">Odaily（工作组提案 08:37）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">👁️</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 08:15 BJ</span>
+      </div>
+      <div class="news-title">渣打银行：2030年UNI价格目标$100，看好Uniswap在机构DeFi基础设施中的核心地位</div>
+      <div class="news-desc">渣打银行发布以太坊DeFi生态研报，将Uniswap（UNI）2030年价格目标定为$100，较当前约$7-8的价格有10-13倍上行空间。核心逻辑：Fidelity稳定币FIDD、贝莱德代币化货币基金等机构级产品相继选择Uniswap V3作为流动性基础设施，Uniswap正从"散户DEX"向"机构DeFi流动性层"转型；MiCA合规潮将推动大量资金从非合规平台向Uniswap等合规协议迁移；预计2028年UNI在美国取得"数字资产交易所"牌照。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">观点研报·渣打银行·DeFi估值</span>
+        <span class="news-tag">UNI 2030目标$100·渣打银行·机构DeFi基础设施·10-13倍上行</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490950" target="_blank">Odaily（渣打UNI研报 08:15）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/15 23:02 BJ</span>
+      </div>
+      <div class="news-title">巴克莱银行：现货黄金将从当前水平回升至$4,900，地缘政治溢价调整已趋于消退</div>
+      <div class="news-desc">巴克莱银行大宗商品策略团队发布黄金展望报告，将金价短期目标上调至$4,900/盎司，认为自美伊协议后地缘政治溢价的自然消退已接近尾声，金价下行空间有限。主要支撑因素：全球央行购金需求维持高位（2025年全球央行购金超1,000吨）、美联储宽松预期（非胁迫性降息展望）、通胀韧性持续推动实际负利率环境。当前XAUT报$4,306，若巴克莱预测成立，上行空间约+13.8%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·巴克莱·贵金属展望</span>
+        <span class="news-tag">现货黄金目标$4,900·巴克莱·央行购金·实际负利率·+13.8%上行空间</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490936" target="_blank">Odaily（巴克莱研报 07:02）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/15 21:28 BJ</span>
+      </div>
+      <div class="news-title">Cardano创始人Hoskinson：争议中的1,096枚BTC曾用于2016-2017年审计费，按现价约$7,000万</div>
+      <div class="news-desc">Charles Hoskinson就外界对1,096枚BTC资产归属的质疑作出公开回应，声明该批BTC系2016-2017年用于支付Cardano项目早期审计/合规费用，并非个人侵占资产。按当前$66,335/BTC计算，该批BTC价值约$7,268万。Hoskinson未提供完整的资金流转证明，社区部分成员对此解释持保留意见，事件对Cardano（ADA）短期价格影响有限，但暴露了早期区块链项目资金管理透明度的历史问题。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">观点研报·Cardano·创始人争议</span>
+        <span class="news-tag">Hoskinson·1,096 BTC·审计费争议·按现价$7,268万·2016-2017年</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/82a" target="_blank">吴说区块链（6月15日晚报）</a></div>
+    </div>
+  </div>
+
+  <!-- 周期性事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏆</span>
+      <span class="section-title">周期性事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 08:55 BJ</span>
+      </div>
+      <div class="news-title">Polymarket：某新钱包首次下注即盈利$906万，押注西班牙在世界杯小组赛不胜；世界杯预测市场流动性持续扩大</div>
+      <div class="news-desc">一个全新钱包在Polymarket上的首笔下注押注"西班牙不胜"某场小组赛，后来该预测应验，直接盈利$906万。此为世界杯进行期间Polymarket单笔最大获利记录之一。结合此前报道（6月12日）Polymarket承诺提供$100万流动性奖励，预测市场在世界杯期间交易量持续攀升，智能钱包追踪成为新的链上情报来源。值得关注的是，该笔$906万盈利占Polymarket当日日交易量的较大比例，引发对智能钱包信息优势（"内幕知识"）的讨论。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">周期性事件·世界杯·预测市场</span>
+        <span class="news-tag">Polymarket·$906万盈利·西班牙不胜·新钱包首注·世界杯</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/490964" target="_blank">Odaily（Polymarket大单 08:55）</a></div>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$66,276</span> ▲+1.17%</span>
+      <span class="keyword">ETH <span class="knum">$1,791</span> ▲+4.36%</span>
+      <span class="keyword">XAUT <span class="knum">$4,304</span> ▲+0.57%</span>
+      <span class="keyword">WTI <span class="knum">$81.41</span> ▲+0.82%</span>
+      <span class="keyword">Nasdaq <span class="knum">26,683</span> ▲+3.07%</span>
+      <span class="keyword">F&G <span class="knum">23</span> 极度恐惧</span>
+      <span class="keyword">BOJ 今日决议 预期 <span class="knum">+25bps→1.0%</span></span>
+      <span class="keyword">SPCX 夜盘 <span class="knum">$210+</span> ▲+10%</span>
+      <span class="keyword">Micron <span class="knum">+10.84%</span></span>
+      <span class="keyword">BitMine ETH总持仓 <span class="knum">562万枚</span>（4.66%供应）</span>
+      <span class="keyword">Strategy 总持仓 <span class="knum">846,800+ BTC</span></span>
+      <span class="keyword">MARA +<span class="knum">1,000 BTC</span> @$66,700</span>
+      <span class="keyword">渣打银行 UNI 2030目标 <span class="knum">$100</span></span>
+      <span class="keyword">巴克莱 黄金目标 <span class="knum">$4,900</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月16日 · 覆盖时间 06/15 20:00 — 06/16 09:30（北京时间）</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div style="margin-top:8px; color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产具有高风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
