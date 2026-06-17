@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月17日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      text-align: center; padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block; border-radius: 20px;
+      background: #111; border: 1px solid #222;
+      padding: 3px 14px; font-size: 11px; color: #555;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; } .down { color: #FF3B3B; } .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 16px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+    .section-count { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #1a3000; border-radius: 10px; padding: 1px 8px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+    .tag-priority { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #0d1f00; color: #BCFF2F; border: 1px solid #1e3d00; }
+    .tag-priority.mid  { background: #1a1500; color: #FFD600; border: 1px solid #332a00; }
+    .tag-priority.low  { background: #111; color: #555; border: 1px solid #222; }
+    .tag-time { font-size: 10px; color: #444; padding: 2px 7px; background: #0a0a0a; border-radius: 4px; }
+    .news-title { font-size: 14px; font-weight: 700; color: #eee; line-height: 1.5; margin-bottom: 6px; }
+    .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
+    .news-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #BCFF2F; background: #0d1a00; border: 1px solid #1a3000; border-radius: 12px; padding: 2px 8px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #555; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+    .keywords-section { margin: 20px 0; padding: 14px 16px; background: #0a0a0a; border: 1px solid #111; border-radius: 6px; }
+    .keywords-title { font-size: 12px; color: #BCFF2F; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword { font-size: 11px; color: #aaa; background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 4px 10px; }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer { padding: 24px 20px; text-align: center; border-top: 1px solid #0a0a0a; font-size: 11px; color: #333; line-height: 1.8; }
+    .footer-brand { font-size: 13px; color: #444; font-weight: 700; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 17</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/16 20:00 — 06/17 09:30（北京时间）</div>
+</div>
+
+<!-- Sources -->
+<div class="sources">
+  <span class="pill">Odaily星球日报</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">Foresight News</span>
+  <span class="pill">ChainCatcher</span>
+  <span class="pill">BlockBeats</span>
+  <span class="pill">金色财经</span>
+  <span class="pill">金十数据</span>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    BOJ 昨日宣布加息25bps至1.0%（31年最高），7-1投票通过，BTC温和回应（$65,807/-0.76%）显示市场已充分定价。全球货币紧缩大周期仍未终结。市场焦点随即转向美联储：FOMC今日（6/17）开会，明日（6/18）14:00 ET公布决议，Chair Warsh迎来首次记者会，点阵图或揭示利率路径偏向收紧信号（97%预期维持3.50-3.75%）。加密监管压力双线升级：伊利诺伊州率先通过全美首个0.2%数字资产交易税（待州长签署），CLARITY Act Lummis宣布专项拨款$1.5亿追缉诈骗者。美股承压：AI概念股集体下跌（Marvell -9.78%），Nasdaq 26,376 ▼-1.19%，WTI $79.85 ▼-1.63%。链上：BitMine再购2万枚ETH，Humanity Protocol公布H代币1:1 ERC-20空投恢复方案（+44%反弹）。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$65,807</div>
+      <div class="market-change down">▼ -0.76%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,795</div>
+      <div class="market-change up">▲ +0.15%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">22</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$79.85</div>
+      <div class="market-change down">▼ -1.63%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,329</div>
+      <div class="market-change up">▲ +0.63%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,376</div>
+      <div class="market-change down">▼ -1.19%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/16 昨日（决议落地）</span>
+      </div>
+      <div class="news-title">BOJ 加息25bps至1.0%（31年最高），7-1投票通过；BTC温和回应显示市场已定价</div>
+      <div class="news-desc">日本央行两日会议昨日结束，以7-1投票通过将政策利率从0.75%上调至1.0%，为1995年以来最高水平，也是自去年12月以来首次加息。唯一异议者Asada称生产与就业下行风险大于通胀上行风险。BOJ指出基调通胀存在超过2%目标的上行风险，政策声明强调将"根据经济、物价、金融动向继续加息"。BTC在决议公布后反应温和，Cointelegraph分析称市场"这次已不在乎"——94%概率加息预期已被充分定价。日元由160.197小幅升值，套利交易（约$4,000亿规模）解仓压力短暂释放，但烈度远低于2024年8月加息冲击。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">货币政策·央行加息·流动性</span>
+        <span class="news-tag">BOJ +25bps→1.0%·7-1投票·31年最高·BTC已定价</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/06/16/boj-rate-hike-historic-inflation.html" target="_blank">CNBC（BOJ决议 06/16）</a> · <a href="https://wublockchain123.substack.com/p/uni-2030-100-rwa-defi" target="_blank">吴说区块链（06/16晚报 22:05 BJ）</a> · <a href="https://en.bloomingbit.io/feed/news/114338" target="_blank">Bloomingbit（BTC反应分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/17 今日（会议进行中）</span>
+      </div>
+      <div class="news-title">Fed FOMC 今日开会，明日14:00 ET公布决议：Warsh首次记者会，97%预期维持3.50-3.75%，点阵图或揭示偏向收紧信号</div>
+      <div class="news-desc">美联储公开市场委员会（FOMC）6月16-17日召开本年度第四次政策会议，决议将于北京时间6月18日02:00（ET 6月17日14:00）公布，随后由新任主席Kevin Warsh主持首次记者会。CME FedWatch显示维持3.50-3.75%利率不变的概率达97%，共识机构（摩根大通、TD经济）均预期hold。核心看点：更新版点阵图（dot plot）是否将利率路径中位预测从"偏向宽松"转为"中性"乃至"偏向收紧"——若此信号出现，将对风险资产构成额外压力。当前背景：5月CPI +4.2%（三年高位）+劳动力市场偏强，挑战Fed双重目标。市场正在为"鹰派暂停"而非"鸽派暂停"定价。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">货币政策·FOMC·利率路径</span>
+        <span class="news-tag">Fed 维持3.50-3.75%·97%概率·Warsh首次记者会·点阵图偏紧风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.indexbox.io/blog/fed-meeting-preview-june-1617-fomc-decision-and-potential-bias-shift/" target="_blank">IndexBox（FOMC预览）</a> · <a href="https://www.stocktitan.net/articles/fed-rate-decision-june-17-2026" target="_blank">StockTitan（Fed决议 6/17）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 01:04 BJ</span>
+      </div>
+      <div class="news-title">美股 AI 概念股普跌：Marvell -9.78%，Nasdaq 6/16 收 26,376 ▼-1.19%；WTI $79.85 ▼-1.63%；日韩股市同步回落</div>
+      <div class="news-desc">美东时间6月16日，AI科技股全线下跌，Marvell Technology领跌9.78%（市场对芯片需求前景重新定价），Nvidia等算力概念股同步走弱；Nasdaq综合指数收26,376.34（-1.19%），结束前一日3.07%大涨后的技术回调。与此同时，BOJ加息预期兑现后能源需求担忧升温，WTI原油6月16日跌1.63%至$79.85。亚洲方面，日韩股市开盘均下跌，日经225受日元走强压制，韩国KOSPI在前期大幅反弹后获利回吐。白银上涨0.7%至$70.17/oz，黄金（XAUT）小幅走高至$4,329（+0.63%），避险资产相对抗跌。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·美股·AI科技·能源</span>
+        <span class="news-tag">Marvell -9.78%·Nasdaq 26,376 -1.19%·WTI $79.85 -1.63%·白银$70.17</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491413" target="_blank">Odaily（美股收盘 01:04 BJ）</a> · <a href="https://www.odaily.news/newsflash/491412" target="_blank">Odaily（白银价格 01:04 BJ）</a> · <a href="https://www.odaily.news/newsflash/491389" target="_blank">Odaily（日韩开盘 00:05 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/17 00:44 BJ</span>
+      </div>
+      <div class="news-title">伊利诺伊州通过全美首个数字资产交易税 0.2%，纳入FY2027预算，待州长Pritzker签署；行业团体强烈反对</div>
+      <div class="news-desc">伊利诺伊州议会将《数字资产特许税法》嵌入2027财年预算方案，要求在伊利诺伊州运营的数字资产经纪商向每笔加密交易征收0.2%手续费，预计FY2027可筹得约$6,000万州财政收入。该法案现已提交州长J.B. Pritzker签署，若通过将成为全美首个专门针对加密交易的州级税收。行业团体（包括Coinbase、Kraken等）联名上书Pritzker，称该税"实质上不合理、程序上存在缺陷、在经济上具有破坏性"，可能导致加密企业和投资者出走伊州。DRW创始人Don Wilson公开炮轰该方案将伤害芝加哥的金融科技生态。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·美国州级·加密税</span>
+        <span class="news-tag">伊利诺伊州 0.2%交易税·FY2027·$6,000万预期收入·待Pritzker签署</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491405" target="_blank">Odaily（伊利诺伊加密税 00:44 BJ）</a> · <a href="https://news.bloombergtax.com/daily-tax-report-state/crypto-groups-blast-illinois-digital-asset-trading-tax-proposal-5" target="_blank">Bloomberg Tax（行业反对声明）</a> · <a href="https://www.gncrypto.news/news/illinois-budget-0-2-percent-crypto-transaction-tax/" target="_blank">GNCrypto（法案详情）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 01:06 BJ</span>
+      </div>
+      <div class="news-title">HYPE 现货 ETF（THYP/BHYP/HYPG）上市约1个月：成交量近$9亿，净流入$1.53亿，6/16单日净流入$862万</div>
+      <div class="news-desc">Hyperliquid（HYPE）现货ETF三只产品上市约一个月后，累计成交量已接近$9亿，净流入$1.53亿。按"前10天吸收市值1.04%"衡量，为有史以来最强加密ETF首月表现。三只产品分别为：21Shares THYP（最大成交量）、Bitwise BHYP、Grayscale HYPG（6月3日最新上市）。美东时间6月16日（6/17凌晨BJ），HYPE ETF单日净流入$862万，XRP ETF $530万，SOL ETF $24.6万。约4.34亿枚HYPE（占可质押供应量45%）处于质押状态，质押年化收益约2.25%，为机构提供除价格敞口外的附加回报。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·现货ETF·加密资产</span>
+        <span class="news-tag">HYPE ETF 累计$9亿成交·净流入$1.53亿·单日$862万·史上最强ETF首月</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491415" target="_blank">Odaily（HYPE ETF净流入 01:06 BJ）</a> · <a href="https://www.theblock.co/post/404802/spot-hype-etfs-near-900-million-volume-early-demand-signals-institutional-interest" target="_blank">The Block（ETF成交量分析）</a> · <a href="https://unchainedcrypto.com/spot-hype-etfs-near-900-million-in-volume-as-early-demand-signals-institutional-interest/" target="_blank">Unchained Crypto（机构需求报告）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 昨日</span>
+      </div>
+      <div class="news-title">CLARITY Act：Lummis宣布专项拨款$1.5亿追缉加密诈骗者；法案在参议院日历待全院表决，8月通过面临"重重阻力"</div>
+      <div class="news-desc">参议员Cynthia Lummis在6月16日宣布，《CLARITY Act》将拨款约1.5亿美元，专门用于支持执法机构追踪数字资产领域的诈骗者和不法分子，覆盖FBI、SEC等跨机构协作。该法案于2025年7月以294-134票通过众议院，2026年5月14日以15-9票通过参议院银行委员会，并于6月1日正式列入参议院立法日历（可进行全院表决）。但Lummis本人承认法案通过面临"沉重阻力"——部分参议员仍在辩论数字资产的证券/商品定性，全院表决时间表尚不明确，市场此前预期8月前通过的可能性降低。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·美国立法·CLARITY Act</span>
+        <span class="news-tag">CLARITY Act $1.5亿执法资金·参议院日历·8月通过存疑</span>
+      </div>
+      <div class="news-source">来源：<a href="https://coingape.com/clarity-act-will-allocate-150m-to-track-crypto-scammers-says-senator-lummis/" target="_blank">CoinGape（Lummis声明 06/16）</a> · <a href="https://www.coindesk.com/policy/2026/06/04/crypto-clarity-act-in-spotlight-for-bad-actor-provisions-as-senate-process-grinds-forward" target="_blank">CoinDesk（参议院进程分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 00:46 BJ</span>
+      </div>
+      <div class="news-title">SEC主席推动IPO监管框架改革，降低上市门槛以便利散户参与；机构发行人关注潜在合规影响</div>
+      <div class="news-desc">美国证监会（SEC）主席在6月16日公开表示，SEC正推动上市公司监管框架改革，核心目标是让IPO流程对普通（散户）投资者更加便利，降低参与门槛。当前IPO往往以机构配售为主，散户在一级市场几乎无法直接参与。改革方向被市场解读为与特朗普政府"去监管化"基调一致，若推行可能影响加密公司、RWA代币化平台等非传统发行主体的上市路径。具体规则草案尚未发布，改革时间表待定。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·SEC·IPO改革</span>
+        <span class="news-tag">SEC IPO改革·普惠投资者·去监管化·加密上市路径影响</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491406" target="_blank">Odaily（SEC IPO改革 00:46 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/17 00:36 BJ</span>
+      </div>
+      <div class="news-title">BitMine再买入2万枚ETH（约$3,590万），持续向5%以太坊供应目标推进；距目标仍差约38万枚</div>
+      <div class="news-desc">链上监测数据（Odaily报道）显示，BitMine（BMNR）在北京时间06/17 00:36前约5小时（约06/16 19:30 BJ）再次买入20,000枚ETH，按当时ETH约$1,795计，约合$3,590万。BitMine此前已披露总持仓562万枚ETH（占以太坊总供应约4.66%），本次增持后持仓进一步上升，距其公告的5%供应目标（约600万枚）仍差约38万枚。公司同时质押约471万枚ETH，获取staking收益以覆盖持仓成本。连续多周增持显示公司对ETH长期价值的高置信度押注，也成为支撑ETH价格的持续性链上买盘。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·机构增持·ETH</span>
+        <span class="news-tag">BitMine +2万枚ETH·总持仓562万枚·5%目标差38万·$3,590万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491403" target="_blank">Odaily（BitMine增持 00:36 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 昨日（公告发布）</span>
+      </div>
+      <div class="news-title">Humanity Protocol 公布 H 代币 1:1 新 ERC-20 空投恢复方案，H 代币应声反弹 +44%</div>
+      <div class="news-desc">Humanity Protocol于6月16日正式公布针对6月8-9日$3,600万私钥攻击事件的完整恢复方案：将废弃被攻击的旧H代币合约，在以太坊主网部署经审计的新ERC-20 H代币合约，并按攻击前区块快照（UTC 2026年6月8日17:25:35）以1:1比例空投给原持有人（含ETH/BNB Chain/Humanity主网三条链）。此次攻击源于基金会成员私钥泄露，导致约4.47亿枚H代币被盗或违规铸造（约$3,600万）。恢复方案公布后，H代币在二级市场上涨44%。Humanity主网将在新代币完成迁移后数周内重新启动，新H代币将作为原生Gas代币。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·黑客攻击·代币恢复</span>
+        <span class="news-tag">Humanity Protocol $3,600万黑客·1:1空投·H+44%·Ethereum ERC-20迁移</span>
+      </div>
+      <div class="news-source">来源：<a href="https://crypto.news/humanity-protocol-sets-new-h-airdrop-after-36m-exploit/" target="_blank">Crypto News（恢复方案 06/16）</a> · <a href="https://www.cryptotimes.io/2026/06/16/humanity-protocol-unveils-h-token-recovery-and-airdrop-plan-post-36m-hack/" target="_blank">CryptoTimes（详细分析）</a> · <a href="https://www.bitget.com/news/detail/12560605456753" target="_blank">Bitget News（H+44%反弹）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 00:35 BJ</span>
+      </div>
+      <div class="news-title">Arthur Hayes 关联钱包再收 1,400 枚 ETH，累计持仓升至 4,400 枚（约$790万）</div>
+      <div class="news-desc">链上监测显示，与Arthur Hayes（BitMEX创始人）关联的钱包地址于北京时间00:35前后再次收到1,400枚ETH转入，使该钱包ETH总持仓增至4,400枚（按ETH $1,795计约$790万）。Hayes此前在公开文章中长期持有ETH多头立场，其链上行为被市场解读为大户对ETH中期价格走势的隐性背书，与BitMine机构增持共同强化"ETH底部增配"叙事。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·KOL钱包·ETH增持</span>
+        <span class="news-tag">Arthur Hayes +1,400 ETH·累计4,400枚·$790万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491402" target="_blank">Odaily（链上监测 00:35 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/16 22:05 BJ（吴说晚报）</span>
+      </div>
+      <div class="news-title">委内瑞拉 USDT 溢价 30 天内上涨 16%，货币流动性扩张 23.26%，P2P 稳定币需求持续攀升</div>
+      <div class="news-desc">过去30天内，委内瑞拉本币（玻利瓦尔）兑USDT的P2P溢价上涨约16%，同期货币流动性增加23.26%，显示玻利瓦尔供应扩张正推动居民转向P2P平台购买稳定币保值。这是新兴市场稳定币实需增长的典型案例，与法币贬值风险直接关联。委内瑞拉是全球USDT P2P交易量最大的市场之一，此轮溢价扩大被加密分析师视为"货币替代"（currency substitution）加速的信号，与阿根廷、土耳其等高通胀经济体的稳定币需求趋势一致。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·稳定币·新兴市场</span>
+        <span class="news-tag">委内瑞拉USDT溢价+16%·货币流动性+23.26%·P2P需求·货币替代</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/uni-2030-100-rwa-defi" target="_blank">吴说区块链（06/16晚报 22:05 BJ）</a></div>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$65,807</span> ▼-0.76%</span>
+      <span class="keyword">ETH <span class="knum">$1,795</span> ▲+0.15%</span>
+      <span class="keyword">XAUT <span class="knum">$4,329</span> ▲+0.63%</span>
+      <span class="keyword">WTI <span class="knum">$79.85</span> ▼-1.63%</span>
+      <span class="keyword">Nasdaq <span class="knum">26,376</span> ▼-1.19%</span>
+      <span class="keyword">F&G <span class="knum">22</span> 极度恐惧</span>
+      <span class="keyword">BOJ 加息至 <span class="knum">1.0%</span>（31年最高）</span>
+      <span class="keyword">Fed 决议 <span class="knum">6/18 02:00 BJ</span>（Warsh首次记者会）</span>
+      <span class="keyword">Illinois 加密交易税 <span class="knum">0.2%</span>（全美首个）</span>
+      <span class="keyword">HYPE ETF 累计成交 <span class="knum">~$9亿</span> 净流入$1.53亿</span>
+      <span class="keyword">CLARITY Act 执法资金 <span class="knum">$1.5亿</span></span>
+      <span class="keyword">BitMine 再购 <span class="knum">2万枚ETH</span>（距5%目标差38万）</span>
+      <span class="keyword">Humanity H代币 <span class="knum">+44%</span>（1:1 ERC-20空投）</span>
+      <span class="keyword">Marvell <span class="knum">-9.78%</span>（AI概念股领跌）</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月17日 · 覆盖时间 06/16 20:00 — 06/17 09:30（北京时间）</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div style="margin-top:8px; color:#222;">本早报仅供参考，不构成投资建议。加密资产投资存在高风险，请独立判断。</div>
+</div>
+
+</body>
+</html>
