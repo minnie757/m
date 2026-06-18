@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月18日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      text-align: center; padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block; border-radius: 20px;
+      background: #111; border: 1px solid #222;
+      padding: 3px 14px; font-size: 11px; color: #555;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; } .down { color: #FF3B3B; } .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 16px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+    .section-count { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #1a3000; border-radius: 10px; padding: 1px 8px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+    .tag-priority { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #0d1f00; color: #BCFF2F; border: 1px solid #1e3d00; }
+    .tag-priority.mid  { background: #1a1500; color: #FFD600; border: 1px solid #332a00; }
+    .tag-priority.low  { background: #111; color: #555; border: 1px solid #222; }
+    .tag-time { font-size: 10px; color: #444; padding: 2px 7px; background: #0a0a0a; border-radius: 4px; }
+    .news-title { font-size: 14px; font-weight: 700; color: #eee; line-height: 1.5; margin-bottom: 6px; }
+    .news-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 6px; }
+    .news-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #BCFF2F; background: #0d1a00; border: 1px solid #1a3000; border-radius: 12px; padding: 2px 8px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #555; text-decoration: none; }
+    .news-source a:hover { color: #BCFF2F; }
+    .keywords-section { margin: 20px 0; padding: 14px 16px; background: #0a0a0a; border: 1px solid #111; border-radius: 6px; }
+    .keywords-title { font-size: 12px; color: #BCFF2F; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword { font-size: 11px; color: #aaa; background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 4px 10px; }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer { padding: 24px 20px; text-align: center; border-top: 1px solid #0a0a0a; font-size: 11px; color: #333; line-height: 1.8; }
+    .footer-brand { font-size: 13px; color: #444; font-weight: 700; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 18</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/17 20:00 — 06/18 09:30（北京时间）</div>
+</div>
+
+<!-- Sources -->
+<div class="sources">
+  <span class="pill">Odaily星球日报</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">Foresight News</span>
+  <span class="pill">ChainCatcher</span>
+  <span class="pill">BlockBeats</span>
+  <span class="pill">金色财经</span>
+  <span class="pill">金十数据</span>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美联储FOMC今日（06/18 02:00 BJ）公布决议，如期维持3.50-3.75%不变，但点阵图释放强烈鹰派信号：18位成员中9位预计2026年加息、6位预计加息两次及以上，年底FFR中位预测从3.4%跳升至3.8%；2年期美债收益率单日+16bps至4.21%（逾一年高位）；Warsh发表首次记者会，声明精简至130字并删除"倾向降息"措辞，拒绝提供任何前瞻指引。市场反应：Nasdaq ▼-1.34%、S&P500 ▼-1.21%，BTC跌至$64,599（-1.84%），F&G骤降至15（极度恐惧）。监管端同日落锤：伊利诺伊州长Pritzker正式签署全美首个0.2%数字资产交易税（2027/1/1生效），业界称"美国最反加密法律"。能源市场独辟蹊径：WTI $75.47创15周低位（五连跌），美伊和平协议MOU预计本周瑞士签署，伊朗石油供给重启预期压制油价。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$64,599</div>
+      <div class="market-change down">▼ -1.84%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,757</div>
+      <div class="market-change down">▼ -2.12%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">15</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$75.47</div>
+      <div class="market-change down">▼ -5.49%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,303</div>
+      <div class="market-change down">▼ -0.45%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,022</div>
+      <div class="market-change down">▼ -1.34%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/18 02:01 BJ（决议公布）</span>
+      </div>
+      <div class="news-title">Fed FOMC 鹰派大转向：点阵图9/18官员预计2026年加息，年底FFR升至3.8%，2Y国债+16bps；Warsh首次记者会删除降息前瞻指引</div>
+      <div class="news-desc">美联储6月17-18日会议以全票通过维持联邦基金利率目标区间3.50-3.75%不变，但最新点阵图（dot plot）传递超预期鹰派信号：18位FOMC成员中有9位预计2026年内至少加息一次，6位预计加息两次以上，仅有一人支持今年加息三次。年底FFR中位预测从3月的3.4%跳升至3.8%，同时PCE通胀预测从2.7%上调至3.6%。2年期美债收益率单日跳升16bps至4.21%，创逾一年新高。新任主席Kevin Warsh在其首次记者会上将声明精简至130字（前任最后一次为341字），删除"对未来降息有倾向"的关键措辞，并明确拒绝提供任何前瞻性指引，称"无法对下一步行动做出承诺"，强调"通胀远高于2%目标"。市场将此定性为"鹰派暂停"：Warsh将组建专项工作组彻底检讨Fed运营机制。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级以上</span>
+        <span class="news-tag">货币政策·FOMC·加息预期·点阵图</span>
+        <span class="news-tag">Fed 3.50-3.75%·点阵图9/18加息·FFR中位3.8%·2Y国债4.21%·+16bps</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/06/17/fed-interest-rate-decision-june-2026.html" target="_blank">CNBC（Fed决议 06/17）</a> · <a href="https://www.npr.org/2026/06/17/nx-s1-5860084/fed-chief-warsh-first-fomc-meeting" target="_blank">NPR（Warsh首次记者会）</a> · <a href="https://www.odaily.news/newsflash/491802" target="_blank">Odaily（FOMC声明 02:01 BJ）</a> · <a href="https://www.odaily.news/newsflash/491812" target="_blank">Odaily（传声筒：明显鹰派 02:11 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 昨日（英国CPI发布）</span>
+      </div>
+      <div class="news-title">英国5月CPI +2.8%（连续两月持平，低于预期+3.0%）；英国央行今日（6/18）正午公布决议，市场全员预期维持3.75%</div>
+      <div class="news-desc">英国国家统计局（ONS）6月17日公布5月CPI数据，同比+2.8%与4月持平，低于路透调查预期+3.0%。细项：交通通胀跳升至+6.8%（2022年12月以来最高，主要受汽油价格、航班票价和车辆税驱动），食品及非酒精饮料+2.2%（2024年12月以来最低）。通胀连续两月未再走高，为英国央行（BOE）提供维持利率不变的理由。英国央行货币政策委员会今日（6/18）正午公布决议，路透调查65位经济学家全员预期维持3.75%不变；中东能源冲击的尾部风险使BOE暂不考虑降息。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·CPI·央行决议</span>
+        <span class="news-tag">英国5月CPI +2.8%·低预期·BOE 3.75%维持·今日正午公布</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/amp/2026/06/17/inflation-uk-cpi-interest-rates-bank-of-england.html" target="_blank">CNBC（英国CPI 06/17）</a> · <a href="https://www.ons.gov.uk/releases/consumerpriceinflationukmay2026" target="_blank">ONS（May 2026 CPI官方数据）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/18 06:03 BJ（美股收盘）</span>
+      </div>
+      <div class="news-title">美股全线下跌：Nasdaq 26,022 ▼-1.34%，S&P500 ▼-1.21%；WTI $75.47 ▼-5.49% 五连跌创15周低位，美伊和平协议MOU本周签署</div>
+      <div class="news-desc">美东时间6月17日，Fed鹰派点阵图冲击下美股全线走低：Nasdaq综合指数收26,021.66（-1.34%），S&P500收7,420.10（-1.21%），道指收51,492.55（-0.98%）。利率敏感型科技股和成长股跌幅最深，2年期美债收益率跳升至4.21%（+16bps）为核心压制因素。原油独走"和平逻辑"：WTI跌至$75.47创15周低位（-5.49%），连跌五个交易日，主因美伊和平谈判进入尾声——双方就重开霍尔木兹海峡、解除海上封锁、限制伊朗核项目和释放冻结资产达成MOU框架，协议文本预计本周五在瑞士正式签署，市场抢先定价伊朗石油（约300万桶/日）重返市场。黄金（XAUT）小幅承压至$4,303（-0.45%），滞涨迹象下避险需求减弱。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股·原油·美债</span>
+        <span class="news-tag">Nasdaq 26,022 -1.34%·S&P500 -1.21%·WTI $75.47 -5.49%·2Y国债4.21%·美伊MOU本周签署</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-17-2026" target="_blank">TheStreet（美股收盘 06/17）</a> · <a href="https://www.fxstreet.com/news/crude-oil-sells-the-iran-peace-deal-sight-unseen-wti-hits-15-week-low-202606161646" target="_blank">FXStreet（WTI 15周低位）</a> · <a href="https://www.odaily.news/newsflash/491877" target="_blank">Odaily（BTC跌破64K 06:03 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/18 04:24 BJ（签署确认）</span>
+      </div>
+      <div class="news-title">伊利诺伊州长Pritzker正式签署0.2%数字资产交易税，2027年1月1日生效；行业称其"美国最反加密法律之一"</div>
+      <div class="news-desc">伊利诺伊州长J.B. Pritzker于周二（6月17日）正式签署《数字资产特许税法》，将其纳入2027财年预算。该法对面向伊利诺伊州客户的加密交易经纪商、交易所和托管机构征收交易价值0.2%的税费，采用类似销售税的征收机制，预计2027年1月1日起生效，全年可带来约$6,000万州财政收入。Crypto Council for Innovation、Digital Chamber、伊利诺伊区块链协会等多个行业团体联合发声，批评该法将"让伊利诺伊州居民为使用数字资产额外承担成本"，并警告可能驱逐加密企业和开发者出走该州。法学界认为，作为全美首个此类法律，它将对其他州的类似立法倡议产生示范效应——向正面（复制）或负面（讼争后撤回）两个方向均有可能。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·美国州级·加密税·立法</span>
+        <span class="news-tag">伊利诺伊州 0.2%加密税·2027/1/1生效·全美首个·Pritzker签署</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/491846" target="_blank">Odaily（签署确认 04:24 BJ）</a> · <a href="https://news.bloombergtax.com/daily-tax-report-state/crypto-groups-blast-illinois-digital-asset-trading-tax-proposal-5" target="_blank">Bloomberg Tax（行业反对）</a> · <a href="https://www.gncrypto.news/news/illinois-budget-0-2-percent-crypto-transaction-tax/" target="_blank">GNCrypto（法案详情）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 22:04 BJ（吴说晚报）</span>
+      </div>
+      <div class="news-title">新加坡MAS将Bybit列入投资者警示名单，提示其在新加坡未获官方许可或监管</div>
+      <div class="news-desc">新加坡金融管理局（MAS）将Bybit列入投资者警示名单（Investor Alert List），明确提示该平台未在新加坡获得任何许可或受到监管。MAS的投资者警示名单是一种信息披露机制而非禁令，但被列入后通常会对用户信心产生显著影响。Bybit是全球第二大加密衍生品交易所（仅次于OKX），此前已因监管缺口问题先后在英国、荷兰、加拿大等市场受限。新加坡是亚太地区最重要的加密合规市场之一，Bybit当前持有MAS"数字支付代币服务提供商"申请的审核状态，此次被列入警示名单可能影响其牌照申请进程。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·亚太·交易所合规</span>
+        <span class="news-tag">Bybit·新加坡MAS警示名单·未获许可·牌照申请风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/cryptoquant" target="_blank">吴说区块链（06/17晚报 22:04 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📉</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 22:04 BJ（吴说晚报）</span>
+      </div>
+      <div class="news-title">山寨币现货卖压触五年极端水平：CryptoQuant 显示15个月连续净卖出，买卖量差降至2020年以来最深负值</div>
+      <div class="news-desc">CryptoQuant分析师指出，除BTC和ETH外的山寨币在现货交易所面临极端卖压：衡量买卖力量差值的指标已连续15个月录得净卖出，当前绝对值已降至2020年初（牛市启动前夜）以来的最深负值区间。该指标曾于2025年初短暂接近平衡，随后再度深度转负。当前极端负值历史上往往出现在山寨币底部区域，具备一定逆向信号意义，但在Fed加息路径重估的宏观背景下，反弹时机难以确认。与此同时，恐惧贪婪指数今日骤降至15（极度恐惧），较昨日22大幅下滑，显示市场情绪急剧恶化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">加密数据·山寨币·情绪指标</span>
+        <span class="news-tag">CryptoQuant 山寨币现货卖压·15个月净卖出·2020年来最深·F&G 15极度恐惧</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/cryptoquant" target="_blank">吴说区块链（CryptoQuant分析 06/17晚报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 昨日（CoinDesk链上数据）</span>
+      </div>
+      <div class="news-title">链上底部信号闪烁：6月BTC长期持仓者已累计吸筹12.5万枚BTC，历史底部规律下的强持仓信号</div>
+      <div class="news-desc">CoinDesk援引链上数据报告，6月以来BTC长期持仓者（LTH）已累计净增持约125,000枚BTC，显示"底部吸筹"行为模式。历史上，BTC长期持有者在短期恐慌性下跌阶段持续增持往往是底部结构形成的先行信号之一。当前BTC已从月初高点$67,293（6月16日0点）下滑至$64,599，跌幅约-4%，恐惧指数降至15——与2025年初底部区域情绪结构相似。分析师将$59,130（5月低点）视为下方关键支撑，点阵图冲击实质性但尚未突破关键支撑位。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·BTC·链上分析·LTH</span>
+        <span class="news-tag">BTC LTH 6月吸筹12.5万枚·底部信号·关键支撑$59,130</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/tech/2026/06/17/live-markets-a-bitcoin-bottom-signal-flashed-as-holders-absorbed-125-000-btc-in-june" target="_blank">CoinDesk（LTH吸筹数据 06/17）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 22:04 BJ（吴说晚报）</span>
+      </div>
+      <div class="news-title">以太坊 Glamsterdam 升级进入开发网络最终测试阶段，预计2026年下半年主网上线</div>
+      <div class="news-desc">以太坊下一个重大协议升级"Glamsterdam"（代号整合了对历届升级的主要EIP集合）已完成各独立测试网验证，进入开发者网络（devnet）最终整合测试阶段，标志着开发里程碑节点。各客户端团队（Geth、Besu、Nethermind等）正在进行全套EIP代码联调测试，预计公共测试网（Holešky/Sepolia）部署将于近期启动，主网上线时间预估为2026年下半年。核心EIP内容尚未完整披露，但市场预期包含进一步的staking效率改进和执行层优化。Glamsterdam有望成为继Pectra升级后以太坊最重要的升级节点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·以太坊·协议升级</span>
+        <span class="news-tag">ETH Glamsterdam·开发网最终测试·2026下半年主网·EIP联调</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/cryptoquant" target="_blank">吴说区块链（06/17晚报 22:04 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/17 22:04 BJ（吴说晚报）</span>
+      </div>
+      <div class="news-title">PumpFun代币毕业率暴跌80%至0.26%，日均手续费收入从$480万降至$80万；Solana Meme生态资金转向</div>
+      <div class="news-desc">Solana Meme币发射平台PumpFun的代币"毕业率"（从平台迁移至Raydium完成上线的比例）已从历史高位大幅下跌约80%，当前仅为0.26%。与此同时，平台日均手续费收入从高峰期的$480万骤降至$80万，降幅超过83%。分析认为，资金正从"打新"模式的PumpFun生态向Hyperliquid等衍生品交易平台迁移，反映散户投机偏好从现货Meme轮转至高杠杆永续合约。Solana链上整体日活数据亦随之走弱，但网络底层TPS和验证者生态维持稳定。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·Meme·Solana·DeFi</span>
+        <span class="news-tag">PumpFun毕业率0.26% -80%·日均收入$80万·资金转向Hyperliquid</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/cryptoquant" target="_blank">吴说区块链（06/17晚报 22:04 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/17 22:04 BJ（吴说晚报）</span>
+      </div>
+      <div class="news-title">SBF向特朗普政府提交特赦申请，Polymarket 概率升至14%；自称出狱后将"发行自己的新代币"</div>
+      <div class="news-desc">FTX创始人Sam Bankman-Fried（SBF）已于6月8日向特朗普政府提交正式特赦申请，Polymarket上其获得特赦的预测概率因此翻倍至14%。据悉SBF目前在狱中因临床抑郁症每日服药，申请材料据报需要$5,000万至$1亿美元的"启动资金"。SBF在申请材料中据称声称如获释将"发行自己的新代币"。特赦申请在法律上可行，但联邦定罪后获总统特赦需要极高政治代价，分析师普遍认为14%概率仍偏高。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">行业趋势·FTX·监管·特赦</span>
+        <span class="news-tag">SBF特赦申请·Polymarket 14%·$5,000-1亿启动资金·"发行新代币"</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/cryptoquant" target="_blank">吴说区块链（06/17晚报 22:04 BJ）</a></div>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$64,599</span> ▼-1.84%</span>
+      <span class="keyword">ETH <span class="knum">$1,757</span> ▼-2.12%</span>
+      <span class="keyword">XAUT <span class="knum">$4,303</span> ▼-0.45%</span>
+      <span class="keyword">WTI <span class="knum">$75.47</span> ▼-5.49%（15周低位）</span>
+      <span class="keyword">Nasdaq <span class="knum">26,022</span> ▼-1.34%</span>
+      <span class="keyword">F&G <span class="knum">15</span> 极度恐惧</span>
+      <span class="keyword">Fed 点阵图 <span class="knum">9/18</span> 官员预计2026年加息</span>
+      <span class="keyword">FFR 2026年底中位预测 <span class="knum">3.8%</span>（前值3.4%）</span>
+      <span class="keyword">2Y国债 <span class="knum">4.21%</span>（+16bps·逾一年高位）</span>
+      <span class="keyword">伊利诺伊加密税 <span class="knum">0.2%</span> 已签署·2027/1/1生效</span>
+      <span class="keyword">英国5月CPI <span class="knum">+2.8%</span>（持平·低预期）</span>
+      <span class="keyword">BTC LTH 6月吸筹 <span class="knum">12.5万枚</span></span>
+      <span class="keyword">山寨币现货卖压 <span class="knum">15个月</span> 连续净卖出</span>
+      <span class="keyword">PumpFun毕业率 <span class="knum">0.26%</span> ▼-80%</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月18日 · 覆盖时间 06/17 20:00 — 06/18 09:30（北京时间）</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div style="margin-top:8px; color:#222;">本早报仅供参考，不构成投资建议。加密资产投资存在高风险，请独立判断。</div>
+</div>
+
+</body>
+</html>
