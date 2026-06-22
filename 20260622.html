@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月22日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 22</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/21 20:00 — 06/22 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美伊代表团经 18 小时通宵谈判后，于北京时间周一凌晨 1 点就霍尔木兹海峡船只安全通行机制达成协议，由卡塔尔和巴基斯坦联合发布成果文件，WTI 原油亚市震荡于 $77.54 待欧美盘定价。链上安全方面，Taiko ERC20 Vault 遭攻击损失超 $100 万，官方建议立即撤离跨链桥资金。宏观层面，英国央行 6 月 18 日以 7-2 维持 3.75%，鹰派分裂票数创本轮新高；日经 225 盘中 +1% 再创历史新高；美股 6 月 19 日 Juneteenth 假期休市后，最近交易日（6/18）纳指 +1.91% 修复。BTC/ETH 续跌，F&amp;G 维持极度恐慌 20。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,956</div>
+      <div class="market-change down">▼ -0.55%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,727</div>
+      <div class="market-change down">▼ -0.58%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">20</div>
+      <div class="market-change down">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$77.54</div>
+      <div class="market-change up">▲ +0.27%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,196</div>
+      <div class="market-change up">▲ +1.21%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克 ¹</div>
+      <div class="market-price">26,879</div>
+      <div class="market-change up">▲ +1.91%</div>
+    </div>
+  </div>
+  <div style="font-size:10px;color:#333;margin-top:6px;">¹ 6/19 Juneteenth 假期休市，数据为 6/18（周四）收盘</div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/22 01:00 BJ</span>
+      </div>
+      <div class="news-title">美伊经18小时谈判就霍尔木兹通行安全机制达成协议，卡塔尔·巴基斯坦联合发布成果文件</div>
+      <div class="news-desc">伊朗外长宣布，双方代表团已完成工作，技术团队将继续推进后续文本；就霍尔木兹海峡船只安全通行机制安排已达成协议，成果文件将由卡塔尔和巴基斯坦联合发布。JD Vance 周六抵达瑞士，美方代表团通宵工作，协议于凌晨 1 点北京时间确认。WTI 亚市开盘于 $77.54 震荡，市场待欧美盘充分定价协议影响；此前 6 月 19 日以色列-黎巴嫩停火导致原定签字仪式中断，6 月 21 日瑞士谈判重启后一夜达成突破。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·地缘政治</span>
+        <span class="news-tag">美伊协议·霍尔木兹·WTI震荡</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/492821" target="_blank">Odaily（伊朗外长：协议达成 01:00）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/492824" target="_blank">Odaily（霍尔木兹通行机制 01:00）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/492807" target="_blank">Odaily（谈判通宵进行 23:58）</a></div>
+    </div>
+  </div>
+
+  <!-- 安全事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔒</span>
+      <span class="section-title">安全事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/22 00:03 BJ</span>
+      </div>
+      <div class="news-title">Taiko ERC20 Vault 遭攻击损失超 $100 万，链状态验证机制被入侵，建议立即撤离跨链桥</div>
+      <div class="news-desc">Taiko 链上 ERC20 Vault 智能合约遭到攻击，初步损失超过 100 万美元；随后确认链状态验证机制遭入侵，Taiko 官方建议所有用户立即撤离跨链桥中的资金。Taiko 此前曾接受 OpenZeppelin 安全审计，但本次为运行时攻击。目前已有地址因提款激增被监控到（Altura 金库同日宣布有序关闭），建议用户密切关注官方公告确认资金安全。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">安全事件·跨链桥攻击</span>
+        <span class="news-tag">Taiko·ERC20 Vault·$100万+·建议撤资</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/492809" target="_blank">Odaily（Taiko攻击 00:03）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/492822" target="_blank">Odaily（撤资建议 00:57）</a></div>
+    </div>
+  </div>
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/18（窗口内）</span>
+      </div>
+      <div class="news-title">英国央行 6 月 7-2 维持利率 3.75%，Pill·Greene 投票立即加息，鹰派分裂本轮新高</div>
+      <div class="news-desc">英国货币政策委员会（MPC）以 7-2 投票维持基准利率 3.75% 不变，Megan Greene 和 Huw Pill 两位委员投票立即加息至 4%；Catherine Mann 虽投票维持，但公开警示将密切观察是否需要行动，其措辞被市场解读为即将转变的信号。5 月英国 CPI 维持 2.8%（4 月低点），全球能源价格仍高于伊朗冲突前水平。下次会议 7 月 30 日，市场给予年内加息概率约 55%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">货币政策·央行决议</span>
+        <span class="news-tag">英国央行·3.75%·7-2投票·7/30下次会议</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/june-2026" target="_blank">英国央行（6月MPC决议声明）</a> · <a href="https://www.cnbc.com/2026/06/18/inflation-interest-rates-uk-bank-of-england-iran-deal.html" target="_blank">CNBC（BOE hold 报道）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/22 00:42 BJ</span>
+      </div>
+      <div class="news-title">日经 225 盘中 +1% 再创历史新高，BOJ 加息消化后日股强势延续</div>
+      <div class="news-desc">亚市早盘日经 225 指数日内涨幅达 1%，再度突破上周五 71,952 历史高点。市场已充分消化日本央行 6 月 17 日加息至 1.0%（31 年来最高）的冲击，日元走弱叠加出口股提振推动指数持续创新高。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·亚太股市</span>
+        <span class="news-tag">日经225·历史新高·BOJ加息1.0%后</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/492819" target="_blank">Odaily（日经ATH 00:42）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/22 00:38 BJ</span>
+      </div>
+      <div class="news-title">SpaceX SPCX 盘前 -5% 至 $176.24，从高点累计回调超 16%；韩国 KOSPI 开盘 -1.2%；白银 +4.6% 至 $66.275/oz</div>
+      <div class="news-desc">SpaceX SPCX 上市首周高点约 $210+，今日盘前跌至 $176.24，累计回调幅度超 16%；亚市情绪偏弱，韩国 KOSPI 低开 108 点跌幅 1.2%；贵金属延续避险买盘，白银单日上涨 4.6% 至 $66.275/oz，黄金（XAUT）同步上行 +1.21%，地缘不确定性下贵金属组合走强。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·科技股·贵金属</span>
+        <span class="news-tag">SPCX $176·KOSPI -1.2%·白银 $66.275</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/492818" target="_blank">Odaily（SPCX盘前 00:38）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/492808" target="_blank">Odaily（KOSPI开盘 00:02）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/492823" target="_blank">Odaily（白银+4.6% 01:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/18（Juneteenth前末日）</span>
+      </div>
+      <div class="news-title">美股 6 月 18 日纳指 +1.91% 修复 Fed 卖盘，6 月 19 日 Juneteenth 假期全市场休市</div>
+      <div class="news-desc">6 月 18 日（周四）为 Juneteenth 假期（6/19）前最后交易日，芯片与科技股带动纳指强势反弹 +1.91%，S&amp;P500 +1.08%，道指 +0.14%，为 6 月 17 日 Fed 鹰派点阵图引发的集中抛售提供技术性修复。美股本周一（6/22）重新开盘，将开始消化伊朗霍尔木兹协议这一周末重大变量。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·美股修复</span>
+        <span class="news-tag">纳指+1.91%·S&amp;P+1.08%·6/19休市·6/22重开</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-18-2026" target="_blank">TheStreet（6/18美股收盘）</a> · <a href="https://www.cnbc.com/2026/06/17/stock-market-today-live-updates.html" target="_blank">CNBC（Fed卖盘修复）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/22 00:08 BJ</span>
+      </div>
+      <div class="news-title">新创建地址 10 倍杠杆做多原油，仓位价值 $3,889 万；WTI 亚市 $77.54 待霍尔木兹协议定价</div>
+      <div class="news-desc">链上数据显示，一新创建地址于协议宣布前（00:08 BJ）以 10 倍杠杆开多原油仓位，名义价值 3,889 万美元；随后伊朗协议于 00:52 宣布，WTI 亚市维持 $77.54（+0.27%）震荡，协议并非"完全开放霍尔木兹"而是"通行安全机制"，市场对油价走向谨慎待定。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·原油·杠杆仓位</span>
+        <span class="news-tag">WTI $77.54·10倍杠杆多油·$3,889万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/492813" target="_blank">Odaily（原油杠杆仓位 00:08）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/21 21:48 BJ</span>
+      </div>
+      <div class="news-title">Base 网络 Beryl 升级 6 月 25 日主网激活，推出 B20 代币标准，提现周期 7 天→5 天</div>
+      <div class="news-desc">Coinbase L2 Base 网络即将于 6 月 25 日激活 Beryl 升级，核心变更包括推出 B20 代币标准（类比 ERC20，为 Base 生态原生代币规范）以及将跨链提现等待时间从 7 天缩短至 5 天，进一步提升用户资金流动体验。Beryl 为 Base 年内第二次重要协议升级。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·L2·协议升级</span>
+        <span class="news-tag">Base·Beryl·B20标准·6/25主网·提现7→5天</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/3ad" target="_blank">吴说区块链（6月21日晚报 21:48）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/21 21:48 BJ</span>
+      </div>
+      <div class="news-title">Matter Labs（zkSync）宣布裁员并转向机构隐私链 Prividium；Sonic Labs 三名董事辞任</div>
+      <div class="news-desc">Matter Labs（zkSync 母公司）宣布裁员，战略重心转向机构链上隐私产品 Prividium，反映 ZK Rollup 赛道在消费级应用商业化受阻后的转型压力；同日 Sonic Labs（前 Fantom）宣布 Andre Cronje 等三名创始核心董事辞任，Matt Visser 接任 CEO，DeFi 协议手续费整体较高峰下跌约 60-65%（Aave V3 / Morpho / Curve 同步走低），多项目出现治理重组。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·L2·DeFi治理</span>
+        <span class="news-tag">Matter Labs裁员·Prividium·Sonic董事辞任·DeFi费用-60%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/3ad" target="_blank">吴说区块链（6月21日晚报 21:48）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/21 21:48 BJ</span>
+      </div>
+      <div class="news-title">Kalshi 预测市场年化收入突破 $20 亿，启动 IPO 早期接触；灰度：AAVE 公允价值 $80-100 被低估</div>
+      <div class="news-desc">加密原生预测市场 Kalshi 披露年化收入已突破 20 亿美元，正进行 IPO 早期接触；此前 Polymarket 同类赛道也在申请 CFTC 合规牌照，特朗普执政期监管改善推动预测市场估值快速提升。另，灰度研究发布报告认为 AAVE 当前市价被低估，公允价值区间 $80-100，尽管 DeFi 协议整体手续费收入下滑，但 AAVE 的借贷市场份额持续巩固。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·IPO·观点研报</span>
+        <span class="news-tag">Kalshi $20亿年化·IPO·AAVE公允价值$80-100</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/3ad" target="_blank">吴说区块链（6月21日晚报 21:48）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密市场 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密市场</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/21 23:52 BJ</span>
+      </div>
+      <div class="news-title">知名空头 pension-usdt.eth 将 ETH 空单增至 5 万枚，浮盈超 $143 万</div>
+      <div class="news-desc">链上监控显示，知名对冲地址 pension-usdt.eth 已将 ETH 空单仓位加至 5 万枚，当前浮盈超过 143 万美元；ETH 现报 $1,727，较 5 月高点已累计下跌约 18%，空方持续承压获益。此地址历史上准确预判过多次 ETH 下行周期，当前操作被市场视为机构级看空信号之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密市场·链上数据·空单</span>
+        <span class="news-tag">pension-usdt.eth·ETH空单5万枚·浮盈$143万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/492806" target="_blank">Odaily（链上空单监控 23:52）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">美伊协议 霍尔木兹通行机制</span>
+      <span class="keyword">谈判历时 <span class="knum">18小时</span></span>
+      <span class="keyword">Taiko 损失 <span class="knum">$100万+</span></span>
+      <span class="keyword">英国央行 <span class="knum">3.75%</span> 维持</span>
+      <span class="keyword">鹰派投票 <span class="knum">7-2</span></span>
+      <span class="keyword">日经225 历史新高 <span class="knum">+1%</span></span>
+      <span class="keyword">SPCX 盘前 <span class="knum">$176.24</span></span>
+      <span class="keyword">白银 <span class="knum">$66.275</span> +4.6%</span>
+      <span class="keyword">WTI <span class="knum">$77.54</span> 亚市震荡</span>
+      <span class="keyword">纳指 6/18 <span class="knum">+1.91%</span></span>
+      <span class="keyword">Base Beryl 主网 <span class="knum">6/25</span></span>
+      <span class="keyword">提现周期 <span class="knum">7→5天</span></span>
+      <span class="keyword">Kalshi 年化 <span class="knum">$20亿</span></span>
+      <span class="keyword">AAVE 公允价值 <span class="knum">$80-100</span></span>
+      <span class="keyword">ETH 空单 <span class="knum">5万枚</span> 浮盈$143万</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月22日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· TradingEconomics（WTI）· Yahoo Finance（纳斯达克）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
