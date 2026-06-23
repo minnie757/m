@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月23日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 23</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/22 20:00 — 06/23 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美伊协议进入"60天路线图"阶段，美财政部授权伊朗原油生产/销售 60 天，WTI 应声重跌 4.2% 至 $74.30；SpaceX SPCX 单日暴跌 16.43%，单日市值蒸发约 $400B（全球历史第二大），同日签署 $60 亿 AI 数据中心协议·彭博指数纳入·巨鲸 20 倍杠杆逆势做多；机构持仓季报密集落地：Strategy 再增 520 BTC 至 847,363 枚、Bitmine 增持 52,203 ETH 至 567 万枚（占总供应 4.7%）；英国央行发布 400 亿英镑稳定币框架，美国 CBDC 临时禁令法案提交众议院。BTC/ETH 小幅反弹，F&amp;G 从 20 回升至 23。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$64,254</div>
+      <div class="market-change up">▲ +0.52%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,735</div>
+      <div class="market-change up">▲ +0.49%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">23</div>
+      <div class="market-change down">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$74.30</div>
+      <div class="market-change down">▼ -4.18%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,181</div>
+      <div class="market-change down">▼ -0.36%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,517</div>
+      <div class="market-change up">▲ +1.90%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/23 06:42 BJ</span>
+      </div>
+      <div class="news-title">美伊进入"60天路线图"：美财政部授权伊朗原油 60 天，WTI 跌 4.2% 至 $74.30；特朗普称伊朗将接受武器核查</div>
+      <div class="news-desc">特朗普宣布伊朗将同意接受武器核查，伊朗议长表态霍尔木兹海峡将按伊方制定机制管理；卡塔尔和巴基斯坦宣布双方同意"60天路线图"推进最终协议。美国财政部随即授权伊朗原油生产、交付与销售共 60 天，Gulf 产油国已准备提升产量，科威特解除不可抗力通知，ADNOC 恢复供应运营，WTI 单日跌至 $74.30（-4.18%），能源板块 ETF（XLE）跌 1.7%。协议定性为"通行安全机制"而非全面开放，后续执行细节仍存不确定性。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·能源·地缘政治</span>
+        <span class="news-tag">美伊60天路线图·WTI $74.30·财政部授权原油</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493186" target="_blank">Odaily（特朗普：伊朗接受核查 06:42）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493185" target="_blank">Odaily（伊朗议长：霍尔木兹机制 06:42）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/23 08:30 BJ</span>
+      </div>
+      <div class="news-title">SpaceX SPCX 单日暴跌 16.43%，创全球历史第二大单日市值损失（$4000 亿），同日逆势签 $60 亿 AI 数据中心协议</div>
+      <div class="news-desc">SpaceX（SPCX）6 月 22 日美股大跌 16.43%，跌破 IPO 首日收盘价，单日市值蒸发约 $4,000 亿，为全球企业历史第二大单日损失记录；从 IPO 后高点累计市值蒸发超 $9,000 亿，当前总市值约 $2.03 万亿。主要压力源于 Oppenheimer 警告其 AI 业务扩张/xAI 收购将使净债务 2031 年前超过 $4,000 亿。同日利好交织：与 Reflection AI 签署 $60 亿数据中心租赁协议；公司将于 6 月纳入彭博全球股指大盘股板块；一知名巨鲸以 20 倍杠杆新开 7 万枚 SPCX 多单逆势做多。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·科技股·多空分歧</span>
+        <span class="news-tag">SPCX -16.43%·单日$4000亿·$60亿AI数据中心</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493206" target="_blank">Odaily（SPCX暴跌 08:30）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493200" target="_blank">Odaily（$60亿数据中心协议 08:08）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493188" target="_blank">Odaily（彭博指数纳入 06:50）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493198" target="_blank">Odaily（巨鲸20倍做多 08:05）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/22（美股收盘）</span>
+      </div>
+      <div class="news-title">美股 6 月 22 日纳指 +1.9% 至 26,517，费城半导体指数 +6.4%，Intel +10.6% 创历史新高；大摩警示流动性紧缩</div>
+      <div class="news-desc">美股 6 月 22 日（Juneteenth 后首个交易日）全面反弹，科技/消费/通信领涨；AI 芯片行情重燃，费城半导体指数涨 6.4%，Intel 单日 +10.6% 创历史新高，S&amp;P500 +1.1%；能源板块（XLE）随油价下跌回落 -1.7%。同日 Morgan Stanley 发报警示：流动性紧缩是美股当前面临的主要威胁，美联储缩表叠加国债发行规模持续扩大，资金面隐患不容忽视。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股·芯片行情</span>
+        <span class="news-tag">纳指+1.9%·半导体+6.4%·Intel+10.6%·流动性风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-climb-with-focus-on-iran-deal-fed-hike-path-230530576.html" target="_blank">Yahoo Finance（6/22美股收盘）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493210" target="_blank">Odaily（大摩流动性警示 08:46）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/22 21:51 BJ</span>
+      </div>
+      <div class="news-title">英国央行发布英镑系统性稳定币监管方案：400 亿英镑临时发行上限，70% 国债 + 30% 央行存款</div>
+      <div class="news-desc">英国央行正式公布英镑系统性稳定币监管框架，核心条款：临时发行上限 400 亿英镑；资产结构要求 70% 持有政府债券、30% 存入央行；赎回请求须在收到完整申请后 24 小时内完成处理；预计 2026 年底最终确定操作规范，2027 年引入流动性辅助工具。这是继 MiCA（欧盟）、GENIUS Act（美国）之后，全球稳定币监管框架第三个重量级版本落地，对 USDC/USDT 欧洲及英国合规路径影响重大。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·稳定币·央行框架</span>
+        <span class="news-tag">英国央行·400亿英镑上限·70%国债·24h赎回</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/9f9" target="_blank">吴说区块链（6月22日晚报 21:51）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/23 07:51 BJ</span>
+      </div>
+      <div class="news-title">美国 CBDC 临时禁令法案（禁令至 2030 年底）将提交众议院，目标送交特朗普签署</div>
+      <div class="news-desc">加密记者 Eleanor Terrett 披露，美国一立法措施包含央行数字货币（CBDC）临时禁止条款，有效期至 2030 年 12 月 31 日；法案已获参议院 89-10 高票通过，本周将提交众议院审议，众议院金融服务委员会主席 Rep French Hill 对快速推进满怀期待，目标送至特朗普总统办公室签署。该禁令配套 GENIUS Act 稳定币框架（监管细则须于 7 月 18 日前由各联邦监管机构发布），共同构成美国数字货币监管"双轨制"：鼓励私人稳定币、同期禁止联储发行 CBDC。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·CBDC·立法</span>
+        <span class="news-tag">CBDC禁令至2030·参议院89-10·众议院审议</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493195" target="_blank">Odaily（CBDC禁令法案 07:51）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/23 08:44 BJ</span>
+      </div>
+      <div class="news-title">美 CFTC 就期货 24/7 交易及能源永续合约公开征求意见</div>
+      <div class="news-desc">美国商品期货交易委员会（CFTC）就允许期货 24 小时/7 天连续交易及能源类永续合约上市公开征求公众意见，这一动向被市场解读为传统金融向加密行业"7x24 永续合约"模式靠拢的监管信号，或为日后加密衍生品获正式 CFTC 监管认可铺路。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·衍生品·CFTC</span>
+        <span class="news-tag">CFTC·期货24/7·能源永续合约·征求意见</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493209" target="_blank">Odaily（CFTC征求意见 08:44）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/22 21:51 BJ</span>
+      </div>
+      <div class="news-title">机构持仓季报密集落地：Strategy 总持 847,363 BTC；Bitmine ETH 达 567.3 万枚占总供应 4.7%；Morgan Stanley BTC 持仓 $2.884 亿</div>
+      <div class="news-desc">Strategy（前 MicroStrategy）于 6/15–6/21 以均价 $67,068 再增 520 枚 BTC（总耗资 $3,490 万），总持仓升至 847,363 枚，现金储备仍保持约 $14 亿；Bitmine 本轮增持 52,203 枚 ETH 后总仓位升至 5,672,956 枚（约 567.3 万枚），占 ETH 当前总流通供应量的 4.7%，总资产 $23.3 亿，成为全球最大单一机构 ETH 持仓方；Morgan Stanley 本次增持 166.24 枚 BTC 后，总持仓市值升至 $2.884 亿。三大机构集中公告显示机构底仓配置持续扩大，与当前 F&amp;G 极度恐慌信号形成鲜明反差。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·机构持仓</span>
+        <span class="news-tag">Strategy 847,363 BTC·Bitmine 567万ETH 4.7%·MS $2.884亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/9f9" target="_blank">吴说区块链（Strategy+Bitmine 21:51）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493204" target="_blank">Odaily（Morgan Stanley增持 08:28）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/22 21:51 BJ</span>
+      </div>
+      <div class="news-title">韩国 Toss Bank 与 Solana Foundation 签署战略 MOU，测试稳定币全球跨境汇款基础设施</div>
+      <div class="news-desc">韩国最大互联网银行 Toss Bank 与 Solana Foundation 于 6 月 19 日签署一对一战略合作备忘录，核心目标是验证稳定币用于海外汇款的可行性，探索利用 Solana 链高吞吐量特性构建全球实时汇款通道。这是韩国主流银行与 Layer 1 公链首次签署正式战略合作框架，或推动 Solana 生态在 RWA 与跨境支付场景的合规化探索。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA·跨境支付</span>
+        <span class="news-tag">Toss Bank·Solana·稳定币汇款·MOU 6/19</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/9f9" target="_blank">吴说区块链（Toss Bank × Solana 21:51）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/23 08:52 BJ</span>
+      </div>
+      <div class="news-title">Polymarket 成为德甲联赛美国独家预测市场合作伙伴；21Shares 联创：代币化炒作严重超前于华尔街实际准备</div>
+      <div class="news-desc">Polymarket 宣布成为德国甲级联赛（Bundesliga）美国区独家预测市场合作伙伴，是加密预测市场首次与欧洲顶级体育联赛建立正式合作；与此同时，21Shares 联合创始人 Ophelia Snyder 公开表态，当前加密行业对代币化（Tokenization）的市场炒作已明显超前于华尔街机构的实际技术准备程度和合规部署进度，提示市场预期管理风险。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·预测市场·代币化</span>
+        <span class="news-tag">Polymarket·德甲独家·代币化炒作超前于华尔街</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493212" target="_blank">Odaily（Polymarket德甲 08:52）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493201" target="_blank">Odaily（21Shares代币化警示 08:18）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密市场 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密市场</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/23 08:33 BJ</span>
+      </div>
+      <div class="news-title">两巨鲸合计做多 2,754 枚 BTC 仓位 $1.75 亿；另有巨鲸 SOL 持仓两天半盈利 $51.3 万</div>
+      <div class="news-desc">链上数据显示，今日两巨鲸联合在盘中建立 2,754 枚 BTC 多仓，名义价值约 1.75 亿美元，显示大资金于 $64,000 区域积极做多；另一巨鲸通过 SOL 波段交易，仅用两天半时间净赚 $51.3 万。当前 BTC 小幅反弹至 $64,254（+0.52%），ETH $1,735（+0.49%），F&amp;G 由昨日 20 回升至 23，多头资金在极度恐慌区间持续布局。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密市场·链上数据·多头布局</span>
+        <span class="news-tag">BTC多单$1.75亿·SOL盈利$51.3万·F&amp;G 20→23</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493207" target="_blank">Odaily（BTC巨鲸多单 08:33）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493197" target="_blank">Odaily（SOL盈利 08:05）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">美伊 60天路线图</span>
+      <span class="keyword">美财政部授权 <span class="knum">60天</span> 伊朗原油</span>
+      <span class="keyword">WTI <span class="knum">$74.30</span> ▼-4.18%</span>
+      <span class="keyword">SPCX 单日 <span class="knum">-16.43%</span></span>
+      <span class="keyword">单日市值蒸发 <span class="knum">$4,000亿</span></span>
+      <span class="keyword">SpaceX × Reflection AI <span class="knum">$60亿</span></span>
+      <span class="keyword">纳指 <span class="knum">+1.9%</span> 半导体 <span class="knum">+6.4%</span></span>
+      <span class="keyword">Intel <span class="knum">+10.6%</span> 历史新高</span>
+      <span class="keyword">英国央行稳定币上限 <span class="knum">400亿英镑</span></span>
+      <span class="keyword">CBDC禁令至 <span class="knum">2030</span> 年底</span>
+      <span class="keyword">Strategy <span class="knum">847,363</span> BTC</span>
+      <span class="keyword">Bitmine ETH <span class="knum">567万枚</span> 占 <span class="knum">4.7%</span></span>
+      <span class="keyword">Morgan Stanley BTC <span class="knum">$2.884亿</span></span>
+      <span class="keyword">BTC 巨鲸多单 <span class="knum">$1.75亿</span></span>
+      <span class="keyword">Toss Bank × Solana MOU</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月23日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· TradingEconomics（WTI）· Yahoo Finance（纳斯达克）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
