@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月24日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 24</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/23 20:00 — 06/24 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    以太坊基金会宣布完成重组：54 人离职（裁员 20%）、ZK 研究实验室关闭、年度预算削减 40%，ETH 单日重挫 -3.73% 至 $1,668，年内表现垫底主流资产（距 52 周高点 -60%）。全球 AI 概念股同步崩溃：台积电先进制程全线涨价触发成本恐慌，Micron -13.18%、SMH -6.5%、Nasdaq -2.21%（6/23 最差单日）；KOSPI 昨日熔断 -10% 后今日反弹 +4%。欧洲议会 43-14 通过数字欧元立场，中国人民银行法修订草案拟明确数字人民币法律地位，全球 CBDC 版图加速分化。F&amp;G 从 23 骤降至 17 极度恐慌，BTC -2.00% 至 $62,933。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$62,933</div>
+      <div class="market-change down">▼ -2.00%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,668</div>
+      <div class="market-change down">▼ -3.73%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">17</div>
+      <div class="market-change down">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$74.00</div>
+      <div class="market-change down">▼ -0.40%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,067</div>
+      <div class="market-change down">▼ -2.62%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,931</div>
+      <div class="market-change down">▼ -2.21%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/23 22:07 BJ</span>
+      </div>
+      <div class="news-title">以太坊基金会完成重组：54 人离职（裁员 20%）、ZK 研究室关闭、年度预算削减 40%，ETH 重挫 -3.73%</div>
+      <div class="news-desc">以太坊基金会（EF）宣布完成持续数月的重组，共 54 人离职，占总编制约 20%；ZK 研究实验室关闭；年度预算整体削减 40%，当前年化支出约为剩余资金的 15%，目标 2030 年后降至 5%，转向"永久运营"的捐赠基金模式。组织重构为协议、访问、用户、社区、机构五大工作集群；此前 18 个月内已有约 9 位高管离职，包括两位联合执行董事 Tomasz Stańczak（2 月离职）和 Hsiao-Wei Wang（本月离职）。ETH 现报 $1,668，年内较 52 周高点 $4,955 跌幅已达 60%，为主流资产中表现最差。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">链上事件·生态治理</span>
+        <span class="news-tag">EF裁员54人20%·ZK实验室关闭·预算-40%·ETH -3.73%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/20" target="_blank">吴说区块链（6月23日晚报 22:07）</a> · <a href="https://www.coindesk.com/tech/2026/06/23/ethereum-foundation-cuts-20-of-staff-amid-leadership-exodus" target="_blank">CoinDesk（EF重组报道）</a> · <a href="https://www.cryptopolitan.com/ethereum-foundation-eliminates-54-positions/" target="_blank">Cryptopolitan（54职位削减详情）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/23（美股收盘）</span>
+      </div>
+      <div class="news-title">全球 AI 概念股崩溃：Micron -13.18%、TSMC -5.2%、SMH -6.5%，Nasdaq -2.21% 为 6 月最差单日</div>
+      <div class="news-desc">6 月 23 日美股 AI/芯片板块遭遇今年最重一次集中抛售：Micron (MU) 单日跌 13.18%，Intel -7%+，Sandisk -10%，台积电美股 ADR -5.2%，费城半导体指数 (SMH) -6.5%；Nasdaq 综指跌 2.21%，S&amp;P500 跌 1.44%，为本月迄今最差单日表现。触发因素叠加：BofA 发布利率上行风险提示报告，加之台积电先进制程将全线涨价的消息进一步激化 AI 基础设施成本焦虑，市场对 AI 资本开支能否带来足够 ROI 的质疑情绪升温。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·AI概念·芯片</span>
+        <span class="news-tag">Micron -13.18%·SMH -6.5%·Nasdaq -2.21%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-23-2026" target="_blank">TheStreet（6/23美股收盘）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493647" target="_blank">Odaily（AI股暴跌 09:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/24 09:01 BJ</span>
+      </div>
+      <div class="news-title">台积电先进制程代工将全线涨价，AI 芯片成本压力加剧；USD/JPY 升至 161.6 逼近近年新高</div>
+      <div class="news-desc">台积电据悉将对先进制程（3nm / 5nm）晶圆代工报价全线上调，具体幅度未披露，市场预期将传导至下游 AI 芯片设计厂商（Nvidia / AMD 等）的产品成本，进一步压缩终端 AI 应用利润率，此消息被认为是触发昨日 AI 概念股崩溃的直接催化剂之一。与此同时，美元兑日元汇率升至 161.62，逼近近年高位；BOJ 6 月 17 日虽加息至 1.0%，但市场正在重新定价美日利差扩大风险，日元持续承压。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·半导体·汇率</span>
+        <span class="news-tag">TSMC涨价·AI成本↑·USD/JPY 161.6</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493649" target="_blank">Odaily（台积电涨价 09:01）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493646" target="_blank">Odaily（USD/JPY 161.6 09:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 08:30 BJ</span>
+      </div>
+      <div class="news-title">KOSPI 昨日 -10% 触发熔断→今日反弹 +4%，SK 海力士 +5%+；三星电子拟 90 万亿韩元股票回购；日经由涨转跌 -0.4%</div>
+      <div class="news-desc">韩国 KOSPI 昨日（6/23）跌幅扩大至 10%，触发熔断机制启动 20 分钟冷静期，为 AI 股全球抛售的最重灾区；今日（6/24）开盘反弹，涨幅扩大至 4%，SK 海力士（AI 内存主力供应商）涨超 5%。三星电子据悉将展开规模约 90 万亿韩元（约 $650 亿）的股票回购，有望提振市场信心。日经 225 早盘曾小涨随后转跌约 -0.4%，亚市整体情绪仍偏谨慎。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·亚太股市</span>
+        <span class="news-tag">KOSPI熔断-10%→反弹+4%·三星回购90万亿韩元·日经-0.4%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493629" target="_blank">Odaily（KOSPI+4% 08:30）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493642" target="_blank">Odaily（三星回购 08:56）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493650" target="_blank">Odaily（日经转跌 09:02）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/23 22:07 BJ</span>
+      </div>
+      <div class="news-title">欧洲议会经济货币委员会 43-14 通过数字欧元立场文件；中国人民银行法修订草案拟明确数字人民币法律地位</div>
+      <div class="news-desc">欧洲议会经济与货币事务委员会以 43 票赞成、14 票反对、1 票弃权通过数字欧元立场文件，强调其将为欧洲公民提供"私密、安全"的法定数字支付方式，与美国 CBDC 临时禁令法案形成鲜明对比。同日，中国人民银行法修订草案公开征求意见，草案拟正式确立数字人民币（e-CNY）的法定货币法律地位，明确其与实物人民币等同的法律效力。全球 CBDC 格局正式形成"欧亚积极推进 vs 美国禁止"的分化态势。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·CBDC·立法</span>
+        <span class="news-tag">欧洲议会43-14·数字欧元·人民银行法·e-CNY法律地位</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/20" target="_blank">吴说区块链（数字欧元 22:07）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493641" target="_blank">Odaily（PBoC数字人民币法 08:52）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/23 22:07 BJ</span>
+      </div>
+      <div class="news-title">SBI 发行日本首个信托型日元稳定币 JPYSC；Bitcoin Suisse 获列支敦士登 MiCAR 牌照（6/22 起效）</div>
+      <div class="news-desc">日本 SBI 控股通过新生信托银行发行日元稳定币 JPYSC，成为日本国内首个信托型日元稳定币，本周内将正式上线，为 6 月 1 日日本 FSA 稳定币细则正式生效后的首批合规发行案例。欧洲方面，加密资产服务商 Bitcoin Suisse 获列支敦士登金融市场管理局（FMA）授予 MiCAR（欧盟加密资产市场法规）合规牌照，自 6 月 22 日起正式生效，可面向欧洲客户提供合规服务。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·稳定币·合规牌照</span>
+        <span class="news-tag">SBI·JPYSC日元稳定币·Bitcoin Suisse·MiCAR牌照</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/20" target="_blank">吴说区块链（SBI稳定币+Bitcoin Suisse 22:07）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/23 22:07 BJ</span>
+      </div>
+      <div class="news-title">加拿大 FINTRAC 更新伊朗交易指引：所有涉伊金融交易（含虚拟货币）须无金额限制记录上报</div>
+      <div class="news-desc">加拿大金融情报机构 FINTRAC 更新针对伊朗交易的监控指引，要求对所有来源于或目的地为伊朗的金融交易进行强制记录和报告，虚拟货币转账明确纳入覆盖范围，且无最低金额限制。这是美伊协议进入"60天路线图"阶段后，各国对伊朗相关金融活动实施更精细化合规管控的信号，加密交易所对涉伊用户的 KYC/AML 流程将面临更严审查。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球监管·AML·伊朗制裁</span>
+        <span class="news-tag">FINTRAC·涉伊虚拟货币·无限额报告</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/20" target="_blank">吴说区块链（FINTRAC伊朗指引 22:07）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 08:43 BJ</span>
+      </div>
+      <div class="news-title">美联社：Anthropic Mythos 模型发现美国政府机密系统漏洞；鲁比尼参与的 Atlas Capital 将推出数字代币 ETF</div>
+      <div class="news-desc">美联社报道，Anthropic 旗下 Mythos 大模型在安全测试中发现了美国政府机密信息系统的多处安全漏洞，并已向相关部门提交报告；此事引发市场对 AI 系统接入高敏感数据场景的安全隐患讨论，或加速 AI 使用监管立法。另外，长期"加密怀疑论者"、经济学家 Nouriel Roubini 参与创立的 Atlas Capital 宣布将推出一款以数字代币为底层资产的 ETF 产品，ETF Store 总裁确认此消息，被视为鲁比尼立场的重大转变信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·AI安全·加密ETF</span>
+        <span class="news-tag">Anthropic Mythos·政府系统漏洞·鲁比尼·Atlas Capital数字代币ETF</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493635" target="_blank">Odaily（Anthropic Mythos 08:43）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493638" target="_blank">Odaily（鲁比尼ETF 08:48）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 08:45 BJ</span>
+      </div>
+      <div class="news-title">Sonic Labs 延长 Fantom Opera 运行至年底并公布新领导层；Allium 完成 $4000 万 B 轮融资</div>
+      <div class="news-desc">Sonic Labs 宣布将 Fantom Opera 旧链运行周期延长至 2026 年底（此前计划提前关闭），为尚未完成迁移的用户提供更长过渡期，并同步公布三名董事辞任后的新领导层架构；三名创始董事（含 Andre Cronje）此前已于 6 月 22 日辞任。链上数据基础设施公司 Allium 完成 4000 万美元 B 轮融资，其核心产品为机构级区块链数据清洗解析服务，客户包括多家头部交易所。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·DeFi·数据基础设施</span>
+        <span class="news-tag">Sonic Labs·Fantom Opera延至年底·Allium $4000万B轮</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493636" target="_blank">Odaily（Sonic Labs延长 08:45）</a> · <a href="https://wublockchain123.substack.com/p/20" target="_blank">吴说区块链（Allium融资 22:07）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密市场 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密市场</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 08:50 BJ</span>
+      </div>
+      <div class="news-title">10x Research：BTC 本轮熊市低点窗口正临近；F&G 骤降至 17；HYPE 巨鲸连续大量提取</div>
+      <div class="news-desc">10x Research 发布分析称，BTC 本轮熊市低点时间窗口正在临近，历史周期规律与当前链上指标均指向短期底部区间；F&amp;G 指数从昨日 23 骤降至 17（极度恐慌），BTC 现报 $62,933（-2.00%）。链上异动方面，一新建钱包今日从 Coinbase 提取 278,827 枚 HYPE（价值约 $1,745 万）；另有一休眠一个月的巨鲸从 BitGo 提取 96,930 枚 HYPE（价值约 $860 万），HYPE 鲸鱼大规模转移或暗示大户在低位积累筹码。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密市场·熊市信号·链上数据</span>
+        <span class="news-tag">10x Research BTC低点窗口·F&amp;G 17·HYPE提取$1,745万+$860万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493640" target="_blank">Odaily（10x Research 08:50）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493634" target="_blank">Odaily（HYPE鲸鱼Coinbase 08:40）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/493625" target="_blank">Odaily（HYPE鲸鱼BitGo 08:23）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">EF 裁员 <span class="knum">54人</span> 占 <span class="knum">20%</span></span>
+      <span class="keyword">EF 预算削减 <span class="knum">40%</span></span>
+      <span class="keyword">ETH <span class="knum">▼-3.73%</span> 距高点 <span class="knum">-60%</span></span>
+      <span class="keyword">Micron <span class="knum">-13.18%</span></span>
+      <span class="keyword">SMH 半导体 <span class="knum">-6.5%</span></span>
+      <span class="keyword">Nasdaq <span class="knum">-2.21%</span> 月内最差</span>
+      <span class="keyword">KOSPI 熔断 <span class="knum">-10%</span>→反弹 <span class="knum">+4%</span></span>
+      <span class="keyword">三星回购 <span class="knum">90万亿韩元</span></span>
+      <span class="keyword">USD/JPY <span class="knum">161.6</span></span>
+      <span class="keyword">欧洲议会数字欧元 <span class="knum">43-14</span></span>
+      <span class="keyword">SBI 日元稳定币 JPYSC</span>
+      <span class="keyword">PBoC 数字人民币 法律地位</span>
+      <span class="keyword">F&amp;G <span class="knum">17</span> 极度恐慌</span>
+      <span class="keyword">HYPE 鲸鱼提取 <span class="knum">$2,605万</span></span>
+      <span class="keyword">鲁比尼 Atlas Capital 数字代币ETF</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>2026年6月24日 · 数据截至 09:30 北京时间</div>
+  <div>资讯来源：Odaily星球日报 · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · 金色财经 · 金十数据</div>
+  <div>行情数据：OKX API（BTC / ETH / XAUT）· Alternative.me（恐惧贪婪）· TradingEconomics（WTI）· Yahoo Finance（纳斯达克）</div>
+  <div style="margin-top:8px;color:#222;">本报告仅供参考，不构成任何投资建议。加密资产具有高度风险，请谨慎决策。</div>
+</div>
+
+</body>
+</html>
