@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月25日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 25</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/24 20:00 — 06/25 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">CNBC</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    Strategy (MSTR) 股价跌破 $100（$95.31，2024 年 3 月来首次），BTC 继续下探 -3.37% 至 $60,874；WTI 原油跌破 $70 关口（$70.34，盘中低 $69.63），霍尔木兹通行正常化修复供给预期，油价加速下行。美光 Q3 财报大幅超预期（营收 $41.5B vs 预期 $35.1B），MU 盘后逆转 +6%；KOSPI 三连涨突破 8900 点，SK 海力士 +11%。MIM 稳定币今晨脱锚至 $0.46（脱锚 54%），Abracadabra 启动紧急措施；DeFi TVL 年内腰斩至 $700 亿，2026 年链上攻击已致 $9.42 亿损失。F&amp;G 降至 12 极度恐慌，加密市场全面受压。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ（ETH 经 CoinGecko 交叉验证）</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$60,874</div>
+      <div class="market-change down">▼ -3.37%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,617</div>
+      <div class="market-change down">▼ -3.06%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">12</div>
+      <div class="market-change down">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$70.34</div>
+      <div class="market-change down">▼ -4.9%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$3,999</div>
+      <div class="market-change down">▼ -2.09%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,476</div>
+      <div class="market-change down">▼ -0.43%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/24 22:39 BJ</span>
+      </div>
+      <div class="news-title">Strategy (MSTR) 股价跌破 $100（$95.31 ▼-8.22%），为 2024 年 3 月以来首次；CryptoQuant 建议暂停购入 BTC</div>
+      <div class="news-desc">Strategy 股价盘中跌破 $100，收于 $95.31（跌幅 8.22%），为 2024 年 3 月以来首次失守该关口；52 周高点 $457.22，年内累计跌幅逾 71%。同日 CryptoQuant 发布报告，建议 Strategy 暂停 BTC 购入以重建现金储备：年度股息义务从 $3 亿飙升至 $12 亿，现金储备减少 38%，股息覆盖期从 7 年以上缩至约 14 个月。Strive 副总裁则表示 Strategy 持有 847,363 枚 BTC（约 $515 亿），STRC 债务风险可控。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·加密股票</span>
+        <span class="news-tag">MSTR $95.31·▼-8.22%·2024年3月来首次跌破$100</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107263" target="_blank">Foresight News（Strategy跌破$100 22:39）</a> · <a href="https://wublockchain123.substack.com/p/mica" target="_blank">吴说区块链（CryptoQuant建议 21:58）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/494076" target="_blank">Odaily（Strive MSTR债务分析 00:28）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/25 01:00 BJ</span>
+      </div>
+      <div class="news-title">美光 Q3 财报大幅超预期：营收 $41.5B（vs 预期 $35.1B），Q4 指引 $49–51B；MU 盘后逆转 +6%；KOSPI 突破 8900，SK 海力士 +11%</div>
+      <div class="news-desc">美光（Micron）Q3 FY2026 营收 $41.5B，较市场预期 $35.1B 超出逾 $6B；EPS $25.11（vs 预期 $20.39）；Q4 营收指引 $49–51B，远高于华尔街 $43.2B 预期；HBM 长协最远覆盖至 2030 年，带来千亿美元保底收入。MU 盘后跳涨 +6%，逆转前日 -13.18% 的暴跌走势。与此同时，韩国 KOSPI 突破 8900 点，SK 海力士涨 11%，三星₩90 万亿回购效应持续发酵；SK 证券指出内存股是 AI 时代瓶颈中"最便宜的股票"。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·财报/半导体</span>
+        <span class="news-tag">MU Q3营收$41.5B·盘后+6%·KOSPI 8900·SK海力士+11%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494088" target="_blank">Odaily（美光财报梳理 01:00）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/494079" target="_blank">Odaily（SK证券内存股 00:40）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/494066" target="_blank">Odaily（KOSPI 8900 08:08）</a></div>
+    </div>
+  </div>
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/24 盘中</span>
+      </div>
+      <div class="news-title">WTI 原油跌破 $70 关口（盘中低 $69.63），霍尔木兹通行正常化修复供给预期；为近月重要心理支撑失守</div>
+      <div class="news-desc">WTI 原油期货收于 $70.34/桶，盘中一度跌破 $70 至 $69.63，为近期关键心理支撑位失守；主因霍尔木兹海峡通行安全机制协议落地后油轮正常过境，市场修复对伊朗原油供给中断的预期溢价。从 6 月 17 日美联储鹰派转向当日约 $75 开始，WTI 已累计下跌逾 7%。油价下行一定程度缓解通胀压力，但速度过快或反映需求端忧虑。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·能源/通胀</span>
+        <span class="news-tag">WTI $70.34·盘中低$69.63·霍尔木兹通行正常化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/06/24/oil-prices-wti-brent-crude-trump-doj-gasoline-prices-strait-of-hormuz.html" target="_blank">CNBC（霍尔木兹油价分析 06/24）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 22:21 BJ</span>
+      </div>
+      <div class="news-title">美联储 7 月按兵不动概率 65.8%；国会讨论"精简主账户"，加密与金融科技企业或直连央行支付系统</div>
+      <div class="news-desc">市场定价显示，美联储 7 月维持利率不变的概率为 65.8%，年内降息预期持续推迟。与此同时，美国国会正讨论对美联储"主账户"政策进行修订，评估允许加密和金融科技公司直接接入央行支付系统的可行性；当前只有传统银行可持有美联储主账户，该变化若落地将改变加密公司清算和结算的底层路径。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">宏观数据·货币政策</span>
+        <span class="news-tag">美联储7月不变65.8%·精简主账户·加密直连央行支付</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494040" target="_blank">Odaily（美联储7月概率 22:21）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/494041" target="_blank">Odaily（精简主账户讨论 22:22）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/25 08:22 BJ</span>
+      </div>
+      <div class="news-title">Coinbase 选择卢森堡作为欧盟 MiCA 合规总部；Ripple 稳定币 RLUSD 在日本上线获 FSA 批准</div>
+      <div class="news-desc">Coinbase 宣布将卢森堡作为其欧盟 MiCA 监管合规总部，以覆盖 27 个成员国市场；早于 MiCA 7 月 1 日牌照截止日期。Ripple 旗下美元稳定币 RLUSD 正式在日本上线，获日本金融厅（FSA）批准，成为继 SBI 日元稳定币 JPYSC 之后，日本稳定币合规市场的又一重要进展。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·MiCA/合规</span>
+        <span class="news-tag">Coinbase卢森堡MiCA·RLUSD日本FSA批准</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494073" target="_blank">Odaily（Coinbase卢森堡 08:22）</a> · <a href="https://www.chaincatcher.com/article/2273480" target="_blank">ChainCatcher（RLUSD日本上线）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/25 08:52 BJ</span>
+      </div>
+      <div class="news-title">Kalshi 起诉伊利诺伊州新法：称州级预测市场监管与联邦 CFTC 管辖权冲突；同时寻求 $400 亿估值融资</div>
+      <div class="news-desc">预测市场平台 Kalshi 就伊利诺伊州针对预测市场的新监管法规提起诉讼，主张州级立法与联邦 CFTC 的专属管辖权相冲突，为全国性预测市场监管权归属争议的最新进展。Kalshi 同期寻求以约 $400 亿估值进行新一轮融资，反映其对监管格局最终明朗化的乐观预期。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·预测市场</span>
+        <span class="news-tag">Kalshi起诉伊利诺伊·CFTC管辖·$400亿估值融资</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.chaincatcher.com/article/2273479" target="_blank">ChainCatcher（Kalshi起诉伊利诺伊）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/494070" target="_blank">Odaily（Kalshi $400亿估值 00:15）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">06/25 08:55 BJ</span>
+      </div>
+      <div class="news-title">Adam Back 旗下 BSTR 与 Cantor SPAC（CEPO）合并投票推迟至 7 月 2 日</div>
+      <div class="news-desc">比特币财库公司 BSTR（Adam Back 联合创立）与 Cantor Fitzgerald 支持的 SPAC 实体 CEPO 的合并股东大会投票推迟至 7 月 2 日，具体原因未披露。此次合并若完成将使 BSTR 实现美股上市，进一步扩展比特币企业财库赛道。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球监管·资本市场</span>
+        <span class="news-tag">BSTR·CEPO合并·7月2日投票·Adam Back</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107282" target="_blank">Foresight News（BSTR/CEPO投票推迟 08:55）</a> · <a href="https://www.chaincatcher.com/article/2273478" target="_blank">ChainCatcher（合并详情）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/24 21:58 BJ</span>
+      </div>
+      <div class="news-title">Chainlink 联合 47 家欧韩银行启动 Project Pangea：$1,500 亿欧韩贸易走廊 T+0 实时结算，SWIFT 原子互换接入</div>
+      <div class="news-desc">Chainlink 与欧洲稳定币联盟 Qivalis（37 家欧洲银行支持）和韩国银行联盟 UniKA（10 家以上商业银行）共同启动 Project Pangea，合作方合计管理资产超 $10 万亿。目标是在 12 个月内实现欧元—韩元外汇的 T+0 实时原子结算，聚焦 $1,500 亿欧韩贸易走廊；技术上将 SWIFT/ISO 20022 指令翻译为 Pangea L1 区块链上的原子互换，银行无需改变现有系统。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">行业趋势·RWA/跨境支付</span>
+        <span class="news-tag">Chainlink Project Pangea·47家银行·$10万亿资产·$1500亿走廊·T+0结算</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/mica" target="_blank">吴说区块链（Chainlink Pangea 21:58）</a> · <a href="https://www.coindesk.com/markets/2026/06/23/chainlink-teams-up-with-47-south-korean-european-banks-to-speed-up-international-money-transfers" target="_blank">CoinDesk（Project Pangea详情）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/24 21:58 BJ</span>
+      </div>
+      <div class="news-title">DeFi TVL 年内腰斩至 $700 亿（年初 $1,150 亿，▼-39%）；2026 年链上攻击已致 $9.42 亿损失，Q2 单季 $7.75 亿</div>
+      <div class="news-desc">DeFi 总锁仓量（TVL）从 2026 年 1 月约 $1,150 亿连续月度下滑，当前约 $700 亿，年内跌幅 39%；以太坊 TVL -43%，Solana -40.5%，Arbitrum -55.3%，仅 TRON（+5%）和 Hyperliquid（+6.7%）逆势增长。2026 年已发生 121 起链上攻击事件，损失合计 $9.42 亿；其中 Q2 单季即发生 85 起，损失 $7.75 亿，攻击密度创历史新高。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">行业趋势·DeFi安全</span>
+        <span class="news-tag">DeFi TVL $70B·▼-39% YTD·2026年攻击121起·$9.42亿损失</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/mica" target="_blank">吴说区块链（DeFi TVL分析 21:58）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/25 08:41 BJ</span>
+      </div>
+      <div class="news-title">MIM 稳定币今晨最低脱锚至 $0.46（脱锚幅度 54%），Abracadabra 启动紧急应对措施</div>
+      <div class="news-desc">Magic Internet Money（MIM）稳定币今晨最低跌至 $0.46，脱锚幅度达 54%，现报约 $0.50；Abracadabra 协议宣布启动紧急措施。MIM 今年多次出现脱锚——6 月 12 日曾跌至 $0.87，本次为年内最低；根因为市场整体下行导致 Arbitrum 等链上流动性极度稀薄，此前已进行的 Curve 池注资和 SPELL 激励程序效果有限。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·稳定币脱锚</span>
+        <span class="news-tag">MIM $0.46·脱锚54%·Abracadabra紧急措施</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107280" target="_blank">Foresight News（MIM脱锚 08:41）</a> · <a href="https://www.chaincatcher.com/article/2273477" target="_blank">ChainCatcher（Abracadabra紧急措施）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/25 08:17 BJ</span>
+      </div>
+      <div class="news-title">KyberSwap 攻击者再向 Tornado Cash 转入 2,000 枚 ETH；两年来累计通过 Tornado 转出超 $3,200 万 ETH</div>
+      <div class="news-desc">链上监控显示，2023 年 KyberSwap 攻击者将又一批 2,000 枚 ETH 转入 Tornado Cash 混币器，此前已多次以类似批次转出；自 2024 年以来通过 Tornado 累计转出金额已超 $3,200 万。该攻击者持续的链上活动表明其仍在积极洗白被盗资产，当前 ETH 价格承压可能加快其变现速度。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·黑客/洗钱</span>
+        <span class="news-tag">KyberSwap攻击者·2000枚ETH·Tornado Cash·累计$3200万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494072" target="_blank">Odaily（KyberSwap转账 08:17）</a> · <a href="https://foresightnews.pro/news/detail/107281" target="_blank">Foresight News（确认 08:45）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/25 07:54 BJ</span>
+      </div>
+      <div class="news-title">黄立成 25 倍杠杆 ETH 多单遭清算，损失 $190 万；清算后随即再开 ETH 多单</div>
+      <div class="news-desc">链上大户黄立成（Machi Big Brother）于 ETH 下跌过程中持有的 25 倍杠杆 ETH 多仓遭到清算，本次损失约 $190 万美元；清算后其随即再度建立 ETH 多头仓位，显示其对 ETH 回升仍持乐观立场。此事件成为本轮 ETH 跌至 $1,617 过程中的高杠杆清算代表性案例。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·巨鲸/清算</span>
+        <span class="news-tag">黄立成·25倍ETH多·清算$190万·再开ETH多</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494057" target="_blank">Odaily（黄立成清算 07:54）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 22:24 BJ</span>
+      </div>
+      <div class="news-title">比特币矿工利润率持续承压，收入已跌破生产成本；F&amp;G 降至 12（极度恐慌），为本轮调整新低</div>
+      <div class="news-desc">链上数据显示，比特币矿工收入已跌破主流矿机的生产成本线，矿工利润率持续收窄；叠加 BTC 跌至 $60,874，矿工抛压风险上升。恐惧贪婪指数当日降至 12（极度恐慌），较 6 月 23 日的 17 进一步恶化；市场情绪处于本轮调整低点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·矿工/情绪</span>
+        <span class="news-tag">BTC矿工收入跌破成本·F&amp;G 12极度恐慌</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494043" target="_blank">Odaily（矿工利润率 22:24）</a> · <a href="https://foresightnews.pro/news/detail/107278" target="_blank">Foresight News（F&amp;G 12 08:30）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/25 08:32 BJ</span>
+      </div>
+      <div class="news-title">美国 XRP 现货 ETF 单日净流入 $204.64 万，市场整体下行背景下逆势获资金青睐</div>
+      <div class="news-desc">昨日美国 XRP 现货 ETF 实现单日净流入 $204.64 万，在 BTC 和 ETH 同步下跌的市场环境下逆势吸引资金，显示部分机构对 XRP 在当前监管明朗化预期下的配置兴趣。当前 XRP 相关监管（SEC v. Ripple 终审及后续 ETF 审批）的确定性较高，被视为阶段性配置的"低风险替代"。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·ETF资金流</span>
+        <span class="news-tag">XRP ETF单日净流入$204.64万·逆势</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/494077" target="_blank">Odaily（XRP ETF数据 08:32）</a> · <a href="https://www.chaincatcher.com/article/2273475" target="_blank">ChainCatcher（确认）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/24 21:58 BJ</span>
+      </div>
+      <div class="news-title">BlackRock：建议组合配置 BTC 1–2%，与黄金同为分散化工具；当前规模已合理，超配风险需审视</div>
+      <div class="news-desc">全球最大资产管理机构贝莱德（BlackRock）发布研究报告，建议投资者在投资组合中配置 1–2% 的比特币作为分散化工具，与黄金的功能类似；同时指出若 BTC 在投资组合中占比超过 2%，其集中风险将开始超过分散化收益。此建议发布于 BTC 进入深度调整之际，市场将其解读为机构层面对当前点位的隐性"认可"。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·机构配置</span>
+        <span class="news-tag">BlackRock·BTC 1-2%配置建议·分散化工具</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/mica" target="_blank">吴说区块链（BlackRock报告 21:58）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/25 08:50 BJ</span>
+      </div>
+      <div class="news-title">10x Research：比特币熊市底部窗口正在临近；21Shares：BTC 年末或回升至 $10 万，符合减半后周期特征</div>
+      <div class="news-desc">10x Research 发布分析指出，根据链上周期指标，比特币本轮熊市的底部窗口正在接近，建议投资者关注下方支撑区间。21Shares 亦表示，当前 BTC 走势仍符合减半后历史周期特征，预计年末存在回升至 $100,000 的可能性；但两家机构均未排除短期进一步下探的风险。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">观点研报·周期分析</span>
+        <span class="news-tag">10x Research熊市底部临近·21Shares年末$10万·减半周期</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/493640" target="_blank">Odaily（10x Research 08:50）</a> · <a href="https://foresightnews.pro/news/detail/107253" target="_blank">Foresight News（21Shares年末预测）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$60,874</span> ▼-3.37%</span>
+      <span class="keyword">ETH <span class="knum">$1,617</span> ▼-3.06%</span>
+      <span class="keyword">XAUT <span class="knum">$3,999</span> ▼-2.09%</span>
+      <span class="keyword">WTI <span class="knum">$70.34</span> ▼-4.9% 跌破$70</span>
+      <span class="keyword">纳指 <span class="knum">25,476</span> ▼-0.43%</span>
+      <span class="keyword">F&amp;G <span class="knum">12</span> 极度恐慌</span>
+      <span class="keyword">MSTR <span class="knum">$95.31</span> ▼-8.22% 跌破$100</span>
+      <span class="keyword">美光Q3营收 <span class="knum">$41.5B</span> vs预期$35.1B</span>
+      <span class="keyword">MIM脱锚 <span class="knum">$0.46</span> 脱锚54%</span>
+      <span class="keyword">DeFi TVL <span class="knum">$700亿</span> ▼-39% YTD</span>
+      <span class="keyword">2026链上攻击 <span class="knum">$9.42亿</span> 121起</span>
+      <span class="keyword">美联储7月不变 <span class="knum">65.8%</span></span>
+      <span class="keyword">Chainlink Pangea <span class="knum">47家银行</span> $1500亿走廊</span>
+      <span class="keyword">XRP ETF净流入 <span class="knum">$204.64万</span></span>
+      <span class="keyword">KyberSwap累计转出 <span class="knum">$3200万</span> ETH</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Odaily · 吴说区块链 · ChainCatcher · Foresight News · BlockBeats · CoinDesk · CNBC</div>
+  <div>行情数据：OKX API 09:00 BJ（ETH 经 CoinGecko 交叉验证）· alternative.me F&amp;G</div>
+  <div style="margin-top:8px;">本报告仅供参考，不构成投资建议。加密资产价格波动剧烈，投资须谨慎。</div>
+  <div style="margin-top:4px; color:#222;">2026 · 06 · 25</div>
+</div>
+
+</body>
+</html>
