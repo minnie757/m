@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 6月30日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 06 · 30</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/29 20:00 — 06/30 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美股6月29日大幅反弹，纳指+2.07%至25,820终结五连跌，Astera Labs +16.39%、KLA +11.97%领涨AI概念股。英国FCA正式发布最终加密监管框架，2027年10月25日授权强制生效，7月起开放预申请支持。机构稳定币布局加速：Strategy推出"数字信贷资本框架"（$2.55B储备+$1.25B BTC变现授权+STRC年化12%），贝莱德计划将USDe纳入$25万亿AUM的Aladdin平台，Circle USDC获BNY数字托管首发支持。与此同时，BTC F&G维持"极度恐惧"（15），Grayscale警告BTC已从$125K峰值下跌超50%处于周期低位；FG Nexus持续抛ETH亏损扩至$8,680万，BitMEX管理层全面换血寻求买家，Loopring DEX宣告停服，旧周期遗产清算进行时。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$59,856</div>
+      <div class="market-change up">▲ +0.46%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,592</div>
+      <div class="market-change up">▲ +1.47%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">15</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$69.7</div>
+      <div class="market-change up">▲ +0.5%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$3,973</div>
+      <div class="market-change down">▼ -2.26%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,820</div>
+      <div class="market-change up">▲ +2.07%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/30 09:00 BJ</span>
+      </div>
+      <div class="news-title">纳指+2.07%至25,820终结五连跌，Astera Labs +16.39%、KLA +11.97%领涨AI概念股</div>
+      <div class="news-desc">美股6月29日（周一）收盘，纳斯达克指数大涨2.07%至25,820.15，终结此前五个交易日连续下跌态势。AI与数据中心相关股票全线领涨：数据中心互联芯片商Astera Labs单日涨幅达16.39%，半导体设备商KLA涨11.97%。美伊地缘风险缓和预期叠加技术股估值回调后的买盘，共同推动本日强势反弹，道指也首次突破52,000点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·科技股反弹</span>
+        <span class="news-tag">纳指·25,820·+2.07%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/495904" target="_blank">Odaily星球日报（美股收盘 06/30 09:00 BJ）</a> · <a href="https://www.fool.com/coverage/stock-market-today/2026/06/29/stock-market-today-june-29-nasdaq-composite-outperforms-as-tech-stocks-gain-on-easing-geopolitical-tensions/" target="_blank">Motley Fool（06/29 收盘报告）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/29 21:55 BJ</span>
+      </div>
+      <div class="news-title">Grayscale：BTC已从2025年10月峰值$125,000下跌超50%，处周期低位；三大压力制约反弹</div>
+      <div class="news-desc">Grayscale研究最新报告指出，比特币已从2025年10月历史峰值$125,000下跌超过50%，认为当前处于本轮周期底部区域。报告列举三大主要压力：一是美联储货币政策路径不确定（加息预期尚存）；二是CLARITY加密立法在中期选举前通过概率显著降低；三是Strategy持有847,363枚BTC面临潜在去杠杆风险。此外量子计算进展被列为中长期隐忧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">宏观数据·周期分析</span>
+        <span class="news-tag">BTC·$125K峰值·-50%·周期低位</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/caa" target="_blank">吴说区块链（每日精选 06/29 21:55 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/30 08:51 BJ</span>
+      </div>
+      <div class="news-title">英国FCA发布最终加密监管框架：2027年10月25日强制授权生效，覆盖交易所/托管/稳定币/借贷质押</div>
+      <div class="news-desc">英国金融行为监管局（FCA）正式发布最终加密资产监管框架，2027年10月25日强制授权系统生效，适用于加密交易平台、托管机构、稳定币发行商及借贷/质押服务提供商。申请窗口于2026年9月30日至2027年2月28日开放，7月起FCA提供预申请支持会议。关键条款：现有反洗钱注册不自动转换为授权，机构须重新申请；稳定币发行商须满足储备背书、资金保护及赎回披露要求；资本金比例从2%下调至1%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">全球监管·英国FCA</span>
+        <span class="news-tag">FCA·2027年10月25日·申请窗口9月30日</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107610" target="_blank">Foresight News（全球监管 06/30 08:51 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 08:07 BJ</span>
+      </div>
+      <div class="news-title">TD Cowen：CLARITY法案在中期选举前通过"远非板上钉钉"，政治阻力超市场预期</div>
+      <div class="news-desc">美国投行TD Cowen在最新研报中警告，《数字资产市场结构清晰法案》（CLARITY Act）在今年中期选举前完成立法程序存在重大政治障碍，市场对其时间线的乐观预期存在修正风险。这与Grayscale等机构对当前周期低点的分析形成共振——CLARITY进度放缓正是当前BTC承压的重要因子之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·立法进程</span>
+        <span class="news-tag">CLARITY法案·中期选举·立法风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/495883" target="_blank">Odaily星球日报（06/30 08:07 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">5</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/29 20:02 BJ</span>
+      </div>
+      <div class="news-title">Strategy本周未购BTC（累计847,363枚），推出"数字信贷资本框架"：$2.55B储备+$1.25B BTC变现授权+STRC年化12%</div>
+      <div class="news-desc">Strategy披露上周未购买比特币，累计持有847,363枚BTC不变。公司同步宣布推出"数字信贷资本框架"：美元储备升至$25.5亿（覆盖约17.4个月股息），STRC年化股息从原有水平提升至12%。授权内容包括：发行最高$10亿数字信贷证券、回购最高$10亿普通股/优先股、以及最高$12.5亿BTC变现计划（用于补充储备或流动性调节）。新框架被视为Strategy在持仓压力下进行主动流动性管理的信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·企业BTC储备</span>
+        <span class="news-tag">Strategy·847,363 BTC·$2.55B储备·STRC 12%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107577" target="_blank">Foresight News（06/29 20:02 BJ）</a> · <a href="https://wublockchain123.substack.com/p/caa" target="_blank">吴说区块链（06/29 21:55 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/29 21:04 BJ</span>
+      </div>
+      <div class="news-title">贝莱德计划将USDe整合进Aladdin平台（管理$25万亿AUM），通过Securitize提供$1亿流动性安排</div>
+      <div class="news-desc">贝莱德正与Ethena Labs深化合作，计划将USDe纳入其管理规模达$25万亿的Aladdin资产管理系统，USDe将成为该平台的认可资产之一。整合通过代币化基础设施商Securitize实现，提供$1亿美元流动性支持安排。Aladdin是全球机构资管核心操作系统，USDe纳入意味着其可直接触达贝莱德覆盖的数千家机构投资者，是合成美元稳定币机构化的重要里程碑。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·机构稳定币</span>
+        <span class="news-tag">贝莱德·USDe·Aladdin·$25万亿AUM</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107588" target="_blank">Foresight News（06/29 21:04 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/29 20:35 BJ</span>
+      </div>
+      <div class="news-title">Circle USDC成为纽约梅隆银行（BNY）首个支持稳定币，机构级完整生命周期托管落地</div>
+      <div class="news-desc">Circle宣布USDC成为纽约梅隆银行（BNY Mellon）数字资产托管平台首个获支持的稳定币，托管服务覆盖USDC从发行、持有、转账到赎回的完整机构级生命周期。BNY是全球资产规模最大的托管银行之一（托管资产约$50万亿），此举标志着顶级传统金融机构正式将稳定币业务纳入核心托管体系，对USDC的机构端合规性是重要背书。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·稳定币机构化</span>
+        <span class="news-tag">Circle·USDC·BNY·机构托管首家</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107583" target="_blank">Foresight News（06/29 20:35 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/29 21:55 BJ</span>
+      </div>
+      <div class="news-title">BitMEX CEO/CFO/CGO三名高管同时被免职，Peter Wilkinson出任新CEO，公司寻求买家削减成本</div>
+      <div class="news-desc">BitMEX CEO Stephan Lutz、CFO Ina Steiner及首席增长官Raphael Polansky同时被免职，前法律总顾问兼COO Peter Wilkinson接任新CEO。据报道公司已启动出售探索流程，并将通过削减成本进行内部重组。BitMEX曾是2019-2021年全球最大加密衍生品交易所，近年来在合规压力和竞争加剧下市场份额持续下滑，此次管理层全面换血被视为出售前置动作。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·交易所整合</span>
+        <span class="news-tag">BitMEX·CEO换血·寻求买家</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/caa" target="_blank">吴说区块链（每日精选 06/29 21:55 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/29 21:55 BJ</span>
+      </div>
+      <div class="news-title">Bitmine持有570万枚ETH（占以太坊流通供应4.7%），上周新增27,084枚，总资产约$98亿</div>
+      <div class="news-desc">据吴说区块链统计，Bitmine当前持有5,700,040枚ETH，占以太坊现有流通供应量约4.7%，上周净新增27,084枚。公司总加密资产、现金及证券合计约$98亿，其中质押ETH约487.9万枚，另持206枚BTC及约$5.55亿现金。Bitmine已成为全球单一机构最大ETH持有者，其持续增持策略正引发市场对ETH供应侧压缩的关注。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·机构ETH积累</span>
+        <span class="news-tag">Bitmine·570万ETH·4.7%供应·$98亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/caa" target="_blank">吴说区块链（每日精选 06/29 21:55 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/30 08:49 BJ</span>
+      </div>
+      <div class="news-title">FG Nexus再售3,375枚ETH（$534万），累计亏损扩至$8,680万；仍持50,770枚BTC（成本$1.96亿）</div>
+      <div class="news-desc">FG Nexus继续出售以太坊，本次售出3,375枚ETH，套现约$534万美元，累计亏损已超过$8,680万。公司持有的50,770枚BTC是其主要资产（原始成本$1.96亿），但持续减持ETH的行为进一步加剧市场对其资产负债状况的担忧，潜在的大规模BTC抛售压力引发链上监控机构持续关注。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·机构抛压</span>
+        <span class="news-tag">FG Nexus·3,375 ETH·累亏$8,680万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107609" target="_blank">Foresight News（06/30 08:49 BJ）</a> · <a href="https://www.odaily.news/newsflash/495884" target="_blank">Odaily星球日报（06/30 08:08 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 09:15 BJ</span>
+      </div>
+      <div class="news-title">Loopring DEX宣布停止全部交易服务，以太坊早期ZK-rollup协议被现代zkEVM方案淘汰</div>
+      <div class="news-desc">以太坊L2协议Loopring正式宣布停止其去中心化交易所（DEX）全部服务，原因是协议长期缺乏市场采用，且技术架构已被更先进的zkEVM解决方案（ZKsync Era、Scroll等）超越。Loopring成立于2017年，曾是以太坊上最早基于ZK-rollup的DEX之一，此次停服是本轮熊市中又一早期DeFi协议退出历史舞台的标志性事件。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·L2清算</span>
+        <span class="news-tag">Loopring·DEX停服·ZK-rollup淘汰</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107522" target="_blank">Foresight News（06/30 09:15 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 08:39 BJ</span>
+      </div>
+      <div class="news-title">美国XRP现货ETF单日净流入$1,534万（Bitwise XRP $1,194万领跑），历史累计净流入突破$5.05亿</div>
+      <div class="news-desc">美国已上市的XRP现货ETF录得单日总净流入1,534万美元，其中Bitwise XRP ETF贡献1,194万美元（占比78%）。XRP ETF历史累计净流入已达5.05亿美元。在市场整体维持极度恐惧（F&G 15）背景下仍录得净流入，显示机构对XRP的持续配置需求，以及等待CLARITY立法落地后布局合规渠道的预期仍在。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·ETF资金流量</span>
+        <span class="news-tag">XRP ETF·$1,534万·累计$5.05亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/495894" target="_blank">Odaily星球日报（06/30 08:39 BJ）</a> · <a href="https://foresightnews.pro/news/detail/107606" target="_blank">Foresight News（06/30 08:39 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 08:30 BJ</span>
+      </div>
+      <div class="news-title">加密恐惧贪婪指数小幅回升至15（极度恐惧），前日为12；BTC $59,856 ▲+0.46%，ETH $1,592 ▲+1.47%</div>
+      <div class="news-desc">加密市场恐惧贪婪指数（F&G）从昨日12小幅回升至15，仍处"极度恐惧"区间。BTC当前报$59,856，24h上涨0.46%；ETH报$1,592，24h上涨1.47%（OKX单品种接口核验，批量接口出现异常，已交叉CoinGecko $1,591确认）。整体市场情绪在纳指反弹带动下略有修复，但并未扭转恐慌基调。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·市场情绪</span>
+        <span class="news-tag">F&G·15·BTC $59,856·ETH $1,592</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107604" target="_blank">Foresight News（F&G 06/30 08:30 BJ）</a> · <a href="https://api.alternative.me/fng/?limit=1" target="_blank">Alternative.me F&G API</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 08:44 BJ</span>
+      </div>
+      <div class="news-title">Tom Lee：加密面临Fed+CLARITY停滞+AI融资三大宏观逆风，情绪"极度悲观"，代币化长期逻辑未变</div>
+      <div class="news-desc">BitMine董事长Tom Lee表示，当前加密市场面临三大宏观逆风：一是美联储加息预期压制整体流动性；二是CLARITY Act立法受阻，监管框架落地时间线延后；三是AI基础设施的大规模融资（$1万亿+资本支出）正从科技资本中分流加密配置。Tom Lee指出市场情绪已至"极度悲观"水平，但认为RWA代币化的长期趋势逻辑并未改变，当前为耐心型投资者积累窗口。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">观点研报·市场分析</span>
+        <span class="news-tag">Tom Lee·三大逆风·代币化·极度悲观</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107607" target="_blank">Foresight News（06/30 08:44 BJ）</a></div>
+    </div>
+  </div>
+
+</div><!-- .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">纳指 <span class="knum">25,820</span> ▲+2.07% 终结5连跌</span>
+      <span class="keyword">Astera Labs <span class="knum">+16.39%</span></span>
+      <span class="keyword">英国FCA <span class="knum">2027/10/25</span> 授权生效</span>
+      <span class="keyword">FCA申请窗口 <span class="knum">9月30日</span> 开放</span>
+      <span class="keyword">BTC峰值 <span class="knum">$125,000</span> → 跌超50%</span>
+      <span class="keyword">Strategy储备 <span class="knum">$2.55B</span> = 17.4月股息</span>
+      <span class="keyword">STRC年化 <span class="knum">12%</span></span>
+      <span class="keyword">Strategy BTC变现授权 <span class="knum">$1.25B</span></span>
+      <span class="keyword">贝莱德 Aladdin AUM <span class="knum">$25万亿</span></span>
+      <span class="keyword">USDe Securitize <span class="knum">$1亿</span> 流动性</span>
+      <span class="keyword">FG Nexus 累亏 <span class="knum">$8,680万</span></span>
+      <span class="keyword">XRP ETF 单日 <span class="knum">$1,534万</span></span>
+      <span class="keyword">XRP ETF 累计 <span class="knum">$5.05亿</span></span>
+      <span class="keyword">Bitmine ETH <span class="knum">570万枚</span> / 4.7%</span>
+      <span class="keyword">F&G <span class="knum">15</span> 极度恐惧（前日12）</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div>市场价格：OKX API（BTC/XAUT）· OKX单品种接口+CoinGecko交叉核验（ETH）· Alternative.me（F&G）· 历史收盘价（WTI/纳指）</div>
+  <div style="color:#222;margin-top:8px;">⚠ 本内容仅供参考，不构成投资建议 · 2026年6月30日</div>
+</div>
+
+</body>
+</html>
