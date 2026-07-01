@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月1日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 01</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">06/30 20:00 — 07/01 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    Q3首个交易日：140+金融机构（Visa、Mastercard、BlackRock、Google、Coinbase、OKX等）联合推出Open Standard开放稳定币OUSD（零手续费+储备收益共享+联合治理），消息当日推动Circle股价暴跌超16%。特朗普正式披露2025年财务：持有BTC+ETH超$1亿，年度总收入逾$14亿（TRUMP meme币$6.35亿+World Liberty Financial $5亿+），副总统Vance同日披露$25-50万BTC持仓；加密行业2026中期选举投入$1.89亿创纪录。FG Nexus完成ETH库存全部清算（51,145枚@均价$2,138，总亏损$8,660万）；BTC ▼-2.54%至$58,322，F&G从15进一步降至11极度恐慌。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$58,322</div>
+      <div class="market-change down">▼ -2.54%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,568</div>
+      <div class="market-change down">▼ -1.58%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">11</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$70.63</div>
+      <div class="market-change up">▲ +0.1%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$3,983</div>
+      <div class="market-change up">▲ +0.19%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,214</div>
+      <div class="market-change up">▲ +1.52%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">5</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/30 22:02 BJ</span>
+      </div>
+      <div class="news-title">140+机构联合推出Open Standard开放稳定币OUSD：Visa/Mastercard/BlackRock/Google/Coinbase/OKX等，零手续费+收益共享+联合治理</div>
+      <div class="news-desc">Open Standard联盟正式宣布推出开放稳定币OUSD，参与机构超140家，涵盖Visa、Mastercard、BlackRock、BNY、Google、Shopify、IBM、三星电子、渣打银行、Coinbase、Ripple、Solana、OKX、Bybit等。OUSD采用联合治理模式：参与机构按比例共享储备资产收益（扣除运营费用），零手续费铸造与赎回，无发行上限。临时CEO由Bridge（Stripe稳定币基础设施公司）联创兼CEO Zach Abrams担任；平台预计2026年内正式上线。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·联合稳定币</span>
+        <span class="news-tag">OUSD·140+机构·OKX成员·零手续费</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/visa-blackrockcoinbase-ousd" target="_blank">吴说区块链（06/30 22:02 BJ）</a> · <a href="https://foresightnews.pro/news/detail/107679" target="_blank">Foresight News（06/30 21:46 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/30 21:48 BJ</span>
+      </div>
+      <div class="news-title">OUSD发布当日Circle股价跌超16%，分析师称市场过度反应；USDC竞争格局升级</div>
+      <div class="news-desc">Open Standard联合稳定币OUSD发布消息推动Circle股价单日暴跌超16%，市场将其解读为USDC在机构市场的直接竞争威胁。分析师则指出Circle仍具有先发优势、强合规资质及更成熟的生态系统，认为市场反应过度。OUSD是联盟治理模型，与Circle单一发行商模式形成结构性对立，但短期内USDC市场份额受冲击程度仍有争议。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·稳定币竞争</span>
+        <span class="news-tag">Circle·-16%·USDC·OUSD竞争</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/496333" target="_blank">Odaily星球日报（06/30 21:48 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 21:36 BJ</span>
+      </div>
+      <div class="news-title">Ondo 430+支代币化股票及ETF上线Uniswap，支持以太坊+BNB Chain双链交易</div>
+      <div class="news-desc">Ondo Finance宣布430余支代币化股票和ETF产品现已可通过Uniswap进行交易，集成UniswapX API，支持以太坊主网和BNB Chain双链。这是迄今为止在单一DEX上可交易代币化股票规模最大的部署，也是RWA（现实世界资产）上链与DeFi流动性整合的重要里程碑。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA代币化</span>
+        <span class="news-tag">Ondo·430+代币化股票·Uniswap</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107678" target="_blank">Foresight News（06/30 21:36 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 23:41 BJ</span>
+      </div>
+      <div class="news-title">Nasdaq选择Pyth作为TotalView订单簿数据分发平台，传统金融数据基础设施接入链上</div>
+      <div class="news-desc">纳斯达克交易所正式加入Pyth数据市场，以发布商身份通过Pyth向专业交易员分发TotalView订单簿实时数据。Pyth是加密领域最重要的去中心化预言机数据基础设施之一，Nasdaq的加入意味着传统金融数据巨头正式选择链上基础设施作为数据分发渠道，推动DeFi与传统金融数据生态的进一步融合。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·传统金融数据上链</span>
+        <span class="news-tag">Nasdaq·Pyth·TotalView订单簿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107686" target="_blank">Foresight News（06/30 23:41 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 22:04 BJ</span>
+      </div>
+      <div class="news-title">Plume联合FalconX推出$10亿FALX结构化信贷资产，超额抵押贷款支持</div>
+      <div class="news-desc">RWA区块链平台Plume与机构数字资产交易商FalconX联合推出FALX，这是一个价值$10亿的结构化信贷资产，以超额抵押贷款为底层支持。FALX面向机构投资者，通过链上代币化方式提供私信贷市场敞口，是迄今为止链上规模较大的结构化信贷产品之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA私信贷</span>
+        <span class="news-tag">Plume·FalconX·FALX·$10亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107681" target="_blank">Foresight News（06/30 22:04 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/01 07:52 BJ</span>
+      </div>
+      <div class="news-title">特朗普披露2025年BTC+ETH持仓超$1亿，年度总收入逾$14亿：TRUMP meme币$6.35亿+WLF $5亿+</div>
+      <div class="news-desc">特朗普最新财务披露显示：持有比特币和以太坊价值超$1亿，2025年度申报总收入超过$14亿。其中加密相关收入来源：TRUMP meme币授权及版税收入$6.35亿，World Liberty Financial（WLF）代币销售约$5亿+。这是美国现任总统首次大规模披露个人加密资产持仓，对行业监管立场的市场信号意义重大。副总统JD Vance同日在联邦伦理办公室披露持有价值$250,001至$500,000美元的比特币。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·政治人物加密持仓</span>
+        <span class="news-tag">特朗普·$1亿BTC+ETH·总收入$14亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107689" target="_blank">Foresight News（07/01 07:52 BJ）</a> · <a href="https://www.odaily.news/newsflash/496334" target="_blank">Odaily星球日报（07/01 05:51 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/01 06:13 BJ</span>
+      </div>
+      <div class="news-title">副总统JD Vance联邦伦理申报：持有$25-50万美元比特币</div>
+      <div class="news-desc">美国副总统JD Vance依照联邦伦理办公室要求披露个人财务状况，申报显示持有价值$250,001至$500,000美元的比特币。与特朗普当日同步披露，标志着美国现任政府最高层官员加密持仓信息史上首次集中公示，对加密行业与政策走向的市场解读具有符号意义。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·政治人物持仓</span>
+        <span class="news-tag">JD Vance·BTC $25-50万·联邦伦理申报</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107691" target="_blank">Foresight News（07/01 06:13 BJ）</a> · <a href="https://www.odaily.news/newsflash/496338" target="_blank">Odaily星球日报（07/01 06:13 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">06/30 21:33 BJ</span>
+      </div>
+      <div class="news-title">加密行业2026中期选举投入$1.89亿，超过上一周期，主要通过超级PAC和头部公司推进</div>
+      <div class="news-desc">公共公民（Public Citizen）报告显示，加密行业在2026年中期选举中的政治献金已达$1.89亿，超越此前任何单一选举周期。主要通过超级PAC和Coinbase、a16z等头部企业的政治捐款实现。这一规模意味着加密行业已成为美国政治资金中不可忽视的力量，同时也反映出行业对监管立法（CLARITY Act等）走向的迫切押注。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·政治献金</span>
+        <span class="news-tag">加密政治献金·$1.89亿·中期选举</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107677" target="_blank">Foresight News（06/30 21:33 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">06/30 21:45 BJ</span>
+      </div>
+      <div class="news-title">SEC启动ETF规则审查，重点关注加密基金与预测市场ETF，潜在规则调整最早2027年</div>
+      <div class="news-desc">美国SEC宣布对现行ETF监管框架启动公开征询程序，重点审查加密基金和预测市场ETF相关规则，截止评论期后拟于2027年前推出规则修订方案。此举被解读为新任Warsh联储主席带领下监管机构对新型资产类别框架的重新审视，也是CLARITY法案立法进程之外监管层主动调适的重要信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·ETF规则</span>
+        <span class="news-tag">SEC·ETF规则审查·加密基金·2027年</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/496331" target="_blank">Odaily星球日报（06/30 21:45 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📉</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/01 09:00 BJ</span>
+      </div>
+      <div class="news-title">美股Q2最后收盘：AI概念股三连涨，Ambarella +28.04%领涨，纳指+1.52%至26,214</div>
+      <div class="news-desc">美股6月30日（Q2最后交易日）收盘，AI概念股强势三连涨：视觉AI芯片商Ambarella单日暴涨28.04%，无人机技术商AeroVironment +18.76%，KLA +8.38%，AMD +7.68%，Marvell +7.25%。纳斯达克综合指数涨1.52%至26,213.72，S&P 500涨0.79%。WTI原油微涨0.1%至$70.63，美元兑日元162.685小升。Q2季末科技股的持续反弹与加密市场的极度恐慌（F&G 11）形成明显背离。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·AI科技股</span>
+        <span class="news-tag">Ambarella·+28.04%·纳指·26,214·Q2收官</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/496372" target="_blank">Odaily星球日报（07/01 09:00 BJ）</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-30-2026" target="_blank">The Street（Q2收盘报告）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/01 08:44 BJ</span>
+      </div>
+      <div class="news-title">FG Nexus完成ETH库存全部清算：51,145枚ETH以均价$2,138售出，总亏损$8,660万（买入均价$3,860）</div>
+      <div class="news-desc">FG Nexus最终将持有的全部以太坊库存清仓，通过Galaxy Digital完成最后批次出售，共计51,145枚ETH（原始购入50,770枚，含追加头寸），买入均价约$3,860/枚，最终卖出均价约$2,138/枚，总亏损$8,660万。这是本轮熊市中机构ETH踩雷的典型案例之一，此前早报曾多日跟踪其分批抛售过程。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·机构清仓</span>
+        <span class="news-tag">FG Nexus·51,145 ETH·亏损$8,660万·均价$2,138</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107690" target="_blank">Foresight News（07/01 08:44 BJ）</a> · <a href="https://www.odaily.news/newsflash/496360" target="_blank">Odaily星球日报（07/01 08:15 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/01 08:46 BJ</span>
+      </div>
+      <div class="news-title">a16z关联实体两日向交易所转入合计$1,019万HYPE（154,242枚），持续减持</div>
+      <div class="news-desc">链上数据显示，a16z关联实体在过去两个交易日内向交易所转入合计154,242枚HYPE代币，价值约$1,019万美元，最新一笔为76,840枚（约$500万）。HYPE现货ETF同期录得单日净流出$301万，AUM约$3.25亿（累计净流入$2.93亿）。a16z的持续减持加大了HYPE的市场抛售压力，与F&G 11的极端恐惧情绪相互强化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·机构减持</span>
+        <span class="news-tag">a16z·HYPE·$1,019万·两日持续出售</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107688" target="_blank">Foresight News（07/01 08:27 BJ）</a> · <a href="https://www.odaily.news/newsflash/496367" target="_blank">Odaily星球日报（07/01 08:46 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/01 08:30 BJ</span>
+      </div>
+      <div class="news-title">Q3首日：F&G降至11（历史极低）；BTC ▼-2.54%至$58,322，ETH ▼-1.58%至$1,568；XAUT逆势微涨</div>
+      <div class="news-desc">加密市场恐惧贪婪指数（F&G）从昨日15进一步降至11，接近历史极端恐慌区间底部。BTC当前报$58,322，24h跌幅2.54%；ETH报$1,568，24h跌1.58%（OKX单品种接口与CoinGecko $1,568一致确认）；黄金（XAUT）逆势小幅上涨0.19%至$3,983，显示部分资金避险转移至贵金属。Q2累计BTC跌幅已超28%，市场进入典型熊市情绪底部区间。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·市场情绪</span>
+        <span class="news-tag">F&G·11·BTC $58,322·ETH $1,568·Q3开盘</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/107687" target="_blank">Foresight News（F&G 07/01 08:30 BJ）</a> · <a href="https://api.alternative.me/fng/?limit=1" target="_blank">Alternative.me F&G API</a></div>
+    </div>
+  </div>
+
+</div><!-- .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">OUSD联合稳定币 <span class="knum">140+</span> 机构</span>
+      <span class="keyword">Visa·BlackRock·Google·<span class="knum">OKX</span> 联合成员</span>
+      <span class="keyword">Circle股价 <span class="knum">-16%</span></span>
+      <span class="keyword">特朗普 BTC+ETH 超 <span class="knum">$1亿</span></span>
+      <span class="keyword">特朗普2025年总收入 <span class="knum">$14亿+</span></span>
+      <span class="keyword">TRUMP meme币 <span class="knum">$6.35亿</span></span>
+      <span class="keyword">JD Vance BTC <span class="knum">$25-50万</span></span>
+      <span class="keyword">加密政治献金 <span class="knum">$1.89亿</span></span>
+      <span class="keyword">Ambarella <span class="knum">+28.04%</span></span>
+      <span class="keyword">纳指 <span class="knum">26,214</span> ▲+1.52%</span>
+      <span class="keyword">FG Nexus 总亏损 <span class="knum">$8,660万</span></span>
+      <span class="keyword">FG Nexus 卖出均价 <span class="knum">$2,138</span> vs 买入 $3,860</span>
+      <span class="keyword">Ondo代币化股票 <span class="knum">430+</span> 支</span>
+      <span class="keyword">a16z HYPE两日 <span class="knum">$1,019万</span></span>
+      <span class="keyword">F&G <span class="knum">11</span> 极度恐惧（前日15）</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div>市场价格：OKX API（BTC/XAUT）· OKX单品种接口+CoinGecko交叉核验（ETH）· Alternative.me（F&G）· 历史收盘价（WTI/纳指）</div>
+  <div style="color:#222;margin-top:8px;">⚠ 本内容仅供参考，不构成投资建议 · 2026年7月1日</div>
+</div>
+
+</body>
+</html>
