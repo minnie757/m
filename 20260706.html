@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月6日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 06</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/05 20:00 — 07/06 09:30 · 北京时间 · 美国独立日周末版</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    CLARITY Act Polymarket赔率升至53%（7月4日新版本提交公众评议，8月国会休会前最后立法窗口），BTC周末触$63K短线完成空头清洗，7月9日美联储会议纪要将定方向（当前77%概率维持不变）。代币化基础设施全线升级：Nasdaq x Pyth链上数据分发（首个链上TotalView）+Ondo代币化贝莱德IVV ETF+美光股票（首个SEC合规1:1锚定美股，Broadridge代理投票）+Symbiotic Core V2从再质押转向抵押品市场（资本效率+70%），代币化股票月均转账量达$84.7亿（+92.77%）。三星Q2营业利润18倍激增至$551亿（AI芯片拐点），SK海力士本周四纳斯达克ADR上市$294亿，SpaceX明日纳入纳斯达克100指数；EF向Argot捐赠2469 stETH（$434万）。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ（纳指为7/2收盘，美股7/3-4节假日）</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,710</div>
+      <div class="market-change up">▲ +1.15%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,792</div>
+      <div class="market-change up">▲ +1.05%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">24</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$68.40</div>
+      <div class="market-change down">▼ -0.12%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,179</div>
+      <div class="market-change up">▲ +0.42%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,833</div>
+      <div class="market-change neutral">7/2收盘</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/05 23:01 BJ</span>
+      </div>
+      <div class="news-title">美联储7月维持利率不变概率77%，7月9日凌晨2点发布6月会议纪要</div>
+      <div class="news-desc">CME FedWatch显示，市场定价美联储7月会议维持利率不变概率77%，加息25bps概率23%，此前6月非农就业仅5.7万爆冷引发降息预期，但通胀数据仍高于目标形成对冲。7月9日02:00 BJ发布6月FOMC会议纪要，将揭示委员对就业降温与通胀持续的最新分歧，为下半年政策路径提供关键线索。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">货币政策·美联储</span>
+        <span class="news-tag">CME FedWatch·77%不变</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/497741" target="_blank">Odaily（CME FedWatch 07/05 23:01）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/05 周末</span>
+      </div>
+      <div class="news-title">CLARITY Act Polymarket赔率升至53%：7月4日提交新版本，8月休会前最后立法窗口</div>
+      <div class="news-desc">CLARITY Act通过概率在7月5日飙升至53%，此前国会议员在7月4日前提交新版本条文公众评议，Galaxy Research将2026年通过概率定为50/50。核心争议仍在第604条（区块链监管确定性法案），全国检察官协会声称该条款将严重阻碍执法机关调查加密犯罪能力；白宫官员已与执法团体展开会谈。8月国会休会被视为最后现实可行的立法窗口。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·美国立法</span>
+        <span class="news-tag">CLARITY Act·53%赔率</span>
+      </div>
+      <div class="news-source">来源：<a href="https://coingape.com/clarity-act-odds-surge-to-53-as-market-eyes-final-text-today/" target="_blank">CoinGape（赔率53% 07/05）</a> · <a href="https://finance.yahoo.com/markets/crypto/articles/bitcoin-trades-above-62k-u-102159196.html" target="_blank">Yahoo Finance（BTC $62K 立法背景）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/06 00:41 BJ</span>
+      </div>
+      <div class="news-title">韩国正式启动24小时美元/韩元现货外汇市场，每周120小时连续交易</div>
+      <div class="news-desc">韩国7月6日零时起正式启动全天候美元/韩元现货外汇交易机制，每周120小时不间断，旨在提升韩元可兑换性并推进MSCI发达市场资格申请。传统亚洲外汇市场首次打破时区限制，将吸引更多国际资本参与，对加密资产与法币摩擦成本具有长期改善意义。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·外汇市场</span>
+        <span class="news-tag">韩国·24小时外汇·MSCI</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/497754" target="_blank">Odaily（韩国外汇 07/06 00:41）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/05 23:03 BJ</span>
+      </div>
+      <div class="news-title">内塔尼亚胡：以色列将持续反对伊朗核计划，与美伊协议结果无关；美伊7月11日巴基斯坦谈判</div>
+      <div class="news-desc">以色列总理内塔尼亚胡表示，无论美伊最终达成何种协议，以色列都将坚持反对伊朗核计划。美伊双方定于7月11日在巴基斯坦举行新一轮谈判，霍尔木兹通行安全机制协议仍在落实阶段。以色列的明确表态增加了中东地缘局势的不确定性，油价和黄金的避险溢价预计保持高位。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·地缘政治</span>
+        <span class="news-tag">以色列·伊朗核计划</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/497742" target="_blank">Odaily（内塔尼亚胡 07/05 23:03）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/06 00:23 BJ</span>
+      </div>
+      <div class="news-title">三星Q2营业利润激增18倍至$551亿；SK海力士本周四纳斯达克ADR上市募资$294亿</div>
+      <div class="news-desc">三星电子Q2营业利润预计达551亿美元（同比18倍增长，营收增127%），标志着AI芯片超级周期拉动存储需求的拐点确认。本周四（7月10日）SK海力士将在纳斯达克以ADR形式上市，募资约294亿美元用于国内产能扩张，成为今年最大规模IPO之一。此前SK海力士股价已因数据中心AI芯片需求激增而持续创历史新高。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">传统金融·半导体</span>
+        <span class="news-tag">三星·Q2利润18倍·SK海力士$294亿IPO</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/497750" target="_blank">Odaily（三星Q2 07/06 00:23）</a> · <a href="https://www.odaily.news/en/post/5211726" target="_blank">Odaily（本周前瞻 7.6-7.12）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/05 23:39 BJ</span>
+      </div>
+      <div class="news-title">黄金触两周新高$4,200（+0.6%）；SpaceX明日正式纳入纳斯达克100指数</div>
+      <div class="news-desc">现货黄金于7月5日深夜盘中涨至$4,200/盎司两周新高（+0.6%），受以色列-伊朗核对峙及美联储政策不确定性双重避险驱动。同日Odaily周报指出SpaceX将于7月7日正式纳入纳斯达克100指数（$860亿IPO后安静期结束，承销行研报将于同日发布），欧亚主要股指周末普涨。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·贵金属</span>
+        <span class="news-tag">黄金$4,200·SpaceX纳斯达克100</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/497744" target="_blank">Odaily（黄金$4,200 07/05 23:39）</a> · <a href="https://www.odaily.news/en/post/5211726" target="_blank">Odaily（SpaceX纳斯达克100 周前瞻）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/05 21:38 BJ</span>
+      </div>
+      <div class="news-title">Ondo Finance代币化贝莱德IVV ETF+美光股票：首个SEC合规1:1锚定美股上链，含Broadridge代理投票权</div>
+      <div class="news-desc">Ondo Finance于7月2日在以太坊上线代币化贝莱德iShares Core S&P 500 ETF（IVV）和美光科技（MU）股票，由SEC注册转让代理商Oasis Pro TA按1:1铸造，底层股票保留在美国传统托管链中，为首个完全合规于美国证券法的链上股票。同时Broadridge与Ondo合作，使持有者可通过ProxyVote.com行使代理投票权，覆盖250+代币化股票和ETF，赋予真实股东权利。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">行业趋势·RWA代币化</span>
+        <span class="news-tag">Ondo Finance·贝莱德IVV·SEC合规</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/07/01/ondo-finance-debuts-sec-aligned-tokenized-stock-model-with-blackrock-etf-micron-shares" target="_blank">CoinDesk（Ondo代币化 07/01）</a> · <a href="https://wublockchain123.substack.com/p/3c3" target="_blank">吴说周刊（07/05 21:38）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/05 21:38 BJ</span>
+      </div>
+      <div class="news-title">Nasdaq选择Pyth分发TotalView市场数据：首个链上纳斯达克数据，PYTH代币单日+6%</div>
+      <div class="news-desc">纳斯达克正式加入Pyth数据市场，通过Pyth链上网络分发旗舰机构产品TotalView（涵盖所有价位买卖挂单的深度数据），成为首家将核心市场数据上链的主要证券交易所。DeFi协议、金融科技平台和量化交易应用可通过可编程接口实时访问纳斯达克市场深度，PYTH代币当日上涨约6%。此前Pyth已接入Euronext、新加坡交易所、Tradeweb等机构。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">行业趋势·链上基础设施</span>
+        <span class="news-tag">纳斯达克·Pyth·TotalView</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cryptotimes.io/2026/06/30/nasdaq-brings-totalview-market-data-to-pyth-network-marketplace/" target="_blank">CryptoTimes（Nasdaq Pyth 06/30）</a> · <a href="https://wublockchain123.substack.com/p/3c3" target="_blank">吴说周刊（07/05 21:38）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/05 21:38 BJ</span>
+      </div>
+      <div class="news-title">Symbiotic Core V2发布：从再质押协议转向抵押品市场，资本效率较独立流动性池提升约70%</div>
+      <div class="news-desc">Paradigm支持的Symbiotic正式推出Core V2，标志着其从再质押协议转型为跨保险、信贷、代币化资产流动性的抵押品市场平台。V2中各保险库的风险和条款独立设定，闲置资产可路由至Aave/Morpho等白名单借贷协议赚取基础收益，实现资本效率比独立流动性池提升约70%。首批应用包括Nexus Mutual（DeFi保险）和Cap（机构信贷担保），Midas为Liquid Lane首个发行方。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·DeFi基础设施</span>
+        <span class="news-tag">Symbiotic·Core V2·再质押</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblock.co/post/406862/symbiotic-officially-pivots-to-collateral-markets-with-core-v2-launch" target="_blank">The Block（Symbiotic V2 07/01）</a> · <a href="https://wublockchain123.substack.com/p/3c3" target="_blank">吴说周刊（07/05 21:38）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/05 20:29 BJ</span>
+      </div>
+      <div class="news-title">以太坊基金会向非营利开发组织Argot捐赠2,469 stETH（约$434万）</div>
+      <div class="news-desc">以太坊基金会捐赠2,469 stETH（约$434万）给非营利软件开发组织Argot。这是EF今年6月宣布裁员54人（占比20%）、预算削减40%、关闭ZK实验室后，首笔可见的重大链上资金配置，显示EF仍维持对以太坊核心生态建设的资金支持，但规模和方向发生结构性调整——从内部研发向外部生态资助转型。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·生态资金</span>
+        <span class="news-tag">以太坊基金会·2469 stETH·Argot</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108014" target="_blank">Foresight News（EF捐赠 07/05 20:29）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/05 22:23 BJ</span>
+      </div>
+      <div class="news-title">代币化股票月转账量达$84.7亿（+92.77%），Securitize链上股票价值$2.706亿领跑；持有人40.36万</div>
+      <div class="news-desc">链上数据显示代币化股票板块月度转账量达84.7亿美元（同比增92.77%），分布式持有价值$19.6亿（+31.84%），持有地址40.36万（+17.18%）。Securitize以$2.706亿链上股票价值居首，其SECZ于7月2日在NYSE挂牌并同步在Solana+Avalanche发行代币化股份。月活跃地址下降84.37%，交易高度集中在少数存量持有人。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·RWA数据</span>
+        <span class="news-tag">代币化股票·$84.7亿月转账</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/497740" target="_blank">Odaily（代币化股票数据 07/05 22:23）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/05 周末</span>
+      </div>
+      <div class="news-title">BTC周末触$63K完成短线空头清洗，ETF最近交易日净流入$2.22亿；F&G 24极度恐惧</div>
+      <div class="news-desc">BTC周末（7月4日-5日）在$62,000-$63,000区间完成一次"经典空头清洗"，多头借美联储降息预期升温推高价格，大量空头仓位被迫平仓。BTC ETF在最后交易日（7月2日）录得净流入$2.22亿（FBTC、ARKB领涨），过去7天累计+4.03%，F&G指数24（极度恐惧）较7月3日的21小幅回升，ETH同期+1.05%至$1,792。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·BTC ETF</span>
+        <span class="news-tag">BTC ETF $2.22亿·F&G 24</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/crypto/articles/bitcoin-trades-above-62k-u-102159196.html" target="_blank">Yahoo Finance（BTC周末行情 07/05）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">CLARITY Act 53% Polymarket赔率</span>
+      <span class="keyword">BTC $63,710 ▲+1.15%</span>
+      <span class="keyword">ETH $1,792 ▲+1.05%</span>
+      <span class="keyword">F&G 24 极度恐惧</span>
+      <span class="keyword">美联储7月维持77%概率</span>
+      <span class="keyword">三星Q2利润18倍 $551亿</span>
+      <span class="keyword">SK海力士7/10纳斯达克ADR $294亿</span>
+      <span class="keyword">SpaceX 7/7纳入纳斯达克100</span>
+      <span class="keyword">黄金$4,200 两周新高</span>
+      <span class="keyword">Ondo IVV+MU 首个SEC合规代币化股</span>
+      <span class="keyword">Nasdaq x Pyth TotalView上链</span>
+      <span class="keyword">代币化股票月转账$84.7亿 +92.77%</span>
+      <span class="keyword">EF捐赠2469 stETH $434万</span>
+      <span class="keyword">Symbiotic Core V2 资本效率+70%</span>
+      <span class="keyword">BTC ETF净流入$2.22亿</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div>市场行情：OKX API（09:00 BJ）· ETH已用单品种接口核验（批量接口存在异常）· 纳指为7/2收盘（美股7/3-4节假日）</div>
+  <div style="margin-top:8px; color:#222;">本报告仅供信息参考，不构成任何投资建议。加密资产具有高风险，投资需谨慎。</div>
+  <div style="margin-top:6px; color:#1a1a1a;">2026 · 07 · 06</div>
+</div>
+
+</body>
+</html>
