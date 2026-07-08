@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月8日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 08</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/07 20:00 — 07/08 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美伊停火协议再度破裂：美军对伊朗打击规模扩大5倍、OFAC撤销60天石油豁免（原定8月21日到期），伊朗无人机袭击霍尔木兹海峡卡塔尔LNG船，WTI飙涨+5.4%至$72.25；三星Q2业绩不及预期引爆芯片股抛盘，纳指-1.16%至25,819，SpaceX(SPCX)纳100第二天即跌-6.8%创上市新低，矿企AI转型股集体暴跌（WULF -20%），BTC ▼$63,600，F&G骤降至20（极度恐惧）。SEC安全港规则最快7月内出台；Ondo Perps/Gemini/Vanguard三路TradFi渗透同步推进；SlowMist H1 $9.56亿损失示警。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,600</div>
+      <div class="market-change down">▼ -0.53%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,780</div>
+      <div class="market-change down">▼ -0.93%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">20</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$72.25</div>
+      <div class="market-change up">▲ +5.40%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,110</div>
+      <div class="market-change down">▼ -0.52%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,819</div>
+      <div class="market-change down">▼ -1.16%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 00:12 BJ</span>
+      </div>
+      <div class="news-title">美伊停火协议再度破裂：打击规模扩大5倍+OFAC撤销60天石油豁免，WTI飙+5.4%至$72.25</div>
+      <div class="news-desc">美国中央司令部宣布恢复对伊朗大规模打击行动（约扩大5倍），以报复伊朗无人机袭击霍尔木兹海峡一艘卡塔尔国家航运公司所属LNG船。与此同时，OFAC宣布撤销原定持续至8月21日的60天伊朗石油销售豁免，即日起禁止开展新的伊朗原油交易。消息推动WTI原油盘中飙升约+5.4%至$72.25（前收$68.55），布伦特触及$76.04，霍尔木兹通行安全机制协议面临瓦解风险。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球事件·地缘政治</span>
+        <span class="news-tag">WTI·+5.4%·$72.25</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/498527" target="_blank">Odaily（美伊打击扩大 00:12）</a> · <a href="https://finance.sina.com.cn/stock/y/2026-07-08/doc-inifzwqh8244297.shtml" target="_blank">新浪财经（OFAC撤销石油豁免 07/08）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 01:00 BJ</span>
+      </div>
+      <div class="news-title">美股AI/芯片集体崩跌：纳指-1.16%至25,819，三星Q2不及预期引爆抛盘</div>
+      <div class="news-desc">三星电子Q2业绩低于分析师预期，引发全球AI芯片板块抛盘。纳斯达克综合指数收跌1.16%至25,818.69，S&P500 -0.45%至7,503.85。Astera Labs领跌-11.52%，Micron -4.7%，KLA、Marvell、Broadcom、AMD均大幅下挫，VanEck半导体ETF (SMH) 跌逾3%。FBB Capital Research表示"预期过高、基本面难以追赶"是本轮抛盘核心逻辑；KOSPI开盘-3.03%，SK海力士盘中-4%，收盘转涨+2%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·芯片股</span>
+        <span class="news-tag">纳指·-1.16%·25,819</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/498551" target="_blank">Odaily（美股收盘 01:00）</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-7-2026" target="_blank">TheStreet（7/7收盘详情）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 00:03 BJ</span>
+      </div>
+      <div class="news-title">SpaceX(SPCX) 收跌-6.8%至$149.47创上市新低，纳100加入第二天即崩</div>
+      <div class="news-desc">SpaceX于7月7日（美股）大幅下跌6.8%至$149.47，创上市以来最低收盘价。SPCX仅在7月7日正式被纳入纳斯达克100指数（约$43亿被动资金强制买入），入指次日即告崩跌，近期累计从上市高点回撤幅度扩大。芯片股抛盘情绪与地缘政治风险同步传染，卫星/航空航天板块亦承压。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·科技股</span>
+        <span class="news-tag">SPCX·-6.8%·$149.47</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/498523" target="_blank">Odaily（SPCX创新低 00:03）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/07 21:22 BJ</span>
+      </div>
+      <div class="news-title">矿企AI转型股集体重挫：TeraWulf(WULF) -20.11%，RIOT -11.81%，IREN -9.7%，MARA -8%</div>
+      <div class="news-desc">转型AI数据中心的加密矿企股价在7月7日美股遭遇集体抛售。TeraWulf（WULF）跌幅最惨-20.11%，RIOT跌11.81%，IREN跌9.7%，Cipher Digital(CIFR)跌9.63%，MARA跌8%。其中TeraWulf于7月6日刚宣布与Anthropic签署20年AI基础设施租约（约$190亿合同），AI转型题材遭获利回吐，叠加芯片股整体调整与地缘风险传导。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·矿企股</span>
+        <span class="news-tag">WULF·-20.11%·AI数据中心</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108163" target="_blank">Foresight News（矿企股集体跌 21:22）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 07:59 BJ</span>
+      </div>
+      <div class="news-title">SEC加密安全港规则最快7月内出台，临时注册豁免+托管指引+代币化证券框架三合一</div>
+      <div class="news-desc">据CoinDesk，SEC主席Atkins推动的加密安全港规则已递交白宫OIRA审议，最快本月提出。核心内容：为开发者发行加密投资合同提供临时注册豁免（附融资额度上限）、明确加密资产托管和交易指引、为链上代币化证券基础设施提供透明监管路径。Atkins表示目标是让"美国成为全球加密之都"，为代币化资产类别建立清晰融资规则，是SEC首次针对加密行业正式立规。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·安全港</span>
+        <span class="news-tag">SEC·Atkins·代币化证券</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108172" target="_blank">Foresight News（SEC安全港规则 07:59）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/07 吴说</span>
+      </div>
+      <div class="news-title">Coinbase获英国MiFID衍生品牌照，英国用户可在单一平台交易加密/衍生品/股票</div>
+      <div class="news-desc">Coinbase宣布获得英国金融行为监管局（FCA）颁发的MiFID衍生品牌照，英国机构和零售用户现可在统一平台完成加密货币、衍生品及传统股票交易。同时为机构交易者开放跨多资产类别永续合约接入权限。这是继Coinbase美国业务扩张后，其欧洲合规体系的重要里程碑。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·英国FCA</span>
+        <span class="news-tag">Coinbase·MiFID·多资产平台</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/coinbase-50" target="_blank">吴说区块链（7月7日精选）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 00:10 BJ</span>
+      </div>
+      <div class="news-title">Kraken申请立陶宛欧洲银行全牌照，目标成首家持EU银行执照的加密交易所</div>
+      <div class="news-desc">Kraken母公司Payward向立陶宛金融监管机构申请完整欧洲银行牌照，一旦获批将成为全球首家持有欧盟银行执照的加密交易所，可为欧洲用户提供完整银行服务（存款、借贷、支付）。另：Payward在与审计机构Mazars的仲裁中获$2200万胜诉。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·欧洲银行</span>
+        <span class="news-tag">Kraken·立陶宛·EU银行牌照</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/498525" target="_blank">Odaily（Kraken欧洲银行 00:10）</a> · <a href="https://foresightnews.pro/news/detail/108171" target="_blank">Foresight News（Kraken银行牌照详情）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/07 吴说</span>
+      </div>
+      <div class="news-title">SlowMist H1 2026安全报告：182起事件/$9.56亿损失，DeFi $4.9亿·跨链桥 $3.46亿</div>
+      <div class="news-desc">慢雾科技发布上半年区块链安全报告：H1 2026共发生182起安全事件，累计损失$9.56亿。其中DeFi协议116起（$4.9亿）、跨链桥20起（$3.46亿），以太坊生态受损最重（$1.34亿），损失总额较2025年同期上升。主要攻击向量包括智能合约漏洞、私钥泄露及链上治理攻击；Summer.fi的NAV机制利用和BonkDAO治理攻击均在统计范围内。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">链上事件·安全报告</span>
+        <span class="news-tag">SlowMist·$9.56亿·182起</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/coinbase-50" target="_blank">吴说区块链（7月7日精选·SlowMist H1报告）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/07 21:35 BJ</span>
+      </div>
+      <div class="news-title">BonkDAO治理攻击者身份确认：Realms创始人+Crypto Notte主导，$148K已转入OKX</div>
+      <div class="news-desc">链上侦探追踪确认BonkDAO $2,000万BONK治理攻击嫌疑人为Solana生态Realms创始人与加密从业者Crypto Notte。攻击通过7个投票地址操控恶意提案通过，9%代币价格跌幅后，$148,000资金已流入OKX。该攻击于7月7日发生，是Solana生态最大单起治理漏洞事件之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·治理攻击</span>
+        <span class="news-tag">BonkDAO·$2000万BONK·Realms创始人</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108160" target="_blank">Foresight News（BonkDAO攻击者确认 21:35）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/07 21:50 BJ</span>
+      </div>
+      <div class="news-title">Ondo Perps推出代币化股票永续合约：20倍杠杆·24/7交易·代币化证券直接作保证金</div>
+      <div class="news-desc">Ondo Finance旗下Ondo Perps正式上线代币化股票永续合约平台，支持美国股票、ETF和大宗商品，最高20倍杠杆，24/7全天交易，链上实时清算。核心创新：用户可直接将持有的代币化证券（如Ondo代币化贝莱德IVV等）作为保证金，无需转换为稳定币。Ondo Finance总裁Ian De Bode表示"投资者可用代币化持仓作为生产性资本"。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA衍生品</span>
+        <span class="news-tag">Ondo Perps·20倍·代币化证券保证金</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108161" target="_blank">Foresight News（Ondo Perps上线 21:50）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/07 23:17 BJ</span>
+      </div>
+      <div class="news-title">Gemini向美国用户推出零佣金股票交易，Nasdaq实时行情+Apex Clearing托管清算</div>
+      <div class="news-desc">Gemini宣布为美国用户推出零佣金股票交易服务，Nasdaq担任官方实时行情数据提供商，Apex Clearing Corporation（Apex Fintech旗下）负责托管和清算。加密交易所向传统金融渗透步伐进一步加速，Gemini此举继Robinhood Chain、Coinbase MiFID后，成为加密交易所全面整合TradFi的又一标志性案例。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·TradFi整合</span>
+        <span class="news-tag">Gemini·零佣金股票·Nasdaq</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108169" target="_blank">Foresight News（Gemini股票交易 23:17）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/07 22:39 BJ</span>
+      </div>
+      <div class="news-title">Vanguard公开招募数字资产战略主管（10年+经验），主导代币化·稳定币·托管产品布局</div>
+      <div class="news-desc">Vanguard（$10万亿AUM管理规模全球第二大资产管理公司）发布招聘公告，为财富管理部门寻求数字资产执行主管，要求10年以上相关经验。职责涵盖：制定代币化战略路线图、构建稳定币及托管钱包产品、评估区块链基础设施和结算机制。继贝莱德、Fidelity等机构后，Vanguard公开入场数字资产，传统资管全面转型信号进一步明确。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·机构入场</span>
+        <span class="news-tag">Vanguard·数字资产主管·代币化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108167" target="_blank">Foresight News（Vanguard招募 22:39）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/07 吴说</span>
+      </div>
+      <div class="news-title">Coinbase BTC负溢价指数连续50天（5月19日起）创历史最长记录，当前-0.0742%</div>
+      <div class="news-desc">Coinbase比特币溢价指数自5月19日起持续为负，截至7月7日已连续50个交易日处于负溢价状态，超越前历史记录（2026年1月16日-2月24日，共40天）。负溢价意味着美国散户/机构整体处于净卖出状态，Coinbase报价持续低于其他交易所。该指标被视为机构持续净流出信号，与F&G指数骤降至20（极度恐惧）相互印证。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">加密数据·市场情绪</span>
+        <span class="news-tag">Coinbase·BTC负溢价·50天历史最长</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/coinbase-50" target="_blank">吴说区块链（7月7日精选·Coinbase负溢价50天记录）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 00:44–00:52 BJ</span>
+      </div>
+      <div class="news-title">HYPE ETF 7/7净流入$432万，SOL ETF净流入$167万；Robinhood Chain稳定币市值破$2亿</div>
+      <div class="news-desc">7月7日美国HYPE现货ETF（Bitwise BHYP）单日净流入$432.27万，总资产规模达$3.68亿，累计净流入$3.11亿。SOL现货ETF（Fidelity FSOL）净流入$167.20万，总资产达$9.5亿。另据链上数据，Robinhood Chain链上稳定币总市值突破$2亿，Ethena约管理其中$1亿。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·ETF资金流</span>
+        <span class="news-tag">HYPE ETF·$432万·SOL ETF·$167万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/498549" target="_blank">Odaily（HYPE ETF流入 00:52）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/498548" target="_blank">Odaily（SOL ETF流入 00:51）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/498546" target="_blank">Odaily（Robinhood Chain 00:44）</a></div>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">WTI <span class="knum">$72.25 ▲+5.4%</span></span>
+      <span class="keyword">纳指 <span class="knum">25,819 ▼-1.16%</span></span>
+      <span class="keyword">BTC <span class="knum">$63,600 ▼-0.53%</span></span>
+      <span class="keyword">ETH <span class="knum">$1,780 ▼-0.93%</span></span>
+      <span class="keyword">F&G <span class="knum">20 极度恐惧</span></span>
+      <span class="keyword">SPCX <span class="knum">$149.47 ▼-6.8%</span></span>
+      <span class="keyword">WULF <span class="knum">▼-20.11%</span></span>
+      <span class="keyword">Samsung Q2 <span class="knum">不及预期</span></span>
+      <span class="keyword">SlowMist H1 <span class="knum">$9.56亿</span></span>
+      <span class="keyword">SEC安全港 <span class="knum">7月内出台</span></span>
+      <span class="keyword">Coinbase负溢价 <span class="knum">50天历史最长</span></span>
+      <span class="keyword">Kraken <span class="knum">EU银行牌照</span></span>
+      <span class="keyword">Ondo Perps <span class="knum">20倍杠杆</span></span>
+      <span class="keyword">HYPE ETF <span class="knum">$432万净流入</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>信息来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div>覆盖时段：2026年7月7日 20:00 — 7月8日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产价格波动剧烈，投资须谨慎。</div>
+</div>
+
+</body>
+</html>
