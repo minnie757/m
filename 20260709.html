@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月9日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    .content { padding: 0 20px; }
+
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 09</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/08 20:00 — 07/09 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">ChainCatcher</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">金色财经</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美国立法倒计时：Lummis宣布CLARITY Act必须在8月7日国会休会前通过（"2030年前数字资产立法最后窗口"），CFTC主席同日明确"美国永远不推CBDC"，EU将MiCA扩至非欧盟稳定币发行商。传统金融分化：纳指 +0.20%至25,871（Broadcom×Apple $300亿AI芯片协议推动，AVGO+6.1%），Dow仍跌-1.09%；WTI维持$71.91高位（美伊持续紧张），BTC ▼$62,186，F&G维持22（极度恐惧）。BlackRock两日逆转买入约$2.5亿BTC（此前数周每日净卖出），BTC/ETH ETF同步3-4天连续净流入（8周来首次）。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$62,186</div>
+      <div class="market-change down">▼ -2.22%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,740</div>
+      <div class="market-change down">▼ -2.25%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">22</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$71.91</div>
+      <div class="market-change down">▼ -0.47%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,064</div>
+      <div class="market-change down">▼ -0.91%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,871</div>
+      <div class="market-change up">▲ +0.20%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 23:00 BJ</span>
+      </div>
+      <div class="news-title">Lummis: CLARITY Act必须8月7日国会休会前通过——"2030年前立法数字资产的最后真正机会"</div>
+      <div class="news-desc">参议员Cynthia Lummis在声明中敦促国会在8月7日夏季休会前完成CLARITY Act（数字资产综合监管法案）的最终投票。Lummis表示这是"2030年之前为数字资产建立完整监管框架的最后真正机会"，若错过该窗口，下一届国会重启立法程序将面临极大的不确定性。该法案此前已通过委员会审议，目前等待全院投票。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·美国立法</span>
+        <span class="news-tag">CLARITY Act·8月7日截止·Lummis</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108280" target="_blank">Foresight News（Lummis CLARITY Act 23:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 22:59 BJ</span>
+      </div>
+      <div class="news-title">CFTC主席Selig明确表态：美国永远不会推出CBDC，公民拒绝政府监控经济决策</div>
+      <div class="news-desc">CFTC主席Mike Selig在公开讲话中明确表示，美国永远不会推出中央银行数字货币（CBDC）。Selig援引美国公民对"政府监控个人经济决策"的强烈抵制，认为CBDC在根本上与美国的自由价值观相悖。与此形成对比的是欧洲议会数字欧元推进（43:14投票）和中国9部委积极推广数字人民币。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·CBDC</span>
+        <span class="news-tag">CFTC·Selig·反CBDC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108279" target="_blank">Foresight News（CFTC反CBDC声明 22:59）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 22:42 BJ</span>
+      </div>
+      <div class="news-title">EU将MiCA监管范围扩至非欧盟稳定币发行商，7月1日过渡期结束后进入全面执法</div>
+      <div class="news-desc">欧盟金融监管机构宣布扩大MiCA（加密资产市场法规）适用范围，明确将覆盖向欧盟用户发行稳定币的非欧盟主体，以应对境外发行商绕过监管的新兴技术手段。过渡期已于7月1日截止（此前ESMA公布194家获牌机构），全面执法阶段正式开启。这意味着Tether、Circle等主要稳定币发行商如在欧盟运营必须获得完整授权。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级以上</span>
+        <span class="news-tag">全球监管·MiCA</span>
+        <span class="news-tag">EU·非欧盟稳定币·全面执法</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108277" target="_blank">Foresight News（EU MiCA扩展 22:42）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/08 美股收盘</span>
+      </div>
+      <div class="news-title">纳指7/8反弹+0.20%至25,871：Broadcom×Apple签$300亿AI芯片协议，AVGO+6.1%独撑芯片板块</div>
+      <div class="news-desc">Broadcom（AVGO）与Apple签署迄今规模最大的美国本土制造协议，总额超$300亿，合作延伸至2031年，联合研发定制AI ASIC芯片（含"Baltra"服务器处理器），Broadcom科罗拉多工厂将投入$15亿用于5G/GPS/连接组件生产。AVGO单日涨+6.1%至$393.25，带动纳指综合指数收涨+0.20%至25,870.65，Nasdaq 100 +0.3%。Dow Jones仍下跌1.09%至52,348，S&P500 -0.28%至7,482，市场明显分化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·芯片股</span>
+        <span class="news-tag">Broadcom·Apple·$300亿AI协议</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.newstribune.com/news/2026/jul/07/sp-500-nasdaq-close-sharply-higher-as-broadcom/" target="_blank">Jefferson City News-Tribune（纳指收盘 7/8）</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/us-stock-futures-chip-shares-101116841.html" target="_blank">Yahoo Finance（Broadcom Apple协议）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 22:01 BJ</span>
+      </div>
+      <div class="news-title">Paradigm完成$12亿新基金募集，聚焦AI+机器人赛道（Zipline、True Anomaly已投）</div>
+      <div class="news-desc">Paradigm宣布完成第三期旗舰基金，规模$12亿，是该机构迄今最大规模募资。值得注意的是此次明确将AI和机器人技术列为核心投资方向，已投资无人机物流公司Zipline International和国防航天公司True Anomaly，突破加密原生投资边界。这反映顶级加密风投正将资本配置扩展至AI基础设施领域，与TeraWulf×Anthropic、Jack Dorsey Spiral等布局方向一致。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·机构资本</span>
+        <span class="news-tag">Paradigm·$12亿·AI+机器人</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108274" target="_blank">Foresight News（Paradigm新基金 22:01）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 20:50 BJ</span>
+      </div>
+      <div class="news-title">BTC/ETH现货ETF同步连续3-4天净流入，8周来首次——BTC +$2144万，ETH +$2693万</div>
+      <div class="news-desc">美国BTC现货ETF于7月8日（美股日间）净流入$2,144万，实现连续3个交易日正流入，是8周以来首次出现连续净流入。ETH现货ETF同步净流入$2,693万，连续4天正流入。背景：此前BTC ETF曾录得10连跌（约$27亿净流出）。BlackRock两日合计约$2.5亿BTC买入（另一条目），叠加ETF数据，机构资金重新入场信号初步形成，但与BTC价格仍在$62K-63K区间低位徘徊形成分歧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·ETF资金流</span>
+        <span class="news-tag">BTC ETF·+$2144万·ETH ETF·+$2693万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108265" target="_blank">Foresight News（BTC ETF连流入 20:50）</a> · <a href="https://foresightnews.pro/news/detail/108208" target="_blank">Foresight News（ETH ETF 4连流入）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 22:38 BJ</span>
+      </div>
+      <div class="news-title">Dinari与tZERO联合推出美国股票代币化交易平台——1:1真实股票背书，覆盖发行/交易/托管/结算全链路</div>
+      <div class="news-desc">代币化证券公司Dinari与tZERO正式上线合作平台，提供美国上市股票的端到端代币化服务：链上发行、二级交易、合规托管和T+0原子结算，所有代币1:1由真实股票背书。该平台面向全球非美用户，是继Ondo Finance、Robinhood Chain、Securitize之后，又一家通过合规路径将美国股权资产引入链上的机构级解决方案。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA代币化</span>
+        <span class="news-tag">Dinari·tZERO·美股代币化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108281" target="_blank">Foresight News（Dinari tZERO 22:38）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 23:35 BJ</span>
+      </div>
+      <div class="news-title">World项目宣布从Solana整体迁移至Robinhood Chain，Robinhood生态整合加速</div>
+      <div class="news-desc">World（前身World App）宣布其代币和生态从Solana迁移至Robinhood Chain，成为继CASHCAT之后迁入该链的重要项目。Robinhood Chain自7月2日主网上线以来，DeFi TVL已突破$1亿，稳定币市值突破$2亿，吸引Pump.fun也接入Robinhood Chain代币交易，Robinhood联创Vlad Tenev表示该链"对Meme币同样完美"，用途定位宽于单纯的RWA链。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·链迁移</span>
+        <span class="news-tag">World·Robinhood Chain·Solana迁移</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108285" target="_blank">Foresight News（World迁移 23:35）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 23:06 BJ</span>
+      </div>
+      <div class="news-title">BlackRock两日逆转买入约$2.5亿BTC，结束数周连续净卖出趋势</div>
+      <div class="news-desc">链上监控数据显示，BlackRock（iShares）相关地址在7月7日-8日两个交易日合计买入约$2.5亿美元BTC，这是继连续数周每日净卖出之后的显著逆转。此前BTC ETF累计净流出约$27亿（10连跌期间），BlackRock的IBIT是主要流出来源之一；此次逆转与ETF数据的3天连流入信号相互印证，但需持续观察以确认趋势是否形成。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·机构买入</span>
+        <span class="news-tag">BlackRock·$2.5亿BTC·逆转买入</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108282" target="_blank">Foresight News（BlackRock BTC买入 23:06）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 20:30 BJ</span>
+      </div>
+      <div class="news-title">AscendEX宣布关闭，ZachXBT确认热钱包流动性不足，用户提款延迟或无法执行</div>
+      <div class="news-desc">中心化交易所AscendEX（前AscendEX）宣布于7月1日正式停止运营，已暂停充值和提款。链上侦探ZachXBT跟踪确认其热钱包缺乏足够流动性，多名用户报告提款待处理超过72小时。AscendEX关闭是2026年以来第二家关闭的主流CEX（首家为此前的某交易所），在Gate调查用户资产异常声明的背景下，中型交易所流动性风险持续上升。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·交易所关闭</span>
+        <span class="news-tag">AscendEX·热钱包不足·用户提款风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108264" target="_blank">Foresight News（AscendEX关闭 20:30）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 08:51 BJ</span>
+      </div>
+      <div class="news-title">Zapper宣布8月3日关闭：DeFi组合管理平台关停所有服务，网站/移动App/API全面下线</div>
+      <div class="news-desc">DeFi知名投资组合追踪平台Zapper（zapper.xyz）宣布将于2026年8月3日完全停止运营，创始人Seb Audet在公告中表示"在评估各种选择后，有序关闭是最佳方案"。Zapper曾是用户最广泛使用的DeFi头寸可视化工具之一，其关闭与行业头寸数据减少、用户交互量下降相关。这与Cardano借贷平台Levvy月底关闭、YGG 7月31日关闭游戏业务形成共振，DeFi基础设施层加速洗牌。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·DeFi关闭</span>
+        <span class="news-tag">Zapper·8月3日关闭·DeFi基础设施</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108289" target="_blank">Foresight News（Zapper关闭 08:51）</a></div>
+    </div>
+  </div>
+
+  <!-- 数字货币 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">数字货币</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 08:34 BJ</span>
+      </div>
+      <div class="news-title">中国9部委联合推广数字人民币消费券：智能合约精准发放+AI+自动驾驶无人零售场景</div>
+      <div class="news-desc">商务部等9部门联合发布指引，推广数字人民币在消费券发放和结算中的应用，利用智能合约实现资金高效流转和精准定向发放。政策同时强调与"AI+"应用融合，覆盖智能导购、自动驾驶配送和无人零售等新消费场景。这是数字人民币自今年3月正式立法草案以来的最新推广落地动作，也与全球稳定币监管收紧（CFTC反CBDC声明）形成鲜明对比。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">数字货币·数字人民币</span>
+        <span class="news-tag">中国·9部委·消费券·智能合约</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108287" target="_blank">Foresight News（数字人民币消费券 08:34）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 21:52 BJ</span>
+      </div>
+      <div class="news-title">哈萨克斯坦建立数字资产+稳定币跨境结算体系，允许气田燃烧天然气用于BTC挖矿</div>
+      <div class="news-desc">哈萨克斯坦政府宣布建立国家级数字资产跨境结算机制，允许使用稳定币进行国际贸易结算，并正在研究税收优惠政策。同时，哈萨克斯坦允许利用油气田伴生气（原本浪费燃烧）为Bitcoin挖矿提供电力，将能源废弃物转化为挖矿资源，此前已成为全球前三大BTC挖矿国。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">数字货币·跨境结算</span>
+        <span class="news-tag">哈萨克斯坦·稳定币结算·BTC挖矿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108272" target="_blank">Foresight News（哈萨克斯坦数字资产 21:52）</a></div>
+    </div>
+  </div>
+
+  <!-- 周期性事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚽</span>
+      <span class="section-title">周期性事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/08 美东时间 16强</span>
+      </div>
+      <div class="news-title">世界杯16强收官：阿根廷3-2埃及（Messi 79'逆转），瑞士4-3点球淘汰哥伦比亚；今日四分之一决赛法国vs摩洛哥</div>
+      <div class="news-desc">世界杯16强最后两场完赛。阿根廷在0:2落后至79分钟时由Messi助攻Romero、本人打进扳平、Fernández92'绝杀完成3:2惊天逆转晋级八强。瑞士与哥伦比亚主场120分钟战平后以4:3点球淘汰对手。预测市场（链上）总交易量已突破$78.84万。今日（7月9日）四分之一决赛第一场：摩洛哥vs法国（吉利特球场/波士顿，北京时间7月10日04:00）。OKX世界杯四分之一决赛奖金池$22.5万。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">周期性事件·世界杯</span>
+        <span class="news-tag">阿根廷3-2·Messi·摩洛哥vs法国</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.espn.com/soccer/story/_/id/49303740/world-cup-2026-today-blog-08-06-2026-live-updates-news-fixtures-schedule-results-argentina-narrowly-advance-world-cup-quarter-finals-thriller-egypt-3-2-switzerland-beat-colombia-penalties" target="_blank">ESPN（世界杯7/8赛果）</a> · <a href="https://foresightnews.pro/news/detail/108233" target="_blank">Foresight News（OKX世界杯$22.5万奖金池）</a></div>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$62,186 ▼-2.22%</span></span>
+      <span class="keyword">ETH <span class="knum">$1,740 ▼-2.25%</span></span>
+      <span class="keyword">F&G <span class="knum">22 极度恐惧</span></span>
+      <span class="keyword">纳指 <span class="knum">25,871 ▲+0.20%</span></span>
+      <span class="keyword">WTI <span class="knum">$71.91 ▼-0.47%</span></span>
+      <span class="keyword">Broadcom+Apple <span class="knum">$300亿</span></span>
+      <span class="keyword">CLARITY Act <span class="knum">8/7截止</span></span>
+      <span class="keyword">BlackRock BTC <span class="knum">$2.5亿逆转买入</span></span>
+      <span class="keyword">BTC ETF <span class="knum">3天连流入</span></span>
+      <span class="keyword">Paradigm新基金 <span class="knum">$12亿</span></span>
+      <span class="keyword">AscendEX <span class="knum">关闭</span></span>
+      <span class="keyword">Zapper <span class="knum">8/3关闭</span></span>
+      <span class="keyword">EU MiCA <span class="knum">扩至非欧盟</span></span>
+      <span class="keyword">阿根廷 <span class="knum">3-2逆转进8强</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>信息来源：Odaily星球日报 · 吴说区块链 · Foresight News · ChainCatcher · BlockBeats · 金色财经 · 金十数据</div>
+  <div>覆盖时段：2026年7月8日 20:00 — 7月9日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产价格波动剧烈，投资须谨慎。</div>
+</div>
+
+</body>
+</html>
