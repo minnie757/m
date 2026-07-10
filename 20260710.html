@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月10日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    /* Source Pills */
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    /* Market Grid */
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    /* Main Content */
+    .content { padding: 0 20px; }
+
+    /* Section */
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    /* News Item */
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    /* Keywords */
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 10</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/09 20:00 — 07/10 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Foresight News</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">TheStreet</div>
+  <div class="pill">FIFA</div>
+  <div class="pill">InvestingNews</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    SK海力士（SKHY）今日正式登陆纳斯达克，$245亿ADR 7倍超额认购，创史上最大AI半导体企业美股上市；叠加Micron+4.5%、Sandisk+7.6%芯片股全线反弹，纳指+1.30%至26,207；CoinDesk警告AI超级IPO虹吸效应持续压制加密流动性，BTC较ATH跌逾50%。监管层面，俄罗斯国家杜马通过无牌加密交易所刑事处罚法案一读（最高4年监禁，2027年7月1日生效），马来西亚四年内查扣7.5万台非法矿机、629人被捕，全球执法收紧信号明显。行业方面，Gauntlet完成$1.25亿融资（SBI Holdings参投），Mantle超级门户启动$25亿TVL从LayerZero向Chainlink CCT标准迁移。世界杯四分之一决赛：法国2-0摩洛哥，姆巴佩60'建功晋级半决赛。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$62,964</div>
+      <div class="market-change up">▲ +1.25%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,738</div>
+      <div class="market-change down">▼ -0.10%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">23</div>
+      <div class="market-change neutral">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$72.00</div>
+      <div class="market-change neutral">▲ +0.13%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,111</div>
+      <div class="market-change up">▲ +1.16%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,207</div>
+      <div class="market-change up">▲ +1.30%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/09 21:56 BJ</span>
+      </div>
+      <div class="news-title">美国初请失业金21.5万，好于预期21.8万，劳动力市场维持韧性</div>
+      <div class="news-desc">截至7月4日当周，美国初次申请失业金人数为21.5万人，低于预期的21.8万人，前值修订为21.7万人。就业数据持续强于预期，强化市场对美联储在高通胀背景下维持高利率更长时间的预期，但同时也支撑消费端风险情绪。数据发布后纳指延续涨势，美债短端收益率小幅上行。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">宏观数据·就业</span>
+        <span class="news-tag">美国初请·21.5万·好于预期</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-4-215-218" target="_blank">吴说区块链（每日精选 21:56）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/10 今日</span>
+      </div>
+      <div class="news-title">SK海力士(SKHY)今日正式登陆纳斯达克，$245亿ADR 7倍超额认购，GraniteShares 2x杠杆ETF 7/13上线</div>
+      <div class="news-desc">全球最大AI存储芯片企业SK海力士（South Korea）今日以美股ADR形式在纳斯达克挂牌交易，代码SKHY，此次共发行1.779亿份ADR，募资$245-280亿美元，订单超额7倍。GraniteShares将于7月13日同步推出2倍做多ETF（SKUU）和2倍做空ETF（SKDD）。CoinDesk指出，SK海力士与此前SpaceX、Cerebras的AI超级IPO形成连续虹吸效应，加密市场继续面临资金竞争压力；BTC较2025年10月历史高点已下跌约50%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·AI半导体IPO</span>
+        <span class="news-tag">SKHY·纳斯达克·$245亿·GraniteShares</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/07/09/two-blockbuster-ai-ipo-s-on-the-horizon-could-leave-crypto-further-behind" target="_blank">CoinDesk（AI IPO虹吸分析 07/09）</a> · <a href="https://pluang.com/en/news-feed/empat-hari-menuju-peluncuran-etf-leveraged-sk-hynix" target="_blank">Pluang（GraniteShares ETF）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/09 美股收盘</span>
+      </div>
+      <div class="news-title">纳指+1.30%至26,207：Micron+4.5%·Sandisk+7.6%，芯片股全面反弹领涨</div>
+      <div class="news-desc">7月9日美股收盘，纳斯达克综合指数涨1.30%至26,206.89，标普500涨0.81%至7,543.64，道指涨139点（+0.27%）至52,487。VanEck半导体ETF（SMH）涨2.5%，美光科技（Micron）涨4.5%，Sandisk涨7.6%，SK海力士IPO定价消息提振整体半导体板块。美伊地缘局势持续，但油价下跌（WTI回落至$72区间）为股市松绑。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·美股</span>
+        <span class="news-tag">纳指+1.30%·Micron+4.5%·SMH+2.5%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-9-2026" target="_blank">TheStreet（美股收盘 07/09）</a> · <a href="https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-9-us-strikes-iran-223149196.html" target="_blank">Yahoo Finance</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 21:56 BJ</span>
+      </div>
+      <div class="news-title">淡马锡仍将加密货币排除在投资考量之外，FTX $2.75亿亏损余震未消</div>
+      <div class="news-desc">新加坡国家主权基金淡马锡（Temasek）全球投资主管Nagi Hamiyeh表示："我们没有直接加密投资。"理由是监管不确定性持续存在，且2022年FTX爆雷造成约$2.75亿账面亏损仍是警示。淡马锡是全球主权基金参与加密领域的重要风向标，其持续回避与机构整体趋谨慎的资金流向形成印证。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">传统金融·机构动向</span>
+        <span class="news-tag">淡马锡·回避加密·$2.75亿FTX亏损</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-4-215-218" target="_blank">吴说区块链（精选资讯 21:56）</a> · <a href="https://foresightnews.pro/news/detail/108341" target="_blank">Foresight News（16:38）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/10 03:00 BJ</span>
+      </div>
+      <div class="news-title">世界杯四分之一决赛：法国2-0摩洛哥，姆巴佩60'进球·Dembélé 66'，晋级半决赛战西/比胜者</div>
+      <div class="news-desc">7月9日15:00 ET（北京时间7月10日03:00），2026年FIFA世界杯四分之一决赛在波士顿举行。法国队2-0淘汰摩洛哥晋级半决赛：姆巴佩（Mbappé）上半时错失点球后于60'凭借弧线射门扳回，Dembélé于66'锁定胜局；姆巴佩最终贡献1球1助攻。法国将于半决赛迎战今日（7月10日）西班牙vs比利时胜者。本届比利时18场不败，西班牙5场零封。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">周期性事件·世界杯</span>
+        <span class="news-tag">法国2-0摩洛哥·姆巴佩·世界杯四强</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.fifa.com/en/match-centre/match/17/285023/289289/400021536" target="_blank">FIFA官网（赛事详情）</a> · <a href="https://www.nbcnews.com/sports/soccer/live-blog/france-morocco-world-cup-2026-july-9-live-updates-rcna353665" target="_blank">NBC News</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/09 21:56 BJ</span>
+      </div>
+      <div class="news-title">俄罗斯国家杜马通过无牌加密交易所刑事处罚法案一读，最高4年监禁，2027年7月1日生效</div>
+      <div class="news-desc">俄罗斯国家杜马通过关于无牌加密资产交易所的刑事处罚法案一读。法案规定，未获许可运营加密货币交易平台将面临罚款、强制劳动或最高4年有期徒刑；有组织犯罪团伙实施的，最高可判5年。法案拟于2027年7月1日正式生效。这是继2022年加密监管立法以来俄罗斯最重要的执法升级，标志着其对未持牌平台的容忍从行政处罚升级至刑事追究。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·刑事立法</span>
+        <span class="news-tag">俄罗斯·无牌交易所·最高4年·2027/7/1</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-4-215-218" target="_blank">吴说区块链（精选资讯 21:56）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 21:56 BJ</span>
+      </div>
+      <div class="news-title">马来西亚2022年以来查扣7.5万台非法挖矿机，629人被捕，累计突击3,000次</div>
+      <div class="news-desc">据吴说区块链，马来西亚执法机构自2022年至2026年5月累计没收超75,000台非法加密挖矿设备，逮捕629人，开展突击行动逾3,000次。打击重点为非法接驳电力线路及无证挖矿操作。马来西亚是东南亚最重要的加密采矿市场之一，近年来此类执法力度持续升级，对全球哈希算力布局影响不可忽视。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·执法行动</span>
+        <span class="news-tag">马来西亚·75,000台矿机·629人被捕</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-4-215-218" target="_blank">吴说区块链（精选资讯 21:56）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/09 20:03 BJ</span>
+      </div>
+      <div class="news-title">DeFi风控协议Gauntlet完成$1.25亿融资，SBI Holdings参投</div>
+      <div class="news-desc">DeFi风险管理协议Gauntlet完成1.25亿美元融资轮，日本金融巨头SBI Holdings参与其中，具体投前估值未披露。Gauntlet专注于DeFi协议参数优化与风险建模，已为Aave、Compound、MakerDAO等主流协议提供清算参数与利率曲线咨询服务，客户资产管理规模超百亿美元。SBI Holdings入局是机构级日本资本加深DeFi布局的重要信号。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·DeFi·融资</span>
+        <span class="news-tag">Gauntlet·$1.25亿·SBI Holdings</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108350" target="_blank">Foresight News（20:03）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 20:06 BJ</span>
+      </div>
+      <div class="news-title">Mantle超级门户启动$25亿TVL迁移：从LayerZero OFT转向Chainlink CCT标准，窗口期7/9-15</div>
+      <div class="news-desc">Mantle旗下超级门户（Super Portal）宣布将其约$25亿TVL的跨链标准从LayerZero OFT迁移至Chainlink跨链代币（CCT）标准，迁移窗口期为7月9日至15日。Mantle此举是继Mantle Governance转向之后的又一次基础设施重构，Chainlink CCT标准凭借CCIP协议的广泛采用，已成为RWA与大型协议跨链的主流选择。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·跨链·基础设施</span>
+        <span class="news-tag">Mantle·$25亿TVL·Chainlink CCT·LayerZero</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108351" target="_blank">Foresight News（20:06）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 20:20 BJ</span>
+      </div>
+      <div class="news-title">Aave Labs推出Stable Vaults：内嵌固定利率稳定币收益，面向B端产品集成</div>
+      <div class="news-desc">Aave Labs正式推出Stable Vaults产品，提供集成化智能合约金库方案，允许合作伙伴将固定利率稳定币收益直接嵌入其应用与产品中，目标是将Aave的流动性与收益能力输出至更广泛的B端场景。产品面向钱包、支付应用及DeFi聚合器等合作方开放集成，是Aave从单一借贷协议向底层收益基础设施演进的关键一步。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·DeFi·收益产品</span>
+        <span class="news-tag">Aave Labs·Stable Vaults·固定利率·B端集成</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108353" target="_blank">Foresight News（20:20）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 20:37 BJ</span>
+      </div>
+      <div class="news-title">Uniswap接入Sky官方LitePSM模块，DAI/USDS/USDC获数亿美元稳定币兑换深度</div>
+      <div class="news-desc">Uniswap正式集成Sky（前MakerDAO）的官方稳定币兑换模块LitePSM，为DAI、USDS、USDC三大稳定币提供"数亿美元级"的实时深度。LitePSM是Sky生态系统的官方汇率稳定机制，以1:1锚定兑换为核心，此次与Uniswap集成有助于提升稳定币在链上交易市场的流动性效率，降低滑点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·DeFi·稳定币流动性</span>
+        <span class="news-tag">Uniswap·Sky·LitePSM·DAI·USDS</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108355" target="_blank">Foresight News（20:37）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上动态 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上动态</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/09 20:44 BJ</span>
+      </div>
+      <div class="news-title">Monad推出生态AI Agents聚合入口Agent Hub，支持一键启动自定义AI代理</div>
+      <div class="news-desc">Monad公链宣布推出AI Agents聚合门户Agent Hub，为生态内AI Agent提供统一分发与接入入口，支持用户"一键启动"自定义AI Agent，并集成DApp Skills功能。Monad Agent Hub是其将Layer-1性能优势与AI Agent赛道结合的最新布局，在AI与链上应用融合趋势加速的背景下，此举旨在建立生态AI应用的中心化流量入口。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·AI Agent</span>
+        <span class="news-tag">Monad·Agent Hub·DApp Skills</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108357" target="_blank">Foresight News（20:44）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">07/09 20:41 BJ</span>
+      </div>
+      <div class="news-title">AVAX财库公司AVAX One重新符合纳斯达克最低出价规则（Rule 5550(a)(2)）</div>
+      <div class="news-desc">AVAX One Technology Ltd（NASDAQ: AVX）宣布已连续10个交易日股价维持在$1以上，重新符合纳斯达克最低出价规则5550(a)(2)，摘除退市风险标注。AVAX One是在纳斯达克上市的以Avalanche原生代币AVAX为主要持仓的财库公司，此前因股价低于$1面临退市警告。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上动态·上市合规</span>
+        <span class="news-tag">AVAX One·纳斯达克合规·AVX</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108356" target="_blank">Foresight News（20:41）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">SKHY ADR $245亿</span>
+      <span class="keyword">7x 超额认购</span>
+      <span class="keyword">纳指 +1.30% → 26,207</span>
+      <span class="keyword">Micron MU +4.5%</span>
+      <span class="keyword">BTC $62,964 +1.25%</span>
+      <span class="keyword">ETH $1,738 -0.10%</span>
+      <span class="keyword">XAUT $4,111 +1.16%</span>
+      <span class="keyword">WTI ~$72.00</span>
+      <span class="keyword">F&G 23 极度恐惧</span>
+      <span class="keyword">Gauntlet $1.25亿</span>
+      <span class="keyword">Mantle TVL $25亿</span>
+      <span class="keyword">俄刑期 最高4年</span>
+      <span class="keyword">马来西亚 7.5万台矿机</span>
+      <span class="keyword">法国 2-0 摩洛哥</span>
+      <span class="keyword">美国初请 21.5万</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：OKX行情 · Foresight News · 吴说区块链 · CoinDesk · TheStreet · FIFA · InvestingNews</div>
+  <div>时间窗口：2026年7月9日 20:00 — 7月10日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产价格波动剧烈，投资须谨慎。</div>
+</div>
+
+</body>
+</html>
