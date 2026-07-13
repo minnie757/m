@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月13日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+
+    .content { padding: 0 20px; }
+
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 13</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/12 20:00 — 07/13 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Foresight News</div>
+  <div class="pill">The Block</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">Circle官方</div>
+  <div class="pill">GraniteShares</div>
+  <div class="pill">crypto.news</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    BTC/ETH现货ETF联手终结史上最长8周净流出周期（合计失血$94.6亿），上周净流入$2.818亿（BTC $1.974亿 · ETH $8440万），BlackRock IBIT/ETHA双双领跑，资金面出现关键反转信号。监管里程碑：Circle于7月10日获OCC最终批准设立"First National Digital Currency Bank"（首家联邦特许数字货币信托银行），USDC储备将纳入联邦监管体系，股价盘前涨超7%。今日传统金融侧：GraniteShares 2倍SK Hynix杠杆ETF（SKUU做多/SKDD做空）今日正式挂牌。链上生态：以太坊基金会Protocol Support团队解散，升级协调职能移交新Protocol Layer；Uniswap v4 UNIfication链上投票本周（7月13日起）开启。世界杯四强出炉：法国vs西班牙（达拉斯）、阿根廷vs英格兰（亚特兰大）。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,997</div>
+      <div class="market-change up">▲ +0.15%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,827</div>
+      <div class="market-change up">▲ +1.81%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">28</div>
+      <div class="market-change neutral">恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$71.20</div>
+      <div class="market-change down">▼ -1.11%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,065</div>
+      <div class="market-change down">▼ -0.71%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,282</div>
+      <div class="market-change up">▲ +0.29%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">周报 · 截至07/11</span>
+      </div>
+      <div class="news-title">BTC/ETH现货ETF终结8周连续净流出，上周合计净流入$2.818亿，BlackRock双基金领跑</div>
+      <div class="news-desc">截至7月11日当周，美国比特币现货ETF净流入$1.974亿，以太坊现货ETF净流入$8440万，合计$2.818亿，终结持续8周的净流出（此前8周BTC ETF失血$82.6亿、ETH ETF失血$12亿，合计$94.6亿）。BlackRock IBIT单周净流入$8683万领跑BTC；ETHA净流入$1620万领跑ETH。The Block指出本次反弹仅弥补此前流出的约3%，可持续性仍待验证。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·ETF资金流</span>
+        <span class="news-tag">BTC ETF +$1.974亿·ETH ETF +$8440万·8周流出结束</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblock.co/post/407957/bitcoin-ether-etfs-snap-eight-week-outflow-streaks-with-282-million-combined-inflow" target="_blank">The Block（周度ETF数据）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">07/13 08:49 BJ</span>
+      </div>
+      <div class="news-title">本周代币解锁：CONX·DBR·ARB合计超$3000万，ARB跌3.13%</div>
+      <div class="news-desc">本周（7月13日起）主要代币解锁：CONX、DBR、ARB总量超过3000万美元，其中Arbitrum（ARB）解锁压力最为显著，ARB已下跌3.13%。本周解锁窗口期需关注ARB在$0.42-0.45支撑区间的承压情况，若市场整体资金面无明显改善，解锁抛压可能加剧波动。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·代币解锁</span>
+        <span class="news-tag">ARB解锁·$3000万+·ARB-3.13%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108523" target="_blank">Foresight News（08:49）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 今日上市</span>
+      </div>
+      <div class="news-title">GraniteShares SKUU/SKDD今日上线纳斯达克：全球首个SK Hynix 2倍杠杆ETF，费率1.5%/2.2%</div>
+      <div class="news-desc">GraniteShares今日（7月13日，周一）正式上线两只SK Hynix杠杆ETF：SKUU（2倍做多SKHY日涨跌幅，费率1.50%）和SKDD（2倍做空SKHY日涨跌幅，费率2.20%）。SKHY（SK Hynix ADR）于7月10日登陆纳斯达克，上市首日市值约$245亿；此前GraniteShares已为Nvidia、TSMC、Microsoft等蓝筹股推出类似产品。两只ETF为不持有保证金账户的散户提供AI半导体赛道的杠杆敞口工具。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·AI半导体ETF</span>
+        <span class="news-tag">SKUU·SKDD·GraniteShares·SK Hynix</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.globenewswire.com/news-release/2026/07/08/3324503/0/en/SK-Hynix-hits-Nasdaq-July-10-SKUU-and-SKDD-are-expected-to-launch-on-July-13.html" target="_blank">GlobeNewswire（GraniteShares公告）</a> · <a href="https://graniteshares.com/sk-hynix-leveraged-etfs/" target="_blank">GraniteShares官网</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/10 [补]</span>
+      </div>
+      <div class="news-title">Circle获OCC最终批准设立全美首家国家数字货币信托银行，USDC储备将纳入联邦监管体系</div>
+      <div class="news-desc">7月10日，Circle宣布获得美国货币监理署（OCC）最终批准，设立"First National Digital Currency Bank, N.A."（Circle National Trust），为Circle历时一年申请（2025年6月30日提交，2025年12月条件批准）的里程碑。银行开业后主要为Circle及其关联方提供数字资产信托托管服务，并计划向有限机构客户（主要为银行和受监管衍生品机构）开放。USDC储备管理纳入联邦监管框架，显著增强USDC合规背书。Circle（CRCL）盘前一度涨超7.7%，最终涨约5%收于$26.xx。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·稳定币合规</span>
+        <span class="news-tag">Circle·OCC·国家信托银行·USDC联邦托管</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.circle.com/pressroom/circle-receives-final-occ-approval-to-establish-national-trust-bank" target="_blank">Circle官方公告（07/10）</a> · <a href="https://www.coindesk.com/business/2026/07/10/circle-secures-u-s-trust-bank-approval-in-crypto-expansion" target="_blank">CoinDesk</a> · <a href="https://www.cnbc.com/2026/07/10/circle-gets-an-occ-bank-charter-as-stablecoin-competition-heats-up-shares-surge-14percent.html" target="_blank">CNBC</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/12 21:43 BJ</span>
+      </div>
+      <div class="news-title">Polymarket申请CFTC期货佣金商牌照，拟在美国合规提供保证金预测市场交易</div>
+      <div class="news-desc">据彭博7月9日报道，Polymarket旗下"Coming Home GBA LLC"于7月3日向CFTC提交期货佣金商（FCM）牌照申请，计划在美国境内合法提供保证金预测市场交易服务。FCM牌照需CFTC批准并修订现行规则，同时将要求用户提供更多KYC信息（含雇主信息）。Polymarket此前已申请CFTC业务登记（2025年10月），本次FCM申请是其从非美居民平台向美国合规全面落地的关键一步。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·预测市场·CFTC</span>
+        <span class="news-tag">Polymarket·FCM牌照·保证金交易·CFTC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.bloomberg.com/news/articles/2026-07-09/polymarket-seeks-license-to-offer-margin-trading-legally-in-us" target="_blank">Bloomberg（07/09）</a> · <a href="https://wublockchain123.substack.com/p/5bb" target="_blank">吴说区块链（周报 07/12 21:43）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/12 21:43 BJ</span>
+      </div>
+      <div class="news-title">以太坊基金会Protocol Support团队解散，五年协调职能移交新Protocol Layer，EF持续精简架构</div>
+      <div class="news-desc">以太坊基金会Protocol Support团队宣布解散，该团队自2021年成立以来负责组织All Core Developers会议、追踪网络升级技术工作、协助EIP作者推进提案流程，并运营以太坊协议奖学金项目。此次解散是EF于6月23日宣布裁减54个职位（20%）之后的进一步架构精简，升级协调工作将由新设Protocol Layer吸收，开发者培训和EIP社区支持由其他团队承接。2026年EF已有9名高级核心成员离职，外界对ETH生态去中心化治理能力的持续关注加剧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·以太坊基金会·治理</span>
+        <span class="news-tag">EF Protocol Support解散·All Core Devs·EIP协调</span>
+      </div>
+      <div class="news-source">来源：<a href="https://crypto.news/ethereum-foundation-dissolves-key-protocol-coordination-team/" target="_blank">crypto.news</a> · <a href="https://wublockchain123.substack.com/p/5bb" target="_blank">吴说区块链（周报 07/12 21:43）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/12 21:43 BJ</span>
+      </div>
+      <div class="news-title">Uniswap UNIfication扩展至v4 Pools，链上投票本周（7月13日周）开启，UNI回购销毁机制覆盖新版池</div>
+      <div class="news-desc">Uniswap治理社区提案将UNIfication机制（协议费征收+UNI代币回购销毁）从v3延伸至v4 Pools，温度检查投票（7月7日-12日）已完成，链上正式投票拟于7月13日当周进行。此前12月Uniswap通过UNIfication提案，已销毁1亿枚UNI（约$5.96亿）。v4延伸使UNI价值捕获机制覆盖更多流动性，Uniswap目前已是Robinhood Chain最大DEX（24小时交易量$5.7亿）。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·DeFi治理·代币经济</span>
+        <span class="news-tag">Uniswap v4·UNIfication·UNI回购·链上投票</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/5bb" target="_blank">吴说区块链（周报 07/12 21:43）</a> · <a href="https://www.kucoin.com/blog/en-uniswap-s-unification-upgrade-explained-how-the-596m-uni-burn-reshapes-token-value-in-2026" target="_blank">KuCoin（UNIfication解析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/12 21:43 BJ</span>
+      </div>
+      <div class="news-title">Moonbeam Network 7月31日正式关闭，GLMR 1:1迁移至Coinbase Base并转型AI代理网络</div>
+      <div class="news-desc">Polkadot生态旗舰智能合约平台Moonbeam宣布将于2026年7月31日关闭链上活动，用户须在截止日前通过迁移桥将资产移出。GLMR代币将以1:1比例迁移至Coinbase Base，并以新协议形态重启——专注于AI代理间的任务协商、消息传递与可验证执行证明。Moonbeam TVL已从2022年1月的$2.757亿高点跌至2026年7月的$134万。此次退出直接冲击DOT价格信心。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·Polkadot生态·关闭迁移</span>
+        <span class="news-tag">Moonbeam·7/31关闭·GLMR→Base·DOT</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coinreporter.io/2026/07/moonbeam-abandons-polkadot-for-base-as-glmr-pivots-to-ai/" target="_blank">CoinReporter</a> · <a href="https://wublockchain123.substack.com/p/5bb" target="_blank">吴说区块链（周报 07/12 21:43）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 08:57 BJ</span>
+      </div>
+      <div class="news-title">日本罗森便利店8月启动JPYC稳定币支付试点，Tokyo Gateway City门店POS集成测试</div>
+      <div class="news-desc">据Foresight News，日本最大便利店连锁之一罗森（Lawson）与Hashport钱包合作，将于8月在东京Gateway City门店启动JPYC（日元稳定币）支付试点，重点测试POS机集成方案。JPYC是日本本土发行的法币等值稳定币，此次零售支付场景落地是稳定币从链上流动性工具向线下消费支付渗透的标志性节点，也是继银行稳定币（JPYSC by SBI等）之后零售端的重要补充。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·稳定币支付·日本</span>
+        <span class="news-tag">罗森·JPYC·稳定币POS支付·Hashport</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108524" target="_blank">Foresight News（08:57）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/12 19:37 BJ</span>
+      </div>
+      <div class="news-title">CZ捐赠钱包销毁7亿枚CZ代币+4亿枚TCC代币，CZ价格1小时内暴涨330%</div>
+      <div class="news-desc">7月12日19:37（BJ），CZ个人捐赠钱包将7亿枚CZ代币和4亿枚TCC代币转入销毁地址。消息公布后，CZ Meme代币价格在1小时内暴涨330.5%，市值一度达$3471万；TCC（Trump Crypto Coin）同期涨121.2%（市值$831万）。CZ代币为以其本名命名的Meme代币，与其创办的交易平台无关联；此次销毁大幅收紧流通量，引发短期投机溢价。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·Meme代币·代币销毁</span>
+        <span class="news-tag">CZ销毁·7亿枚·暴涨330%·市值$3471万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108520" target="_blank">Foresight News（19:37 · 含价格更新19:43）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/12 21:43 BJ</span>
+      </div>
+      <div class="news-title">LayerZero→Chainlink CCIP迁移已超$72亿：Mantle领衔，Kelp·Lombard·Solv·Kraken等跟进</div>
+      <div class="news-desc">据CoinDesk报道，自2026年5月以来累计已有超72亿美元的链上资产从LayerZero协议迁移至Chainlink CCIP标准。除Mantle（$25亿TVL）外，Kelp、Lombard、Solv Protocol、Virtuals、Kraken和Yuzu Money亦已完成或正在进行迁移。这一规模的迁移进一步确立Chainlink CCIP作为大型DeFi协议跨链通信基础设施的主导地位，也标志LayerZero OFT在机构级应用层的显著撤退。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">链上事件·跨链基础设施</span>
+        <span class="news-tag">LayerZero→CCIP·$72亿迁移·Mantle·Chainlink</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/07/09/over-usd7-2-billion-have-migrated-from-layerzero-to-chainlink-ccip-as-mantle-joins-exodus" target="_blank">CoinDesk（07/09）</a> · <a href="https://wublockchain123.substack.com/p/5bb" target="_blank">吴说区块链（周报 07/12 21:43）</a></div>
+    </div>
+  </div>
+
+  <!-- 周期性事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚽</span>
+      <span class="section-title">周期性事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/12 BJ</span>
+      </div>
+      <div class="news-title">世界杯四强出炉：法国·西班牙·阿根廷·英格兰，半决赛法西达拉斯·阿英亚特兰大</div>
+      <div class="news-desc">7月10日-11日四场四分之一决赛全部结束：法国2-0摩洛哥（7/9）、西班牙2-1比利时（梅里诺88'绝杀，7/10）、英格兰2-1挪威（贝林厄姆加时，7/11）、阿根廷3-1瑞士（阿尔瓦雷斯加时112'，7/11）。两场半决赛对阵确定：法国vs西班牙（达拉斯，7月14日或15日）、阿根廷vs英格兰（亚特兰大）。FIFA世界杯决赛将于7月19日举行。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">周期性事件·世界杯2026</span>
+        <span class="news-tag">四强·法国·西班牙·阿根廷·英格兰·半决赛</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.fifa.com/en/match-centre/match/17/285023/289289/400021538" target="_blank">FIFA官网（西班牙2-1比利时）</a> · <a href="https://sports.yahoo.com/soccer/live/world-cup-bracket-schedule-scores-results-live-updates-quarterfinals-203257966.html" target="_blank">Yahoo Sports（四强汇总）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">ETF 8周净流出结束</span>
+      <span class="keyword">BTC ETF +$1.974亿</span>
+      <span class="keyword">ETH ETF +$8440万</span>
+      <span class="keyword">BTC $63,997 +0.15%</span>
+      <span class="keyword">ETH $1,827 +1.81%</span>
+      <span class="keyword">F&G 28 恐惧</span>
+      <span class="keyword">WTI $71.20 -1.11%</span>
+      <span class="keyword">Nasdaq 26,282</span>
+      <span class="keyword">SKUU/SKDD 今日上市</span>
+      <span class="keyword">Circle 国家信托银行</span>
+      <span class="keyword">EF Protocol Support 解散</span>
+      <span class="keyword">Moonbeam 7/31关闭</span>
+      <span class="keyword">CZ销毁 7亿枚代币</span>
+      <span class="keyword">LayerZero→CCIP $72亿</span>
+      <span class="keyword">世界杯4强 法·西·阿·英</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：OKX行情 · 吴说区块链 · Foresight News · The Block · CoinDesk · Circle官方 · GraniteShares · crypto.news</div>
+  <div>时间窗口：2026年7月12日 20:00 — 7月13日 09:30（北京时间）· 纳斯达克/WTI为7月10日（周五）收盘价</div>
+  <div style="margin-top:8px;color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产价格波动剧烈，投资须谨慎。</div>
+</div>
+
+</body>
+</html>
