@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月14日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .alert-box {
+      margin: 0 20px 16px;
+      padding: 10px 14px;
+      background: #1a0a0a;
+      border: 1px solid #FF3B3B44;
+      border-left: 3px solid #FF3B3B;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #FF7A7A;
+    }
+    .alert-box strong { color: #FF3B3B; }
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .keyword.alert {
+      color: #FF3B3B;
+      border-color: #FF3B3B33;
+      background: #1a0a0a;
+    }
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 14</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/13 20:00 — 07/14 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Foresight News</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Yahoo Finance</div>
+  <div class="pill">Axios</div>
+  <div class="pill">The Block</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">Galaxy Digital</div>
+</div>
+
+<!-- 今日宏观预警 -->
+<div class="alert-box">
+  ⚡ <strong>今日重磅宏观窗口</strong>：20:30 BJ 美国6月CPI数据公布 · 22:00 BJ 美联储主席Warsh国会证词——加密市场高波动风险，请注意仓位管理
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    特朗普7月13日宣布重启对伊朗霍尔木兹海峡全面封锁并征收20%货运税，WTI当日飙升约4.6%至$74.51（最高触及$77.77），纳指-1.55%至25,873，芯片股承压。BTC跌破$62K（01:36 BJ最低$61,976），F&G回落至22（极度恐惧），加密市场承压。立法方面：共和党支持者参议员Lindsey Graham于7月12日去世，Galaxy Digital即时将CLARITY Act通过概率从62%下调至50%；参议员Warren同步施压要求法案加入官员禁止从加密行业获利的伦理条款，8月7日截止前立法不确定性骤升。正面信号：英国金融市场代币化工作组获BlackRock、Goldman Sachs、JPMorgan等54家机构加入；美政府向Coinbase Prime转入近3亿美元BTC+ETH，被视为合规托管信号。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$62,500</div>
+      <div class="market-change down">▼ -2.25%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,785</div>
+      <div class="market-change down">▼ -2.23%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">22</div>
+      <div class="market-change down">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$74.51</div>
+      <div class="market-change up">▲ +4.65%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$3,994</div>
+      <div class="market-change down">▼ -1.86%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,873</div>
+      <div class="market-change down">▼ -1.55%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/13 美股时段</span>
+      </div>
+      <div class="news-title">特朗普重启霍尔木兹海峡全面封锁并征收20%货运税，WTI+4.6%至$74.51，纳指-1.55%，BTC跌破$62K</div>
+      <div class="news-desc">特朗普7月13日宣布美国将重新"接管"霍尔木兹海峡，对伊朗船只实施全面封锁，并向过境货物征收20%安全税。消息触发油价急涨：WTI收涨约4.6%至$74.51（盘中最高触及$77.77），Brent突破$83。纳指承压下跌1.55%至25,873，标普-0.79%至7,515；半导体股再度回调。加密市场同步走软，BTC于北京时间07/14 01:36跌破$62,000（最低$61,976，日内跌幅-2.83%），F&G回落至22极度恐惧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级以上</span>
+        <span class="news-tag">全球事件·地缘政治·能源</span>
+        <span class="news-tag">霍尔木兹·WTI+4.6%·纳指-1.55%·BTC-2.83%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://ca.finance.yahoo.com/news/oil-prices-rise-as-trump-vows-to-reinstate-hormuz-strait-blockade-us-and-iran-exchange-strikes-140723529.html" target="_blank">Yahoo Finance（霍尔木兹封锁）</a> · <a href="https://www.axios.com/2026/07/13/oil-trump-us-iran-blockade-strait-hormuz" target="_blank">Axios</a> · <a href="https://foresightnews.pro/news/detail/108598" target="_blank">Foresight News（BTC跌破62K 01:36）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/13 21:17 BJ</span>
+      </div>
+      <div class="news-title">共和党参议员Lindsey Graham去世，CLARITY Act通过概率降至50%，8月7日截止前立法风险骤升</div>
+      <div class="news-desc">据Foresight News，支持加密立法的共和党重量级参议员Lindsey Graham于7月12日去世。Galaxy Digital即时将《CLARITY Act》（加密市场结构法案）通过概率从62%下调至50%——Graham的票仓是该法案在参议院获得简单多数的重要缓冲。法案原定于8月7日国会休会前完成投票，当前参议院势力平衡将因特殊选举（South Carolina）产生新变数，期间任何替代候选人的立场均构成不确定性。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·立法风险</span>
+        <span class="news-tag">Graham去世·CLARITY Act·50%概率·Galaxy Digital</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108589" target="_blank">Foresight News（21:17）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/14 08:56 BJ</span>
+      </div>
+      <div class="news-title">参议员Warren敦促CLARITY Act加入伦理条款，禁止官员及家属从加密行业直接获利</div>
+      <div class="news-desc">参议员Elizabeth Warren向参议院提交意见，呼吁在《CLARITY Act》中加入伦理条款，明确禁止政府官员及其家属直接从加密货币行业获利。该条款直指特朗普家族通过TRUMP Meme代币、USD1稳定币及加密领域投资的收益（已超$14亿），被分析人士视为民主党在法案谈判中换取通过的政治筹码。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·CLARITY Act</span>
+        <span class="news-tag">Warren·伦理条款·官员禁止获利·CLARITY Act</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108602" target="_blank">Foresight News（08:56）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 21:50 BJ</span>
+      </div>
+      <div class="news-title">美国证券转让协会致函SEC：股票代币化应优先采用发行方授权模式，反对第三方自行代币化</div>
+      <div class="news-desc">美国证券转让协会（STA）向SEC提交意见函，明确主张股票代币化应以"发行方授权"为核心原则，反对Ondo、Robinhood Chain等第三方平台在无发行方明确授权下独立代币化股票。STA认为未授权代币化存在股权登记混乱、股东权益模糊和监管套利风险，建议SEC在推进Project Crypto DTCC代币化框架时设立明确授权门槛。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·代币化股票</span>
+        <span class="news-tag">STA·SEC·发行方授权·股票代币化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108591" target="_blank">Foresight News（21:50）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融·机构 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">传统金融 · 机构动向</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/13 21:55 BJ</span>
+      </div>
+      <div class="news-title">英国政府代币化工作组吸引54家机构：BlackRock·高盛·摩根大通·HSBC·UBS，聚焦代币化回购市场，预测2035年贡献£3300亿年化经济效益</div>
+      <div class="news-desc">英国批发数字市场工作组（Wholesale Digital Markets Working Group）宣布54家机构加盟，包括BlackRock、Goldman Sachs、JPMorgan、Morgan Stanley、HSBC、UBS等全球顶级金融机构。工作组聚焦代币化回购（Repo）市场，设立一年工作期；英国财政部预测2035年代币化资本市场将为英国带来£3300亿年化经济效益。这是迄今最大规模的国家级代币化金融基础设施合作倡议之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">传统金融·RWA·机构代币化</span>
+        <span class="news-tag">英国工作组·54机构·BlackRock·代币化Repo·£3300亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108580" target="_blank">Foresight News（19:52）</a> · <a href="https://wublockchain123.substack.com/p/af9" target="_blank">吴说区块链（周报 21:55）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 21:09 BJ</span>
+      </div>
+      <div class="news-title">DTCC本周展示基于区块链的实时股票结算流程，T+0目标取代现行T+1制度</div>
+      <div class="news-desc">美国存管信托与清算公司（DTCC）宣布将于本周三（7月16日）公开演示基于区块链的实时股票交易结算流程，目标实现T+0（当日结算），取代现行T+1制度。DTCC此次演示是其与SEC联合推进的"Project Crypto"代币化结算框架的重要里程碑，结合51+家代币化股票产品的快速增长，T+0结算若落地将彻底改变全球股权清算基础设施。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">传统金融·股权结算·区块链</span>
+        <span class="news-tag">DTCC·T+0结算·区块链·7/16演示</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108588" target="_blank">Foresight News（21:09）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 20:03 BJ</span>
+      </div>
+      <div class="news-title">Strategy维持843,775 BTC持仓不变，ATM计划本周募资$4.667亿，现金储备升至$30亿</div>
+      <div class="news-desc">Strategy（前MicroStrategy）最新披露：持有843,775 BTC（平均成本$75,476，账面总价约$636.9亿），上周未进行任何BTC买卖操作；通过ATM（按市销售）计划出售482万股MSTR股票，募资$4.667亿；截至7月12日现金及证券储备达$30亿（较前周新增$4.5亿）。Strategy表示现金储备将用于支持未来BTC战略储备。同日，AI数据中心企业Strive累计持仓达19,900 BTC（均价$64,028）。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·BTC储备·机构</span>
+        <span class="news-tag">Strategy·843,775 BTC·ATM $4.667亿·Strive 19,900 BTC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108582" target="_blank">Foresight News（Strategy 20:03）</a> · <a href="https://foresightnews.pro/news/detail/108583" target="_blank">Foresight News（Strive 20:04）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 22:30 BJ</span>
+      </div>
+      <div class="news-title">日本Progmat完成向Avalanche迁移，4520亿日元（约$27亿）代币化资产实现秒级结算</div>
+      <div class="news-desc">日本最大证券型代币平台Progmat宣布完成向Avalanche L1的底层链迁移，4520亿日元（约$27亿）代币化资产（含债券、票据、不动产信托）结算时间从T+2/T+3缩短至不足2秒。Progmat由大和证券、三菱UFJ、三井住友等八大日本金融机构联合创立，是亚洲最具规模的机构级代币化资产平台，此次迁移标志着Avalanche在日本机构RWA市场取得重要落地。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA·日本</span>
+        <span class="news-tag">Progmat·$27亿·Avalanche·秒级结算</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108594" target="_blank">Foresight News（22:30）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 22:54 BJ</span>
+      </div>
+      <div class="news-title">玻利维亚经济部长：政府正评估将USDT纳入国家支付体系，加密交易量2024年以来增630%</div>
+      <div class="news-desc">玻利维亚经济部长表示，政府正式评估将USDT整合进国家支付基础设施的可行性。2024年6月玻利维亚解除加密交易限制后，2025年上半年加密交易额达$2.94亿，较前年同期增长约630%。USDT在玻利维亚已成为主要跨境汇款和外汇兑换工具，政府此举若落地，将是南美洲继阿根廷、巴西之后第三个将美元稳定币纳入官方支付框架的主权国家。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·稳定币·主权支付</span>
+        <span class="news-tag">玻利维亚·USDT·国家支付·$2.94亿·+630%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108596" target="_blank">Foresight News（22:54）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 20:10 BJ</span>
+      </div>
+      <div class="news-title">Tether：现代汽车完成首次USDT企业跨境结算测试，$2万美元7分钟到账（传统3-4小时）</div>
+      <div class="news-desc">Tether宣布现代汽车（美国至墨西哥）完成USDT企业跨境结算概念验证（POC）：$20,000转账通过Avalanche链上结算仅需7分钟，而传统SWIFT汇款需3-4小时以上。Tether认为此次测试是"企业级稳定币取代跨境电汇"的里程碑案例，现代汽车此后将评估在供应链付款中规模化应用USDT。这是继Starbucks、Visa结算测试之后企业实体大规模验证USDT用于B2B结算的重要案例。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·稳定币·企业支付</span>
+        <span class="news-tag">Tether·现代汽车·USDT·7分钟·Avalanche</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108584" target="_blank">Foresight News（20:10）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/14 08:42 BJ</span>
+      </div>
+      <div class="news-title">美国政府地址向Coinbase Prime存入约3亿美元BTC+ETH：3,941枚BTC（$2.44亿）+30,007枚ETH（$5,309万）</div>
+      <div class="news-desc">链上数据显示，美国政府相关地址于8小时内分批向Coinbase Prime存入3,941枚BTC（约$2.44亿）和30,007枚ETH（约$5,309万），合计约$2.97亿。美国政府是全球最大BTC持有者之一（持有约207,189 BTC，多来自扣押资产），此次向Coinbase Prime存入——全球最大机构级托管平台之一——被市场解读为合规托管重整而非抛售准备；但短期内引发市场关注。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·政府持仓·托管</span>
+        <span class="news-tag">美国政府·3,941 BTC·30,007 ETH·Coinbase Prime</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108600" target="_blank">Foresight News（08:42）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/13 22:22 BJ</span>
+      </div>
+      <div class="news-title">Jito提案JIP-38：将100%平台JTX费用用于回购销毁JTO，执行至2027年Q4</div>
+      <div class="news-desc">Solana MEV基础设施协议Jito发布JIP-38治理提案：将DAO分得的全部JTX平台费用（100%）用于回购并销毁JTO代币，执行期不少于1年（至2027年Q4）。JIP-38若通过，将把Jito网络的实际收益直接转化为代币通缩，是链上MEV协议中迄今最激进的费用分配方案之一。Jito目前是Solana生态最大MEV服务商，年化协议收入超$1亿。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">链上事件·Solana·代币经济</span>
+        <span class="news-tag">Jito·JIP-38·100%回购销毁·JTO·至2027Q4</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108593" target="_blank">Foresight News（22:22）</a></div>
+    </div>
+  </div>
+
+  <!-- 周期性事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚽</span>
+      <span class="section-title">周期性事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority low">LOW</span>
+        <span class="tag-time">07/14 今晚</span>
+      </div>
+      <div class="news-title">世界杯半决赛·今晚：法国vs西班牙（达拉斯 03:00 BJ 7/15），阿根廷vs英格兰（亚特兰大，待定）</div>
+      <div class="news-desc">2026年FIFA世界杯半决赛首场：法国vs西班牙今晚3:00 PM ET（北京时间7月15日03:00）于达拉斯AT&T体育场举行。法国（姆巴佩领衔）vs西班牙（拉明·亚马尔领衔）是本届最受瞩目的对决；另一场阿根廷vs英格兰亦于本周进行。胜者将于7月19日在纽约/新泽西大都会球场争夺决赛冠军。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">周期性事件·世界杯2026</span>
+        <span class="news-tag">法国vs西班牙·达拉斯·半决赛·7/15 03:00BJ</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.fifa.com/en/match-centre/match/17/285023/289290/400021541" target="_blank">FIFA官网（半决赛赛程）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword alert">BTC最低 $61,976</span>
+      <span class="keyword alert">WTI $74.51 +4.65%</span>
+      <span class="keyword alert">纳指 -1.55% → 25,873</span>
+      <span class="keyword alert">CLARITY Act 50%概率</span>
+      <span class="keyword">BTC $62,500 -2.25%</span>
+      <span class="keyword">ETH $1,785 -2.23%</span>
+      <span class="keyword">F&G 22 极度恐惧</span>
+      <span class="keyword">英国代币化 54机构</span>
+      <span class="keyword">Strategy 843,775 BTC</span>
+      <span class="keyword">美政府 $3亿→Coinbase</span>
+      <span class="keyword">Progmat $27亿→Avalanche</span>
+      <span class="keyword">玻利维亚 USDT +630%</span>
+      <span class="keyword">今日 CPI 20:30BJ</span>
+      <span class="keyword">今日 Warsh证词 22:00BJ</span>
+      <span class="keyword">Jito JIP-38 100%回购</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：OKX行情 · Foresight News · 吴说区块链 · Yahoo Finance · Axios · Galaxy Digital · The Block</div>
+  <div>时间窗口：2026年7月13日 20:00 — 7月14日 09:30（北京时间）</div>
+  <div style="margin-top:8px;color:#222;">本早报仅供信息参考，不构成任何投资建议。加密资产价格波动剧烈，投资须谨慎。</div>
+</div>
+
+</body>
+</html>
