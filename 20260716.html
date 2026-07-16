@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月16日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources {
+      padding: 12px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid #222;
+      color: #aaa;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .banner {
+      margin: 16px 20px;
+      padding: 14px 16px;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      border-left: 3px solid #BCFF2F;
+      border-radius: 4px;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #BCFF2F;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid #0a0a0a;
+    }
+    .market-title {
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #111;
+      border: 1px solid #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid #111;
+      margin-bottom: 4px;
+    }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count {
+      background: #BCFF2F;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 7px;
+    }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag {
+      font-size: 10px; color: #555;
+      background: #111; border: 1px solid #1a1a1a;
+      border-radius: 4px; padding: 1px 6px;
+    }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title {
+      font-size: 11px; color: #444;
+      letter-spacing: 1px; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword {
+      border-radius: 12px;
+      color: #BCFF2F;
+      background: #0d0d0d;
+      border: 1px solid #1a2a0a;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer {
+      text-align: center;
+      padding: 24px 20px 32px;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 11px;
+      line-height: 2;
+    }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+    .alert-box {
+      margin: 0 20px 16px;
+      padding: 10px 14px;
+      background: #100800;
+      border: 1px solid #332200;
+      border-left: 3px solid #FFD600;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #888;
+    }
+    .alert-box strong { color: #FFD600; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 16</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/15 20:00 — 07/16 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Foresight News</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">CNBC</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    6月PPI同比+5.5%（大幅低于预期+6.2%），延续CPI降温信号，纳指+0.62%至26,269；但美伊战事持续升级，美军对伊朗发动两波打击并击瘫驶向卡尔格岛的油轮，伊朗威胁封堵中东所有石油出口路线，WTI突破$80，Tether配合OFAC冻结伊朗IRGC相关USDT $1.31亿。DeFi安全告急：Arbitrum永续DEX Ostium遭预言机私钥攻击，$1,800万USDC被盗，攻击者随后将10,540 ETH转入Tornado Cash；与此同时DTCC联合JPMorgan、高盛、贝莱德等40家机构正式启动代币化实盘测试（$114万亿资管背书）。CLARITY Act今日白宫关键会谈：特朗普将与共和党参议员就伦理条款展开最后谈判，但民主党首席谈判代表未受邀请。
+  </div>
+</div>
+
+<!-- 今日重要日历 -->
+<div class="alert-box">
+  <strong>⚡ 今日重要日历</strong> &nbsp;|&nbsp; 特朗普白宫会见参议员讨论 CLARITY Act 伦理条款（今日，具体时间待定）
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ（ETH 已 CoinGecko 交叉验证 ✓）</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$64,604</div>
+      <div class="market-change down">▼ -0.2%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,915</div>
+      <div class="market-change up">▲ +2.0%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">25</div>
+      <div class="market-change down">极度恐惧（第3日）</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$80.17</div>
+      <div class="market-change down">▲ +1.0%（三日+7.6%）</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,038</div>
+      <div class="market-change down">▼ -0.4%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">26,269</div>
+      <div class="market-change up">▲ +0.62%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/15 20:30 BJ（BLS 发布）</span>
+      </div>
+      <div class="news-title">美国6月PPI同比 +5.5%（大幅低于预期+6.2%，前值+6.0%），环比 -0.3%，能源 -6.4%（汽油 -12%）</div>
+      <div class="news-desc">继6月CPI（+3.5%）超预期降温后，PPI同样大幅低于预期，核心PPI环比+0.2%（预期+0.3%）。能源商品月跌6.4%、汽油暴跌12%是主要贡献。CPI+PPI双重降温信号推动美股再度上涨，纳指+0.62%至26,269，S&P 500+0.38%至7,572，苹果再创历史新高。9月加息叙事进一步降温，但战争油价对核心通胀的传导风险仍存。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·PPI通胀</span>
+        <span class="news-tag">BLS·同比+5.5%·能源-6.4%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/07/15/wholesale-inflation-june-2026-.html" target="_blank">CNBC（6月PPI报告 20:30 BJ）</a> · <a href="https://wublockchain123.substack.com/p/6-ppi-55-62" target="_blank">吴说区块链（07/15 日报 21:50 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/15 22:00 BJ（参议院银行委员会）</span>
+      </div>
+      <div class="news-title">Warsh 参议院续证：Warren 当面指控其"邀请腐败"，Warsh 重申独立性；维持利率 3.5–3.75% 不变</div>
+      <div class="news-desc">Warsh 在参议院银行委员会第二场证词中延续鹰派立场，拒绝给出明确路径信号。民主党参议员 Warren 当面质问 Warsh 是否曾就同僚涉嫌违规参加银行家会议进行调查，指其"似乎在邀请腐败"。Warsh 回应强调美联储"是一家独立的中央银行"，将仍以经济数据为政策依据。PPI降温后9月加息概率再次小幅回落。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">货币政策·美联储·独立性</span>
+        <span class="news-tag">Warsh·Warren对峙·9月加息概率下调</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/07/15/watch-fed-chairman-kevin-warsh-testify-live-before-senate-banking-committee.html" target="_blank">CNBC（参议院证词直播）</a> · <a href="https://www.cnn.com/2026/07/15/economy/fed-chairman-kevin-warsh-senate-testimony" target="_blank">CNN（Warren vs Warsh）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/15 全天（BJ时间）</span>
+      </div>
+      <div class="news-title">美军对伊朗发动两波打击，击瘫驶向卡尔格岛油轮；伊朗威胁封堵中东所有石油出口路线，WTI 突破 $80</div>
+      <div class="news-desc">在伊朗宣布MOU破裂后，美军7月15日相继对伊朗目标发动两波空袭，首次击瘫一艘试图绕过封锁驶向伊朗最大石油出口港卡尔格岛的空油轮。伊朗随即威胁将封堵中东地区所有石油出口路线（而非仅霍尔木兹海峡），局势升级至新高度。WTI三日累计涨幅达$74.51→$80.17（+7.6%）。Tether同期配合美国OFAC冻结伊朗IRGC及央行相关USDT共$1.31亿（TRON链4个钱包）。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·美伊战争·霍尔木兹</span>
+        <span class="news-tag">美军打击·卡尔格岛·WTI$80.17</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.npr.org/2026/07/15/nx-s1-5894582/us-iran-updates" target="_blank">NPR（美军打击详情）</a> · <a href="https://www.cbsnews.com/live-updates/us-iran-war-trump-ceasefire-attacks-strait-of-hormuz/" target="_blank">CBS News（实时更新）</a> · <a href="https://wublockchain123.substack.com/p/6-ppi-55-62" target="_blank">吴说（Tether OFAC数据）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/15 22:55 BJ（白宫会议定于今日）</span>
+      </div>
+      <div class="news-title">特朗普今日白宫会见共和党参议员商讨 CLARITY Act 伦理条款；Thune 表示无论结果如何本月强推，民主党谈判代表被排除在外</div>
+      <div class="news-desc">CLARITY Act 最后障碍仍是"政府官员禁止持有加密获利"伦理条款，民主党将此作为支持条件。消息称特朗普将于今日（7月16日）亲自参与会谈，但民主党首席谈判代表 Gallego 及提出禁止总统/副总统获利的方案均未被邀请，双方就这一核心争议仍存在鸿沟。参议院多数党领袖 Thune 表示无论条文是否最终确定均将在国会休会前推进表决，最终期限压力加大。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·CLARITY Act·加密立法</span>
+        <span class="news-tag">白宫会谈·Thune强推·伦理条款僵局</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/07/15/high-level-white-house-meeting-said-to-be-planned-to-hash-out-clarity-act-ethics-section" target="_blank">CoinDesk（22:55 BJ）</a> · <a href="https://cryptobriefing.com/trump-senators-to-discuss-clarity-act-at-white-house-thursday-politico/" target="_blank">CryptoBriefing</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/15 23:01 BJ — 07/16 08:41 BJ</span>
+      </div>
+      <div class="news-title">Arbitrum 永续 DEX Ostium 遭预言机私钥攻击，损失约 $1,800 万 USDC；攻击者随后将 10,540 ETH 转入 Tornado Cash</div>
+      <div class="news-desc">攻击者掌握 Ostium 预言机签名者私钥，利用 PriceUpkeep 转发器在一笔原子批处理交易中反复循环开关仓位，每轮操纵利润约900%，约10次循环后提取约$1,800万USDC（约占OLP金库35%）。项目方确认金库异常后暂停全部交易。约8小时后（07/16 08:41 BJ），攻击者已将10,540 ETH转入Tornado Cash，链上资金追踪困难。此为近期预言机攻击浪潮的最新案例。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·DeFi被盗·预言机攻击</span>
+        <span class="news-tag">Ostium·$1800万·Tornado Cash·10540ETH</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/07/15/ostium-suffers-usd18-million-exploit-as-oracle-attack-wave-continues-to-hit-defi" target="_blank">CoinDesk（攻击详情）</a> · <a href="https://foresightnews.pro/news/detail/108770" target="_blank">Foresight（23:01 BJ初报）</a> · <a href="https://foresightnews.pro/news/detail/108781" target="_blank">Foresight（08:41 BJ追踪）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/15 23:49 BJ</span>
+      </div>
+      <div class="news-title">DeFi 聚合协议 Summer.fi 宣布关闭，起因于 7 月 6 日被盗事件</div>
+      <div class="news-desc">Summer.fi（原 Oasis.app）官方宣布正式停止运营，直接原因是7月6日遭受的黑客攻击造成不可挽回的损失。该平台为以太坊DeFi老牌借贷聚合器，支持MakerDAO/Aave/Compound等主流协议的前端入口，此次关闭标志着DeFi安全危机对头部协议影响持续扩大。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·DeFi关闭·协议安全</span>
+        <span class="news-tag">Summer.fi·关闭·7月6日被盗</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108779" target="_blank">Foresight News（23:49 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/15 21:59 BJ / 07/16 08:52 BJ</span>
+      </div>
+      <div class="news-title">矿工江卓尔清仓全部 ETH（均价 $1,834.5）；Arthur Hayes 今日逆向买入 1,293 ETH（约 $245 万）</div>
+      <div class="news-desc">知名矿工江卓尔在 Foresight 公开表示已以均价$1,834.5美元全部清仓 ETH 现货，显示部分早期矿工对 ETH 短期走势态度偏空。与此形成对比的是，BitMEX 创始人 Arthur Hayes 于今日（07/16 08:52 BJ）买入 1,293 枚 ETH（约$245万），方向相反，凸显市场分歧。ETH 今日报价$1,915，较清仓价+4.4%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·KOL动向·ETH</span>
+        <span class="news-tag">江卓尔清仓·Hayes买入1293ETH·$1915</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108760" target="_blank">Foresight（江卓尔 21:59 BJ）</a> · <a href="https://foresightnews.pro/news/detail/108783" target="_blank">Foresight（Hayes 08:52 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/15 20:32 BJ（正式启动）</span>
+      </div>
+      <div class="news-title">DTCC 联合 JPMorgan、高盛、贝莱德、先锋等近 40 家机构正式启动代币化证券实盘测试，$114 万亿资管背书，10 月上线</div>
+      <div class="news-desc">DTCC（美国存托信托清算公司）宣布与摩根大通、高盛、贝莱德、先锋、纽交所等近40家金融机构及科技公司启动代币化证券实盘环境测试，测试资产涵盖微软/Circle/QQQ/SPY/美债等，基于 HyperLedger Besu（DTCC私链）或 Canton Network 结算。代币化资产与原始证券具备相同法律所有权、分红权及投票权，可随时转换回传统格式。正式商业服务计划2026年10月推出，DTCC目前管理超$114万亿存托资产。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·RWA·代币化证券</span>
+        <span class="news-tag">DTCC·40家机构·$114万亿·10月上线</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108749" target="_blank">Foresight（20:32 BJ启动）</a> · <a href="https://foresightnews.pro/news/detail/108778" target="_blank">Foresight（23:38 BJ进展）</a> · <a href="https://wublockchain123.substack.com/p/6-ppi-55-62" target="_blank">吴说（详细内容）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/15 21:54 BJ</span>
+      </div>
+      <div class="news-title">Mantle 上线第四个代币化股票 SKHYx（SK 海力士），可用 BTC/ETH/USDT/MNT 直接购买</div>
+      <div class="news-desc">Mantle 继续扩展代币化股票生态，上线 SK 海力士（7月10日在纳斯达克上市 SKHY）的代币化版本 SKHYx，支持 BTC/ETH/USDT/MNT 直接购买，24/7交易无需开设证券账户。这是继 SKUU/SKDD 之后 Mantle 生态内第四个代币化证券产品，与 DTCC 启动实盘测试同一天，代币化证券赛道活跃度持续升温。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA·代币化股票</span>
+        <span class="news-tag">Mantle·SKHYx·SK海力士代币化</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108759" target="_blank">Foresight News（21:54 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/15 21:50 BJ（吴说区块链）</span>
+      </div>
+      <div class="news-title">Pumpfun 首批代币解锁：572.79 亿枚 PUMP（约 $8,649 万）分发至 121 个钱包，3 年归属期启动</div>
+      <div class="news-desc">Pumpfun 平台治理代币 PUMP 完成1年锁仓期后，首批572.79亿枚（约$8,649万）已分发至121个钱包，3年线性归属周期随即开始。社区担忧早期投资者及团队持仓大规模解锁可能带来抛压，但也有观点认为分散的121个接收钱包表明解锁较为分散可控。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·Meme·代币解锁</span>
+        <span class="news-tag">Pumpfun·572.79亿PUMP·$8649万·121钱包</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/6-ppi-55-62" target="_blank">吴说区块链（07/15 日报 21:50 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/15 21:50 BJ（吴说区块链）</span>
+      </div>
+      <div class="news-title">BitMine Q1 2026 ETH 质押收入 $4,570 万，占总收入 98%；MAVAN 平台已质押 490 万枚 ETH，年化收益预测 $2.84 亿</div>
+      <div class="news-desc">BitMine 披露 Q1 2026 财务数据：ETH 质押收入$4,570万，占总收入98%，传统 BTC 矿业仅贡献$62.4万。旗下 MAVAN 质押平台已质押约490万枚 ETH（约占持仓85%），年化质押收益预测$2.84亿。该数据验证了 BitMine 近月持续大规模囤积 ETH 的战略转型逻辑：以质押收益取代传统挖矿作为主要收入来源。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·ETH质押·机构囤币</span>
+        <span class="news-tag">BitMine·Q1质押$4570万·490万ETH·年化$2.84亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/6-ppi-55-62" target="_blank">吴说区块链（07/15 日报 21:50 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 周期性事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚽</span>
+      <span class="section-title">周期性事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16 03:00 BJ（北美时间 07/15 15:00 ET）</span>
+      </div>
+      <div class="news-title">世界杯半决赛：阿根廷 2-1 英格兰逆转晋级，Fernandez 85' 扳平 + Martinez 补时绝杀，决赛战西班牙</div>
+      <div class="news-desc">英格兰由 Gordon 55 分钟率先破门，似乎将压制住卫冕冠军阿根廷。但 Enzo Fernandez 于第85分钟远射弯曲入网追平，随后 Lautaro Martinez 在补时阶段头球绝杀，梅西全程助攻关键球。阿根廷以2-1完成逆转，晋级7月19日（BJ时间）决赛，将对阵西班牙，上届决赛重演（2022年阿根廷点球战胜法国，此次对阵不同）。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">周期性事件·世界杯·足球</span>
+        <span class="news-tag">阿根廷2-1英格兰·Fernandez·Martinez·决赛战西班牙</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.espn.com/soccer/match/_/gameId/760515/argentina-england" target="_blank">ESPN（最终比分）</a> · <a href="https://www.nbcnews.com/sports/soccer/live-blog/england-argentina-world-cup-2026-july-15-live-updates-rcna587325" target="_blank">NBC News</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">6月PPI同比 <span class="knum">+5.5%</span>（预期+6.2%）</span>
+      <span class="keyword">PPI环比 <span class="knum">-0.3%</span> 能源 <span class="knum">-6.4%</span></span>
+      <span class="keyword">WTI <span class="knum">$80.17</span>（三日 <span class="knum">+7.6%</span>）</span>
+      <span class="keyword">纳指 <span class="knum">26,269</span> <span class="knum">+0.62%</span></span>
+      <span class="keyword">BTC <span class="knum">$64,604</span> <span class="knum">-0.2%</span></span>
+      <span class="keyword">ETH <span class="knum">$1,915</span> <span class="knum">+2.0%</span></span>
+      <span class="keyword">F&amp;G <span class="knum">25</span> 极度恐惧（第3日）</span>
+      <span class="keyword">Ostium被盗 <span class="knum">$1,800万</span> USDC</span>
+      <span class="keyword">攻击者转出 <span class="knum">10,540 ETH</span> → Tornado Cash</span>
+      <span class="keyword">Tether冻结伊朗USDT <span class="knum">$1.31亿</span></span>
+      <span class="keyword">DTCC代币化测试 <span class="knum">40家机构</span> $114万亿</span>
+      <span class="keyword">Pumpfun解锁 <span class="knum">572.79亿PUMP</span>（$8,649万）</span>
+      <span class="keyword">阿根廷 <span class="knum">2-1</span> 英格兰 决赛战西班牙</span>
+      <span class="keyword">江卓尔清仓ETH 均价 <span class="knum">$1,834.5</span></span>
+      <span class="keyword">BitMine Q1质押收入 <span class="knum">$4,570万</span>（占总收入98%）</span>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Foresight News · 吴说区块链 · Odaily · CoinDesk · CNBC · BlockBeats · 金十数据</div>
+  <div>市场行情：OKX API 09:00 BJ · ETH 已 CoinGecko 交叉验证</div>
+  <div style="margin-top:8px; color:#222;">本早报仅供信息参考，不构成投资建议。加密资产价格波动极大，请谨慎决策。</div>
+  <div style="color:#1a1a1a; margin-top:4px;">2026 · 07 · 16</div>
+</div>
+
+</body>
+</html>
