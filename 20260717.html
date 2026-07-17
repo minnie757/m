@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月17日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword { border-radius: 12px; color: #BCFF2F; background: #0d0d0d; border: 1px solid #1a2a0a; padding: 4px 12px; font-size: 12px; }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer { text-align: center; padding: 24px 20px 32px; border-top: 1px solid #111; color: #333; font-size: 11px; line-height: 2; }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 17</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/16 20:00 — 07/17 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Foresight News</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">Odaily星球日报</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    Visa稳定币平台（VSP）正式Beta发布，支持OUSD/USDC/USDG铸造/销毁/转账，接入全球15,000家金融机构及2亿+商户，传统支付巨头全面进入稳定币基础设施赛道。CLARITY Act白宫会谈完成（参议员Moreno/Hagerty汇报），修订草案数日内提出，下周参议院地板投票；同日参议院一致通过决议反对为SBF减刑；SEC主席Atkins推动终结纸质文件交付。宏观面：初请失业金20.8万（创5月新低），但台积电上调资本支出致芯片股带跌，纳指-1.47%。美伊连续第6天交火，霍尔木兹日均通行船只从110艘骤降至3艘，分析人士警告"永久战争"风险。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ（ETH 已 CoinGecko 交叉验证 ✓）</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$63,951</div>
+      <div class="market-change down">▼ -1.0%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,868</div>
+      <div class="market-change down">▼ -2.5%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐惧贪婪指数</div>
+      <div class="market-price">27</div>
+      <div class="market-change neutral">恐惧（脱离极度恐惧）</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$79.62</div>
+      <div class="market-change down">▼ -0.7%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$3,992</div>
+      <div class="market-change down">▼ -1.3%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">25,882</div>
+      <div class="market-change down">▼ -1.47%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16 20:30 BJ（BLS 发布）</span>
+      </div>
+      <div class="news-title">美国至 7 月 11 日当周初请失业金 20.8 万（低于预期 21.7 万），创 5 月 2 日以来新低</div>
+      <div class="news-desc">初请失业金降至20.8万，环比减少8,000人，低于预期的21.7万，4周均值降至21.4万。续领人数184.3万，失业保险覆盖率维持1.2%。数据显示美国劳动市场仍然强韧，进一步支持Warsh鹰派立场——尽管CPI/PPI已显著降温，就业面尚不支持快速转向。但台积电大幅上调全年资本支出（$600-640亿，前值$520-560亿），引发芯片股普跌，纳指-1.47%至25,882收官本周交易。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">宏观数据·就业·劳动市场</span>
+        <span class="news-tag">初请20.8万·纳指-1.47%·台积电capex上调</span>
+      </div>
+      <div class="news-source">来源：<a href="https://qz.com/weekly-jobless-claims-208000-july-11-071626" target="_blank">Quartz（初请数据）</a> · <a href="https://wublockchain123.substack.com/p/7-11-208" target="_blank">吴说区块链（07/16 日报 21:51 BJ）</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-16-2026" target="_blank">TheStreet（市场收盘）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/16 全天持续</span>
+      </div>
+      <div class="news-title">美伊连续第 6 天交火：霍尔木兹日通行船只从 110 艘骤降至 3 艘，分析人士警告陷入"永久战争"</div>
+      <div class="news-desc">美军持续轰炸伊朗命令中枢及导弹阵地，伊朗革命卫队同步打击海湾多国美军基地。截至目前伊朗方面宣称35人死亡、逾300人受伤。全球贸易大动脉霍尔木兹日通行船只从战前约110艘骤降至仅3艘，占全球石油和液化气运输约20%。WTI微调至$79.62，市场初步计入持续僵局预期。区域专家警告：谈判"用了两个月谈出一页半备忘录，却只用三周宣告崩溃"，双方陷入永久战争风险。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·美伊战争·能源供应</span>
+        <span class="news-tag">霍尔木兹3艘/日·WTI$79.62·永久战争</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnn.com/2026/07/16/world/live-news/iran-war-trump" target="_blank">CNN（07/16 实时更新）</a> · <a href="https://www.cnbcafrica.com/2026/u-s-launches-fresh-wave-of-strikes-on-iran-as-analysts-warn-conflict-risks-becoming-forever-war" target="_blank">CNBC Africa（永久战争分析）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/16（白宫会议）</span>
+      </div>
+      <div class="news-title">CLARITY Act 白宫会谈完成：Moreno/Hagerty 向特朗普汇报，修订草案数日内提出，下周参议院地板投票；伦理条款仍是核心障碍</div>
+      <div class="news-desc">参议员 Moreno（俄亥俄）、Hagerty（田纳西）于7月16日在白宫向特朗普汇报CLARITY Act谈判进展，目标国会8月休会前完成表决。修订草案预计数日内推出，参议员领袖Thune表示无论最终文本是否定稿都将强推地板投票。最大阻碍仍是伦理条款——民主党要求限制总统、副总统及国会议员的个人加密获利，特朗普本人是否接受限制其自身业务的条款成为关键变量。民主党首席谈判代表 Gallego 未被邀请参与白宫会谈。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·CLARITY Act·加密立法</span>
+        <span class="news-tag">白宫会谈·下周投票·伦理条款僵局</span>
+      </div>
+      <div class="news-source">来源：<a href="https://crypto.news/trump-meets-senators-as-clarity-act-heads-toward-senate-vote/" target="_blank">Crypto.news（会谈结果）</a> · <a href="https://www.coindesk.com/policy/2026/07/15/high-level-white-house-meeting-said-to-be-planned-to-hash-out-clarity-act-ethics-section" target="_blank">CoinDesk（谈判背景）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16（参议院投票）</span>
+      </div>
+      <div class="news-title">美国参议院一致通过不具约束力决议：反对对 SBF（Sam Bankman-Fried）给予总统特赦或减刑</div>
+      <div class="news-desc">参议院以一致通过的方式表决通过不具约束力决议，明确反对总统对SBF给予任何形式的赦免或减刑。此举虽不具法律效力，但政治信号明确——在特朗普与加密行业关系愈发密切的背景下，参议院跨党派对SBF特赦可能性表达强烈反对。SBF目前在联邦监狱服刑25年。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·FTX·总统特赦</span>
+        <span class="news-tag">参议院一致决议·反SBF特赦·25年刑期</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-11-208" target="_blank">吴说区块链（07/16 日报 21:51 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16 22:35 BJ</span>
+      </div>
+      <div class="news-title">SEC 主席 Atkins：证券文件纸质交付应成"历史"，推动资本市场全面数字化</div>
+      <div class="news-desc">SEC 主席 Paul Atkins 在公开讲话中明确表态，证券文件纸质递交方式应成为历史，呼吁推动资本市场全面数字化运营，与其此前在代币化证券、数字资产监管方面的亲科技立场一致。这与同期 DTCC 启动代币化实盘测试、美英联合路线图等行业趋势相互呼应，预示传统资本市场基础设施数字化提速。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·SEC·资本市场数字化</span>
+        <span class="news-tag">Atkins·SEC·终结纸质文件</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108870" target="_blank">Foresight News（22:35 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/16 22:02 BJ</span>
+      </div>
+      <div class="news-title">Visa 发布稳定币平台（VSP）Beta：支持 OUSD / USDC / USDG 铸造销毁，接入全球 15,000 家金融机构及 2 亿+ 商户</div>
+      <div class="news-desc">Visa正式推出 Visa Stablecoin Platform（VSP），允许银行/金融科技公司/加密实体在Visa现有支付基础设施内铸造、销毁、持有、转账和赎回稳定币，无需自建底层基础设施。首批支持OUSD（Open Standard联盟稳定币）、USDC（Circle）、USDG（Paxos），并提供 Wallet-as-a-Service 模块、双控审批工作流、审计日志及欺诈风控系统。平台目前向机构客户内测，Visa股价盘中涨1.7%。这是继Visa今年稳定币交易量破$1.79万亿（+63%）后，最大力度的基础设施投入。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·稳定币·支付基础设施</span>
+        <span class="news-tag">Visa·VSP·15000机构·2亿商户·+1.7%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://fortune.com/2026/07/16/exclusive-visa-new-platform-stablecoin-services-200-million-merchants/" target="_blank">Fortune（独家）</a> · <a href="https://www.bloomberg.com/news/articles/2026-07-16/visa-is-expanding-its-crypto-push-with-new-stablecoin-platform" target="_blank">Bloomberg</a> · <a href="https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-stablecoin-platform.html" target="_blank">Visa官方</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16（吴说区块链）</span>
+      </div>
+      <div class="news-title">CoinGecko Q2 2026 报告：加密总市值 -12.6% 至 $2.1 万亿，CEX 现货量 -27.9%，永续合约跌幅仅 -10%</div>
+      <div class="news-desc">CoinGecko发布Q2 2026全球加密市场报告：总市值较Q1下跌12.6%至$2.1万亿，稳定币市值小降1.6%至$3,051亿（结构稳定）；CEX现货交易量大跌27.9%至$1.95万亿，但永续合约量$12.7万亿仅下滑10%，显示杠杆/投机需求相对抗跌。美伊战争引发的市场动荡、ETH基金会重组、DeFi安全事件频发是Q2主要拖累因素。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·市场数据·季度报告</span>
+        <span class="news-tag">总市值$2.1万亿·CEX-27.9%·永续-10%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-11-208" target="_blank">吴说区块链（07/16 日报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16 21:13 BJ</span>
+      </div>
+      <div class="news-title">Polygon Labs 今年第二次裁员：CEO Boiron 称因收购 Coinme 推进，向盈利型支付公司转型，目标 2027 年盈亏平衡</div>
+      <div class="news-desc">Polygon Labs CEO Marc Boiron 在 X 上宣布本年度第二轮裁员，直接原因是完成 Coinme 收购整合（今年1月也因Coinme/Sequence收购裁员约60人）。Boiron 将此次裁员定性为战略转型而非业绩问题：从"区块链基金会"向"以区块链驱动的支付公司"转型所需的人才结构不同，目标2027年实现盈亏平衡。受影响员工将获遣散费及职业发展支持。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·团队调整·支付转型</span>
+        <span class="news-tag">Polygon Labs·Coinme收购·2027盈利·二次裁员</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblock.co/amp/post/408625/polygon-labs-second-round-of-layoffs-2026-finalize-coinme-acquisition" target="_blank">The Block（21:13 BJ）</a> · <a href="https://www.thestreet.com/crypto/markets/polygon-cuts-jobs-for-second-time-this-year-in-a-bold-pivot" target="_blank">TheStreet</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/17 08:41 BJ</span>
+      </div>
+      <div class="news-title">Moonshot AI 发布 Kimi K3 大模型（28 万亿参数），数学与编程基准超越 GPT-o3</div>
+      <div class="news-desc">国内AI创企 Moonshot AI（月之暗面）发布 Kimi K3 旗舰模型，参数规模28万亿（约为GPT-4的数百倍），开发者测试显示其在数学推理和代码生成任务上超越 OpenAI o3。在加密/Web3 AI Agents赛道快速扩展的背景下，大模型能力突破被视为 AI+DeFi、AI+链上执行等场景的关键催化剂。Kimi K3 同时开放 API 接入，对中文本地化场景有显著优化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·AI·大模型</span>
+        <span class="news-tag">Kimi K3·28万亿参数·超越o3·AI+Web3</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108883" target="_blank">Foresight News（08:41 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/16 21:08 BJ</span>
+      </div>
+      <div class="news-title">MachiBigBrother 的 $2,850 万 ETH 多仓（9,000 ETH，25x 杠杆）在 Hyperliquid 距清算价仅 $28，六个月爆仓损失约 $7,500 万</div>
+      <div class="news-desc">链上知名交易者 MachiBigBrother（Jeffrey Huang）在 Hyperliquid 持有约9,000 ETH（约$1,584万）的25倍杠杆多仓，平均开仓价$1,721，清算价约$1,732，而当时 ETH 报价$1,760，仅距强平线$28。这是其半年内历经多次爆仓后再度重仓的最新押注。据统计，其过去6个月因反复高杠杆ETH多仓已累计亏损约$7,500万。随着 ETH 今日-2.5%至$1,868，此前的临近清算风险反映了ETH价格波动的传导脆弱性。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·杠杆清算·ETH</span>
+        <span class="news-tag">MachiBigBrother·$2850万·距清算$28·Hyperliquid</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/108858" target="_blank">Foresight News（21:08 BJ）</a> · <a href="https://finance.yahoo.com/markets/crypto/articles/king-crypto-liquidations-machi-big-133215247.html" target="_blank">Yahoo Finance（6个月爆仓历史）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$63,951</span> <span class="knum">-1.0%</span></span>
+      <span class="keyword">ETH <span class="knum">$1,868</span> <span class="knum">-2.5%</span></span>
+      <span class="keyword">纳指 <span class="knum">25,882</span> <span class="knum">-1.47%</span></span>
+      <span class="keyword">WTI <span class="knum">$79.62</span> <span class="knum">-0.7%</span></span>
+      <span class="keyword">F&amp;G <span class="knum">27</span> 恐惧（脱离极度恐惧）</span>
+      <span class="keyword">初请失业金 <span class="knum">20.8万</span>（预期21.7万）</span>
+      <span class="keyword">霍尔木兹通行 <span class="knum">3艘/日</span>（正常110艘）</span>
+      <span class="keyword">Visa VSP <span class="knum">15,000</span>家机构 + <span class="knum">2亿+</span>商户</span>
+      <span class="keyword">加密总市值 <span class="knum">$2.1万亿</span>（Q2 <span class="knum">-12.6%</span>）</span>
+      <span class="keyword">CEX现货量 <span class="knum">$1.95万亿</span>（Q2 <span class="knum">-27.9%</span>）</span>
+      <span class="keyword">CLARITY Act <span class="knum">下周</span>参议院投票</span>
+      <span class="keyword">Polygon <span class="knum">二次裁员</span> 2026年</span>
+      <span class="keyword">Kimi K3 <span class="knum">28万亿</span>参数 超越o3</span>
+      <span class="keyword">MachiBigBrother $2,850万仓 距清算 <span class="knum">$28</span></span>
+      <span class="keyword">台积电 capex <span class="knum">$600-640亿</span>（上调）</span>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>数据来源：Foresight News · 吴说区块链 · CoinDesk · Odaily · Bloomberg · The Block · 金十数据</div>
+  <div>市场行情：OKX API 09:00 BJ · ETH 已 CoinGecko 交叉验证</div>
+  <div style="margin-top:8px; color:#222;">本早报仅供信息参考，不构成投资建议。加密资产价格波动极大，请谨慎决策。</div>
+  <div style="color:#1a1a1a; margin-top:4px;">2026 · 07 · 17</div>
+</div>
+
+</body>
+</html>
