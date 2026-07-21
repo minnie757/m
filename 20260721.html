@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月21日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword { border-radius: 12px; color: #BCFF2F; background: #0d0d0d; border: 1px solid #1a2a0a; padding: 4px 12px; font-size: 12px; }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer { text-align: center; padding: 24px 20px 32px; border-top: 1px solid #111; color: #333; font-size: 11px; line-height: 2; }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 21</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/20 20:00 — 07/21 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Foresight News</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">The Block</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">CryptoBriefing</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    CLARITY Act伦理条款迎来决定性会谈：特朗普与参议员Moreno/Lummis在白宫直接谈判，本周内能否突破民主党伦理条款死结（禁止在职官员持币）将决定8月7日休会前能否完成立法，Foresight报道特朗普"未签署伦理条款"。Robinhood全面开放AI Agent交易账户（MCP接入），首家主流券商实现AI自主下单，AI与链上基础设施加速融合；同日BitMine再增持7,430枚ETH至578万枚（约$115亿，占供应量4.8%）。市场情绪：F&G跌至25（极度恐惧，前值29），BTC小幅反弹至$65,532，WTI从周末$84高点回落至$82.50（美伊局势未有降级），纳指7/20收平（-0.05%）。本周关注：ECB利率决议（7月23日）及Tesla/Google/Intel Q2财报。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ（ETH 已 CoinGecko 交叉验证 ✓）</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$65,532</div>
+      <div class="market-change up">▲ +1.3%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,915</div>
+      <div class="market-change up">▲ +0.7%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">Fear &amp; Greed</div>
+      <div class="market-price neutral">25</div>
+      <div class="market-change neutral">极度恐惧</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$82.50</div>
+      <div class="market-change down">▼ -1.9% 日内回落</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,027</div>
+      <div class="market-change up">▲ +0.3%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳指（7/20 收盘）</div>
+      <div class="market-price">25,508</div>
+      <div class="market-change down">▼ -0.05%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/21 08:58 BJ</span>
+      </div>
+      <div class="news-title">CLARITY Act决战周：特朗普与参议员白宫直谈伦理条款，"未签署"报道引发不确定性</div>
+      <div class="news-desc">
+        特朗普与参议员Bernie Moreno、Cynthia Lummis在白宫就CLARITY Act伦理条款展开最后一轮谈判——民主党要求禁止总统/副总统/国会议员在任期间持有加密资产个人仓位，而特朗普2025年加密相关收入逾$14亿是核心争议来源。Foresight News报道特朗普"未在最新会议签署伦理条款"，但谈判仍在持续。距8月7日国会暑期休会不足3周，这是2026年CLARITY Act的最后立法窗口；若会期结束前无地板投票，法案将推迟至2027年。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·加密立法</span>
+        <span class="news-tag">CLARITY Act·伦理条款</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptobriefing.com/trump-and-senators-meet-to-resolve-clarity-act-deadlock-before-august-recess/" target="_blank">CryptoBriefing（特朗普与参议员谈判）</a>·<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 08:58 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/20 20:16 BJ</span>
+      </div>
+      <div class="news-title">越南颁布加密监管令284/2026，9月1日起无牌交易最高罚款$7,700</div>
+      <div class="news-desc">
+        越南政府正式发布第284/2026号法令，建立加密资产交易处罚框架，9月1日生效。核心罚则：个人无牌交易最高罚款约$1,900美元，无牌代币发行最高$7,700美元。越南是东南亚最活跃的零售加密市场之一，此前长期处于监管空白，284号令标志着越南将正式接受VASP（虚拟资产服务商）合规体系。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·东南亚/越南</span>
+        <span class="news-tag">越南284令·9月生效</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/20 20:16 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/20 美股收盘 BJ</span>
+      </div>
+      <div class="news-title">纳指7/20近乎平收（-0.05%）；WTI日内高$84.68后回落$82.50，美伊局势未降级</div>
+      <div class="news-desc">
+        7月20日（周一）美股三大指数小幅收跌：纳指-0.05%至25,508，S&P 500 -0.19%至7,443，道指-0.59%至51,839（跌307点）。油价成主要扰动因子：WTI日内冲高$84.68后震荡回落至$82.50，地缘溢价维持高位。芯片股经历7月去杠杆后技术性企稳，单日跌幅有限，但杠杆ETF资产仍处收缩态势（三星/SK海力士相关LETF从$5,300亿降至$2,800亿）。本周关注：ECB利率决议（7/23）及Tesla/Google/Intel Q2财报（7/23盘后）。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股/能源</span>
+        <span class="news-tag">WTI $82.5·纳指-0.05%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-20-2026" target="_blank">TheStreet（7月20日美股收盘）</a>·<a href="https://fxdailyreport.com/wti-crude-oil-price-analysis-for-july-20-2026/" target="_blank">FX Daily Report（WTI 7/20分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/20 22:00 BJ</span>
+      </div>
+      <div class="news-title">Circle (CRCL) 股价从$260跌至$62（累计-76%），总裁Heath Tarbert回应：Arc长期战略是正解</div>
+      <div class="news-desc">
+        自IPO高点约$260，Circle股价已跌至$62，累计缩水约76%，Mizuho最新目标价$50（评级Underperform）。主要压力来自三面：①Visa稳定币平台OUSD直接竞争USDC存量；②GENIUS Act规则制定期限延期至2027年，监管红利窗口推迟；③稳定币行业整体从"监管套利期"切换至"实际落地考核期"。总裁Heath Tarbert承认股价下跌并称，若Arc链上基础设施战略成功执行，"股价自然会随之而来"。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·稳定币股票</span>
+        <span class="news-tag">CRCL·$62 累计-76%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.kucoin.com/news/flash/circle-president-responds-to-76-stock-price-drop-emphasizes-long-term-strategy" target="_blank">KuCoin（Circle总裁回应-76% 7/20）</a>·<a href="https://en.cryptonomist.ch/2026/07/17/mizuho-downgrades-circle-stock-as-visa-targets-300b-stablecoin-market/" target="_blank">Cryptonomist（Mizuho下调评级）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/20 21:57 BJ</span>
+      </div>
+      <div class="news-title">Allbridge Core损失更新至$165万，宣布重启方案：废弃流动性池模型，改用CCTP+LayerZero路由</div>
+      <div class="news-desc">
+        昨日（7月20日）Solana链上闪电贷攻击的最终损失确认为$165万（此前估计$110万），攻击者操纵USDC/USDT储备比例套利。Allbridge Core宣布不再使用流动性池架构，将基于Circle的CCTP（Cross-Chain Transfer Protocol）和LayerZero重新部署，新版本保留跨链功能但移除可被操纵的价格敏感流动性池，预计同期为协议用户减少攻击面。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·天级</span>
+        <span class="news-tag">链上事件·DeFi安全</span>
+        <span class="news-tag">Allbridge Core·$165万·CCTP重启</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/20 21:57 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 08:28 BJ</span>
+      </div>
+      <div class="news-title">Grayscale向SEC提交Worldcoin (WLD) ETF注册申请，目标在纳斯达克上市</div>
+      <div class="news-desc">
+        Grayscale正式向美国证券交易委员会提交Worldcoin（WLD）ETF的注册申请，计划在纳斯达克上市，托管方为BitGo。这是继Grayscale HYPE信托之后，其又一针对非主流加密资产的ETF布局。Worldcoin基于虹膜扫描的数字身份体系及其背后的Sam Altman（OpenAI CEO）背书，使其具备一定叙事吸引力，但监管敏感性高——此前欧盟已因隐私问题对其开展调查。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·ETF申请</span>
+        <span class="news-tag">Grayscale·Worldcoin ETF</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 08:28 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 08:42–43 BJ</span>
+      </div>
+      <div class="news-title">Solv Protocol BNB Chain BTC+合约遭私钥泄露攻击；Arthur Hayes 3小时内买入1,332.5 ETH（$253万）</div>
+      <div class="news-desc">
+        【Solv Protocol】BNB Chain上Solv的BTC+合约因私钥泄露遭到攻击，团队于3小时内识别并控制漏洞，具体损失金额尚未披露，事后正展开安全审计。【Arthur Hayes】BitMEX联创Arthur Hayes在3小时内链上买入1,332.5 ETH（约$253万），链上地址分析显示为主动增仓，延续其近期ETH看多信号（此前曾公开发表ETH多头观点）。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·天级</span>
+        <span class="news-tag">链上事件·安全/巨鲸</span>
+        <span class="news-tag">Solv BTC+被攻击·Hayes买$253万ETH</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 08:42–43 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/20 21:28 BJ</span>
+      </div>
+      <div class="news-title">Robinhood全面开放AI Agent交易账户，通过MCP服务器实现AI自主下单，美国用户免费</div>
+      <div class="news-desc">
+        Robinhood正式开放Agentic Trading平台，允许第三方AI Agent通过官方Model Context Protocol（MCP）服务器对接券商账户，执行市场调研、下单、组合管理等操作。用户可开设独立的"AI代理账户"，与主账户隔离，每笔交易触发推送通知并可查看实时P&L。支持股票和加密资产交易，面向所有美国用户免费开放。这是首家主流零售券商实现AI Agent自主交易的落地案例，标志着AI与金融基础设施融合进入全面商用阶段。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·AI Agent/交易基础设施</span>
+        <span class="news-tag">Robinhood·MCP自主交易</span>
+      </div>
+      <div class="news-source">来源：<a href="https://robinhood.com/us/en/newsroom/robinhood-is-now-open-to-agents/" target="_blank">Robinhood官方公告</a>·<a href="https://cryptobriefing.com/robinhood-ai-agent-crypto-trading-2/" target="_blank">CryptoBriefing（7月20日）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/20 20:31 BJ</span>
+      </div>
+      <div class="news-title">BitMine再增持7,430 ETH，总仓位升至578万枚（4.8%供应量，约$115亿），年化质押收益$2.47亿</div>
+      <div class="news-desc">
+        BitMine上周新增7,430枚ETH，总持仓达5,780,000枚（约4.8%全网流通供应量），按当前$1,915价格约合$115亿市值。同期公司回购约550万股，年化质押收益估算为$2.47亿。BitMine已成为以太坊单一机构最大持仓方，其持续累积策略类比Strategy（MSTR）对比特币的"永久买入"逻辑，在ETH市场形成明确的机构底价信号。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·ETH机构持仓</span>
+        <span class="news-tag">BitMine·578万ETH·$115亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/20 20:31 BJ）</a>·<a href="https://wublockchain123.substack.com/p/c86" target="_blank">吴说区块链日报（07/20 21:47 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/20 21:47 BJ（吴说）</span>
+      </div>
+      <div class="news-title">Strategy (MSTR) 7月13–19日ATM配股$2.635亿，持仓843,775 BTC（均价$75,476），现金储备$32.25亿</div>
+      <div class="news-desc">
+        Strategy过去一周通过ATM（市价发行）股票融资$2.635亿，累计持有843,775枚BTC（均价$75,476/枚）。公司现金及等价物储备$32.25亿，足以覆盖可转债偿还与股息支付。此次配股未引发明显股价压力，市场已将Strategy的持续融资-买币模型纳入定价；但若BTC持续低于$64,000，股价与BTC溢价的压缩空间值得关注。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·BTC机构持仓</span>
+        <span class="news-tag">Strategy·843,775 BTC·ATM $2.635亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/c86" target="_blank">吴说区块链日报（07/20 21:47 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/20 20:06 BJ</span>
+      </div>
+      <div class="news-title">Coinbase国际衍生品上线CRCL/HOOD/MSTR永续合约，7月21日17:00（ET）起开放</div>
+      <div class="news-desc">
+        Coinbase宣布在其国际衍生品平台新增三个永续期货品种：CRCL（Circle）、HOOD（Robinhood）、MSTR（Strategy/MicroStrategy）。上线时间为美东时间7月21日17:00（约北京时间7月22日05:00）。这三只标的均与加密监管和机构化进程高度相关，Coinbase此举进一步深化衍生品生态，也为Circle/Robinhood股票定价引入链上价格发现机制。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·衍生品/交易所</span>
+        <span class="news-tag">Coinbase·CRCL/HOOD/MSTR永续合约</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/20 20:06 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$65,532</span> (+1.3%)</span>
+      <span class="keyword">ETH <span class="knum">$1,915</span> (+0.7%)</span>
+      <span class="keyword">F&amp;G <span class="knum">25</span> 极度恐惧</span>
+      <span class="keyword">WTI <span class="knum">$82.50</span> 回落</span>
+      <span class="keyword">纳指 <span class="knum">25,508</span> (-0.05%)</span>
+      <span class="keyword">XAUT <span class="knum">$4,027</span> (+0.3%)</span>
+      <span class="keyword">CLARITY Act伦理条款 <span class="knum">白宫谈判中</span></span>
+      <span class="keyword">BitMine ETH <span class="knum">578万枚</span> 4.8%供应</span>
+      <span class="keyword">Robinhood AI Agent <span class="knum">全面开放</span></span>
+      <span class="keyword">Strategy BTC <span class="knum">843,775枚</span></span>
+      <span class="keyword">Allbridge Core损失 <span class="knum">$165万</span></span>
+      <span class="keyword">Circle CRCL <span class="knum">$62</span> 累计-76%</span>
+      <span class="keyword">Arthur Hayes买ETH <span class="knum">$253万</span></span>
+      <span class="keyword">Grayscale申请 <span class="knum">WLD ETF</span></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>7月21日 · 信息来源：Foresight News · 吴说区块链 · The Block · CoinDesk · CryptoBriefing · Bloomberg</div>
+  <div style="margin-top:6px;color:#222;">本报告仅供参考，不构成投资建议。加密资产价格波动较大，请自行评估风险。</div>
+</div>
+
+</body>
+</html>
