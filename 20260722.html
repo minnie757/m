@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月22日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .keyword { border-radius: 12px; color: #BCFF2F; background: #0d0d0d; border: 1px solid #1a2a0a; padding: 4px 12px; font-size: 12px; }
+    .knum { color: #BCFF2F; font-weight: 700; }
+    .footer { text-align: center; padding: 24px 20px 32px; border-top: 1px solid #111; color: #333; font-size: 11px; line-height: 2; }
+    .footer-brand { color: #555; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-date">2026 · 07 · 22</div>
+  <div class="header-title">加密热点<span class="green">早报</span></div>
+  <div class="header-sub">07/21 20:00 — 07/22 09:30 · 北京时间</div>
+</div>
+
+<!-- Source Pills -->
+<div class="sources">
+  <div class="pill">Foresight News</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bitcoin.com News</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Yahoo Finance</div>
+  <div class="pill">金十数据</div>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    加密监管最大变量落定：特朗普同意CLARITY Act伦理条款（禁止在职联邦官员持有加密资产个人仓位），白宫已将修订文本送达共和党参议员，参议院最早本周公布完整法案，8月7日休会前投票概率大幅提升。消息触发加密股全线爆涨：Circle (CRCL) +13.87%、Coinbase (COIN) +12.06%、Gemini (GEMI) +12.81%，纳指同日+1.29%（芯片股共振：Micron +12%、AMD +8%）。市场情绪从极度恐惧（F&G 25）回升至恐惧（33），BTC站上$66,600。地缘面：WTI升至$84.91（美伊交战第10天升级——美军轰炸伊朗南西部，伊朗打击多国美军基地，布伦特破$91），能源通胀尾部风险仍在。
+  </div>
+</div>
+
+<!-- Market -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ（ETH 已 CoinGecko 交叉验证 ✓）</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$66,607</div>
+      <div class="market-change up">▲ +1.7%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$1,938</div>
+      <div class="market-change up">▲ +0.4%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">Fear &amp; Greed</div>
+      <div class="market-price neutral">33</div>
+      <div class="market-change neutral">恐惧（↑ 25前日）</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$84.91</div>
+      <div class="market-change up">▲ +2.0%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">黄金 (XAUT)</div>
+      <div class="market-price">$4,100</div>
+      <div class="market-change up">▲ +1.9%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳指（7/21 收盘）</div>
+      <div class="market-price">25,837</div>
+      <div class="market-change up">▲ +1.29%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/21 21:57 BJ（吴说）</span>
+      </div>
+      <div class="news-title">特朗普同意CLARITY Act伦理条款，白宫送文本至共和党参议员，参议院最早本周公布完整法案</div>
+      <div class="news-desc">
+        特朗普亲自接受CLARITY Act伦理条款核心内容——禁止总统、副总统及国会议员在任期间持有或从加密资产中获益，清除民主党要求的"最后障碍"。白宫当日已将修订后的伦理条款文本发送给共和党参议员；民主党尚未审阅最终版本，但谈判方向已明确。吴说报道"参议院最早本周公布文本"，8月7日国会暑期休会前的立法窗口从极窄转为可行。若通过参议院，法案还需回交众议院复议，再经总统签署生效。CLARITY Act赔率预计将从上周低点43%大幅回升。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">全球监管·加密立法突破</span>
+        <span class="news-tag">CLARITY Act·伦理条款突破</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/clarity" target="_blank">吴说区块链（特朗普同意伦理条款 07/21 21:57 BJ）</a>·<a href="https://news.bitcoin.com/white-house-clarity-act-ethics-deal-trump/" target="_blank">Bitcoin.com News（White House strikes CLARITY Act ethics deal）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 21:15 BJ</span>
+      </div>
+      <div class="news-title">Kalshi向CFTC提交申请，拟推出黄金挂钩永续合约，持续扩张金融衍生品版图</div>
+      <div class="news-desc">
+        去中心化预测市场平台Kalshi向美国商品期货交易委员会（CFTC）正式申请上线黄金挂钩永续合约。继此前已获批的总统选举、通胀等事件合约后，Kalshi此次进军贵金属衍生品赛道，将链上预测市场与传统大宗商品定价进一步融合。若CFTC批准，将是预测市场向主流商品期货延伸的关键一步。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·CFTC/衍生品</span>
+        <span class="news-tag">Kalshi·黄金永续合约申请</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 21:15 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/21 美股收盘 BJ</span>
+      </div>
+      <div class="news-title">加密股全线爆涨（CRCL +13.87%·COIN +12.06%·GEMI +12.81%），纳指+1.29%至25,837（Micron +12%·AMD +8%）</div>
+      <div class="news-desc">
+        CLARITY Act伦理条款突破消息与芯片股技术反弹形成共振，带动美股全面走高。加密概念股领涨：Circle (CRCL) +13.87%（前一日-76%阶段性底部修复），Coinbase (COIN) +12.06%，Gemini (GEMI) +12.81%。半导体亦大幅反弹：Micron Technology +12%（AI存储需求指引超预期）、SanDisk +14%、AMD +8%（微软AI合作协议落地）。纳指收于25,837（+1.29%），S&P 500 +0.89%至7,509，道指+0.74%至52,225，打破三连阴。10年期美债收益率升至4.63%。本周关注：ECB利率决议（7/23 20:15 BJ）+ Tesla/Google/Intel Q2财报（7/23盘后）。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股/加密股</span>
+        <span class="news-tag">CRCL+14%·COIN+12%·纳指+1.29%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/live/stock-market-today-tuesday-july-21-dow-sp-500-nasdaq-084631499.html" target="_blank">Yahoo Finance（美股7月21日收盘）</a>·<a href="https://www.fool.com/coverage/stock-market-today/2026/07/21/stock-market-today-july-21-micron-surges-12-as-semiconductor-strength-lifts-nasdaq/" target="_blank">Motley Fool（Micron +12%）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">07/21 美盘收盘 BJ</span>
+      </div>
+      <div class="news-title">WTI升至$84.91（+2%）·布伦特破$91，美伊战争第10天——美军炸伊朗南西部·伊朗打击三国美军基地·霍尔木兹再遭袭</div>
+      <div class="news-desc">
+        美伊冲突进入第10天持续升级：美军对伊朗南部和西部目标实施新一轮轰炸，伊朗随后攻击美国在巴林、科威特、约旦的军事基地；另有至少一艘油轮在霍尔木兹海峡遭袭，胡塞武装同步威胁亚洲原油航运路线，两艘运送沙特原油至亚洲的油轮在红海改变航向。WTI收于$84.91（+2%，结算价），布伦特收$91.01（+2%），均为阶段性高位。黄金同步跟涨至$4,082（+1.75%），能源-避险双重属性凸显；市场担忧能源通胀溢出效应令美联储更为鹰派。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·美伊战争/能源</span>
+        <span class="news-tag">WTI $84.91·布伦特 $91</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/07/21/oil-prices-dip-as-mediation-efforts-offset-us-iran-strikes.html" target="_blank">CNBC（WTI 7月21日 五周高位）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/22 08:02 BJ</span>
+      </div>
+      <div class="news-title">Movement Labs申请Chapter 11破产保护，创始人$160万债权为最大单一债权人</div>
+      <div class="news-desc">
+        Movement Labs向美国法院正式提交Chapter 11破产重组申请，创始人持有约$160万债权，是当前已知最大单一债权人。Movement是基于Move语言（Facebook Libra/Diem衍生）的Layer 1公链，此前因代币流动性管理问题和内部治理纷争多次受到社区批评。破产申请意味着此前的代币持有者将面临清算风险，Move生态面临重大不确定性。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·协议清算</span>
+        <span class="news-tag">Movement Labs·Chapter 11</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/22 08:02 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/22 08:45 BJ</span>
+      </div>
+      <div class="news-title">Multicoin Capital关联地址出售60.7万枚HYPE（$3,700万），本次获利$1,880万</div>
+      <div class="news-desc">
+        链上数据显示，与Multicoin Capital关联的地址出售60.7万枚HYPE代币，套现约$3,700万，该批仓位建仓成本约$1,820万，获利约$1,880万（约103%回报率）。Multicoin是Hyperliquid早期机构投资者之一，此次大额减仓对HYPE价格形成短期压力，但也一定程度上验证机构"获利了结"的合理时机。HYPE过去30天涨幅超50%，积累了较多浮盈仓位。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·天级</span>
+        <span class="news-tag">链上事件·机构减仓</span>
+        <span class="news-tag">Multicoin·HYPE $3,700万·获利$1,880万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/22 08:45 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 20:33 BJ</span>
+      </div>
+      <div class="news-title">Midnight Foundation跨链桥遭攻击，OKX等多家主要交易所协同冻结相关账户</div>
+      <div class="news-desc">
+        Midnight Foundation旗下跨链桥发生安全事件，攻击者尝试通过多个中心化交易所洗钱。OKX与KuCoin、Kraken等多家主要交易所迅速响应，协调冻结涉事账户，限制被盗资产流出。具体被盗金额尚未披露，Midnight Foundation已发布安全通报并正与各交易所及链上追踪机构合作展开资产追索。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·天级</span>
+        <span class="news-tag">链上事件·跨链桥安全</span>
+        <span class="news-tag">Midnight Foundation·OKX协同冻结</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 20:33 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 21:36 BJ</span>
+      </div>
+      <div class="news-title">Robinhood Chain（Arcus）上线95+家代币化股票，覆盖AI/半导体/航天/量子计算赛道</div>
+      <div class="news-desc">
+        Robinhood Chain上的去中心化交易平台Arcus正式上线95家以上公司代币化股票，重点覆盖AI、半导体、航天探索、量子计算四大主题赛道，首批包括多家纳斯达克和纽交所上市公司。此举延续Ondo Finance、Securitize、Robinhood链上股票的代币化趋势，用户可通过DeFi协议无缝交易传统股权资产，不受传统市场交易时间限制。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·RWA/代币化股票</span>
+        <span class="news-tag">Arcus·95+代币化股票</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 21:36 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 22:50 BJ</span>
+      </div>
+      <div class="news-title">Telegram计划今夏集成非托管GRAM钱包，GRAM暴涨8%至$1.56</div>
+      <div class="news-desc">
+        Telegram官方披露计划在本夏正式推出非托管GRAM原生钱包，直接集成于Telegram应用内，用户无需使用第三方钱包即可存储、发送和接收GRAM代币，并将支持TON链上DeFi操作。消息公布后GRAM代币单日涨幅达8%至$1.56。Telegram此前已通过TON Space等产品探索钱包集成，此次官方宣布非托管方案是进一步去中心化的重要信号，也将推动TON生态用户量提升。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·TON/钱包基础设施</span>
+        <span class="news-tag">Telegram·GRAM非托管钱包·+8%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 22:50 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">07/21 22:40–23:12 BJ</span>
+      </div>
+      <div class="news-title">Canton网络开发商Digital Asset获韩国新韩金融集团投资；数字银行Augustus获$1.8亿融资（Tiger Global领投）</div>
+      <div class="news-desc">
+        【Digital Asset】Canton网络（机构级DeFi基础设施）开发商Digital Asset宣布获得韩国新韩金融集团和SC Ventures（渣打旗下）的战略投资，进一步推动Canton在亚太金融机构的渗透。【Augustus Bank】以加密友好为定位的数字银行Augustus完成$1.8亿B轮融资，Tiger Global领投，估值达$10亿，将用于在美国和欧洲扩展加密友好账户服务。两笔融资均反映机构资本对加密金融基础设施的持续布局。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季度级</span>
+        <span class="news-tag">行业趋势·机构融资</span>
+        <span class="news-tag">Digital Asset·Canton·Augustus $1.8亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News 快讯（07/21 22:40–23:12 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword">BTC <span class="knum">$66,607</span> (+1.7%)</span>
+      <span class="keyword">ETH <span class="knum">$1,938</span> (+0.4%)</span>
+      <span class="keyword">F&amp;G <span class="knum">33</span> 恐惧↑</span>
+      <span class="keyword">WTI <span class="knum">$84.91</span> (+2%)</span>
+      <span class="keyword">布伦特 <span class="knum">$91.01</span></span>
+      <span class="keyword">纳指 <span class="knum">25,837</span> (+1.29%)</span>
+      <span class="keyword">XAUT <span class="knum">$4,100</span> (+1.9%)</span>
+      <span class="keyword">CLARITY Act <span class="knum">伦理条款突破</span></span>
+      <span class="keyword">CRCL <span class="knum">+13.87%</span></span>
+      <span class="keyword">COIN <span class="knum">+12.06%</span></span>
+      <span class="keyword">Micron <span class="knum">+12%</span> AMD +8%</span>
+      <span class="keyword">Movement Labs <span class="knum">破产Chapter 11</span></span>
+      <span class="keyword">Multicoin HYPE <span class="knum">$3,700万</span> 获利$1,880万</span>
+      <span class="keyword">GRAM <span class="knum">+8%</span> $1.56</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点早报</div>
+  <div>7月22日 · 信息来源：Foresight News · 吴说区块链 · Bitcoin.com News · Yahoo Finance · CNBC · The Block</div>
+  <div style="margin-top:6px;color:#222;">本报告仅供参考，不构成投资建议。加密资产价格波动较大，请自行评估风险。</div>
+</div>
+
+</body>
+</html>
