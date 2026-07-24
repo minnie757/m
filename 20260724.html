@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月24日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 07 · 24</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：7月23日 20:00 — 7月24日 09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Foresight News</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">Axios</span>
+  <span class="pill">Yahoo Finance</span>
+  <span class="pill">Motley Fool</span>
+  <span class="pill">FXDailyReport</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    美军首次出动B-1"枪骑兵"战略轰炸机打击伊朗革命卫队目标（战争第12天），是此前精确打击的重大升级，WTI突破$89·布伦特近$94创六周新高。CLARITY Act赔率单日从72%暴跌至38%——民主党公开表示新伦理条款及消费者保护条款"远远不够"，BTC跌破$65,000、ETH -3.3%、COIN -7.1%；纳指因特斯拉-14%+Alphabet-7%双雷财报重挫2.15%至25,137。初请失业金18.7万（7年最低，好于预期21.2万）进一步压制降息预期。BitMEX宣布9月23日永久关闭，Arthur Hayes告别信标志一个时代落幕；Uniswap v4许可池上线+Ondo获FINRA授权双线推进合规代币化进程。
+  </div>
+</div>
+
+<!-- ④ 市场行情 -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$64,970</div>
+      <div class="market-change down">▼ -1.69%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT ✓CG</div>
+      <div class="market-price">$1,871</div>
+      <div class="market-change down">▼ -3.27%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">Fear &amp; Greed</div>
+      <div class="market-price neutral">28 · 恐惧</div>
+      <div class="market-change neutral">↓ 前日 31</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油 7/23</div>
+      <div class="market-price">$89.01</div>
+      <div class="market-change up">▲ +2.49%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,048</div>
+      <div class="market-change down">▼ -1.92%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克 7/23</div>
+      <div class="market-price">25,137</div>
+      <div class="market-change down">▼ -2.15%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 新闻分类 -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">7/23 美东时间 · Axios首发</span>
+      </div>
+      <div class="news-title">美军首次出动B-1"枪骑兵"轰炸机打击伊朗革命卫队，战争第12天重大升级</div>
+      <div class="news-desc">美军动用B-1B战略轰炸机对伊朗伊斯兰革命卫队相关目标实施打击，是自美伊冲突爆发12天以来首次使用该型战机——B-1B可携带24枚2000磅炸弹或数十枚巡航导弹，作战半径远超此前使用的舰载机，意味着打击范围与烈度双重升级。WTI突破$89·布伦特近$94，均创约6周新高；卡塔尔斡旋努力同步受挫，市场押注冲突将持续高烈度数周。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级以上</span>
+        <span class="news-tag">全球事件·美伊战争第12天</span>
+        <span class="news-tag">B-1轰炸机·WTI$89·布伦特$94</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.axios.com/2026/07/23/b-1-bomber-iran-war" target="_blank">Axios（7/23）</a> · <a href="https://www.jpost.com/middle-east/iran-news/article-903386" target="_blank">Jerusalem Post（7/23）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">7/23 美股盘中 · CoinDesk</span>
+      </div>
+      <div class="news-title">CLARITY Act Polymarket赔率单日从72%暴跌至38%，民主党：伦理条款"远远不够"</div>
+      <div class="news-desc">参议院民主党人公开表示，共和党7月22日发布的最新CLARITY Act文本在伦理规定和消费者保护条款上"远远不够（falls short）"，拒绝提供通过所需的跨党派票数；共和党则回应称这是"美国历史上最有力的加密伦理条款"。赌注市场Polymarket通过概率单日从昨日高位72%骤降至38%，BTC应声跌破$65,000，COIN单日-7.1%、CRCL -7.73%。参议院8月7日前窗口仅剩约2周，谈判陷入僵局。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">监管·美国加密框架</span>
+        <span class="news-tag">CLARITY Act·赔率38%·民主党否决</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/07/23/bitcoin-wilts-as-oil-and-rates-rise-clarity-act-odds-tumble-to-38" target="_blank">CoinDesk（7/23）</a> · <a href="https://www.fool.com/coverage/stock-market-today/2026/07/23/crypto-market-today-july-23-bitcoin-slides-as-odds-of-passing-clarity-act-fall/" target="_blank">Motley Fool（7/23）</a></div>
+    </div>
+  </div>
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📉</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/23 美东 08:30 · 美劳工部</span>
+      </div>
+      <div class="news-title">初请失业金18.7万（7/18当周），7年最低，远好于预期21.2万</div>
+      <div class="news-desc">美国至7月18日当周初请失业金人数录得18.7万，大幅低于市场预期的21.2万，并创下2019年以来最低水平；连续申请失业金人数同步下降。超强就业数据意味着美联储在紧缩周期中降息空间进一步收窄，2年期美债收益率当日涨至4.31%（2025年2月来最高）、10年期升至4.66%，对BTC等高风险资产形成双重压制。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">宏观数据·就业·降息预期</span>
+        <span class="news-tag">初请失业金·18.7万·7年最低</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-18-187-212" target="_blank">吴说区块链（7/23 22:03 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">7/23 美股收盘</span>
+      </div>
+      <div class="news-title">纳指-2.15%至25,137：特斯拉Q2财报-14%+Alphabet AI资本支出担忧-7%双雷齐发</div>
+      <div class="news-desc">纳斯达克综合指数7月23日收跌2.15%至25,137，道指-1.3%，标普-1.5%；特斯拉Q2财报营收及利润率均不及预期，股价-14%为主要拖累；Alphabet（谷歌母公司）财报虽盈利超预期但AI资本支出指引大幅提升引发投资者对回报时间线担忧，股价-7%。WTI油价飙升叠加美债收益率走高，给纳指全线科技股估值带来多重压力。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·科技股财报</span>
+        <span class="news-tag">纳指·25137·-2.15%·特斯拉-14%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-23-dow-sp-500-nasdaq-oil-bonds-earnings-084444369.html" target="_blank">Yahoo Finance（7/23）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/23 22:14 BJ</span>
+      </div>
+      <div class="news-title">Chromia长期持有者钱包被黑，2860万枚CHR（约$226万）2.5小时内转出</div>
+      <div class="news-desc">链上监测显示，Chromia（CHR）一名长期持有者的钱包遭到入侵，2,860万枚CHR代币（价值约$226万）在约2.5小时内被分批转走；目前尚不清楚攻击者获取私钥的具体方式，资金流向仍在追踪中。此为继Balance Coin、B² Network之后7月第5起超$100万链上安全事件。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·钱包入侵</span>
+        <span class="news-tag">Chromia CHR·$226万·2860万代币</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（23日 22:14）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/24 08:37 BJ</span>
+      </div>
+      <div class="news-title">Robinhood CEO Vlad Tenev推特账号被黑，"Vladhood(VLAD)"虚假meme币公告发出后紧急删除</div>
+      <div class="news-desc">Robinhood首席执行官Vlad Tenev的X（推特）账号遭到黑客入侵，攻击者发布了一则宣传"Vladhood（VLAD）"meme代币的虚假公告，该推文在短暂传播后被删除，账号随即启动找回流程。Tenev本人已确认账号遭入侵，提醒用户勿参与相关代币交易。此类名人账号被黑宣发meme币的手法近期频发（继Turbo Tax CEO等账号后），建议高度警惕。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·社交账号黑客</span>
+        <span class="news-tag">Robinhood CEO·VLAD·虚假meme币</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（24日 08:37）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">5</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/23 21:44 BJ</span>
+      </div>
+      <div class="news-title">BitMEX宣布9月23日永久关闭，Arthur Hayes发告别信</div>
+      <div class="news-desc">曾开创加密衍生品交易先河的BitMEX宣布将于2026年9月23日正式关闭，8月26日起停止开新仓，9月23日强制平仓所有头寸；联合创始人Arthur Hayes发表告别信，感谢合作伙伴及用户十余年支持。BitMEX早年占据全球加密衍生品市场逾半份额，近年市场份额已被后起者大量蚕食，此次关闭标志着第一代中心化加密衍生品时代正式落幕。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·交易所关闭·历史节点</span>
+        <span class="news-tag">BitMEX·9/23关闭·Hayes告别</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（23日 21:44）</a> · <a href="https://wublockchain123.substack.com/p/7-18-187-212" target="_blank">吴说区块链（7/23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/23 21:42 — 22:03 BJ</span>
+      </div>
+      <div class="news-title">代币化合规双推进：Ondo获FINRA授权向美国零售开放 + Uniswap v4上线许可池</div>
+      <div class="news-desc">①Ondo旗下Oasis Pro Markets获FINRA正式授权，可在SEC/FINRA监管框架下向美国机构及零售投资者提供合规代币化公司股票和基金交易，是迄今获美国监管认可的最宽泛代币化证券牌照。②Uniswap v4正式上线许可池（Permissioned Pools）标准，引入hooks机制实现KYC/AML链上强制合规，初始合作方包括Superstate和Securitize（均为主流代币化RWA平台）。两项进展协同推动代币化资产从机构专属走向合规零售。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA合规·代币化</span>
+        <span class="news-tag">Ondo FINRA授权·Uniswap v4许可池</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（23日 21:42 / 22:03）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/23 21:40 BJ · Tesla Q2财报</span>
+      </div>
+      <div class="news-title">Tesla Q2 BTC持仓连续4季不变（11,509枚），Q2减值损失$1.12亿</div>
+      <div class="news-desc">特斯拉Q2财报显示，公司BTC持仓仍为11,509枚（自2022年大幅减持后保持不变），因Q2 BTC价格波动录得约$1.12亿减值损失；Elon Musk在财报电话会中未对加密资产发表新评论。与Microstrategy/Strategy激进增持路线形成鲜明对比，特斯拉维持"持有但不增持"的保守姿态已逾两年。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">行业趋势·企业BTC储备</span>
+        <span class="news-tag">Tesla·BTC 11509枚·Q2减值$1.12亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（23日 21:40）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/23 吴说 22:03 BJ</span>
+      </div>
+      <div class="news-title">Strategy主导比特币安全联盟成立，贝莱德/Coinbase/Galaxy联合投入$1500万专注量子安全</div>
+      <div class="news-desc">由Strategy（原MicroStrategy）牵头，贝莱德、Coinbase、Galaxy Digital共同参与的"Bitcoin Security Consortium"比特币安全联盟正式成立，宣布三年内共同投入$1500万，优先研究方向为量子计算对比特币椭圆曲线加密的潜在威胁及应对方案。这是首次由持有大量BTC的上市机构联合发起的基础安全倡议，显示机构层面对BTC底层安全风险的前置布局。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">行业趋势·BTC安全·量子威胁</span>
+        <span class="news-tag">Strategy+贝莱德+Coinbase·$1500万·量子安全</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/7-18-187-212" target="_blank">吴说区块链（7/23 22:03 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/24 08:55 BJ</span>
+      </div>
+      <div class="news-title">Stripe洽购AI路由平台OpenRouter，出售估值约$100亿</div>
+      <div class="news-desc">知情人士透露，Stripe正与OpenRouter（面向开发者的AI模型路由聚合平台）洽谈收购，潜在估值约$100亿，协议尚未最终确定。OpenRouter支持接入数十个AI大模型API并统一计费，是AI应用层的关键基础设施；若收购达成，将进一步强化Stripe在AI支付基础设施领域的布局，与其近年大力推进的稳定币支付战略形成协同。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·AI并购·支付基础设施</span>
+        <span class="news-tag">Stripe·OpenRouter·$100亿估值</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（24日 08:55）</a></div>
+    </div>
+  </div>
+
+  <!-- ⑥ 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">CLARITY Act 赔率 38%↓</span>
+      <span class="keyword-chip">B-1轰炸机 首次部署伊朗</span>
+      <span class="keyword-chip">WTI $89.01 +2.49%</span>
+      <span class="keyword-chip">布伦特 近 $94</span>
+      <span class="keyword-chip">纳指 25,137 -2.15%</span>
+      <span class="keyword-chip">特斯拉 Q2 -14%</span>
+      <span class="keyword-chip">初请失业金 18.7万 7年低</span>
+      <span class="keyword-chip">2Y美债收益率 4.31%</span>
+      <span class="keyword-chip">ETH -3.27%</span>
+      <span class="keyword-chip">F&amp;G 28 恐惧</span>
+      <span class="keyword-chip">BitMEX 9/23 关闭</span>
+      <span class="keyword-chip">Ondo FINRA 授权</span>
+      <span class="keyword-chip">Tesla BTC 11,509枚 不变</span>
+      <span class="keyword-chip">Strategy 联盟 $1500万 量子安全</span>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- ⑦ Footer -->
+<footer class="footer">
+  <div class="footer-brand"><span>OKX</span> · 加密热点早报</div>
+  <div class="footer-meta">
+    来源：Foresight News · 吴说区块链 · CoinDesk · Axios · Yahoo Finance · Motley Fool · FXDailyReport<br>
+    资讯窗口：2026年7月23日 20:00 — 7月24日 09:30（北京时间）<br>
+    免责声明：本早报仅供信息参考，不构成任何投资建议。加密资产具有高风险，请谨慎决策。
+  </div>
+</footer>
+
+</body>
+</html>
