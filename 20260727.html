@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月27日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 07 · 27</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：7月25日（周五）20:00 — 7月27日（周一）09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Foresight News</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">CryptoSlate</span>
+  <span class="pill">CoinGecko</span>
+  <span class="pill">Benzinga</span>
+  <span class="pill">CryptoBriefing</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    CLARITY Act进入倒计时危机——Galaxy Digital将今年通过概率从50%砍至30%，7月30日为最晚协议截止线，参议院领袖Thune承认"难以通过"但仍将强行推进程序性投票令各方留下记录；BTC周末在$64,500–$65,500区间震荡，ETH逆势反弹+3.3%，F&G指数从恐慌低点26小幅回升至30。安全事件持续：WEMIX合约所有权遭入侵，攻击者未授权增发520万枚WEMIX$并迅速兑换；BitMart宣布全平台有序关闭（8月26日停止交易），成为2026年内第18个宣布关闭的主要加密平台。纳指7/25再跌0.64%至24,975（周线累跌-3.7%），WTI从B-1轰炸机驱动的$92高位回落至$88.90。剑桥报告：比特币年耗电190 TWh，清洁能源占比升至59.4%历史新高。
+  </div>
+</div>
+
+<!-- ④ 市场行情 -->
+<div class="market-section">
+  <div class="market-title">市场行情 · OKX 09:00 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$65,129</div>
+      <div class="market-change up">▲ +0.96%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT ✓CG</div>
+      <div class="market-price">$1,942</div>
+      <div class="market-change up">▲ +3.27%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">Fear &amp; Greed</div>
+      <div class="market-price neutral">30 · 恐惧</div>
+      <div class="market-change neutral">↑ 周末低点 26</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油 7/25</div>
+      <div class="market-price">$88.90</div>
+      <div class="market-change down">▼ -1.74%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,097</div>
+      <div class="market-change up">▲ +0.96%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克 7/25</div>
+      <div class="market-price">24,975</div>
+      <div class="market-change down">▼ -0.64%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 新闻分类 -->
+<div class="content">
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">7/25 CryptoSlate · Galaxy Digital</span>
+      </div>
+      <div class="news-title">CLARITY Act赔率跌至30%，Galaxy Digital：7/30为最晚截止线，Thune将强行推程序性投票</div>
+      <div class="news-desc">Galaxy Digital在7月25日致客户报告中将CLARITY Act今年通过概率从50%下调至30%，指出参议院需在7月30日前达成协议才有足够时间完成程序（表决流程需5-7天）；参议院多数党领袖Thune虽承认"难以在8月休会前通过"，仍决定强行发起程序性投票，主要目的是让每位参议员就法案立场留下公开记录。法案目前仍缺少约7名民主党跨党支持票，民主党坚持认为伦理条款不足，且需要更多消费者保护条款。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">监管·美国加密框架</span>
+        <span class="news-tag">CLARITY Act·赔率30%·7/30截止</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptoslate.com/us-senate-has-4-days-to-save-clarity-act-as-passage-odds-fall-to-30-galaxy-digital-says/" target="_blank">CryptoSlate（7/25）</a> · <a href="https://coingape.com/clarity-act-update-thune-to-force-vote-whether-or-not-it-passes-amid-60-vote-hurdle/" target="_blank">CoinGape（7/25）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/25 20:17 BJ · Foresight News</span>
+      </div>
+      <div class="news-title">CLARITY Act最新版加入白帽黑客激励条款，鼓励安全漏洞负责任披露</div>
+      <div class="news-desc">参议院在7月25日晚间发布的CLARITY Act最新草案中新增白帽黑客激励条款：对在恶意利用前主动发现并负责任披露智能合约/协议安全漏洞的研究人员提供奖励机制，含义是将DeFi安全研究纳入法案鼓励范畴。这是法案上周末版本相较于7月22日版本的主要新增条款之一，旨在拉拢科技和网络安全社区支持。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">监管·DeFi安全·白帽激励</span>
+        <span class="news-tag">CLARITY Act·白帽条款·新增内容</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（25日 20:17）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/25 美股收盘 · 周线</span>
+      </div>
+      <div class="news-title">纳指7/25再跌0.64%至24,975，周线累跌-3.7%；WTI从$92高位回落$88.90</div>
+      <div class="news-desc">纳斯达克综合指数7月25日（周五）收跌0.64%至24,975.82，道指小幅回升0.45%至51,946；纳指当周（7/21-7/25）累计下跌约3.7%，主要由特斯拉-14%、Alphabet-7%、Sandisk-11%等财报雷拖累。WTI原油从B-1轰炸机消息推动的$92峰值逐步回落至周五$88.90，周线仍+5%；市场逐步消化军事升级预期，但分析师警告一旦霍尔木兹日均过船量进一步下降，将推动新一轮油价上行。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股纳指·原油</span>
+        <span class="news-tag">纳指·24975·-0.64%·周线-3.7%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://en.bloomingbit.io/feed/news/116970" target="_blank">BloomingBit（7/25）</a> · <a href="https://www.fool.com/coverage/stock-market-today/2026/07/24/stock-market-today-july-24-dow-recovers-and-sandisk-tumbles-11-as-tech-stocks-fall-further/" target="_blank">Motley Fool（7/24）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/24 CoinGecko Q2报告</span>
+      </div>
+      <div class="news-title">CoinGecko Q2报告：加密总市值-12.6%至$2.1万亿，连续三季下滑，距Oct 2025峰值-52%</div>
+      <div class="news-desc">CoinGecko Q2 2026加密市场报告显示：总市值环比降12.6%至$2.1万亿（三连季下滑），距2025年10月历史峰值已回撤52%；BTC单季-14.2%，ETH -25.4%；日均现货成交量-20.9%至$931亿；稳定币总市值-1.6%至$3051亿（2023年Q3来首次季度下滑）；头部10大CEX现货量-27.9%至$1.95万亿，永续合约量-10%至$12.7万亿；预测市场名义量逆势+48.7%至$1138亿。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">加密数据·季报·市值</span>
+        <span class="news-tag">Q2市值$2.1万亿·-12.6%·三连季下滑</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/coingeckoq2-126-21" target="_blank">吴说区块链（7/24 21:56 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">7/27 09:00 BJ · Foresight News</span>
+      </div>
+      <div class="news-title">WEMIX合约所有权遭入侵，攻击者未授权增发520万枚WEMIX$并换取ETH/USDT</div>
+      <div class="news-desc">链游平台WEMIX旗下美元稳定币WEMIX$（USDC支持）的智能合约所有权遭到攻击者入侵，未经授权增发5,225,500枚WEMIX$后迅速兑换为ETH和USDT转移；WEMIX已暂停相关系统并启动调查。这是WEMIX自2025年2月$620万黑客事件后的第二次重大安全事故，两次均涉及合约权限问题，WEMIX token价格应声下跌。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·合约入侵·未授权增发</span>
+        <span class="news-tag">WEMIX·520万WEMIX$·第二次重大攻击</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptobriefing.com/wemix-investigates-wemix-dollar-contract-breach/" target="_blank">CryptoBriefing（7/27）</a> · <a href="https://foresightnews.pro/flash" target="_blank">Foresight News（27日 09:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/25 周报 · 吴说</span>
+      </div>
+      <div class="news-title">Wanchain NIGHT Token跨链桥被盗$900万（5.15亿枚代币），7月链上损失持续累积</div>
+      <div class="news-desc">吴说周报披露，NIGHT Token发生Wanchain跨链桥漏洞攻击事件，5.15亿枚NIGHT代币（约$900万）被盗；为7月内继AFX Trade $2400万、B² Network $386万、Chromia $226万、Balance Coin $91万之后又一重大跨链安全事件，7月链上安全损失已超$4000万。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·跨链桥攻击</span>
+        <span class="news-tag">Wanchain·NIGHT Token·$900万·7月第5起</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/top10-266" target="_blank">吴说区块链（7/25 22:01 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/25 17:02 BJ · Foresight News</span>
+      </div>
+      <div class="news-title">AFX Trade黑客开始通过THORChain将盗得ETH兑换为BTC，655枚ETH已换18.86 BTC</div>
+      <div class="news-desc">7月23日盗走$2400万USDC的AFX Trade攻击者开始行动：12,467枚盗得ETH通过去中心化跨链协议THORChain兑换为BTC，已完成655.4枚ETH → 18.86 BTC的首批兑换。THORChain的跨链原子兑换特性使资金追踪难度显著提升；此模式与近期其他攻击者的洗钱路径高度一致（B² Network采用NEAR Intents→Zcash）。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·资金洗钱·THORChain</span>
+        <span class="news-tag">AFX Trade·ETH→BTC·THORChain路由</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（25日 17:02）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">5</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">HIGH</span>
+        <span class="tag-time">7/26 10:14 BJ · Foresight News</span>
+      </div>
+      <div class="news-title">BitMart宣布有序关闭：8/26停止交易，1/31/2027完全退出，BMX代币-63%</div>
+      <div class="news-desc">老牌交易所BitMart宣布有序停止运营：即日起暂停新注册和充值，2026年8月26日停止所有交易服务，2027年1月31日平台完全关闭（提币服务保持至关闭前）；平台代币BMX单日暴跌63%。BitMart曾在2018-2019年跻身全球前8大交易所，2021年12月遭遇$1.96亿热钱包黑客攻击，此后市场份额持续萎缩。这是2026年内宣布关闭的第18个主要加密平台（CryptoRank数据），涉及总融资规模已逾$89亿。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·交易所关闭·市场出清</span>
+        <span class="news-tag">BitMart·8/26停止交易·BMX-63%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（26日 10:14）</a> · <a href="https://wublockchain123.substack.com/p/3a8" target="_blank">吴说区块链（7/26 21:55 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/26 周报 · 吴说</span>
+      </div>
+      <div class="news-title">Robinhood Chain三周达$7亿总资产（稳定币$4.3亿），成全球增长最快链上平台</div>
+      <div class="news-desc">吴说周报数据：Robinhood Chain（Arcus）上线仅三周，总锁仓资产已达$7亿，其中稳定币$4.3亿（占比超60%）；DEX单日成交量此前已创$5.73亿（全球第5）。链上稳定币超高占比被解读为机构资金通过代币化股票路径流入、等待部署的"暂存迹象"；与此同时Arcus已覆盖95+代币化股票标的，7月新增AI半导体及量子计算方向。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·代币化股票·DEX增长</span>
+        <span class="news-tag">Robinhood Chain·$7亿·稳定币$4.3亿·三周</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/3a8" target="_blank">吴说区块链（7/26 21:55 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/26 08:38 BJ · Foresight News</span>
+      </div>
+      <div class="news-title">Arthur Hayes 12天累计买入ETH 3,914枚（均价$1,909），当前浮亏$11.3万</div>
+      <div class="news-desc">链上数据显示，Arthur Hayes自7月15日起12天内累计建仓3,914.84枚ETH，均价$1,908.86，总计约$748万；当前ETH价格$1,942附近，浮亏约$11.3万（约-1.5%）。Hayes曾多次公开表达ETH$1,800-$2,000区间为长期价值区，其持续建仓被市场视为聪明钱对ETH中期底部的信心背书；若CLARITY通过后ETH ETF质押合规化落地，潜在收益率提升将成额外催化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">行业趋势·聪明钱·ETH积累</span>
+        <span class="news-tag">Arthur Hayes·ETH 3914枚·均价$1909</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（26日 08:38）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/26 剑桥大学报告</span>
+      </div>
+      <div class="news-title">剑桥Bitcoin矿业报告：年耗电升至190 TWh（+38%），清洁能源占比59.4%创历史新高</div>
+      <div class="news-desc">剑桥替代金融中心（CCAF）最新比特币矿业报告：年度用电量升至约190 TWh（同比+38%，上期138 TWh），温室气体排放约4800万吨CO₂当量；但清洁能源占比从52.4%升至59.4%（历史最高），水电首次超越天然气成为最大单一能源来源。报告显示矿业增长与可再生能源转型并行推进，为比特币ESG争议提供新基准数据。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·BTC挖矿·ESG</span>
+        <span class="news-tag">剑桥报告·190TWh·清洁能源59.4%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/3a8" target="_blank">吴说区块链（7/26 21:55 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">MID</span>
+        <span class="tag-time">7/27 08:44 BJ · Foresight News</span>
+      </div>
+      <div class="news-title">Coinbase CEO Brian Armstrong：AI使加密货币更加重要，AI Agent需要链上原生金融基础设施</div>
+      <div class="news-desc">Coinbase首席执行官Brian Armstrong在周一早间评论中表示，AI的快速发展使加密货币的战略地位更加重要：AI自主Agent执行任务、管理投资组合、进行贷款等操作需要可编程货币作为原生金融轨道，而传统银行账户无法适配无人工干预的AI操作流程；Armstrong将稳定币+智能合约视为AI Agent的基础支付层。此前Coinbase已推出AI Agent专用API接口。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·AI·加密基础设施</span>
+        <span class="news-tag">Coinbase CEO·AI Agent·链上原生支付</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（27日 08:44）</a></div>
+    </div>
+  </div>
+
+  <!-- ⑥ 关键数字 -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">CLARITY Act 赔率 30%</span>
+      <span class="keyword-chip">7/30 最晚协议截止</span>
+      <span class="keyword-chip">WEMIX 520万 未授权增发</span>
+      <span class="keyword-chip">BitMart 8/26 停止交易</span>
+      <span class="keyword-chip">NIGHT Token $900万 被盗</span>
+      <span class="keyword-chip">7月链上损失 &gt;$4000万</span>
+      <span class="keyword-chip">ETH +3.27% 周末反弹</span>
+      <span class="keyword-chip">F&amp;G 30 恐惧 ↑周末低26</span>
+      <span class="keyword-chip">纳指 24,975 周线-3.7%</span>
+      <span class="keyword-chip">WTI $88.90 周线+5%</span>
+      <span class="keyword-chip">CoinGecko Q2 -12.6% 三连降</span>
+      <span class="keyword-chip">Robinhood Chain $7亿 三周</span>
+      <span class="keyword-chip">Arthur Hayes ETH 3914枚</span>
+      <span class="keyword-chip">BTC 清洁能源 59.4% 历史高</span>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- ⑦ Footer -->
+<footer class="footer">
+  <div class="footer-brand"><span>OKX</span> · 加密热点早报</div>
+  <div class="footer-meta">
+    来源：Foresight News · 吴说区块链 · CoinDesk · CryptoSlate · CoinGecko · Benzinga · CryptoBriefing<br>
+    资讯窗口：2026年7月25日（周五）20:00 — 7月27日（周一）09:30（北京时间）<br>
+    免责声明：本早报仅供信息参考，不构成任何投资建议。加密资产具有高风险，请谨慎决策。
+  </div>
+</footer>
+
+</body>
+</html>
