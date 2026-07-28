@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月28日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 07 · 28</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：7月27日（周一）20:00 — 7月28日（周二）09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Foresight News</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">CryptoBriefing</span>
+  <span class="pill">The Block</span>
+  <span class="pill">Kiplinger</span>
+  <span class="pill">Cryptopolitan</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    【FOMC开幕 + CLARITY Act 8/10截止】Warsh首次以美联储主席身份主持7/28–29会议，市场预期明日维持3.5–3.75%按兵不动；CLARITY Act特朗普批准伦理禁令条款语言，化解关键障碍，参院8/10前最后窗口进入倒计时。<br><br>
+    【美伊外交重启，WTI单日暴跌8.68%】周末美伊双方停止互相打击、外交进程重启，WTI从$89区域骤降至$82.62，多日霍尔木兹溢价迅速消退。<br><br>
+    【加密市场全面承压，机构逆势布局】BTC跌破$64K、F&G降至29（恐慌）；Circle收购IBM近1,000项区块链专利成美国最大IP持有者；Arthur Hayes自7/15以来累计买入7,212.6枚ETH均价$1,916，逆势积仓信号明显。
+  </div>
+</div>
+
+<!-- ④ Market Grid -->
+<div class="market-section">
+  <div class="market-title">MARKET DATA · 09:30 BJ</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$63,487</div>
+      <div class="market-change down">▼ -1.66%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$1,879</div>
+      <div class="market-change down">▼ -2.51%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">Fear &amp; Greed</div>
+      <div class="market-price neutral">29</div>
+      <div class="market-change neutral">恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$82.62</div>
+      <div class="market-change down">▼ -8.68%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,049</div>
+      <div class="market-change down">▼ -0.57%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克综合</div>
+      <div class="market-price">24,932</div>
+      <div class="market-change down">▼ -0.18%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ News Sections -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/28 09:00 BJ</span>
+      </div>
+      <div class="news-title">FOMC 7/28–29 开幕，Warsh 首次以主席身份主持，市场预期明日维持 3.5–3.75%</div>
+      <div class="news-desc">
+        美联储今日启动7月议息会议，定于北京时间7月30日凌晨2:00（美东时间7/29 14:00）公布利率决定，随后由Warsh主席召开新闻发布会。本次为无SEP（经济预测摘要）会议。CME FedWatch显示市场对维持当前区间的预期占主导，Warsh强硬通胀立场令降息预期进一步推后。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">货币政策·利率决定</span>
+        <span class="news-tag">Warsh·3.5–3.75%维持</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.kucoin.com/news/flash/fed-s-next-fomc-meeting-scheduled-for-july-28-29-2026" target="_blank">KuCoin（FOMC日历 7/28）</a> · <a href="https://www.kiplinger.com/investing/live/fed-meeting-updates-and-commentary-july-2026" target="_blank">Kiplinger（Fed Meeting Live 7/28）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/27 22:00 BJ</span>
+      </div>
+      <div class="news-title">CLARITY Act 特朗普批准伦理禁令语言，参院 8/10 最后窗口进入倒计时</div>
+      <div class="news-desc">
+        总统特朗普已批准CLARITY Act中禁止联邦官员发行数字资产的伦理条款措辞，化解民主党提出的核心阻碍。参院8/10进入国情咨文休会期，Thune能否在此前递交关闭辩论动议（cloture filing）成为关键节点；法案仍需60票跨越程序性阻挠。Polymarket当前赔率约30%。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·加密立法</span>
+        <span class="news-tag">CLARITY Act·8/10截止</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/07/22/senate-crypto-bill-would-ban-federal-officials-from-issuing-digital-assets.html" target="_blank">CNBC（伦理禁令条款 7/22）</a> · <a href="https://bitcoinfoundation.org/news/regulation/clarity-act-whats-next-why-aug-10-could-be-cryptos-biggest-deadline-in-2026/" target="_blank">Bitcoin Foundation（8/10截止解析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/27 20:00 BJ</span>
+      </div>
+      <div class="news-title">明尼苏达联邦法官临时阻止预测市场禁令，Kalshi 与 Polymarket 获初步胜利</div>
+      <div class="news-desc">
+        美国联邦地区法官Menendez发出初步禁令，阻止明尼苏达州将于8/1生效的预测市场禁令（违者最高5年刑罚+$10,000罚款），裁定其可能与联邦《商品交易法》（CEA）存在明示优先性冲突。此前Kalshi、Polymarket及CFTC联合提起诉讼。法官同时指出并非所有合约类型均受联邦保护，案件仍将继续审理。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·预测市场司法</span>
+        <span class="news-tag">Kalshi·Polymarket·CEA优先</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/07/27/kalshi-polymarket-win-pause-against-minnesota-s-prediction-market-ban" target="_blank">CoinDesk（禁令阻止 7/27）</a> · <a href="https://www.nbcnews.com/tech/tech-news/minnesota-prediction-market-ban-blocked-federal-judge-rcna589494" target="_blank">NBC News（法官裁决详情）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/27 21:00 BJ</span>
+      </div>
+      <div class="news-title">美伊周末停止互相打击，外交进程重启，WTI 单日暴跌 8.68% 至 $82.62</div>
+      <div class="news-desc">
+        美国与伊朗周末期间暂时停止了互相军事打击，外交接触重启，此前因霍尔木兹海峡紧张累积的风险溢价迅速消退。WTI原油周一单日跌幅达8.68%，从$89区域骤降至$82.62，为数周以来最大单日跌幅。纳斯达克综合指数收跌0.18%至24,932，英伟达下跌拖累指数，Sandisk跌11%（内存需求疲软），半导体板块整体承压。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日-周级</span>
+        <span class="news-tag">全球事件·地缘政治逆转</span>
+        <span class="news-tag">WTI·-8.68%·$82.62</span>
+      </div>
+      <div class="news-source">来源：<a href="https://fxdailyreport.com/wti-crude-oil-price-analysis-for-july-27-2026/" target="_blank">FX Daily Report（WTI 7/27分析）</a> · <a href="https://www.fool.com/coverage/stock-market-today/2026/07/27/stock-market-today-july-27-dow-rises-on-oil-retreat-and-sandisk-plunges-11-on-memory-weakness/" target="_blank">Motley Fool（7/27收盘 Nasdaq 24,932）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">07/27 20:01 BJ</span>
+      </div>
+      <div class="news-title">Circle 收购 IBM 近 1,000 项区块链专利，成美国最大区块链 IP 持有者</div>
+      <div class="news-desc">
+        Circle宣布收购IBM核心区块链专利组合，涵盖680余个专利族、近1,000项全球授权专利，覆盖区块链技术、金融服务、供应链验证及云安全领域，财务条款未披露。Circle计划将这批IP用于支持USDC、Arc区块链及AI代理金融工具，并探索与IBM的进一步合作。CRCL盘前涨2.28%。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月-年级</span>
+        <span class="news-tag">行业趋势·IP战略·稳定币</span>
+        <span class="news-tag">Circle·IBM·680+专利族</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/07/27/circle-buys-nearly-1-000-blockchain-patents-from-ibm" target="_blank">CoinDesk（Circle收购 7/27）</a> · <a href="https://www.circle.com/pressroom/circle-acquires-ibm-blockchain-patent-portfolio" target="_blank">Circle官方新闻稿（7/27）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/27 20:29 BJ</span>
+      </div>
+      <div class="news-title">DWF Labs：代币化股权持有者超 75.2 万，Robinhood Crypto 7/1 以来新增 32.8 万，占 44% 市场份额</div>
+      <div class="news-desc">
+        DWF Labs报告显示，全球代币化股权持有者总数已超752,000人，Robinhood Crypto自7月1日平台上线以来新增328,000名持有者，以44%市场份额领先xStocks、Ondo等平台（后者估值更高）。报告指出Robinhood在用户获取速度上显著领先竞争者，代币化股权赛道正经历快速用户扩张期。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·RWA·代币化股权</span>
+        <span class="news-tag">Robinhood·75.2万持有者·44%份额</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News Flash（7/27 20:29 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/28 08:27 BJ</span>
+      </div>
+      <div class="news-title">Arthur Hayes 再追 3,298 ETH（约 $632 万），7/15 以来累计持仓 7,212.6 枚均价 $1,916</div>
+      <div class="news-desc">
+        链上数据显示，与Arthur Hayes关联的地址于7/28早间再度买入3,298 ETH，花费约632万美元。自7月15日起，Hayes已累计买入7,212.6枚ETH，平均成本价约$1,916，当前持仓仍处于轻微亏损状态。此举被市场解读为高知名度人士在恐慌情绪下的逆势建仓信号，ETH盘中跌幅有所收窄。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日-周级</span>
+        <span class="news-tag">链上事件·鲸鱼动向</span>
+        <span class="news-tag">Arthur Hayes·ETH 7212枚·均价$1916</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News Flash（7/28 08:27 BJ）</a> · <a href="https://cryptopotato.com/arthur-hayes-buys-eth-above-1900-weeks-after-selling-at-1700/" target="_blank">CryptoPotato（Hayes ETH积累追踪）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/27 20:31 BJ</span>
+      </div>
+      <div class="news-title">Bitmine 增持 7,500 ETH（约 $1,461 万），机构 ETH 积累趋势持续</div>
+      <div class="news-desc">
+        上市公司Bitmine从BitGo托管接收7,500枚ETH，价值约1,461万美元，为本周ETH增持计划的一部分。Bitmine当前总持仓约578.7万枚ETH（含质押），占ETH流通量约4.8%，总加密资产价值约$118亿。继BitMine上周已公告增持计划后，此次为执行层面的交割确认。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·机构持仓</span>
+        <span class="news-tag">Bitmine·7500 ETH·$1461万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News Flash（7/27 20:31 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/27 20:04 BJ</span>
+      </div>
+      <div class="news-title">MicroStrategy 7/20–26 期间零购买 BTC，维持 843,775 枚，ATM 募资 $5.445 亿回购优先股</div>
+      <div class="news-desc">
+        Strategy（MicroStrategy）披露，7月20日至26日期间未新增购买比特币，总持仓维持在843,775枚（均价约$75,476，账面总成本约$637亿）。公司期间通过ATM股权发行募资5.445亿美元，并将部分资金用于回购STRC优先股，账面现金储备约$37.5亿。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·机构BTC持仓</span>
+        <span class="news-tag">Strategy·843,775 BTC·零净购</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/c46" target="_blank">吴说区块链（7/27精选）</a> · <a href="https://foresightnews.pro/flash" target="_blank">Foresight News Flash（7/27 20:04 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">07/26 BJ（时间窗口内）</span>
+      </div>
+      <div class="news-title">Storj Labs 申请 Chapter 11 破产重组，代币 STORJ 跌逾 16%，代币持有者或可换股</div>
+      <div class="news-desc">
+        去中心化存储平台Storj Labs于7月26日向美国西弗吉尼亚北区破产法院申请Chapter 11重组，案号5:26-bk-00512。公司表示申请源于历史遗留债务而非当前运营失败，服务将继续正常运行。重组方案中罕见提出代币持有者可参与换股获得重组后公司股权，但具体条款、资格认定及时间表尚未披露。STORJ代币跌幅超16%。
+      </div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·协议重组破产</span>
+        <span class="news-tag">Storj·Chapter 11·STORJ -16%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/07/27/cloud-data-firm-storj-files-for-chapter-11-extending-a-week-of-crypto-failures-token-slides-16" target="_blank">CoinDesk（Storj破产 7/27）</a> · <a href="https://www.globenewswire.com/news-release/2026/07/26/3333224/0/en/Storj-Announces-Voluntary-Financial-Restructuring-to-Resolve-Legacy-Liabilities-and-Position-the-Business-for-Growth.html" target="_blank">GlobeNewswire（官方公告 7/26）</a></div>
+    </div>
+  </div>
+
+</div><!-- end .content -->
+
+<!-- ⑥ Keywords -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">FOMC 7/28–29</span>
+      <span class="keyword-chip">利率 3.5–3.75%</span>
+      <span class="keyword-chip">CLARITY Act 8/10截止</span>
+      <span class="keyword-chip">WTI $82.62 ▼8.68%</span>
+      <span class="keyword-chip">美伊外交重启</span>
+      <span class="keyword-chip">Circle IBM 680+专利族</span>
+      <span class="keyword-chip">BTC $63,487 ▼1.66%</span>
+      <span class="keyword-chip">ETH $1,879 ▼2.51%</span>
+      <span class="keyword-chip">F&G 29 恐慌</span>
+      <span class="keyword-chip">Hayes 7212.6 ETH</span>
+      <span class="keyword-chip">Strategy 843,775 BTC</span>
+      <span class="keyword-chip">Storj Chapter 11</span>
+      <span class="keyword-chip">Kalshi·Polymarket 胜诉</span>
+      <span class="keyword-chip">Nasdaq 24,932 ▼0.18%</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点<span>早报</span></div>
+  <div class="footer-meta">
+    资讯窗口：2026年7月27日 20:00 — 7月28日 09:30（北京时间）<br>
+    数据来源：OKX API · CoinGecko · Alternative.me · Foresight News · 吴说区块链 · CoinDesk · Kiplinger<br>
+    本早报仅供参考，不构成任何投资建议
+  </div>
+</div>
+
+</body>
+</html>
