@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月29日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 07 · 29</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：7月28日 20:00 — 7月29日 09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Foresight News</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">CryptoBriefing</span>
+  <span class="pill">Decrypt</span>
+  <span class="pill">CNBC Markets</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① FOMC今晚决策</strong>：Warsh主持第二次会议，北京时间7/30凌晨2:00公布利率决定。市场加息概率升至38%（CME FedWatch），BTC围绕$64K震荡等待靴子落地，全市场情绪维持在F&G 29恐慌区间。<br><br>
+    <strong>② 摩根士丹利MSSE/MSOL双ETP上市</strong>：ETH Trust（MSSE）+ SOL Trust（MSOL）在NYSE Arca同日上市，费率0.14%全市场最低，含质押收益，摩根士丹利1.6万名财务顾问+E*TRADE渠道全面开放，机构分销格局再升级。<br><br>
+    <strong>③ CLARITY Act本周无望，下周最后窗口</strong>：Thune承认本周无法完成cloture投票，聚焦8/1–8/7参院最后窗口，仍需7个民主党票，8/8夏休前最终裁量时刻临近。
+  </div>
+</div>
+
+<!-- ④ Market Grid -->
+<div class="market-section">
+  <div class="market-title">· 市场行情 · 09:00 BJ · OKX</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$63,965</div>
+      <div class="market-change up">▲ +0.07%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$1,917</div>
+      <div class="market-change down">▼ −0.12%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐慌贪婪指数</div>
+      <div class="market-price neutral">29</div>
+      <div class="market-change neutral">恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油</div>
+      <div class="market-price">$82.61</div>
+      <div class="market-change down">▼ −0.01%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,006</div>
+      <div class="market-change down">▼ −0.80%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克（7/28）</div>
+      <div class="market-price">24,876</div>
+      <div class="market-change down">▼ −0.22%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ News Sections -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/29 今晚 14:00 ET</span>
+      </div>
+      <div class="news-title">FOMC今晚公布利率决定，加息赔率升至38%，Warsh第二次主持</div>
+      <div class="news-desc">美联储7/28–29会议今晚北京时间7/30凌晨2:00公布决定，Warsh主持其第二次FOMC会议。CME FedWatch显示加息概率从7/15的10.7%飙升至38%，市场对"预防性加息"定价显著上升。本次为非SEP会议（无点阵图），声明措辞与记者会问答将成解读核心。若维持不动，Warsh鹰派措辞可能同样令风险资产承压。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">货币政策·利率决定</span>
+        <span class="news-tag">美联储Warsh·3.5–3.75%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://phemex.com/blogs/warsh-fed-decision-july-29-hike-odds" target="_blank">Phemex（7/29 加息赔率分析）</a> · <a href="https://www.kucoin.com/news/flash/fed-s-next-fomc-meeting-scheduled-for-july-28-29-2026" target="_blank">KuCoin Flash（7/28）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/29 进行中</span>
+      </div>
+      <div class="news-title">CLARITY Act本周cloture无望，8/1–8/7最后窗口，Thune强推上线</div>
+      <div class="news-desc">CryptoBriefing援引消息：CLARITY Act本周内无法完成cloture投票，重心转移至下周（8/1–8/7），8/8参院夏休即启动。参院多数党领袖Thune态度强硬，将在夏休前强制发起投票，即便拿不到60票亦要令每位参议员公开表态。法案仍需至少7个民主党票；目前各方仍在就伦理条款和产业结构细节拉票。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·加密市场结构法</span>
+        <span class="news-tag">CLARITY Act·参院·8/8截止</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptobriefing.com/clarity-act-cloture-vote-unlikely-this-week-focus-shifts-to-next-week/" target="_blank">CryptoBriefing（7/29）</a> · <a href="https://coingape.com/clarity-act-update-thune-to-force-vote-whether-or-not-it-passes-amid-60-vote-hurdle/" target="_blank">CoinGape（Thune强推投票）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/28 20:24 BJ</span>
+      </div>
+      <div class="news-title">国会推新法案封堵加密税漏洞，Wash Sale规则延伸至数字资产，预计10年创收$240亿</div>
+      <div class="news-desc">美国众议院议员Jodey Arrington（德州共和党）再推《Applying Existing Tax Anti-Abuse Rules to Digital Assets Act》，将股票市场"洗售规则"（Wash Sale）正式适用于加密资产，堵住投资者亏损免税同时保留持仓的税收套利漏洞。美国财政部估算该规则延伸可在十年内带来近$240亿税收，两党对此存在罕见共识。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">全球监管·加密税制</span>
+        <span class="news-tag">Wash Sale·$240亿·数字资产</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/07/28/congress-renews-push-to-end-crypto-wash-sale-tax-loophole.html" target="_blank">CNBC（7/28）</a> · <a href="https://www.kucoin.com/news/flash/u-s-congress-proposes-bill-to-close-crypto-tax-loophole" target="_blank">KuCoin Flash（7/28）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/27 已裁定 / 7/28入窗</span>
+      </div>
+      <div class="news-title">明尼苏达联邦法院裁定Kalshi/Polymarket胜诉，州级预测市场禁令临时被阻</div>
+      <div class="news-desc">美国明尼苏达联邦地区法官Katherine Menendez发出初步禁令，临时阻止明尼苏达州8/1起生效的预测市场全面禁令（违法最高5年监禁+$1万罚款）。法院认定原告有可能在联邦商品交易法（CEA）优先权主张上胜诉，CFTC与Kalshi/Polymarket联合诉诸联邦优先权，部分合约可能不受保护。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·预测市场</span>
+        <span class="news-tag">Kalshi·Polymarket·明尼苏达禁令</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/07/27/kalshi-polymarket-win-pause-against-minnesota-s-prediction-market-ban" target="_blank">CoinDesk（7/27）</a> · <a href="https://www.nbcnews.com/tech/tech-news/minnesota-prediction-market-ban-blocked-federal-judge-rcna589494" target="_blank">NBC News（联邦法优先权裁定）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/28 21:12 BJ</span>
+      </div>
+      <div class="news-title">摩根士丹利同日推出ETH Trust（MSSE）+ SOL Trust（MSOL），费率0.14%全市场最低，含质押收益</div>
+      <div class="news-desc">摩根士丹利资管在NYSE Arca同时上市以太坊信托（MSSE）和Solana信托（MSOL），均采用CoinDesk基准指数定价，管理费率0.14%为市场同类最低，两只产品均计划将部分持仓质押并将质押奖励全数返还给投资者（摩根士丹利不留存质押收益）。旗下比特币信托（MSTR）此前已积累超$3.81亿规模，1.6万名财务顾问+E*TRADE渠道将为新产品提供强势分发。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·加密ETP</span>
+        <span class="news-tag">摩根士丹利·MSSE·MSOL·0.14%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/07/28/morgan-stanley-debuts-ether-and-solana-etps-after-bitcoin-fund-success" target="_blank">CoinDesk（7/28）</a> · <a href="https://www.theblock.co/post/409898/morgan-stanley-debuts-ethereum-solana-etfs-markets-lowest-fee-staking-rewards" target="_blank">The Block（7/28）</a> · <a href="https://decrypt.co/374592/morgan-stanley-crypto-ethereum-solana-etps" target="_blank">Decrypt（7/28）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/28 21:08 BJ</span>
+      </div>
+      <div class="news-title">Visa宣布裁员约2,600人（7%），聚焦支付竞争效率提升</div>
+      <div class="news-desc">全球支付巨头Visa宣布裁员约2,600名员工，约占全球员工总数7%，理由是增强运营效率以应对支付行业加速竞争。此次裁员与Visa近期发布的VSP稳定币平台（7月17日公测）战略转型背景叠加，外界关注其是否会加速从传统支付网络向链上清算基础设施迁移。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">传统金融·支付行业</span>
+        <span class="news-tag">Visa·裁员2600人·7%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/28 21:08 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/29 07:47 BJ</span>
+      </div>
+      <div class="news-title">Jump Capital完成$3.5亿AI初创投资基金募集</div>
+      <div class="news-desc">Jump Trading旗下风投部门Jump Capital宣布完成$3.5亿新基金募集，专注于AI初创企业投资。Jump Capital此前活跃于加密及Web3赛道，此次转向AI基础设施与应用层，延续Crypto VC与AI CapEx叙事融合的大趋势；基金规模及重心转变引发市场对加密原生资本向AI领域迁移的关注。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·VC·AI</span>
+        <span class="news-tag">Jump Capital·$3.5亿·AI基金</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/29 07:47 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/28 20:24 BJ</span>
+      </div>
+      <div class="news-title">DWF Labs：代币化股权持有者达75.2万，Robinhood Crypto 7/1以来新增32.8万占44%份额</div>
+      <div class="news-desc">DWF Labs最新数据显示，链上代币化股权（含xStocks、Ondo、Robinhood Chain等平台）全球持有人数已突破75.2万。其中Robinhood Crypto自7月1日正式开放以来贡献了32.8万新用户，市场占有率达44%，尽管其代币化股票定价略低于xStocks和Ondo平台。代币化权益的快速普及已成下半年最清晰的增量主线之一。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·代币化股权·RWA</span>
+        <span class="news-tag">Robinhood·32.8万·44%市占率</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/28 20:29 BJ）</a> · <a href="https://wublockchain123.substack.com/p/c46" target="_blank">吴说区块链（7/27 精选）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/29 08:49 BJ</span>
+      </div>
+      <div class="news-title">Multicoin Capital解质押1.97M HYPE（约$1.08亿），7天赎回期满今日执行</div>
+      <div class="news-desc">Multicoin Capital此前于7/22发起1.97M HYPE解质押申请，今日7天等待期满正式执行。此次解质押规模约$1.08亿，链上分析师持续追踪三个关联钱包动向。Multicoin管理合伙人Tushar Jain此前表示此举为例行钱包轮换非出售信号，但大规模解质押仍对HYPE市场情绪构成短期压力，Galaxy Digital及Selini Capital亦有解质押队列待执行。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·解质押·机构动向</span>
+        <span class="news-tag">Multicoin·1.97M HYPE·$1.08亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://ambcrypto.com/why-hyperliquids-120m-whale-unstake-has-hype-bulls-on-edge/" target="_blank">AMBCrypto（HYPE解质押影响分析）</a> · <a href="https://cryptobriefing.com/hype-falls-multicoin-galaxy-selini-unstaking/" target="_blank">CryptoBriefing（7/22原发）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/29 08:31 BJ</span>
+      </div>
+      <div class="news-title">Trade.xyz宣布全额赔偿SK海力士合约预言机异常引发的$5,740万清算损失</div>
+      <div class="news-desc">Trade.xyz宣布将全额赔付因SK海力士永续合约（xyz:SKHYNIX）预言机价格异常引发的清算损失。此前韩国NXT盘前出现异常报价（1,272,000韩元），触发永续合约暴跌17.9%，导致960个多头账户合计约$5,740万被强制平仓。Trade.xyz依据HIP-3部署规则拥有50万HYPE（约$2,740万）可被惩罚性销毁的质押，本次赔偿决定有效缓解Hyperliquid生态信任危机。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·预言机攻击·清算</span>
+        <span class="news-tag">Trade.xyz·SK海力士·$5740万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptorank.io/news/feed/854e3-hyperliquid-sk-hynix-perp-oracle-liquidations" target="_blank">CryptoRank（SK Hynix预言机事件）</a> · <a href="https://beincrypto.com/hyperliquid-sk-hynix-perp-oracle-liquidations/" target="_blank">BeInCrypto（事件回顾）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/29 08:54 BJ</span>
+      </div>
+      <div class="news-title">Hayden Adams澄清Uniswap v4协议费用为附加收取，LP手续费30bps维持不变</div>
+      <div class="news-desc">Uniswap创始人Hayden Adams公开澄清v4协议费用机制：协议费是在LP赚取手续费之外额外征收，而非从LP收益中扣除，原有30个基点的流动性提供者收益完全不受影响。此澄清源于社区此前对v4费用结构的误解，Adams强调所有协议升级均已经DAO治理投票批准，并无单方面改变LP收益的计划。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·DeFi·协议费用</span>
+        <span class="news-tag">Uniswap v4·Hayden Adams·30bps LP</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/29 08:54 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/28 21:35 BJ</span>
+      </div>
+      <div class="news-title">加密股表现分化：Strategy +2.52%，Coinbase -2.29%，Bullish -6.53%</div>
+      <div class="news-desc">7/28美股收盘，加密相关个股走势严重分化。Strategy（前MicroStrategy）逆势上涨2.52%，受益于BTC小幅企稳；Coinbase下跌2.29%；Bullish交易所跌幅最大达6.53%。纳斯达克综合指数同日收跌0.22%至24,876点，韩国内存芯片股波动拖累科技板块整体情绪。BTC当日一度跌至$62,877后反弹收至$64,030附近。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">加密数据·股市·机构股</span>
+        <span class="news-tag">Strategy·Coinbase·Bullish</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/28 21:35 BJ）</a> · <a href="https://www.bbntimes.com/technology/nasdaq-composite-closes-down-0-22-at-24-877-as-korean-memory-chip-crash-ripples-to-wall-street" target="_blank">BBN Times（纳指收盘）</a></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ⑥ Keywords Section -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">FOMC加息赔率 38%</span>
+      <span class="keyword-chip">BTC $63,965 +0.07%</span>
+      <span class="keyword-chip">ETH $1,917 -0.12%</span>
+      <span class="keyword-chip">F&G 29 恐慌</span>
+      <span class="keyword-chip">MSSE/MSOL 费率0.14%</span>
+      <span class="keyword-chip">纳指 24,876 -0.22%</span>
+      <span class="keyword-chip">WTI $82.61 平稳</span>
+      <span class="keyword-chip">XAUT $4,006 -0.80%</span>
+      <span class="keyword-chip">CLARITY Act 8/8截止</span>
+      <span class="keyword-chip">Multicoin HYPE $1.08亿解质押</span>
+      <span class="keyword-chip">Trade.xyz $5740万赔偿</span>
+      <span class="keyword-chip">Wash Sale税 $240亿/10年</span>
+      <span class="keyword-chip">Visa裁员2600人 7%</span>
+      <span class="keyword-chip">代币化股权持有者75.2万</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点<span>早报</span></div>
+  <div class="footer-meta">
+    资讯来源：Foresight News · 吴说区块链 · CoinDesk · The Block · CryptoBriefing · Decrypt · CNBC Markets<br>
+    数据来源：OKX Market Data · CoinGecko · Alternative.me Fear &amp; Greed<br>
+    资讯窗口：2026年7月28日 20:00 — 7月29日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成任何投资建议
+  </div>
+</div>
+
+</body>
+</html>
