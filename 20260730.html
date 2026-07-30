@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月30日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 07 · 30</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：7月29日 20:00 — 7月30日 09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Foresight News</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">CNBC Markets</span>
+  <span class="pill">Bloomberg</span>
+  <span class="pill">Fortune</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① FOMC 9-3鹰派维持利率，三人异议创十年新高</strong>：7/30凌晨2点（BJ）公布，美联储以9-3投票维持3.5–3.75%不变，但Hammack、Kashkari、Logan三位地区联储行长同时异议赞成加息——为2016年以来最多异议票。Warsh发表2026年最短FOMC声明，强调"没有软性通胀目标，只有2%"，市场解读为鹰派，Dow日跌逾1,100点。<br><br>
+    <strong>② 美沙打击伊拉克引发中东升级，WTI+6.2%至$84.18</strong>：美国和沙特对伊拉克境内伊朗支持武装发动联合空袭，伊朗IRGC随即向美军约旦基地发射导弹，停火彻底破裂。霍尔木兹与曼德海峡供应风险叠加，WTI单日暴涨$4.94，原油风险溢价重回高位。<br><br>
+    <strong>③ Robinhood Q2预测市场营收$1.56亿首超加密，CLARITY Act合并草案危机</strong>：Robinhood Q2总营收$13.1亿创纪录，预测市场$1.56亿（同比+10倍）首次超越加密（$1亿，-38%）成最大营收来源。与此同时，CLARITY Act参院合并草案被曝省略民主党要求的伦理条款，Murphy等三人公开反对，全院投票推至8/3周或更晚。
+  </div>
+</div>
+
+<!-- ④ Market Grid -->
+<div class="market-section">
+  <div class="market-title">· 市场行情 · 09:00 BJ · OKX</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$63,693</div>
+      <div class="market-change down">▼ −0.44%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$1,897</div>
+      <div class="market-change up">▲ +0.29%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐慌贪婪指数</div>
+      <div class="market-price neutral">28</div>
+      <div class="market-change neutral">恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油（7/29）</div>
+      <div class="market-price">$84.18</div>
+      <div class="market-change up">▲ +6.20%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,063</div>
+      <div class="market-change up">▲ +1.43%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克（7/29）</div>
+      <div class="market-price">24,442</div>
+      <div class="market-change down">▼ −1.74%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ News Sections -->
+<div class="content">
+
+  <!-- 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/30 02:00 BJ（7/29 14:00 ET）</span>
+      </div>
+      <div class="news-title">FOMC 9-3维持3.5–3.75%，三位行长同时异议赞成加息，2016年以来首次 · Warsh：唯一通胀目标是2%</div>
+      <div class="news-desc">美联储如期以9-3投票维持联邦基金利率3.5–3.75%，但克利夫兰联储Hammack、明尼阿波利斯联储Kashkari、达拉斯联储Logan三人同时投票赞成加息25bps，为2016年以来FOMC最多鹰派异议票。Warsh发表本届任期最短FOMC声明，强调"不存在软性通胀目标，只有2%的目标"。市场解读为鹰派意外，会后Dow重挫逾1,100点（自2025年4月以来最大单日跌幅），Nasdaq -1.74%，S&P -1.5%；BTC徘徊$63K附近，F&G跌至28。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">货币政策·利率决定</span>
+        <span class="news-tag">Warsh·9-3·2016来最多异议</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/07/29/fed-rate-decision-july-2026.html" target="_blank">CNBC（Fed holds rates steady）</a> · <a href="https://www.bloomberg.com/news/articles/2026-07-29/fed-holds-rates-steady-three-officials-dissent-favoring-a-hike" target="_blank">Bloomberg（三人异议详情）</a> · <a href="https://www.coindesk.com/markets/2026/07/29/fomc-hold-fed-holds-rates-steady-extending-pause-as-markets-await-warsh-s-policy-roadmap" target="_blank">CoinDesk（加密市场影响）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/29 夜间</span>
+      </div>
+      <div class="news-title">美沙联合打击伊拉克伊朗武装，IRGC导弹袭击美军约旦基地，停火彻底破裂 · WTI单日+6.2%至$84.18</div>
+      <div class="news-desc">美国与沙特对伊拉克境内伊朗支持武装发动联合空袭，起因为伊朗支持的武装派系对沙特石油设施发动无人机攻击。伊朗IRGC随即向美军约旦基地发射导弹还击，宣告短暂停火彻底结束。霍尔木兹海峡与曼德海峡双重供应中断风险叠加，美国原油库存超预期下降，WTI单日暴涨$4.94至$84.18（+6.20%），布兰特亦一度突破$90。加密市场中黄金XAUT同步上涨+1.43%。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">全球事件·中东·地缘冲突</span>
+        <span class="news-tag">美伊·伊拉克·WTI+$4.94</span>
+      </div>
+      <div class="news-source">来源：<a href="https://gvwire.com/2026/07/29/oil-jumps-nearly-7-on-escalating-middle-east-airstrikes/" target="_blank">GV Wire（中东空袭7%涨油价）</a> · <a href="https://www.cnbc.com/amp/2026/07/29/oil-prices-today-brent-wti-iran-us-hormuz.html" target="_blank">CNBC（美伊恢复交火）</a> · <a href="https://www.fxstreet.com/news/wti-oil-surges-7-as-middle-east-war-and-supply-risks-fuel-rally-202607291530" target="_blank">FXStreet（WTI+7%供应风险）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/29 收盘</span>
+      </div>
+      <div class="news-title">美股暴跌：Dow -1,100点（2025年4月以来最大单日跌幅），Nasdaq -1.74%至24,442，S&P -1.5%</div>
+      <div class="news-desc">鹰派FOMC声明叠加中东局势再度升级，美股7/29遭遇重挫。道指收跌1,100+点，为2025年4月以来单日最大跌幅；纳斯达克下跌1.74%至24,442.94，纳指100进入技术性回调区间（-10%）；标普500跌1.5%。大型科技股Meta盘后跌9.64%进一步拖累次日情绪，FOMC三票异议提升市场对9月加息的定价。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股·FOMC后行情</span>
+        <span class="news-tag">Nasdaq 24,442·Dow -1100·S&P -1.5%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-29-2026stock-market-today-july-29-2026" target="_blank">TheStreet（7/29股市收盘）</a> · <a href="https://www.bloomberg.com/news/articles/2026-07-29/us-futures-tick-higher-as-semiconductor-stocks-climb-fed-looms" target="_blank">Bloomberg（纳指100进入回调区）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/30 08:52 BJ（7/29盘后）</span>
+      </div>
+      <div class="news-title">Meta Q2营收$60.8亿+28%，EPS $6.18低于预期$7.23差14.5%，成本+55%，盘后跌9.64%</div>
+      <div class="news-desc">Meta Q2总营收$60.8亿超预期0.9%，但净利润$15.8亿（EPS $6.18）较分析师预期$7.23低14.5%，AI基础设施投入导致成本费用同比激增55%至$420亿，资本支出$311亿，自由现金流仅$7.84亿。盘后股价跌9.64%至$529.15。广告业务广告展示量+14%、均价+12%，基本面尚稳，但AI支出轨道引发盈利能力担忧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">传统金融·科技股财报</span>
+        <span class="news-tag">Meta·$60.8亿·成本+55%·盘后-9.64%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx" target="_blank">Meta Investor Relations（官方Q2财报）</a> · <a href="https://www.investing.com/news/company-news/meta-q2-2026-slides-revenue-surges-28-as-ai-spending-pressures-profits-93CH-4821966" target="_blank">Investing.com（AI支出压利润分析）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/29–7/30 进行中</span>
+      </div>
+      <div class="news-title">CLARITY Act参院合并草案省略伦理条款，Murphy/Van Hollen/Merkley三人联合公开反对，投票推至8/3周</div>
+      <div class="news-desc">参院合并草案将Banking委员会和Agriculture委员会版本合并，但被曝省略民主党明确要求的联邦官员加密伦理禁令条款，随即遭到Chris Murphy、Chris Van Hollen、Jeff Merkley三位民主党参议员联合召开记者会公开反对。法案全院投票最早推至8/3周，需7个民主党票突破60票程序阻挠，当前局面较7/28特朗普批伦理语言时更为复杂。Thune仍誓言8/8夏休前强制投票。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·加密市场结构法</span>
+        <span class="news-tag">CLARITY Act·伦理条款·8/8截止</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/crypto/articles/clarity-act-four-steps-away-111715412.html" target="_blank">Yahoo Finance（CLARITY Act四步计划）</a> · <a href="https://www.coindesk.com/policy/2026/07/26/2-weeks-left-for-clarity-state-of-crypto" target="_blank">CoinDesk（2周窗口分析）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/30 08:55 BJ（7/29盘后）</span>
+      </div>
+      <div class="news-title">Robinhood Q2营收$13.1亿创纪录，预测市场$1.56亿首次超越加密和股票成最大营收来源</div>
+      <div class="news-desc">Robinhood Q2总营收$13.1亿（+32% YoY），EPS $0.62超预期$0.39约59%，创公司成立以来季度营收纪录。预测市场（Event Contracts）营收$1.56亿，同比增长逾10倍，首次单季超越加密交易（$1亿，-38% YoY）和股票交易，成为公司第一大营收来源。加密季度交易量$4000亿；平台资产升至$3690亿（+32%），黄金订阅用户480万（+39%）。Kalshi/Polymarket竞争格局下，Robinhood预测市场崛起速度超市场预期。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·预测市场·加密零售</span>
+        <span class="news-tag">Robinhood·$1.56亿预测·加密$1亿-38%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblock.co/post/410102/robinhoods-prediction-markets-top-crypto-and-equities-revenue-in-q2" target="_blank">The Block（预测市场超越加密）</a> · <a href="https://fortune.com/2026/07/29/robinhood-q2-prediction-markets/" target="_blank">Fortune（Q2 CFO解读）</a> · <a href="https://fxnewsgroup.com/forex-news/retail-forex/prediction-markets-trading-drives-robinhood-revenues-up-23-to-record-1-3-billion-in-q2-2026/" target="_blank">FX News Group（$13亿纪录）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/29 20:47 BJ</span>
+      </div>
+      <div class="news-title">Polymarket成立独立预测市场研究院，向博士研究员提供$10,000奖学金</div>
+      <div class="news-desc">Polymarket宣布设立独立学术研究机构，专注于预测市场机制、信息聚合效率和预测准确性研究，向全球高校博士研究员提供$10,000研究奖学金。此举恰逢Kalshi/Polymarket赢得明尼苏达联邦禁令裁定后，通过学术建制化进一步巩固合规叙事，亦为Polymarket争取CFTC监管认可铺垫学术依据。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·预测市场·合规</span>
+        <span class="news-tag">Polymarket·研究院·$10K博士奖学金</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/29 20:47 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/29 21:37 BJ</span>
+      </div>
+      <div class="news-title">Ethereum Institutional获BitMine、SharpLink及联合创始人Lubin/Alisie融资支持，推进代币化与稳定币基础设施</div>
+      <div class="news-desc">以太坊机构化平台Ethereum Institutional宣布获得BitMine、SharpLink以及以太坊联合创始人Joseph Lubin与Mihai Alisie的生态系统资金支持，重点推进代币化资产发行和稳定币链上基础设施建设。Lubin持续在EF重组后通过新路径支持以太坊生态，BitMine（持有约578万枚ETH）与SharpLink均为近期大规模增持以太坊的上市公司。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">链上事件·以太坊·代币化</span>
+        <span class="news-tag">Ethereum Institutional·Lubin·BitMine</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/29 21:37 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/30 08:46 BJ</span>
+      </div>
+      <div class="news-title">Fiat24暂停加密存款及新用户注册，因用户和交易量快速增长触发合规升级</div>
+      <div class="news-desc">基于以太坊的链上银行Fiat24宣布临时暂停加密货币存款功能及新用户注册，原因是用户规模和交易量增速超出合规系统承载能力，需进行合规体系升级维护。Fiat24此前凭借直接在链上提供IBAN银行账户服务形成差异化，此次暂停属主动合规举措，平台表示升级完成后将恢复服务。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·链上银行·合规</span>
+        <span class="news-tag">Fiat24·暂停存款·合规升级</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/30 08:46 BJ）</a></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ⑥ Keywords Section -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">FOMC 9-3维持 三异议2016最多</span>
+      <span class="keyword-chip">WTI +6.20% 至$84.18</span>
+      <span class="keyword-chip">Nasdaq 24,442 -1.74%</span>
+      <span class="keyword-chip">Dow -1100点 2025年4月来最大</span>
+      <span class="keyword-chip">BTC $63,693 -0.44%</span>
+      <span class="keyword-chip">ETH $1,897 +0.29%</span>
+      <span class="keyword-chip">XAUT $4,063 +1.43%</span>
+      <span class="keyword-chip">F&G 28 恐慌</span>
+      <span class="keyword-chip">Robinhood预测市场 $1.56亿</span>
+      <span class="keyword-chip">Robinhood Q2营收 $13.1亿</span>
+      <span class="keyword-chip">Meta EPS $6.18 低预期14.5%</span>
+      <span class="keyword-chip">CLARITY Act 8/8截止</span>
+      <span class="keyword-chip">三民主党参议员公开反对</span>
+      <span class="keyword-chip">IRGC导弹袭约旦美军基地</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点<span>早报</span></div>
+  <div class="footer-meta">
+    资讯来源：Foresight News · 吴说区块链 · CoinDesk · The Block · CNBC Markets · Bloomberg · Fortune<br>
+    数据来源：OKX Market Data · CoinGecko · Alternative.me Fear &amp; Greed<br>
+    资讯窗口：2026年7月29日 20:00 — 7月30日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成任何投资建议
+  </div>
+</div>
+
+</body>
+</html>
