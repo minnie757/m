@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 7月31日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 07 · 31</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：7月30日 20:00 — 7月31日 09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Foresight News</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">CryptoBriefing</span>
+  <span class="pill">CNBC Markets</span>
+  <span class="pill">AMBCrypto</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① 加密大企业Q2财报双雷</strong>：Strategy Q2净亏损$82亿（BTC未实现跌价），持仓843,775 BTC成本均价$75,476；Coinbase Q2营收$12.2亿低于预期（-18.5% YoY），净亏$3.6亿，股价盘后跌5%。两家加密最具代表性的上市公司季报双双低于预期，反映Q2市场整体量缩价跌压力。<br><br>
+    <strong>② 纳指+2.78%终结6日连跌，初请失业金低于预期</strong>：微软Q2业绩超预期（CapEx +68%指向AI加速）叠加芯片股反弹，纳指7/30大涨至25,122（+2.78%）。同日公布初请失业金19.7万（低于预期20万），劳动力市场韧性缓解市场对FOMC鹰派信号的担忧，风险偏好短期修复。<br><br>
+    <strong>③ 以太坊11周年：质押量40.2M枚创历史新高，EF重组完成</strong>：7/30以太坊11岁生日，链上质押总量40.2M ETH创历史新高，美国现货ETH ETF累计净流入$112.3亿。以太坊基金会完成重大重组，EthLabs、Ethereum Systems、Ethereum Institutional三个独立实体分拆，进入"去中心化基金会"新纪元。
+  </div>
+</div>
+
+<!-- ④ Market Grid -->
+<div class="market-section">
+  <div class="market-title">· 市场行情 · 09:00 BJ · OKX</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$64,919</div>
+      <div class="market-change up">▲ +0.29%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$1,924</div>
+      <div class="market-change up">▲ +0.26%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐慌贪婪指数</div>
+      <div class="market-price neutral">25</div>
+      <div class="market-change neutral">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油（7/30）</div>
+      <div class="market-price">$83.87</div>
+      <div class="market-change down">▼ −0.70%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,089</div>
+      <div class="market-change down">▼ −0.13%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克（7/30）</div>
+      <div class="market-price">25,122</div>
+      <div class="market-change up">▲ +2.78%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ News Sections -->
+<div class="content">
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/31 08:43 BJ（7/30盘后）</span>
+      </div>
+      <div class="news-title">Strategy Q2净亏损$82亿，BTC未实现跌价$83.2亿，持仓843,775枚均价$75,476</div>
+      <div class="news-desc">Strategy（前MicroStrategy）Q2净亏损$82.2亿，其中$83.2亿为BTC持仓未实现亏损（期内BTC均价低于成本均价$75,476）。EPS亏损$24.45，远低于分析师预期亏损$2.19；营收$1.224亿（+6.9% YoY）。季末持有843,775 BTC，成本约$636亿，Q2净增83,901枚，期内最高持仓达846,000枚。可转债较上季降18%至$67亿，资产负债表获改善。公司维持不卖出战略，将亏损归因于会计准则要求披露未实现损失。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">加密数据·机构持仓·财报</span>
+        <span class="news-tag">Strategy·843,775 BTC·$82亿亏损</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/07/30/strategy-books-usd8-2-billion-second-quarter-loss-on-bitcoin-price-decline" target="_blank">CoinDesk（Strategy Q2亏损详情）</a> · <a href="https://coinpedia.org/news/strategy-posts-8-22b-q2-unrealized-loss-as-bitcoin-price-falls-below-cost-basis/amp/" target="_blank">CoinPedia（BTC成本基础分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/31 08:47 BJ（7/30盘后）</span>
+      </div>
+      <div class="news-title">Coinbase Q2营收$12.2亿低于预期$13亿，净亏$3.6亿，股价盘后跌5%，季内增持819 BTC</div>
+      <div class="news-desc">Coinbase Q2总营收$12.2亿，低于市场预期$12.9–$13.1亿，同比下滑18.5%；GAAP净亏损$3.595亿（-$1.36/股），Adjusted EBITDA $2.078亿（连续14季正值）。交易收入$5.99亿，加密市值Q2环比-11%、现货量-25%情况下市场份额反创历史新高（10.3%），比特币贡献仅占总营收12%（历史上曾超50%）。Q3订阅及服务收入指引$5–5.8亿，公司持续押注稳定币和衍生品多元化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">加密数据·交易所财报</span>
+        <span class="news-tag">Coinbase·$12.2亿·-18.5%·盘后-5%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/markets/2026/07/30/coinbase-sinks-5-after-missing-q2-revenue-estimates" target="_blank">CoinDesk（Coinbase盘后跌5%）</a> · <a href="https://cryptobriefing.com/coinbase-strategy-q2-earnings-results/" target="_blank">CryptoBriefing（Q2财报详情）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/30 收盘</span>
+      </div>
+      <div class="news-title">纳指+2.78%终结6日连跌收25,122，微软Q2超预期（CapEx+68%）领涨，芯片股全面反弹</div>
+      <div class="news-desc">纳斯达克综合指数7/30大涨679点（+2.78%）至25,122.18，终结自FOMC鹰派信号引发的六日连跌。主要催化剂为微软Q2业绩大超预期，Azure云收入超预期且资本支出同比+68%至$276亿显示AI投入仍在加速，带动芯片及科技板块全面反弹。FOMC三票鹰派异议引发的"9月加息预期"初步被消化，初请失业金低于预期（19.7万）进一步提振风险偏好。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·美股·科技财报</span>
+        <span class="news-tag">Nasdaq 25,122·微软CapEx+68%·6日跌终结</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/live/stock-market-today-wednesday-july-29-dow-sp-500-nasdaq-082009165.html" target="_blank">Yahoo Finance（纳指反弹详情）</a> · <a href="https://www.home.saxo/content/articles/macro/market-quick-take---nasdaq-falls-into-correction-as-fed-holds-and-iran-strikes-resume---30-july-2026-30072026" target="_blank">Saxo Bank（市场快评7/30）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/30 公布</span>
+      </div>
+      <div class="news-title">美国7/25当周初请失业金19.7万，低于预期20万，劳动力市场维持历史低位</div>
+      <div class="news-desc">美国至7月25日当周初请失业金人数19.7万人，较前周修订值18.8万增加9,000人，但仍低于市场预期20万人；四周移动均值下降至20.275万（降5,000人）；持续申请人数166.5万降7,000人。就业市场在FOMC加息阴影下依然韧性强劲，为Warsh维持"鹰派但不紧迫"立场提供依据，同时缓解市场对经济衰退的担忧。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·就业·初请失业金</span>
+        <span class="news-tag">初请19.7万·低于预期·四周均值20.275万</span>
+      </div>
+      <div class="news-source">来源：<a href="https://qz.com/weekly-jobless-claims-197000-july-2026-073026" target="_blank">Quartz（7/30初请数据）</a> · <a href="https://wublockchain123.substack.com/p/7-25-197-20" target="_blank">吴说区块链（7/30精选）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">7/30 22:26 BJ</span>
+      </div>
+      <div class="news-title">以太坊11周年：质押量40.2M枚创历史新高，EF完成重组，EthLabs/Ethereum Systems独立</div>
+      <div class="news-desc">7月30日以太坊主网上线11周年。链上质押总量突破40.2M ETH历史新高，美国现货ETH ETF累计净流入$112.3亿；以太坊基金会经历2025-2026年最大规模重组（领导层更迭、裁员54人、预算削减40%）后，完成EthLabs（协议研发）、Ethereum Systems（安全/基础设施）、Ethereum Institutional（机构代币化）三个独立实体分拆，EF转型为纯协调与资助机构，进入"去中心化治理"新阶段。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">行业趋势·以太坊生态</span>
+        <span class="news-tag">ETH 11周年·质押40.2M·EF重组完成</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.coindesk.com/tech/2026/07/30/ethereum-enters-its-second-decade-after-a-year-of-upheaval-at-the-foundation" target="_blank">CoinDesk（以太坊进入第二个十年）</a> · <a href="https://ambcrypto.com/ethereums-11th-anniversary-will-record-40-2m-staked-eth-fuel-a-rally/" target="_blank">AMBCrypto（40.2M质押量分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/30 22:32 BJ</span>
+      </div>
+      <div class="news-title">Uniswap推出Launches测试版，首批支持Robinhood Chain代币发行，链上IPO基础设施成型</div>
+      <div class="news-desc">Uniswap Labs宣布推出全新代币发行产品"Launches"（测试版），允许项目方直接在Uniswap界面上发起代币发行，并首批支持在Robinhood Chain链上进行。结合Robinhood Chain此前上线的代币化股票、Uniswap v4交易层，以及Robinhood Q2预测市场营收超越加密的叙事，Robinhood Chain正成为链上金融的全栈基础设施平台。Uniswap Launches有望取代部分VC融资+CEO上所的传统路径，降低项目方流动性获取门槛。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·DeFi·代币发行</span>
+        <span class="news-tag">Uniswap Launches·Robinhood Chain·链上IPO</span>
+      </div>
+      <div class="news-source">来源：<a href="https://blog.uniswap.org/robinhood-chain-is-live" target="_blank">Uniswap Blog（Robinhood Chain上线）</a> · <a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/30 22:32 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/30 21:54 BJ</span>
+      </div>
+      <div class="news-title">Nscale计划以$16.5亿收购AI计算软件公司Anyscale，约200名工程师加入</div>
+      <div class="news-desc">欧洲云计算提供商Nscale宣布计划以$16.5亿收购Ray框架开发商Anyscale，约200名员工将加入合并后的公司。Anyscale基于开源Ray框架构建，是分布式AI/ML计算的核心基础设施，Nscale此前专注于GPU云算力。此次收购将软硬件垂直整合，进一步强化其与AWS、Azure在AI工作负载领域的竞争能力，也延续了加密VC机构向AI计算基础设施转移的趋势。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">行业趋势·AI基础设施·云计算</span>
+        <span class="news-tag">Nscale·Anyscale·$16.5亿·Ray框架</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/30 21:54 BJ）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/30 23:06 BJ</span>
+      </div>
+      <div class="news-title">Aave收编Zapper整个工程团队，Aave Pro产品线进入全速开发阶段</div>
+      <div class="news-desc">Aave联合创始人宣布"Aave Pro"已收编链上DeFi聚合器Zapper的整个工程团队，首席后端工程师Justin D'Errico正式加入。Zapper此前以多协议资产追踪和DeFi交互界面著称；Aave Pro预计将打造面向机构和高净值用户的一站式DeFi入口，含投资组合管理、多协议流动性聚合、合规报告等功能。此次人才并购是DeFi协议向"超级应用"转型的典型路径。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">链上事件·DeFi·协议并购</span>
+        <span class="news-tag">Aave Pro·Zapper·D'Errico</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/30 23:06 BJ）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">7/30 21:06 BJ</span>
+      </div>
+      <div class="news-title">Polymarket 8/7起启用TWAP结算机制，替代单点快照定价防范临近到期操控</div>
+      <div class="news-desc">Polymarket宣布自8月7日起，旗下加密衍生品市场将从"单时间点快照"定价改为"时间加权平均价格（TWAP）"结算机制。此次更新针对的是市场临近到期时通过瞬时价格拉升/砸盘操控结算结果的攻击向量。TWAP将多个时间点价格平均后用于结算，显著提升公平性，也令Polymarket的产品设计更接近主流衍生品交易所标准，支持其长期CFTC合规申请路径。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·预测市场·结算机制</span>
+        <span class="news-tag">Polymarket·TWAP·8/7生效·防操控</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/flash" target="_blank">Foresight News（7/30 21:06 BJ）</a></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ⑥ Keywords Section -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">BTC $64,919 +0.29%</span>
+      <span class="keyword-chip">ETH $1,924 +0.26%</span>
+      <span class="keyword-chip">F&G 25 极度恐慌</span>
+      <span class="keyword-chip">Nasdaq 25,122 +2.78%</span>
+      <span class="keyword-chip">WTI $83.87 -0.70%</span>
+      <span class="keyword-chip">Strategy Q2亏损$82亿</span>
+      <span class="keyword-chip">Strategy 843,775 BTC</span>
+      <span class="keyword-chip">Coinbase Q2 $12.2亿 -18.5%</span>
+      <span class="keyword-chip">ETH质押量40.2M历史新高</span>
+      <span class="keyword-chip">ETH ETF累计净流入$112.3亿</span>
+      <span class="keyword-chip">初请失业金19.7万低于预期</span>
+      <span class="keyword-chip">Nscale收购Anyscale $16.5亿</span>
+      <span class="keyword-chip">Uniswap Launches测试版</span>
+      <span class="keyword-chip">Polymarket TWAP 8/7生效</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Footer -->
+<div class="footer">
+  <div class="footer-brand">OKX · 加密热点<span>早报</span></div>
+  <div class="footer-meta">
+    资讯来源：Foresight News · 吴说区块链 · CoinDesk · The Block · CryptoBriefing · CNBC Markets · AMBCrypto<br>
+    数据来源：OKX Market Data · CoinGecko · Alternative.me Fear &amp; Greed<br>
+    资讯窗口：2026年7月30日 20:00 — 7月31日 09:30（北京时间）<br>
+    本报告仅供信息参考，不构成任何投资建议
+  </div>
+</div>
+
+</body>
+</html>
