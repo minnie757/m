@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 8月3日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 08 · 03</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：8月2日 20:00 — 8月3日 09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Odaily 星球日报</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">Decrypt</span>
+  <span class="pill">CryptoBriefing</span>
+  <span class="pill">Bloomberg</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① COLDCARD种子熵漏洞第4波来袭：$88.6M / 1,367 BTC / 4,585地址持续被清空</strong>：Galaxy研究主管确认新一轮有组织攻击——2.5小时内462个地址、388.92 BTC被转走，清扫速度达正常水平45倍。漏洞源于2021年3月固件错误致种子随机性不足（72位 vs 应有128位），攻击者可重建私钥。自托管信仰受重创，River比特币托管量因COLDCARD迁移已激增21%。<br><br>
+    <strong>② CLARITY Act本周生死关键窗口：8/10为最终截止，Polymarket赔率降至30%</strong>：CryptoLawUS紧急动员"全员上阵"；参院多数党领袖Thune表示优先处理联邦提名与俄罗斯制裁法案，加密市场结构法案难在8/7夏休前完成全院投票。若本周（8/3–8/7）再次错过，CLARITY Act将面临2026年立法失效风险。<br><br>
+    <strong>③ 亚市周一双重压制：日韩股指期货大幅低开，Metronome msUSD脱锚-11%</strong>：KOSPI期货跌幅扩大至5%（三星/SK海力士各-8%），日经开盘-1.02%，周末COLDCARD风险事件冲击市场情绪；链上Metronome协议msETH/msUSD出现抵押不足，合成稳定币msUSD跌至$0.89，缺口逾6,367 msETH + 457万msUSD。
+  </div>
+</div>
+
+<!-- ④ Market Grid -->
+<div class="market-section">
+  <div class="market-title">· 市场行情 · 09:00 BJ · OKX</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$63,304</div>
+      <div class="market-change up">▲ +0.73%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$1,874</div>
+      <div class="market-change up">▲ +1.44%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐慌贪婪指数</div>
+      <div class="market-price neutral">28</div>
+      <div class="market-change neutral">恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油（8/3凌晨）</div>
+      <div class="market-price">$81.01</div>
+      <div class="market-change up">▲ +1.58%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,050</div>
+      <div class="market-change up">▲ +0.07%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克（7/31 收）</div>
+      <div class="market-price">25,122</div>
+      <div class="market-change up">▲ +2.78%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ News Sections -->
+<div class="content">
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">5</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 00:52 BJ</span>
+      </div>
+      <div class="news-title">COLDCARD硬件钱包第4波攻击：累计$88.6M / 1,367 BTC / 4,585地址，Galaxy确认新一轮组织性扫荡</div>
+      <div class="news-desc">Galaxy Research研究主管报告最新一波：约2.5小时内462个地址被清空，转走388.92 BTC，清扫速度为正常水平的45倍，攻击者具有高度预谋。漏洞源于2021年3月固件版本缺陷——种子生成随机熵仅72位（应有128位），攻击者可重建私钥。前三波已涉及4,585个地址和约1,367 BTC（~$88.6M）；安全专家警告，持有单签名COLDCARD用户应立即迁移资产，但转移过程本身也面临高费用抢跑风险。Coinkite已发布补丁固件，影响Mk2–Mk5和Q系列设备。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·硬件钱包漏洞·自托管</span>
+        <span class="news-tag">COLDCARD·$88.6M·1,367 BTC·4,585地址</span>
+      </div>
+      <div class="news-source">来源：<a href="https://decrypt.co/374817/coldcard-bitcoin-exploit-88-million-attackers-draining-wallets" target="_blank">Decrypt（$88M详情）</a> · <a href="https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/" target="_blank">BleepingComputer（RNG漏洞分析）</a> · <a href="https://odaily.news/zh-CN/newsflash/505997" target="_blank">Odaily（第4波攻击 8/3 00:52）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/2 日内</span>
+      </div>
+      <div class="news-title">Metronome合成稳定币msUSD脱锚-11%，msETH/msUSD出现系统性抵押不足</div>
+      <div class="news-desc">Metronome协议msETH/msUSD池因不可支撑的合成资产流入出现抵押不足，msUSD最低跌至$0.89（约-11%脱锚）。官方事后报告显示缺口约6,367 msETH和457万msUSD，协议已暂停相关功能并启动补救机制。这是继MIM、UST等之后又一合成稳定币脱锚事件，再次引发对算法/合成稳定币长期可持续性的讨论。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">链上事件·稳定币脱锚·合成资产</span>
+        <span class="news-tag">Metronome·msUSD·-11%·$0.89</span>
+      </div>
+      <div class="news-source">来源：<a href="https://paragraph.com/@metronomedao/post-mortem-msethmsusd-underbacking" target="_blank">Metronome DAO（事后报告）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:13 BJ</span>
+      </div>
+      <div class="news-title">HYPE巨鲸向Hyperlend抵押$8,107万HYPE，借出2,057万USDC，健康因子2.91</div>
+      <div class="news-desc">链上数据显示，一巨鲸地址向Hyperliquid生态借贷协议Hyperlend存入约8,107万美元等值HYPE代币作为抵押品，借出2,057万USDC，健康因子2.91（安全边际较高）。该操作可能为做多杠杆或流动性管理。HYPE本轮已多次出现机构级大额借贷活动，显示生态内DeFi使用深度持续加深。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·巨鲸·DeFi借贷</span>
+        <span class="news-tag">HYPE·$8,107万·Hyperlend·2,057万USDC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://x.com/OnchainLens/status/2084070080036647215" target="_blank">OnchainLens（链上监控 8/3 00:13）</a> · <a href="https://odaily.news/zh-CN/newsflash/505985" target="_blank">Odaily快讯</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:07 BJ</span>
+      </div>
+      <div class="news-title">River比特币托管量因COLDCARD迁移激增21%，自7月10日增持5,525 BTC</div>
+      <div class="news-desc">比特币托管机构River报告，自7月10日COLDCARD漏洞事件曝光以来，平台新增5,525 BTC存入（+21%增幅），大量用户选择将资产从受影响的冷钱包迁入托管平台。COLDCARD漏洞正在重塑自托管与机构托管的信任格局；此前Stacks创始人Muneeb也建议通过"ETF+多签+不同硬件钱包组合"分散存储风险。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·托管迁移·自托管信仰</span>
+        <span class="news-tag">River·+5,525 BTC·+21%·COLDCARD后续</span>
+      </div>
+      <div class="news-source">来源：<a href="https://x.com/BitcoinNewsCom/status/2084068336514543972" target="_blank">BitcoinNews（River托管增量 8/3 00:07）</a> · <a href="https://odaily.news/zh-CN/newsflash/505980" target="_blank">Odaily快讯</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:58 BJ</span>
+      </div>
+      <div class="news-title">Arthur Hayes买入1,337 ETH（约$250万），分两笔向Galaxy Digital和FalconX各转250万USDC</div>
+      <div class="news-desc">链上数据显示BitMEX创始人Arthur Hayes分别向Galaxy Digital和FalconX发送250万USDC，共收到约1,337枚ETH（约$250万），继续增持以太坊头寸。Hayes此前已多次在低位增持ETH，为市场较具影响力的看多信号之一。叠加ETH ETF资金持续流入，以太坊当前积累信号较为密集。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·KOL买入·ETH积累</span>
+        <span class="news-tag">Arthur Hayes·1,337 ETH·$250万·Galaxy</span>
+      </div>
+      <div class="news-source">来源：<a href="https://x.com/OnchainLens/status/2084081399255244911" target="_blank">OnchainLens（链上监控 8/3 00:58）</a> · <a href="https://odaily.news/zh-CN/newsflash/506000" target="_blank">Odaily快讯</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/2–8/3</span>
+      </div>
+      <div class="news-title">CLARITY Act本周（8/3–8/7）为8/10截止前最后投票窗口，Thune态度不乐观，Polymarket赔率30%</div>
+      <div class="news-desc">CryptoLawUS宣布"全员上阵"动员推动CLARITY Act本周完成参院全院投票；但参院多数党领袖Thune公开表示，参院将优先推进联邦提名和俄罗斯制裁法案，不期望CLARITY Act在8/7夏休前完成表决。若本周再次错过，法案将面临2026年立法窗口关闭的风险。Lummis参议员于7/22发布616页合并草案（含伦理禁令条款），最新Polymarket赔率30%，为近期低点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·加密市场结构·美国立法</span>
+        <span class="news-tag">CLARITY Act·8/10截止·Thune·Polymarket 30%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptobriefing.com/us-senate-unlikely-to-vote-on-crypto-clarity-act-before-august-recess/" target="_blank">CryptoBriefing（Thune不乐观）</a> · <a href="https://x.com/CryptoLawUS/status/2081710893386121429" target="_blank">CryptoLawUS（全员动员）</a> · <a href="https://bitcoinfoundation.org/news/regulation/clarity-act-whats-next-why-aug-10-could-be-cryptos-biggest-deadline-in-2026/" target="_blank">Bitcoin Foundation（8/10截止分析）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:14 BJ</span>
+      </div>
+      <div class="news-title">中国公安大学AI框架追踪比特币洗钱准确率近90%，识别非法交易技术成熟</div>
+      <div class="news-desc">中国人民公安大学研究人员开发出基于AI的框架，用于识别非法加密货币交易，链上测试显示识别准确率"接近90%"。该框架通过链上行为模式、资金流向图谱等多维度特征训练，可在不依赖交易所KYC数据的情况下实现高精度识别。此类技术成熟将对混币器、隐私币和P2P交易参与者构成更大合规压力。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·反洗钱·链上监控</span>
+        <span class="news-tag">中国公安·AI追踪·近90%准确率</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.scmp.com/news/china/science/article/3362493/chinese-police-ai-algorithm-tracks-bitcoin-money-laundering-90-accuracy" target="_blank">南华早报（AI追踪洗钱报道）</a> · <a href="https://odaily.news/zh-CN/newsflash/505986" target="_blank">Odaily快讯（8/3 00:14）</a></div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 00:03–00:24 BJ</span>
+      </div>
+      <div class="news-title">日韩股市周一大幅低开：KOSPI跌幅扩大至5%（三星/SK海力士各-8%），日经-1.02%</div>
+      <div class="news-desc">亚太股市周一早盘大幅低开——韩国KOSPI由开盘-3.29%进一步扩大至-5%，三星电子和SK海力士跌幅均达8%；日本日经225开盘下跌1.02%。市场情绪受COLDCARD漏洞事件周末持续发酵、全球风险规避情绪叠加影响。美元/日元走弱背景下，美日联合外汇干预预期升温，亦对出口导向型半导体股构成压力。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·亚太股市·半导体</span>
+        <span class="news-tag">KOSPI -5%·Nikkei -1%·三星/SK海力士各-8%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/505979" target="_blank">Odaily快讯（日韩低开 8/3 00:03）</a> · <a href="https://odaily.news/zh-CN/newsflash/505988" target="_blank">Odaily（KOSPI跌至5% 8/3 00:24）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 00:50 BJ</span>
+      </div>
+      <div class="news-title">S&P 500企业Q2盈利超预期27%，纳斯达克100 AI相关企业超预期幅度高达55%</div>
+      <div class="news-desc">Q2财报季数据显示，S&P 500成分企业整体盈利超市场预期27%，其中AI相关企业表现尤为突出——纳斯达克100中AI相关标的超预期幅度达55%，与微软、英伟达等大型科技公司CapEx持续扩张形成共振。此轮超预期财报为7/31纳指+2.78%的反弹奠定基本面支撑，市场对AI驱动的盈利周期持续性预期进一步强化。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">传统金融·美股财报·AI主题</span>
+        <span class="news-tag">S&P 500·超预期27%·AI企业超预期55%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://x.com/KobeissiLetter/status/2083973604086104426" target="_blank">Kobeissi Letter（Q2财报超预期数据）</a> · <a href="https://odaily.news/zh-CN/newsflash/505996" target="_blank">Odaily快讯（8/3 00:50）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:08 BJ</span>
+      </div>
+      <div class="news-title">美日联合外汇干预预期升温，分析师警告日元空头风险上升，WTI原油小幅回升至$81</div>
+      <div class="news-desc">Bloomberg分析师指出，若美日两国实施联合外汇干预稳定日元，将大幅提升干预可信度并压缩日元空头空间；但日元持续强势仍需基本面（日本加息路径明确化）支撑。同期，WTI原油于8/3凌晨回升至$81.01（+1.58%），美伊外交重启缓和地缘溢价。大宗商品与汇市双向变动对全球风险情绪构成结构性影响。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·外汇·原油·地缘</span>
+        <span class="news-tag">日元·美日干预·WTI $81·美伊外交</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.bloomberg.com/news/articles/2026-08-02/yen-bears-face-risks-on-joint-us-japan-action-strategists-say" target="_blank">Bloomberg（美日干预分析）</a> · <a href="https://odaily.news/zh-CN/newsflash/505981" target="_blank">Odaily快讯（8/3 00:08）</a> · <a href="https://odaily.news/zh-CN/newsflash/506001" target="_blank">Odaily（WTI+1.58% 8/3 01:00）</a></div>
+    </div>
+  </div>
+
+  <!-- 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📉</span>
+      <span class="section-title">宏观数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:20 BJ</span>
+      </div>
+      <div class="news-title">长鑫科技（CXMT）上市首周股价涨超5倍，分析师估值分歧：最乐观$1.1万亿 vs 最悲观$1,600亿</div>
+      <div class="news-desc">中国最大DRAM芯片制造商长鑫科技IPO后首周股价大涨逾5倍，但机构分析师对其未来估值分歧极大——乐观派认为若成功突破HBM技术瓶颈并抢占AI芯片市场，估值可达1.1万亿美元；悲观派则以现有技术差距和出口管制障碍为由，目标价约1,600亿美元。这一分歧折射出AI芯片供应链"中国替代"叙事的高度不确定性。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·半导体IPO·AI芯片</span>
+        <span class="news-tag">CXMT·估值$1,600亿-$1.1万亿·HBM·AI芯片</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.bloomberg.com/news/articles/2026-08-03/cxmt-s-1-trillion-target-gap-flags-high-stakes-in-chip-battle" target="_blank">Bloomberg（CXMT估值分歧分析）</a> · <a href="https://odaily.news/zh-CN/newsflash/505987" target="_blank">Odaily快讯（8/3 00:20）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:11 BJ</span>
+      </div>
+      <div class="news-title">BTC 3个月期货基差收益率持续低于2年期美债，创2022–23周期底部以来最长异常</div>
+      <div class="news-desc">比特币3个月期货年化基差收益率自2月起持续低于2年期美国国债收益率，这一状态已超过6个月，为2022–2023年周期低点以来最长持续时间。该指标历史上常与机构套利兴趣冷却、市场整体去杠杆周期相关。BTC现货月度ETF净流入创历史最低（约$205M）亦印证机构兴趣减弱的短期信号，但也可能为后续反转积蓄动能。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">宏观数据·期货基差·机构套利</span>
+        <span class="news-tag">BTC基差·低于2Y美债·6个月·$205M ETF月流入</span>
+      </div>
+      <div class="news-source">来源：<a href="https://x.com/Cointelegraph/status/2084014116516098201" target="_blank">CoinTelegraph（期货基差分析）</a> · <a href="https://odaily.news/zh-CN/newsflash/505984" target="_blank">Odaily快讯（8/3 00:11）</a> · <a href="https://www.coindesk.com/daybook-us/2026/07/30/bitcoin-etfs-on-track-for-the-smallest-monthly-inflows-ever" target="_blank">CoinDesk（BTC ETF月流入历史低）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/2 日内</span>
+      </div>
+      <div class="news-title">1inch Aqua共享流动性层向全用户开放：单钱包余额跨13条EVM链多头寸交易，无需预注资</div>
+      <div class="news-desc">1inch将Aqua共享流动性层向所有用户开放，用户可以单一钱包余额在13条EVM网络上同时持有多个交易头寸，无需预先向各链流动性池注资。Aqua通过链下结算+链上最终确认模式大幅降低资本占用效率损耗，是1inch在DEX聚合之外构建"意图驱动"执行层的重要布局。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·DEX·流动性·多链</span>
+        <span class="news-tag">1inch Aqua·13条EVM链·共享流动性</span>
+      </div>
+      <div class="news-source">来源：<a href="https://1inch.com/blog/post/1inch-aqua-launch" target="_blank">1inch官方博客（Aqua正式上线）</a> · <a href="https://wublockchain123.substack.com/p/89f" target="_blank">吴说区块链（8/2日报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/2 日内</span>
+      </div>
+      <div class="news-title">x402支付协议发现31个新漏洞：影响99%调查交易，可实现免费购物和资产盗窃</div>
+      <div class="news-desc">安全研究人员在15个x402支付处理器中发现31个此前未知漏洞，覆盖99%被调查交易，攻击者可利用漏洞实现"免费购物"或直接盗取资产。x402是近期AI代理支付领域的热门协议标准，安全问题暴露于生产环境大规模使用前的重要时间节点，对正在基于x402构建支付基础设施的项目构成警示。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·加密支付·安全漏洞·AI代理</span>
+        <span class="news-tag">x402·31个漏洞·99%覆盖·AI支付</span>
+      </div>
+      <div class="news-source">来源：<a href="https://cryptoslate.com/31-newly-discovered-vulnerabilities-expose-99-of-x402-crypto-payments-to-asset-theft-and-free-shopping/" target="_blank">CryptoSlate（x402漏洞研究报告）</a> · <a href="https://wublockchain123.substack.com/p/89f" target="_blank">吴说区块链（8/2日报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/2 日内</span>
+      </div>
+      <div class="news-title">Nansen CEO：AI交易代理两年内超越人类；平台成交量超$5亿，但单次推理成本$700 vs 收益$23</div>
+      <div class="news-desc">Nansen CEO预测AI交易代理将在两年内超越人类交易者的整体表现，平台交易功能上线后累计成交量突破$5亿。但内部测试揭示效率挑战：AI代理单次决策推理成本约$700，而实际盈利约$23，当前经济模型尚不成立。分析认为随着推理成本快速下降（Anthropic等厂商已大幅降价），代理盈利可行性将在12–18个月内达到拐点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·AI代理·链上交易</span>
+        <span class="news-tag">Nansen·AI代理·$5亿成交·推理成本$700</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblock.co/post/409914/nansen-ceo-bets-on-ai-agents-to-overtake-human-traders-within-two-years" target="_blank">The Block（Nansen CEO AI代理展望）</a> · <a href="https://wublockchain123.substack.com/p/89f" target="_blank">吴说区块链（8/2日报）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 00:09 BJ</span>
+      </div>
+      <div class="news-title">但斌：AI周期仍处早期，看好英伟达、博通、台积电；云服务商持续加速CapEx</div>
+      <div class="news-desc">东方港湾董事长但斌在社交媒体表示，当前AI资本开支周期仍处于早期阶段，看好"英伟达、博通和台积电"等核心AI芯片受益方，并认为微软、谷歌等云服务商CapEx加速是行业景气度的领先指标。其观点与S&P 500 Q2财报超预期27%（AI相关企业超55%）的数据形成共振，为全球投资者对AI周期持续性判断提供重要参考。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·AI周期·科技股·CapEx</span>
+        <span class="news-tag">但斌·英伟达/博通/台积电·AI早期周期</span>
+      </div>
+      <div class="news-source">来源：<a href="https://m.weibo.cn/status/5327703358308398" target="_blank">但斌微博（AI看多观点 8/3 00:09）</a> · <a href="https://odaily.news/zh-CN/newsflash/505982" target="_blank">Odaily快讯</a></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ⑥ 关键数字 -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">$88.6M — COLDCARD累计被盗</span>
+      <span class="keyword-chip">1,367 BTC — COLDCARD被盗总量</span>
+      <span class="keyword-chip">4,585 — 受影响地址数</span>
+      <span class="keyword-chip">462 — 第4波受害地址</span>
+      <span class="keyword-chip">45× — 第4波清扫速度</span>
+      <span class="keyword-chip">30% — CLARITY Act立法赔率</span>
+      <span class="keyword-chip">8月10日 — CLARITY最终截止</span>
+      <span class="keyword-chip">KOSPI -5% — 周一低开</span>
+      <span class="keyword-chip">-11% — msUSD脱锚幅度</span>
+      <span class="keyword-chip">$8,107万 — HYPE巨鲸抵押规模</span>
+      <span class="keyword-chip">+21% — River增持BTC幅度</span>
+      <span class="keyword-chip">1,337 ETH — Hayes周末买入量</span>
+      <span class="keyword-chip">27% — S&P500 Q2超预期幅度</span>
+      <span class="keyword-chip">$205M — BTC ETF 7月净流入新低</span>
+      <span class="keyword-chip">$1.1万亿 — CXMT乐观估值</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Footer -->
+<div class="footer">
+  <div class="footer-brand"><span>OKX</span> · 加密热点早报 · 2026年8月3日</div>
+  <div class="footer-meta">
+    信息来源：Odaily星球日报 · 吴说区块链 · CoinDesk · The Block · Decrypt · CryptoBriefing · Bloomberg<br>
+    数据来源：OKX行情（09:00 BJ）· Alternative.me恐慌贪婪指数 · CoinGecko交叉验证<br>
+    ⚠️ 本早报仅供信息参考，不构成任何投资建议。加密资产交易存在高风险，请注意风险管理。
+  </div>
+</div>
+
+</body>
+</html>
