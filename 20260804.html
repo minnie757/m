@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密热点早报 · 8月4日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #000;
+      color: #fff;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+      padding: 16px 20px 12px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    .header-date {
+      display: inline-block;
+      border-radius: 20px;
+      background: #111;
+      border: 1px solid #222;
+      padding: 3px 14px;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .header-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .header-title .green { color: #BCFF2F; }
+    .header-sub { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+    .sources { padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #0a0a0a; }
+    .sources::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; border-radius: 12px; background: #111; border: 1px solid #222; color: #aaa; padding: 4px 12px; font-size: 11px; white-space: nowrap; }
+    .banner { margin: 16px 20px; padding: 14px 16px; background: #0d0d0d; border: 1px solid #1a2a0a; border-left: 3px solid #BCFF2F; border-radius: 4px; }
+    .banner-label { font-size: 11px; color: #BCFF2F; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+    .banner-text { font-size: 13px; color: #ccc; line-height: 1.7; }
+    .market-section { padding: 16px 20px; border-bottom: 1px solid #0a0a0a; }
+    .market-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; border: 1px solid #111; border-radius: 6px; overflow: hidden; }
+    .market-item { background: #0c0c0c; padding: 12px 14px; }
+    .market-name { font-size: 11px; color: #555; margin-bottom: 4px; }
+    .market-price { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .market-change { font-size: 11px; }
+    .up { color: #BCFF2F; }
+    .down { color: #FF3B3B; }
+    .neutral { color: #FFD600; }
+    .content { padding: 0 20px; }
+    .section { margin-top: 20px; }
+    .section-header { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #111; margin-bottom: 4px; }
+    .section-icon { font-size: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #888; flex: 1; letter-spacing: 0.5px; }
+    .section-count { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 7px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+    .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .tag-priority { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-priority.high { background: #FF3B3B22; color: #FF3B3B; border: 1px solid #FF3B3B44; }
+    .tag-priority.mid  { background: #FFD60022; color: #FFD600; border: 1px solid #FFD60044; }
+    .tag-priority.low  { background: #33333344; color: #666;    border: 1px solid #333; }
+    .tag-time { font-size: 10px; color: #444; }
+    .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; line-height: 1.5; }
+    .news-desc  { font-size: 12px; color: #777; margin-bottom: 6px; line-height: 1.6; }
+    .news-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+    .news-tag { font-size: 10px; color: #555; background: #111; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1px 6px; }
+    .news-source { font-size: 11px; color: #444; }
+    .news-source a { color: #BCFF2F; text-decoration: none; }
+    .news-source a:hover { text-decoration: underline; }
+    .keywords-section { margin: 20px 0; padding: 16px 0; border-top: 1px solid #111; }
+    .keywords-title { font-size: 11px; color: #444; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .keywords-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-chip { font-size: 11px; color: #BCFF2F; background: #0d1a00; border: 1px solid #2a4400; border-radius: 12px; padding: 3px 10px; }
+    .footer { padding: 24px 20px; border-top: 1px solid #0a0a0a; text-align: center; }
+    .footer-brand { font-size: 13px; color: #333; margin-bottom: 6px; }
+    .footer-brand span { color: #BCFF2F; }
+    .footer-meta { font-size: 10px; color: #2a2a2a; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- ① Sticky Header -->
+<header class="header">
+  <div class="header-date">2026 · 08 · 04</div>
+  <div class="header-title">OKX 加密热点<span class="green">早报</span></div>
+  <div class="header-sub">资讯窗口：8月3日 20:00 — 8月4日 09:30 BJ</div>
+</header>
+
+<!-- ② Source Pills -->
+<div class="sources">
+  <span class="pill">Odaily 星球日报</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">CNBC Markets</span>
+  <span class="pill">Bloomberg</span>
+  <span class="pill">BusinessWire</span>
+</div>
+
+<!-- ③ Banner -->
+<div class="banner">
+  <div class="banner-label">🟢 今日核心主线</div>
+  <div class="banner-text">
+    <strong>① Mastercard完成$18亿收购BVNK：传统支付巨头首家直接买入稳定币基础设施</strong>：交易于8月3日正式交割，BVNK年处理稳定币交易量达$300亿（覆盖200+市场）。Mastercard将基于BVNK推进"Open USD"多机构稳定币计划，成为Visa稳定币平台VSP之外最大传统支付机构链上布局，标志稳定币基础设施从"合作接入"进入"直接并购"新阶段。<br><br>
+    <strong>② 特朗普宣布暂停伊朗打击：WTI-6%至$79.60，纳指+2.13%·道指+1.41%，AI云股CoreWeave +19%领涨</strong>：特朗普称收到伊朗及中东国家请求，双方已同意框架条款，暂停军事行动；同日OPEC+宣布9月增产18.8万桶/日，WTI暴跌至$79.60（约-6%）。叠加微软/亚马逊/苹果/Meta Q2季报全线超预期，纳指+2.13%至约25,658，CoreWeave +19%引爆AI云基础设施板块。<br><br>
+    <strong>③ Strategy首次卖出比特币：1,638 BTC / $1.047亿，半数支付优先股股息，SpaceX今日发布史上首份Q2财报</strong>：Strategy于7/27-8/2以均价$63,957/BTC卖出1,638枚，部分用于支付STRK/STRF优先股股息，部分回购STRC股票；当前持仓降至842,138 BTC，为有史以来首次主动减持。今日（8/4）SpaceX发布上市以来首份Q2季报，市场预期营收$68.2亿，Starlink订阅用户数是关键关注点。
+  </div>
+</div>
+
+<!-- ④ Market Grid -->
+<div class="market-section">
+  <div class="market-title">· 市场行情 · 09:00 BJ · OKX</div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="market-name">BTC / USDT</div>
+      <div class="market-price">$63,431</div>
+      <div class="market-change up">▲ +0.21%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">ETH / USDT</div>
+      <div class="market-price">$1,853</div>
+      <div class="market-change down">▼ −1.13%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">恐慌贪婪指数</div>
+      <div class="market-price neutral">25</div>
+      <div class="market-change neutral">极度恐慌</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">WTI 原油（8/3 收）</div>
+      <div class="market-price">$79.60</div>
+      <div class="market-change down">▼ −6.00%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">XAUT / USDT</div>
+      <div class="market-price">$4,038</div>
+      <div class="market-change down">▼ −0.28%</div>
+    </div>
+    <div class="market-item">
+      <div class="market-name">纳斯达克（8/3 收）</div>
+      <div class="market-price">25,658</div>
+      <div class="market-change up">▲ +2.13%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ News Sections -->
+<div class="content">
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 美股收盘</span>
+      </div>
+      <div class="news-title">特朗普宣布暂停伊朗打击：WTI暴跌6%至$79.60，纳指+2.13%·道指+1.41%，CoreWeave +19%·Oracle +9%</div>
+      <div class="news-desc">特朗普在社交媒体发布声明称，已收到伊朗及中东国家请求，双方已就协议框架达成共识，暂停原定军事行动。WTI原油应声暴跌约6%至$79.60/桶（约损失$5.07/桶），Brent跌幅超8%。同期OPEC+宣布9月增产18.8万桶/日，进一步压制油价。风险资产全面反弹：纳指+2.13%，AI云基础设施股CoreWeave大涨19%、Oracle +9%领涨，叠加微软/亚马逊/苹果/Meta四大科技公司Q2财报全线超预期，形成强劲共振。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">传统金融·地缘·原油·美股</span>
+        <span class="news-tag">WTI -6%·$79.60·纳指+2.13%·CoreWeave+19%</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/amp/2026/08/03/oil-prices-today-wti-brent-hormuz-trump-iran.html" target="_blank">CNBC（Trump暂停打击/WTI-6%）</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-aug-3-2026-dow-futures-climb-as-oil-slides-on-renewed-iran-talks" target="_blank">TheStreet（8/3市场收盘）</a> · <a href="https://odaily.news/zh-CN/newsflash/506396" target="_blank">Odaily快讯（8/4 01:00）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 正式交割</span>
+      </div>
+      <div class="news-title">Mastercard完成$18亿收购BVNK：接入年$300亿稳定币交易量·覆盖200+市场，首家传统支付巨头直接买入链上基础设施</div>
+      <div class="news-desc">Mastercard宣布正式完成对稳定币基础设施公司BVNK的收购，交易总对价$18亿（基础价$15亿+$3亿业绩对赌）。BVNK年处理稳定币交易额达$300亿，覆盖全球200+市场，是目前规模最大的稳定币B2B支付基础设施之一。Mastercard成为全球首家"直接收购"（而非合作接入）稳定币基础设施的上市支付网络。双方后续将共同推进"Open USD"多机构协作稳定币计划，与Visa的VSP平台形成直接竞争态势。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">传统金融·稳定币·支付基础设施·并购</span>
+        <span class="news-tag">Mastercard·BVNK·$18亿·$300亿/年·Open USD</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.businesswire.com/news/home/20260803104450/en/Mastercard-completes-acquisition-of-BVNK-to-advance-global-stablecoin-capabilities" target="_blank">BusinessWire（官方公告）</a> · <a href="https://www.americanbanker.com/payments/news/mastercard-closes-its-1-8-billion-bvnk-acquisition" target="_blank">American Banker（交割详情）</a> · <a href="https://odaily.news/zh-CN/newsflash/506382" target="_blank">Odaily快讯（8/4 00:25）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/4 今日发布</span>
+      </div>
+      <div class="news-title">SpaceX今日发布史上首份Q2季报：预期营收$68.2亿，Starlink 1,030万用户，IPO后市值跌超$5,000亿</div>
+      <div class="news-desc">SpaceX（NASDAQ: SPCX）将于今日（8/4）发布上市以来首份财务报告，华尔街共识预期Q2营收$68.2亿（vs Q1 $46.9亿，+45%环比）。关键关注指标：Starlink订阅用户数（截至Q1末10.3M，较一年前+105%）、Starlink ARPU、星舰任务频次及Starship商业化进展。背景：公司IPO以来股价累计跌超50%，市值蒸发逾$5,000亿，市场对$1.4万亿估值合理性存高度分歧。Q1净亏损$42.8亿，若Q2亏损收窄，股价修复预期较强。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·季级</span>
+        <span class="news-tag">传统金融·科技IPO·航天·AI基础设施</span>
+        <span class="news-tag">SpaceX·SPCX·$68.2亿·Starlink 1,030万·$1.4万亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/stocks/articles/spacex-reports-first-ever-earnings-071500640.html" target="_blank">Yahoo Finance（SpaceX首份财报预期）</a> · <a href="https://www.fool.com/investing/2026/08/03/spacex-reports-its-first-ever-earnings-tuesday-her/" target="_blank">Motley Fool（5个关键数字）</a> · <a href="https://wublockchain123.substack.com/p/c9b" target="_blank">吴说区块链（本周宏观日历）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/4 00:11 BJ</span>
+      </div>
+      <div class="news-title">亚太股市8/4早盘反弹：KOSPI开盘+1.24%·Nikkei +0.30%，扭转周一暴跌局面</div>
+      <div class="news-desc">受特朗普暂停伊朗打击消息提振，亚太股市周二早盘显著反弹：韩国KOSPI开盘上涨1.24%，扭转周一-5%暴跌；日本日经225上涨0.30%。美元/日元回升至157.513（+0.24%），日元走弱对出口型企业形成支撑。整体而言，全球风险情绪随美伊外交缓和快速修复，但COLDCARD漏洞余震及CLARITY Act不确定性仍压制加密市场情绪。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">传统金融·亚太股市·风险情绪</span>
+        <span class="news-tag">KOSPI +1.24%·Nikkei +0.30%·USD/JPY 157.51</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/506379" target="_blank">Odaily快讯（亚市开盘 8/4 00:11）</a> · <a href="https://odaily.news/zh-CN/newsflash/506395" target="_blank">Odaily（USD/JPY 8/4 01:00）</a></div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 参院动态</span>
+      </div>
+      <div class="news-title">CLARITY Act周一仍未列入参院议程，若周三提交cloture最快8/7投票，赔率回升至48%，8/10最终截止</div>
+      <div class="news-desc">参院周一（8/3）正式议程仅含一项支出法案投票，CLARITY Act缺席。按程序，若参院领导层于周三（8/5）提交"程序终结动议"（cloture），最快可于8/7（本周四）进行最终投票；cloture需60票（民主党须提供至少7票）。当前僵局：民主党坚持修改执法规定（由DOJ监管加密官员禁令），双方伦理条款谈判已破裂。Polymarket赔率最新报48%（随美伊缓和整体风险偏好改善，从本周初低点小幅回升），8月10日为法案本年立法的最终截止日。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">全球监管·美国立法·加密市场结构</span>
+        <span class="news-tag">CLARITY Act·8/10截止·Polymarket 48%·cloture 8/5</span>
+      </div>
+      <div class="news-source">来源：<a href="https://finance.yahoo.com/markets/crypto/articles/senates-last-ditch-clarity-act-145216524.html" target="_blank">Yahoo Finance（参院最后关头谈判）</a> · <a href="https://bitcoinfoundation.org/news/regulation/clarity-act-countdown-senate-has-days-to-save-landmark-crypto-bill-before-recess/" target="_blank">Bitcoin Foundation（8/10截止倒计时）</a> · <a href="https://wublockchain123.substack.com/p/c9b" target="_blank">吴说区块链（8/3日报）</a></div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3 吴说日报</span>
+      </div>
+      <div class="news-title">Strategy首次卖出比特币：7/27-8/2售出1,638 BTC（均价$63,957），半数付优先股股息，持仓降至842,138枚</div>
+      <div class="news-desc">Strategy（前MicroStrategy）披露7月27日至8月2日期间共卖出1,638枚BTC，均价$63,957/枚，合计套现约$1.047亿。资金用途：约$5,200万用于支付STRK/STRF优先股股息，余款用于回购公司普通股STRC。此次是Strategy自大规模囤币战略实施以来首次主动减持，最新持仓为842,138枚BTC（较Q2末843,775枚减少1,637枚），仍为全球最大上市公司持BTC者。市场关注此举是否开启BTC变现常态化先例。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·机构持仓·首次减持</span>
+        <span class="news-tag">Strategy·1,638 BTC·$63,957均价·842,138 BTC</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/c9b" target="_blank">吴说区块链（Strategy减持 8/3日报）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/3–8/4</span>
+      </div>
+      <div class="news-title">BitMine持仓5.7978M ETH（供应量4.8%），150,100 ETH新质押，年化收益$2.47亿，过去一周+10,399 ETH</div>
+      <div class="news-desc">上市公司BitMine披露截至8月2日持有5,797,800枚ETH（约占总流通量4.8%），其中4,917,200枚已在链上质押，按当前ETH价格和质押年化收益率（约4.3%）计算，年化收益约$2.47亿。过去一周新增10,399枚ETH；最新一批150,100 ETH已完成质押入网。BitMine的ETH策略持续深化，正成为以太坊最大机构持仓方，远超贝莱德ETHA等现货ETF持仓规模。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">链上事件·机构持仓·ETH质押</span>
+        <span class="news-tag">BitMine·5.7978M ETH·4.8%供应·年化$2.47亿</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/c9b" target="_blank">吴说区块链（BitMine ETH 8/3日报）</a> · <a href="https://odaily.news/zh-CN/newsflash/506385" target="_blank">Odaily快讯（新质押150,100 ETH 8/4 00:34）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/4 00:18 BJ</span>
+      </div>
+      <div class="news-title">LpdFi协议遭闪贷+价格操纵双重攻击，损失约$70万</div>
+      <div class="news-desc">链上借贷协议LpdFi遭受闪贷与价格操纵组合攻击，攻击者利用预言机喂价延迟漏洞，以小额抵押品借出超额资产，损失约$70万。此类"闪贷+价格操纵"组合攻击已成为DeFi协议最常见攻击模式之一，持续提示链上协议在预言机安全性和清算机制健壮性上的设计要求。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·日级</span>
+        <span class="news-tag">链上事件·DeFi攻击·闪贷·预言机</span>
+        <span class="news-tag">LpdFi·$70万·闪贷·价格操纵</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/506380" target="_blank">Odaily快讯（LpdFi攻击 8/4 00:18）</a></div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/4 00:58 BJ</span>
+      </div>
+      <div class="news-title">XRP现货ETF累计净流入$4.68亿，Canary XRP ETF今日净流入$114.7万</div>
+      <div class="news-desc">Canary XRP现货ETF当日录得净流入$114.7万，推动XRP现货ETF行业累计净流入达$4.68亿。XRP ETF上市以来表现稳健，与同期BTC ETF7月月度流入创历史新低（$2.05亿）形成对比，反映资金轮动倾向于寻找强监管叙事下的小市值标的。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·现货ETF·XRP·资金流向</span>
+        <span class="news-tag">XRP ETF·累计$4.68亿·Canary·$114.7万/日</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/506394" target="_blank">Odaily快讯（XRP ETF 8/4 00:58）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/4 00:55 BJ</span>
+      </div>
+      <div class="news-title">Robinhood Chain DEX周交易量较峰值下降44%，早期热度快速降温</div>
+      <div class="news-desc">上周Robinhood Chain上去中心化交易所交易量较峰值周下降44%，显示市场对其L2生态早期热度快速消退。Robinhood Chain自7月初上线以来获得大量媒体关注和初期资金涌入，但随Uniswap Launches代币发行功能的推出（首批支持Robinhood Chain）及市场整体风险偏好收缩，整体活跃度明显回落。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·周级</span>
+        <span class="news-tag">加密数据·DEX·L2生态·Robinhood</span>
+        <span class="news-tag">Robinhood Chain·DEX量-44%·峰值降温</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/506393" target="_blank">Odaily快讯（Robinhood Chain DEX 8/4 00:55）</a></div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔮</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority high">高价值</span>
+        <span class="tag-time">8/4 00:23 BJ</span>
+      </div>
+      <div class="news-title">Dragonfly合伙人：AI发现COLDCARD漏洞成本仅$2，硬件钱包安全门槛已被AI大幅压低</div>
+      <div class="news-desc">Dragonfly Capital合伙人在分析COLDCARD漏洞事件后指出，以当前AI推理成本估算，一个配置合理的AI代理发现此类硬件钱包随机数不足漏洞的总成本约为$2。这一判断具有深远影响：若成立，意味着过去需要专业安全团队数周工作的漏洞挖掘，现在已降至任何人都能负担的极低门槛，硬件钱包厂商面临"AI驱动的大规模漏洞发现"时代。安全社区普遍认为，此轮COLDCARD事件将推动行业重新审视固件随机数生成标准。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·年级</span>
+        <span class="news-tag">行业趋势·AI安全·硬件钱包·自托管</span>
+        <span class="news-tag">COLDCARD·AI漏洞发现$2·Dragonfly·安全门槛</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/506381" target="_blank">Odaily快讯（Dragonfly AI分析 8/4 00:23）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/3 吴说日报</span>
+      </div>
+      <div class="news-title">8月代币大解锁预警：单次>$1,000万包含HYPE/YZY/PROVE/KAITO，线性解锁RAIN/SOL/TRUMP合计逾$12.82亿</div>
+      <div class="news-desc">吴说区块链整理8月代币解锁日历：单次解锁超$1,000万的项目包括HYPE、YZY、PROVE、KAITO等；线性解锁（月度>$1,000万）涉及RAIN、SOL、CC、TRUMP、DOGE、WLD等，8月线性解锁总规模超$12.82亿。大规模解锁期通常对代币价格形成阶段性压力，尤其是在市场流动性偏弱（如当前BTC ETF月度流入创历史低点）的环境下，市场参与者需关注具体解锁时间节点。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">行业趋势·代币解锁·市场压力</span>
+        <span class="news-tag">HYPE/SOL/TRUMP解锁·$12.82亿·8月日历</span>
+      </div>
+      <div class="news-source">来源：<a href="https://wublockchain123.substack.com/p/c9b" target="_blank">吴说区块链（8月代币解锁日历 8/3日报）</a></div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="tag-priority mid">中优级</span>
+        <span class="tag-time">8/4 00:47 BJ</span>
+      </div>
+      <div class="news-title">ARK Invest买入Coinbase约$800万·Circle约$140万，Cathie Wood持续加仓加密合规标的</div>
+      <div class="news-desc">ARK Invest披露于8月3日（周一）增持Coinbase（COIN）约$800万股票及Circle Internet Group（CRCL）约$140万股票。在美股整体风险偏好修复（纳指+2.13%）叠加CLARITY Act立法预期维持的背景下，ARK选择在COIN/CRCL近期调整后加仓，延续其对"合规化加密原生平台"的长期布局逻辑。</div>
+      <div class="news-tags">
+        <span class="news-tag">影响周期·月级</span>
+        <span class="news-tag">观点研报·机构买入·加密合规标的</span>
+        <span class="news-tag">ARK·COIN $800万·CRCL $140万·Cathie Wood</span>
+      </div>
+      <div class="news-source">来源：<a href="https://odaily.news/zh-CN/newsflash/506390" target="_blank">Odaily快讯（ARK买入 8/4 00:47）</a></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ⑥ 关键数字 -->
+<div class="content">
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">$18亿 — Mastercard/BVNK交易对价</span>
+      <span class="keyword-chip">$300亿/年 — BVNK稳定币处理量</span>
+      <span class="keyword-chip">-6% — WTI 8/3暴跌（至$79.60）</span>
+      <span class="keyword-chip">+2.13% — 纳指8/3涨幅</span>
+      <span class="keyword-chip">+19% — CoreWeave当日涨幅</span>
+      <span class="keyword-chip">48% — CLARITY Act Polymarket赔率</span>
+      <span class="keyword-chip">8月10日 — CLARITY最终截止</span>
+      <span class="keyword-chip">1,638 BTC — Strategy首次减持量</span>
+      <span class="keyword-chip">842,138 BTC — Strategy当前持仓</span>
+      <span class="keyword-chip">5.7978M ETH — BitMine总持仓</span>
+      <span class="keyword-chip">$2 — AI发现COLDCARD漏洞成本</span>
+      <span class="keyword-chip">$12.82亿 — 8月线性解锁总规模</span>
+      <span class="keyword-chip">$68.2亿 — SpaceX Q2预期营收</span>
+      <span class="keyword-chip">$4.68亿 — XRP ETF累计净流入</span>
+      <span class="keyword-chip">-44% — Robinhood Chain DEX较峰值降幅</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Footer -->
+<div class="footer">
+  <div class="footer-brand"><span>OKX</span> · 加密热点早报 · 2026年8月4日</div>
+  <div class="footer-meta">
+    信息来源：Odaily星球日报 · 吴说区块链 · CoinDesk · The Block · CNBC Markets · Bloomberg · BusinessWire<br>
+    数据来源：OKX行情（09:00 BJ）· Alternative.me恐慌贪婪指数 · CoinGecko交叉验证<br>
+    ⚠️ 本早报仅供信息参考，不构成任何投资建议。加密资产交易存在高风险，请注意风险管理。
+  </div>
+</div>
+
+</body>
+</html>
